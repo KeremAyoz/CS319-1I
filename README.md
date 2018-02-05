@@ -1,4 +1,4 @@
-# STARS League Game for CS319 Course Project
+﻿# STARS League Game for CS319 Course Project
 
 “STARS League” is a football game similar to “Football Manager”. User plays as a manager who can control his team by changing its tactics, swapping players, etc. Also, the user has an opportunity to view groups, elimination stages, fixture, football players, man of the match, top goal scorers. Thus, user can do changes better for his own team in order to improve his team. 
 
@@ -10,7 +10,7 @@ In the football match, user can see the minutes passing through and events happe
 
 ### 2nd Iteration 
 
-We are planning to add transfers. Also, the number of different type of actions happen during a match can be increased. After finishing the project, if there is still some time, we may make the game visually more attractive.
+We are planning to add transfers. Also, the number of different type of actions happen during a match can be increased. After finishing the project, if there is still some time, we may make the game visually more attractive. Also match commentary might be added to the game.
 
 ### Team Members
 

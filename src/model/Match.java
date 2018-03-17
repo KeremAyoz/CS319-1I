@@ -1,6 +1,7 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author Kerem
@@ -14,11 +15,14 @@ public class Match {
 	private String weather;
 	private ArrayList<Action> actions;
 	
+	private boolean delay;
+	
 	private int goalHome;
 	private int goalAway;
 	private int pointHome;
 	private int pointAway;
 	
+	private final int RANDOM_RANGE = 100;
 	private final int MATCH_DURATION = 90;
 	private final int NUMBER_OF_PLAYERS = 11;
 	
@@ -43,8 +47,20 @@ public class Match {
 		this.actions = actions;
 		this.goalHome = 0;
 		this.goalAway = 0;
+		this.setDelay(false);
 	}
 
+	public Match(Team home, Team away, String referee, String weather, ArrayList<Action> actions, boolean delay) {
+		this.home = home;
+		this.away = away;
+		this.referee = referee;
+		this.weather = weather;
+		this.actions = actions;
+		this.goalHome = 0;
+		this.goalAway = 0;
+		this.setDelay(delay);
+	}
+	
 	// Date ile ilgili þeyler eklenecek
 	/**
 	 * @return the home
@@ -121,10 +137,14 @@ public class Match {
 		this.actions = actions;
 	}
 
-	public ArrayList<Action> matchSimulation() {
+	public ArrayList<Action> matchSimulation() throws InterruptedException {
 		System.out.println( "Match Begins" );
 		for( int i = 1 ; i <= MATCH_DURATION ; i++ ) {
-			int random_value = (int) (Math.random() * MATCH_DURATION + 1);
+			if( delay ) {
+				TimeUnit.SECONDS.sleep(1);
+				System.out.println( "DELAY ULAN" );
+			}
+			int random_value = (int) (Math.random() * RANDOM_RANGE + 1);
 			if( random_value <= RANDOM_TOTAL )
 				actions.add( actionGenerator( i , random_value ) );
 		}
@@ -238,6 +258,14 @@ public class Match {
 
 	public void setPointAway(int pointAway) {
 		this.pointAway = pointAway;
+	}
+
+	public boolean isDelay() {
+		return delay;
+	}
+
+	public void setDelay(boolean delay) {
+		this.delay = delay;
 	}
 	
 }

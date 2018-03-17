@@ -1,6 +1,7 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class KnockoutTree {
 	
@@ -15,11 +16,20 @@ public class KnockoutTree {
 		for( int i = 0 ; i < TEAM_SIZE ; i++ )
 			teams[i] = null;
 		matches = new Match[MATCH_SIZE];
-		for( int i = 0 ; i <  MATCH_SIZE ; i++ )
+		for( int i = 0 ; i < MATCH_SIZE ; i++ )
 			matches[i] = null;
 	}
 	
-	public void playMatch( int idMatch ) {
+	public void distributeTeams( Team[] passingTeams ) {
+		List<Integer> list = new ArrayList<Integer>();
+		for( int i = 0 ; i < passingTeams.length ; i++ )
+			list.add( i );
+		java.util.Collections.shuffle(list);
+		for( int i = 0 ; i < passingTeams.length ; i++ )
+			teams[TEAM_SIZE - passingTeams.length + i] = passingTeams[ list.get(i) ];
+	}
+	
+	public void playMatch( int idMatch ) throws InterruptedException {
 		
 		ArrayList<Action> actions = new ArrayList<Action>();
 		

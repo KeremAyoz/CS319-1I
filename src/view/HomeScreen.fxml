@@ -7,34 +7,34 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HomeScreen">
    <children>
-      <ImageView fitHeight="400.0" fitWidth="600.0" opacity="0.93">
+      <ImageView fitHeight="900.0" fitWidth="1400.0" opacity="0.93">
          <image>
             <Image url="@../../img/home.jpg" />
          </image>
       </ImageView>
-      <Button layoutX="265.0" layoutY="157.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="71.0" text="New Game">
+      <Button layoutX="635.0" layoutY="320.0" mnemonicParsing="false" onAction="#newGameClicked" prefHeight="50.0" prefWidth="150.0" text="New Game">
          <font>
-            <Font size="10.0" />
+            <Font name="System Bold" size="22.0" />
          </font>
       </Button>
-      <Button layoutX="265.0" layoutY="189.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="71.0" text="Load Game">
+      <Button layoutX="635.0" layoutY="400.0" mnemonicParsing="false" onAction="#loadGameClicked" prefHeight="50.0" prefWidth="150.0" text="Load Game">
          <font>
-            <Font size="10.0" />
+            <Font size="22.0" />
          </font>
       </Button>
-      <Button layoutX="265.0" layoutY="223.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="71.0" text="Help">
+      <Button layoutX="635.0" layoutY="480.0" mnemonicParsing="false" onAction="#helpClicked" prefHeight="50.0" prefWidth="150.0" text="Help">
          <font>
-            <Font size="10.0" />
+            <Font name="System Bold" size="22.0" />
          </font>
       </Button>
-      <Button layoutX="265.0" layoutY="258.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="71.0" text="Exit">
+      <Button layoutX="635.0" layoutY="560.0" mnemonicParsing="false" onAction="#exitClicked" prefHeight="50.0" prefWidth="150.0" text="Exit">
          <font>
-            <Font size="10.0" />
+            <Font name="System Bold" size="22.0" />
          </font>
       </Button>
-      <ImageView fitHeight="148.0" fitWidth="123.0" layoutX="239.0" layoutY="11.0" preserveRatio="true">
+      <ImageView fitHeight="270.0" fitWidth="264.0" layoutX="601.0" layoutY="32.0" preserveRatio="true">
          <image>
             <Image url="@../../img/logo.png" />
          </image>

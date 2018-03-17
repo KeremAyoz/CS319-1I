@@ -89,7 +89,12 @@ public class MatchStart implements Initializable {
 		Team away = Main.getSecondTeam();
 		ArrayList<Action> actions = new ArrayList<Action>();
 		Match match = new Match(home, away, "Pierluigi Collina", "Sunny", actions);
-		actions = match.matchSimulation();
+		try {
+			actions = match.matchSimulation();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		System.out.println("Match Score: " + match.getGoalHome() + " / " + match.getGoalAway());
 		for (int i = 0; i < actions.size(); i++) {
 			Action action = actions.get(i);

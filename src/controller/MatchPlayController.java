@@ -108,7 +108,12 @@ public class MatchPlayController implements Initializable {
 		Team away = Main.getSecondTeam();
 		ArrayList<Action> actions = new ArrayList<Action>();
 		Match match = new Match(home, away, "Pierluigi Collina", "Sunny", actions);
-		actions = match.matchSimulation();
+		try {
+			actions = match.matchSimulation();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 		homeName.setText(home.getName());
 		awayName.setText(away.getName());

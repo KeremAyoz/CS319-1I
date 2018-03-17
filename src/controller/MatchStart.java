@@ -75,11 +75,16 @@ public class MatchStart implements Initializable {
 	private Text homeName;
 	@FXML
 	private Text awayName;
+	@FXML
+	private Text referee;
+	@FXML
+	private Text weather;
+	@FXML
+	private Text stadium;
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
-		
-		
+
 		Team home = Main.getFirstTeam();
 		Team away = Main.getSecondTeam();
 		ArrayList<Action> actions = new ArrayList<Action>();
@@ -104,11 +109,10 @@ public class MatchStart implements Initializable {
 				System.out.println("Injury: " + injury.getTimeHappened() + " / " + injury.getInjured().getName());
 			}
 		}
-		
+
 		homeName.setText(home.getName());
 		awayName.setText(away.getName());
-		
-		
+
 		hGK.setText(home.getPlayers().get(0).getName());
 		hRB.setText(home.getPlayers().get(1).getName());
 		hCB1.setText(home.getPlayers().get(2).getName());
@@ -120,7 +124,7 @@ public class MatchStart implements Initializable {
 		hRW.setText(home.getPlayers().get(8).getName());
 		hST.setText(home.getPlayers().get(9).getName());
 		hLW.setText(home.getPlayers().get(10).getName());
-		
+
 		aGK.setText(away.getPlayers().get(0).getName());
 		aRB.setText(away.getPlayers().get(1).getName());
 		aCB1.setText(away.getPlayers().get(2).getName());
@@ -132,8 +136,11 @@ public class MatchStart implements Initializable {
 		aRW.setText(away.getPlayers().get(8).getName());
 		aST.setText(away.getPlayers().get(9).getName());
 		aLW.setText(away.getPlayers().get(10).getName());
-		
+
+		weather.setText(match.getWeather());
+		referee.setText(match.getReferee());
+		stadium.setText(home.getStadium());
+
 	}
-	
-	
+
 }

@@ -114,7 +114,7 @@ public class Main extends Application {
 		ArrayList<Player> players = new ArrayList<Player>();
 		ArrayList<Action> actions = new ArrayList<Action>();
 		// GK
-		players.add(new Player("Marc-Andre ter Stegen", 30, 180, 70, "Germany", "GK", getOverall(), 'R', 1000000,
+		players.add(new Player("Stegen", 30, 180, 70, "Germany", "GK", getOverall(), 'R', 1000000,
 				10000000, true, getAttributes(), actions));
 		// DF
 		players.add(new Player("Nelson Semedo", 30, 180, 70, "Portugal", "DF", getOverall(), 'R', 1000000, 10000000,

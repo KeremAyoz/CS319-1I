@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MatchStart">
+   <children>
+      <ImageView fitHeight="458.0" fitWidth="1128.0" layoutX="164.0" layoutY="424.0" preserveRatio="true">
+         <image>
+            <Image url="@../../img/field.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="68.0" fitWidth="77.0" layoutX="636.0" layoutY="561.0" preserveRatio="true">
+         <image>
+            <Image url="@../../img/aaa.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="68.0" fitWidth="77.0" layoutX="342.0" layoutY="717.0" preserveRatio="true">
+         <image>
+            <Image url="@../../img/aaa.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="68.0" fitWidth="77.0" layoutX="367.0" layoutY="622.0" preserveRatio="true">
+         <image>
+            <Image url="@../../img/aaa.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="68.0" fitWidth="77.0" layoutX="392.0" layoutY="528.0" preserveRatio="true">
+         <image>
+            <Image url="@../../img/aaa.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="68.0" fitWidth="77.0" layoutX="415.0" layoutY="440.0" preserveRatio="true">
+         <image>
+            <Image url="@../../img/aaa.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="68.0" fitWidth="77.0" layoutX="462.0" layoutY="573.0" preserveRatio="true">
+         <image>
+            <Image url="@../../img/aaa.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="68.0" fitWidth="77.0" layoutX="526.0" layoutY="506.0" preserveRatio="true">
+         <image>
+            <Image url="@../../img/aaa.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="68.0" fitWidth="77.0" layoutX="518.0" layoutY="653.0" preserveRatio="true">
+         <image>
+            <Image url="@../../img/aaa.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="68.0" fitWidth="77.0" layoutX="605.0" layoutY="721.0" preserveRatio="true">
+         <image>
+            <Image url="@../../img/aaa.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="68.0" fitWidth="77.0" layoutX="610.0" layoutY="462.0" preserveRatio="true">
+         <image>
+            <Image url="@../../img/aaa.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="68.0" fitWidth="77.0" layoutX="721.0" layoutY="555.0">
+         <image>
+            <Image url="@../../img/ccc.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="68.0" fitWidth="77.0" layoutX="755.0" layoutY="445.0">
+         <image>
+            <Image url="@../../img/ccc.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="68.0" fitWidth="77.0" layoutX="760.0" layoutY="715.0">
+         <image>
+            <Image url="@../../img/ccc.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="68.0" fitWidth="77.0" layoutX="816.0" layoutY="514.0">
+         <image>
+            <Image url="@../../img/ccc.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="68.0" fitWidth="77.0" layoutX="826.0" layoutY="631.0">
+         <image>
+            <Image url="@../../img/ccc.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="68.0" fitWidth="77.0" layoutX="891.0" layoutY="559.0">
+         <image>
+            <Image url="@../../img/ccc.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="68.0" fitWidth="77.0" layoutX="953.0" layoutY="431.0">
+         <image>
+            <Image url="@../../img/ccc.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="68.0" fitWidth="77.0" layoutX="1003.0" layoutY="731.0">
+         <image>
+            <Image url="@../../img/ccc.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="68.0" fitWidth="77.0" layoutX="966.0" layoutY="521.0">
+         <image>
+            <Image url="@../../img/ccc.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="68.0" fitWidth="77.0" layoutX="986.0" layoutY="625.0">
+         <image>
+            <Image url="@../../img/ccc.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="68.0" fitWidth="77.0" layoutX="1048.0" layoutY="557.0">
+         <image>
+            <Image url="@../../img/ccc.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="68.0" fitWidth="77.0" layoutX="306.0" layoutY="554.0" preserveRatio="true">
+         <image>
+            <Image url="@../../img/aaa.png" />
+         </image>
+      </ImageView>
+      <Text fx:id="hLB" layoutX="434.0" layoutY="520.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Text>
+      <Text fx:id="hCB2" layoutX="412.0" layoutY="611.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Text>
+      <Text fx:id="hCB1" layoutX="386.0" layoutY="703.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Text>
+      <Text fx:id="hGK" layoutX="325.0" layoutY="635.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Text>
+      <Text fx:id="hRB" layoutX="361.0" layoutY="798.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Text>
+      <Text fx:id="hCM1" layoutX="482.0" layoutY="656.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Text>
+      <Text fx:id="hCM2" layoutX="547.0" layoutY="586.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Text>
+      <Text fx:id="hST" layoutX="657.0" layoutY="640.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Text>
+      <Text fx:id="hCM3" layoutX="537.0" layoutY="736.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Text>
+      <Text fx:id="hRW" layoutX="625.0" layoutY="804.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Text>
+      <Text fx:id="hLW" layoutX="630.0" layoutY="544.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Text>
+      <Text fx:id="aRW" layoutX="779.0" layoutY="529.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Text>
+      <Text fx:id="aRB" layoutX="978.0" layoutY="512.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Text>
+      <Text fx:id="aLW" layoutX="784.0" layoutY="797.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Text>
+      <Text fx:id="aST" layoutX="746.0" layoutY="635.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Text>
+      <Text fx:id="aCM1" layoutX="916.0" layoutY="642.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Text>
+      <Text fx:id="aCM2" layoutX="851.0" layoutY="710.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Text>
+      <Text fx:id="aCM3" layoutX="841.0" layoutY="596.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Text>
+      <Text fx:id="aCB1" layoutX="990.0" layoutY="603.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Text>
+      <Text fx:id="aCB2" layoutX="1011.0" layoutY="704.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Text>
+      <Text fx:id="aLB" layoutX="1028.0" layoutY="811.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Text>
+      <Text fx:id="aGK" layoutX="1073.0" layoutY="636.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Text>
+      <Text fx:id="homeName" fill="#6b0101" layoutX="382.0" layoutY="218.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+         <font>
+            <Font name="Gill Sans Bold" size="48.0" />
+         </font>
+      </Text>
+      <Text fx:id="awayName" fill="#034fc3" layoutX="956.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+         <font>
+            <Font name="Gill Sans Bold" size="48.0" />
+         </font>
+      </Text>
+      <Text layoutX="705.0" layoutY="209.0" strokeType="OUTSIDE" strokeWidth="0.0" text="VS">
+         <font>
+            <Font name="Gill Sans" size="24.0" />
+         </font>
+      </Text>
+   </children>
+</Pane>

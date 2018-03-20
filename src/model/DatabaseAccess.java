@@ -85,35 +85,35 @@ public class DatabaseAccess {
 		ArrayList<Player> players = new ArrayList<Player>();
 		ArrayList<Action> actions = new ArrayList<Action>();
 		// GK
-		players.add(new Player("Fernando Muslera", 30, 180, 70, "Uruguay", "GK", getOverall(), 'R', 1000000, 10000000,
+		players.add(new Player("Muslera", 30, 180, 70, "Uruguay", "GK", 83, 'R', 1000000, 10000000,
 				true, getAttributes(), actions));
 		// DF
-		players.add(new Player("Mariano", 30, 180, 70, "Brazil", "RB", getOverall(), 'R', 1000000, 10000000, true,
+		players.add(new Player("Mariano", 30, 180, 70, "Brazil", "RB", 80, 'R', 1000000, 8000000, true,
 				getAttributes(), actions));
-		players.add(new Player("Maicon", 30, 180, 70, "Brazil", "CB", getOverall(), 'R', 1000000, 10000000, true,
+		players.add(new Player("Maicon", 30, 180, 70, "Brazil", "CB", 82, 'R', 1000000, 14000000, true,
 				getAttributes(), actions));
-		players.add(new Player("Serdar Aziz", 30, 180, 70, "Turkey", "CB", getOverall(), 'R', 1000000, 10000000, true,
+		players.add(new Player("Serdar", 30, 180, 70, "Turkey", "CB", 79, 'R', 1000000, 9000000, true,
 				getAttributes(), actions));
-		players.add(new Player("Yuto Nagatomo", 30, 180, 70, "Japan", "LB", getOverall(), 'R', 1000000, 10000000, true,
+		players.add(new Player("Nagatomo", 30, 180, 70, "Japan", "LB", 78, 'R', 1000000, 6000000, true,
 				getAttributes(), actions));
 		// MF
-		players.add(new Player("Selçuk İnan", 30, 180, 70, "Turkey", "CM", getOverall(), 'R', 1000000, 10000000, true,
+		players.add(new Player("Selçuk", 30, 180, 70, "Turkey", "CM", 79, 'R', 1000000, 5500000, true,
 				getAttributes(), actions));
-		players.add(new Player("Fernando Reges", 30, 180, 70, "Brazil", "CM", getOverall(), 'R', 1000000, 10000000,
+		players.add(new Player("Fernando", 30, 180, 70, "Brazil", "CM", 82, 'R', 1000000, 9000000,
 				true, getAttributes(), actions));
-		players.add(new Player("Younes Belhanda", 30, 180, 70, "Morocco", "CM", getOverall(), 'R', 1000000, 10000000,
+		players.add(new Player("Belhanda", 30, 180, 70, "Morocco", "CM", 80, 'R', 1000000, 12000000,
 				true, getAttributes(), actions));
 		// FW
-		players.add(new Player("Sofiane Feghouli", 30, 180, 70, "Algeria", "RW", getOverall(), 'R', 1000000, 10000000,
+		players.add(new Player("Feghouli", 30, 180, 70, "Algeria", "RW", 81, 'R', 1000000, 14000000,
 				true, getAttributes(), actions));
-		players.add(new Player("Bafetimbi Gomis", 30, 180, 70, "France", "ST", getOverall(), 'R', 1000000, 10000000,
+		players.add(new Player("Gomis", 30, 180, 70, "France", "ST", 83, 'R', 1000000, 10000000,
 				true, getAttributes(), actions));
-		players.add(new Player("Garry Rodrigues", 30, 180, 70, "Cape Verde", "LW", getOverall(), 'R', 1000000, 10000000,
+		players.add(new Player("Garry", 30, 180, 70, "Cape Verde", "LW", 79, 'R', 1000000, 16000000,
 				true, getAttributes(), actions));
 		// Others
-		players.add(new Player("Cedric Carrosco", 30, 180, 70, "France", "GK", getOverall(), 'R', 1000000, 10000000,
+		players.add(new Player("Cedric Carrosco", 30, 180, 70, "France", "GK", 78, 'R', 1000000, 3000000,
 				true, getAttributes(), actions));
-		players.add(new Player("Martin Linnes", 30, 180, 70, "Norway", "RB", getOverall(), 'R', 1000000, 10000000, true,
+		players.add(new Player("Martin Linnes", 30, 180, 70, "Norway", "RB", 77, 'R', 1000000, 5000000, true,
 				getAttributes(), actions));
 		players.add(new Player("Ahmet Çalık", 30, 180, 70, "Turkey", "CB", getOverall(), 'R', 1000000, 10000000, true,
 				getAttributes(), actions));
@@ -537,7 +537,7 @@ public class DatabaseAccess {
 		// President
 		President president = new President("Genesio", 71, 180, 70, "Portugal");
 		// Team
-		Team team = new Team("Lyon", "Red-Blue", "433", "Stade de Gerland", "Les Gones", "France", "LYO", 5.0, 0, 0,
+		Team team = new Team("Leverkusen", "Red-Blue", "433", "Stade de Gerland", "Les Gones", "France", "LYO", 5.0, 0, 0,
 				manager, president, players);
 		return team;
 	}

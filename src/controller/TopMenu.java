@@ -59,7 +59,7 @@ public class TopMenu implements Initializable {
 
 	@FXML
 	public void saveClicked() throws IOException {
-		Parent root = FXMLLoader.load(getClass().getResource("/view/HomeScreen.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("/view/TacticView.fxml"));
 		Main.getMainStage().setScene(new Scene(root));
 	}
 

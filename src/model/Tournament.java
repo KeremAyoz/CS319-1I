@@ -16,8 +16,13 @@ public class Tournament implements Serializable{
 	private Group[] groups;
 	private Elimination knockout;
 	private static Tournament instance;
-
+	
+	private int myTeamId;
+	private int myGroupId;
+	private int currentWeek;
+	
 	private final int TOP5 = 5;
+	private final int MID_SEASON_WEEK = 6;
 	private final int TEAMS_PER_GROUP = 4;
 	private final int NUMBER_OF_GROUPS = 8;
 	private final int NUMBER_OF_TEAMS = TEAMS_PER_GROUP * NUMBER_OF_GROUPS;
@@ -55,7 +60,7 @@ public class Tournament implements Serializable{
 			ArrayList<Match> matches = new ArrayList<Match>();
 			KnockoutTree kn = new KnockoutTree();
 			Elimination knockout = new Elimination(kn, matches);	
-			//instance = new Tournament(DatabaseAccess.buildTeams(),groups,knockout);
+			instance = new Tournament(DatabaseAccess.buildTeams(),groups,knockout);
 			return instance;
 		}
 		else
@@ -67,6 +72,37 @@ public class Tournament implements Serializable{
 		instance = t;
 	}
 
+	public void playWeek() {
+		
+	}
+	
+	public boolean isGroupStage() {
+		if( currentWeek <= MID_SEASON_WEEK )
+			return true;
+		else
+			return false;
+	}
+	
+	public boolean isEliminationStage() {
+		if( currentWeek > MID_SEASON_WEEK )
+			return true;
+		else
+			return false;
+	}
+	
+	public void chooseMyTeamId( String teamName ) {
+		for( int i = 0 ; i < teams.length ; i++ )
+			if( teams[i].getName().equals( teamName ) )
+				myTeamId = i;
+	}
+	
+	public void chooseMyGroupId( String teamName ) {
+		for( int i = 0 ; i < groups.length ; i++ )
+			for( int j = 0 ; j < groups[i].getTeams().length ; j++ )
+				if( groups[i].getTeam(j).getName().equals( teamName ) )
+					setMyGroupId(i);
+	}
+	
 	/**
 	 * @return the teams
 	 */
@@ -269,6 +305,30 @@ public class Tournament implements Serializable{
 		
 		return data;
 		
+	}
+
+	public int getMyTeamId() {
+		return myTeamId;
+	}
+
+	public void setMyTeamId(int myTeamId) {
+		this.myTeamId = myTeamId;
+	}
+
+	public int getCurrentWeek() {
+		return currentWeek;
+	}
+
+	public void setCurrentWeek(int currentWeek) {
+		this.currentWeek = currentWeek;
+	}
+
+	public int getMyGroupId() {
+		return myGroupId;
+	}
+
+	public void setMyGroupId(int myGroupId) {
+		this.myGroupId = myGroupId;
 	}
 	
 }

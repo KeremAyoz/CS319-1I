@@ -173,6 +173,7 @@ public class Main extends Application {
 	}
 
 	public static void main(String[] args) throws InterruptedException, IOException {
+		
 		launch(args);
 		Team team1 = getFirstTeam();
 		Team team2 = getSecondTeam();

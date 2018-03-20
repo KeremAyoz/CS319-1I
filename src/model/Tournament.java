@@ -71,8 +71,18 @@ public class Tournament implements Serializable{
 	public static void setInstance( Tournament t ) {
 		instance = t;
 	}
-
+	
+	public void orderGroups() {
+		for( int i = 0 ; i < NUMBER_OF_GROUPS ; i++ )
+			groups[i].orderGroup();
+	}
+	
 	public void playWeek() {
+		
+		currentWeek++;
+	}
+	
+	public void playMyMatch() {
 		
 	}
 	

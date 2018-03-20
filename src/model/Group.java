@@ -18,6 +18,9 @@ public class Group implements Serializable{
 	
 	private int[] matchCalendar;
 	
+	private int[][] orderedStats;
+	private String[] orderedNames;
+
 	private final int TEAMS_PER_GROUP = 4;
 	private final int NUMBER_OF_STATS = 7;
 	private final int NUMBER_OF_MATCHES = 12;
@@ -25,6 +28,14 @@ public class Group implements Serializable{
 	private final int POINTS_WIN = 3;
 	private final int POINTS_DRAW = 1;
 	private final int POINTS_LOSS = 0;
+	
+	private final int TOTAL_PLAYED = 0;
+	private final int TOTAL_WINS = 1;
+	private final int TOTAL_DRAWS = 2;
+	private final int TOTAL_LOSSES = 3;
+	private final int TOTAL_SCORED = 4;
+	private final int TOTAL_CONCEDED = 5;
+	private final int TOTAL_POINTS = 6;
 	
 	/**
 	 * @param statistics
@@ -43,41 +54,69 @@ public class Group implements Serializable{
 		// TODO Auto-generated constructor stub
 	}
 	
+	public void orderGroup() {
+		
+		orderedNames = new String[TEAMS_PER_GROUP];
+		for( int i = 0 ; i < TEAMS_PER_GROUP ; i++ )
+			orderedNames[i] = "Team Name";
+		
+		orderedStats = new int[TEAMS_PER_GROUP][NUMBER_OF_STATS];
+		for( int i = 0 ; i < TEAMS_PER_GROUP ; i++ )
+			for( int j = 0 ; j < NUMBER_OF_STATS ; j++ )
+				orderedStats[i][j] = -1;
+		
+		// Only points
+		for( int i = 0 ; i < TEAMS_PER_GROUP ; i++ )
+			for( int j = 0 ; j < TEAMS_PER_GROUP ; j++ )
+				if( statistics[i][6] > orderedStats[j][TOTAL_POINTS] ) {
+					for( int k = TEAMS_PER_GROUP - 1 ; k > j ; k-- ) {
+						orderedNames[k] = orderedNames[k-1];
+						for( int l = 0 ; l < NUMBER_OF_STATS ; l++ )
+							orderedStats[k][l] = orderedStats[k-1][l];
+					}
+					orderedNames[j] = teams[i].getName();
+					for( int k = 0 ; k < NUMBER_OF_STATS ; k++ )
+						orderedStats[j][k] = statistics[i][k];
+					break;
+				}
+		
+	}
+	
 	public void modifyGroupStatistics( int idMatch , int idHome , int idAway ) {
 		
 		// Statistics - Played
-		statistics[idHome][0] += 1;
-		statistics[idHome][0] += 1;
+		statistics[idHome][TOTAL_PLAYED] += 1;
+		statistics[idHome][TOTAL_PLAYED] += 1;
 		
 		// Statistics - Win
 		if( matches[idMatch].getPointHome() == POINTS_WIN )
-			statistics[idHome][1] += 1;
+			statistics[idHome][TOTAL_WINS] += 1;
 		if( matches[idMatch].getPointAway() == POINTS_WIN )
-			statistics[idAway][1] += 1;
+			statistics[idAway][TOTAL_WINS] += 1;
 		
 		// Statistics - Draw
 		if( matches[idMatch].getPointHome() == POINTS_DRAW )
-			statistics[idHome][2] += 1;
+			statistics[idHome][TOTAL_DRAWS] += 1;
 		if( matches[idMatch].getPointAway() == POINTS_DRAW )
-			statistics[idAway][2] += 1;
+			statistics[idAway][TOTAL_DRAWS] += 1;
 		
 		// Statistics - Loss
 		if( matches[idMatch].getPointHome() == POINTS_LOSS )
-			statistics[idHome][3] += 1;
+			statistics[idHome][TOTAL_LOSSES] += 1;
 		if( matches[idMatch].getPointAway() == POINTS_LOSS )
-			statistics[idAway][3] += 1;
+			statistics[idAway][TOTAL_LOSSES] += 1;
 		
 		// Statistics - Scored
-		statistics[idHome][4] += matches[idMatch].getGoalHome();
-		statistics[idAway][4] += matches[idMatch].getGoalAway();
+		statistics[idHome][TOTAL_SCORED] += matches[idMatch].getGoalHome();
+		statistics[idAway][TOTAL_SCORED] += matches[idMatch].getGoalAway();
 		
 		// Statistics - Conceded
-		statistics[idHome][5] += matches[idMatch].getGoalAway();
-		statistics[idHome][5] += matches[idMatch].getGoalHome();
+		statistics[idHome][TOTAL_CONCEDED] += matches[idMatch].getGoalAway();
+		statistics[idHome][TOTAL_CONCEDED] += matches[idMatch].getGoalHome();
 		
 		// Statistics - Points
-		statistics[idHome][6] += matches[idMatch].getPointHome();
-		statistics[idHome][6] += matches[idMatch].getPointAway();
+		statistics[idHome][TOTAL_POINTS] += matches[idMatch].getPointHome();
+		statistics[idHome][TOTAL_POINTS] += matches[idMatch].getPointAway();
 		
 	}
 	
@@ -188,5 +227,29 @@ public class Group implements Serializable{
 	public void setMatches(Match[] matches) {
 		this.matches = matches;
 	}
+	
+	public int[] getMatchCalendar() {
+		return matchCalendar;
+	}
 
+	public void setMatchCalendar(int[] matchCalendar) {
+		this.matchCalendar = matchCalendar;
+	}
+
+	public int[][] getOrderedStats() {
+		return orderedStats;
+	}
+
+	public void setOrderedStats(int[][] orderedStats) {
+		this.orderedStats = orderedStats;
+	}
+
+	public String[] getOrderedNames() {
+		return orderedNames;
+	}
+
+	public void setOrderedNames(String[] orderedNames) {
+		this.orderedNames = orderedNames;
+	}
+	
 }

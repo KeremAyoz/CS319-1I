@@ -12,13 +12,6 @@ public class Elimination implements Serializable {
 	private KnockoutTree knockout;
 
 	private ArrayList<Match> matches;
-	
-	/**
-	 * @return the matches
-	 */
-	public ArrayList<Match> getMatches() {
-		return matches;
-	}
 
 	/**
 	 * @param knockout
@@ -29,7 +22,18 @@ public class Elimination implements Serializable {
 		this.knockout = knockout;
 		this.matches = matches;
 	}
-
+	
+	public void placeTeamsToKnockoutTree( Team[] passingTeams ) {
+		knockout.distributeTeams(passingTeams);
+	}
+	
+	/**
+	 * @return the matches
+	 */
+	public ArrayList<Match> getMatches() {
+		return matches;
+	}
+	
 	/**
 	 * @param matches
 	 *            the matches to set

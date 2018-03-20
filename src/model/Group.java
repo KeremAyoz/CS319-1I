@@ -248,6 +248,10 @@ public class Group implements Serializable{
 		return orderedNames;
 	}
 
+	public String getOrderedTeamName( int idTeam ) {
+		return orderedNames[idTeam];
+	}
+	
 	public void setOrderedNames(String[] orderedNames) {
 		this.orderedNames = orderedNames;
 	}

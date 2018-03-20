@@ -17,6 +17,9 @@ public class Tournament implements Serializable{
 	private Elimination knockout;
 	private static Tournament instance;
 	
+	private Team[] eliminationTeams;
+	private int[] eliminationTeamIds;
+	
 	private int myTeamId;
 	private int myGroupId;
 	private int currentWeek;
@@ -77,6 +80,31 @@ public class Tournament implements Serializable{
 			groups[i].orderGroup();
 	}
 	
+	public void placeTeamsToElimination() {
+		
+		orderGroups();
+		
+		String[] passingTeamNames;
+		passingTeamNames = new String[NUMBER_OF_GROUPS * TEAMS_PER_GROUP / 2];
+		
+		for( int i = 0 ; i < NUMBER_OF_GROUPS ; i++ )
+			for( int j = 0 ; j < TEAMS_PER_GROUP / 2 ; j++ )
+				passingTeamNames[i * TEAMS_PER_GROUP / 2 + j] = groups[i].getOrderedTeamName(j);
+		
+		eliminationTeams = new Team[NUMBER_OF_GROUPS * TEAMS_PER_GROUP / 2];
+		eliminationTeamIds = new int[NUMBER_OF_GROUPS * TEAMS_PER_GROUP / 2];
+		
+		for( int i = 0 ; i < NUMBER_OF_GROUPS * TEAMS_PER_GROUP / 2 ; i++ )
+			for( int j = 0 ; j < teams.length ; j++ )
+				if( passingTeamNames[i].equals( teams[j].getName() ) ) {
+					eliminationTeams[i] = teams[j];
+					eliminationTeamIds[i] = j;
+				}
+		
+		knockout.placeTeamsToKnockoutTree( eliminationTeams );
+		
+	}
+	
 	public void playWeek() {
 		
 		currentWeek++;
@@ -111,6 +139,22 @@ public class Tournament implements Serializable{
 			for( int j = 0 ; j < groups[i].getTeams().length ; j++ )
 				if( groups[i].getTeam(j).getName().equals( teamName ) )
 					setMyGroupId(i);
+	}
+	
+	public Team[] getEliminationTeams() {
+		return eliminationTeams;
+	}
+
+	public void setEliminationTeams(Team[] eliminationTeams) {
+		this.eliminationTeams = eliminationTeams;
+	}
+
+	public int[] getEliminationTeamIds() {
+		return eliminationTeamIds;
+	}
+
+	public void setEliminationTeamIds(int[] eliminationTeamIds) {
+		this.eliminationTeamIds = eliminationTeamIds;
 	}
 	
 	/**

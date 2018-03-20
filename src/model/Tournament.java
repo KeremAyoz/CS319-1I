@@ -1,10 +1,13 @@
 package model;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+
 /**
  * @author Kerem
  *
  */
-public class Tournament {
+public class Tournament implements Serializable{
 
 	private Team[] teams;
 	private Group[] groups;
@@ -28,7 +31,30 @@ public class Tournament {
 	 * @return the instance
 	 */
 	public static Tournament getInstance() {
-		return instance;
+		if (instance == null) {
+			Group[] groups = new Group[8];
+			int[][] stats = new int[4][7];
+			Match[] match = new Match[12];
+			ArrayList<Action> actions = new ArrayList<Action>();
+			for (int i = 0; i < 12; i++)
+				match[i] = new Match(null, null, "","", actions);
+			
+			Team[] teams = new Team[4];
+			for (int i = 0; i < 4; i++)
+				teams[i] = null;
+			
+			for (int i = 0; i < 8; i++)
+				groups[i] = new Group(stats,teams, match);
+			
+			ArrayList<Match> matches = new ArrayList<Match>();
+			KnockoutTree kn = new KnockoutTree();
+			Elimination knockout = new Elimination(kn, matches);	
+			//instance = new Tournament(DatabaseAccess.buildTeams(),groups,knockout);
+			return instance;
+		}
+		else
+			return instance;
+		
 	}
 	
 	public static void setInstance( Tournament t ) {

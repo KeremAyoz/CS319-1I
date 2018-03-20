@@ -1,23 +1,18 @@
 package model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * @author Kerem
  *
  */
-public class Elimination {
+public class Elimination implements Serializable {
 
-	// Knockout tree class ý eklenecek. //private KnockoutTree knockout;
+	private KnockoutTree knockout;
+
 	private ArrayList<Match> matches;
-
-	/**
-	 * @param matches
-	 */
-	public Elimination(ArrayList<Match> matches) {
-		this.matches = matches;
-	}
-
+	
 	/**
 	 * @return the matches
 	 */
@@ -26,10 +21,34 @@ public class Elimination {
 	}
 
 	/**
+	 * @param knockout
+	 * @param matches
+	 */
+	public Elimination(KnockoutTree knockout, ArrayList<Match> matches) {
+		super();
+		this.knockout = knockout;
+		this.matches = matches;
+	}
+
+	/**
 	 * @param matches
 	 *            the matches to set
 	 */
 	public void setMatches(ArrayList<Match> matches) {
 		this.matches = matches;
+	}
+
+	/**
+	 * @return the knockout
+	 */
+	public KnockoutTree getKnockout() {
+		return knockout;
+	}
+
+	/**
+	 * @param knockout the knockout to set
+	 */
+	public void setKnockout(KnockoutTree knockout) {
+		this.knockout = knockout;
 	}
 }

@@ -1,9 +1,10 @@
 package model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class KnockoutTree {
+public class KnockoutTree implements Serializable{
 	
 	private Team[] teams;
 	private Match[] matches;

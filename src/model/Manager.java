@@ -1,10 +1,12 @@
 package model;
 
+import java.io.Serializable;
+
 /**
  * @author Kerem
  *
  */
-public class Manager extends Person {
+public class Manager extends Person implements Serializable {
 
 	private int overall;
 	private int experience;
@@ -30,7 +32,8 @@ public class Manager extends Person {
 	}
 
 	/**
-	 * @param overall the overall to set
+	 * @param overall
+	 *            the overall to set
 	 */
 	public void setOverall(int overall) {
 		this.overall = overall;
@@ -44,10 +47,11 @@ public class Manager extends Person {
 	}
 
 	/**
-	 * @param experience the experience to set
+	 * @param experience
+	 *            the experience to set
 	 */
 	public void setExperience(int experience) {
 		this.experience = experience;
 	}
-	
+
 }

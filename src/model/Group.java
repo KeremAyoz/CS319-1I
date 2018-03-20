@@ -1,10 +1,12 @@
 package model;
 
+import java.io.Serializable;
+
 /**
  * @author Kerem
  *
  */
-public class Group {
+public class Group implements Serializable{
 
 	private int[][] statistics;
 	private Team[] teams;

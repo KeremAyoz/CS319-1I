@@ -1,12 +1,13 @@
 package model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * @author Kerem
  *
  */
-public class Team {
+public class Team implements Serializable {
 
 	private String name;
 	private String color;

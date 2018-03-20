@@ -20,11 +20,12 @@ public class Database {
 		
 	}
 	
-	public static void loadCurrentGame() throws IOException, ClassNotFoundException {
+	public static Tournament loadCurrentGame() throws IOException, ClassNotFoundException {
 		FileInputStream file = new FileInputStream( CURRENT_FILE_NAME );
 		ObjectInputStream ois = new ObjectInputStream( file );
 		Tournament.setInstance( (Tournament) ois.readObject() );
 		ois.close();
+		return Tournament.getInstance();
 	}
 	
 	public static void saveCurrentGame( Tournament tournament ) throws IOException {

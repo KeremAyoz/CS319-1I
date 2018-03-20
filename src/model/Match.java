@@ -1,5 +1,6 @@
 package model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
@@ -7,7 +8,7 @@ import java.util.concurrent.TimeUnit;
  * @author Kerem
  *
  */
-public class Match {
+public class Match implements Serializable{
 
 	private Team home;
 	private Team away;
@@ -61,7 +62,7 @@ public class Match {
 		this.setDelay(delay);
 	}
 	
-	// Date ile ilgili þeyler eklenecek
+	// Date ile ilgili ï¿½eyler eklenecek
 	/**
 	 * @return the home
 	 */

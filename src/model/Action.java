@@ -1,10 +1,12 @@
 package model;
 
+import java.io.Serializable;
+
 /**
  * @author Kerem
  *
  */
-public abstract class Action {
+public abstract class Action implements Serializable {
 
 	private int timeHappened;
 

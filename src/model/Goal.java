@@ -1,10 +1,12 @@
 package model;
 
+import java.io.Serializable;
+
 /**
  * @author Kerem
  *
  */
-public class Goal extends Action {
+public class Goal extends Action implements Serializable{
 
 	private Player scored;
 	private Player assisted;

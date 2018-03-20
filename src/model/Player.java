@@ -1,12 +1,13 @@
 package model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * @author Kerem
  *
  */
-public class Player extends Person {
+public class Player extends Person implements Serializable{
 
 	private String position;
 	private int overall;

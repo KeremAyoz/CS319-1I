@@ -16,5 +16,5 @@ import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 
 public class GroupController {
-
+	
 }

@@ -3,6 +3,9 @@ package model;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @author Kerem
  *
@@ -15,6 +18,9 @@ public class Tournament implements Serializable{
 	private static Tournament instance;
 
 	private final int TOP5 = 5;
+	private final int TEAMS_PER_GROUP = 4;
+	private final int NUMBER_OF_GROUPS = 8;
+	private final int NUMBER_OF_TEAMS = TEAMS_PER_GROUP * NUMBER_OF_GROUPS;
 	
 	/**
 	 * @param teams
@@ -108,6 +114,25 @@ public class Tournament implements Serializable{
 
 	private Object readResolve() {
 		return instance;
+	}
+	
+	/*
+	 * !!! WARNING !!!
+	 * groups[i] = new Group();
+	 * !!! WARNING !!!
+	 */
+	public void distributeTeams() {
+		List<Integer> list = new ArrayList<Integer>();
+		for( int i = 0 ; i < NUMBER_OF_TEAMS ; i++ )
+			list.add( i );
+		java.util.Collections.shuffle(list);
+		for( int i = 0 ; i < NUMBER_OF_GROUPS ; i++ ) {
+			// groups[i] = new Group();
+			Team[] groupTeams = new Team[TEAMS_PER_GROUP];
+			for( int j = 0 ; j < TEAMS_PER_GROUP ; j++ )
+				groupTeams[j] = teams[ list.get( i * NUMBER_OF_GROUPS + j ) ];
+			groups[i].setTeams( groupTeams );
+		}
 	}
 	
 	public String[] getTopGoals() {

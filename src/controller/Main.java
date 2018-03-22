@@ -121,7 +121,7 @@ public class Main extends Application {
 		President president = new President("Florentino Perez", 71, 180, 70, "Spain");
 		// Team
 		Team team = new Team("Real Madrid", "Purple-Blue", "433", "Santiago Bernabeu", "2nd 4ever", "Spain", "RMC", 5.0,
-				0, 0, manager, president, players);
+				"Attack", "Fast", manager, president, players);
 		return team;
 	}
 
@@ -185,7 +185,7 @@ public class Main extends Application {
 		President president = new President("Josep Maria Bartomeu", 55, 180, 70, "Spain");
 		// Team
 		Team team = new Team("Barcelona", "Purple-Blue", "442", "Camp Nou", "1st 4ever", "Spain",
-				"Blaugranes or Azulgranas", 5.0, 0, 0, manager, president, players);
+				"Blaugranes or Azulgranas", 5.0, "Attack", "Fast", manager, president, players);
 		return team;
 	}
 

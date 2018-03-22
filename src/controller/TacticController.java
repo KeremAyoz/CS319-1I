@@ -185,25 +185,25 @@ public class TacticController implements Initializable {
 			rb.setLayoutX(453);
 			rb.setLayoutY(370);
 
-			cb1.setLayoutX(223);
-			cb1.setLayoutY(390);
-
-			cb2.setLayoutX(359);
+			cb2.setLayoutX(223);
 			cb2.setLayoutY(390);
+
+			cb1.setLayoutX(359);
+			cb1.setLayoutY(390);
 
 			lb.setLayoutX(94);
 			lb.setLayoutY(370);
 
-			// CDM becomes RW
-			cm3.setLayoutX(280);
-			cm3.setLayoutY(300);
+			//RW
+			cm1.setLayoutX(280);
+			cm1.setLayoutY(300);
 
 			// Stays as midfielders
 			cm2.setLayoutX(350);
 			cm2.setLayoutY(235);
 
-			cm1.setLayoutX(220);
-			cm1.setLayoutY(235);
+			cm3.setLayoutX(220);
+			cm3.setLayoutY(235);
 
 			// becomes LW
 			rw.setLayoutX(425);
@@ -225,24 +225,28 @@ public class TacticController implements Initializable {
 			rb.setLayoutX(453);
 			rb.setLayoutY(370);
 
-			cb1.setLayoutX(223);
-			cb1.setLayoutY(390);
-
-			cb2.setLayoutX(359);
+			cb2.setLayoutX(223);
 			cb2.setLayoutY(390);
+
+			cb1.setLayoutX(359);
+			cb1.setLayoutY(390);
 
 			lb.setLayoutX(94);
 			lb.setLayoutY(369);
-
-			cm3.setLayoutX(435);
-			cm3.setLayoutY(225);
-
+			
+			//RW
+			cm1.setLayoutX(435);
+			cm1.setLayoutY(225);
+			
+			//RCM
 			cm2.setLayoutX(350);
 			cm2.setLayoutY(270);
-
-			cm1.setLayoutX(220);
-			cm1.setLayoutY(270);
-
+			
+			//LCM
+			cm3.setLayoutX(220);
+			cm3.setLayoutY(270);
+			
+			//LW
 			rw.setLayoutX(120);
 			rw.setLayoutY(225);
 
@@ -258,23 +262,25 @@ public class TacticController implements Initializable {
 			rb.setLayoutX(450);
 			rb.setLayoutY(379);
 
-			cb1.setLayoutX(223);
-			cb1.setLayoutY(390);
-
-			cb2.setLayoutX(359);
+			cb2.setLayoutX(223);
 			cb2.setLayoutY(390);
+
+			cb1.setLayoutX(359);
+			cb1.setLayoutY(390);
 
 			lb.setLayoutX(94);
 			lb.setLayoutY(370);
-
-			cm3.setLayoutX(370);
-			cm3.setLayoutY(285);
+			
+			//RCM
+			cm1.setLayoutX(370);
+			cm1.setLayoutY(285);
 
 			cm2.setLayoutX(425);
 			cm2.setLayoutY(200);
-
-			cm1.setLayoutX(194);
-			cm1.setLayoutY(285);
+			
+			//LCM
+			cm3.setLayoutX(194);
+			cm3.setLayoutY(285);
 
 			rw.setLayoutX(280);
 			rw.setLayoutY(220);
@@ -448,6 +454,16 @@ public class TacticController implements Initializable {
 
 	@FXML
 	public void comboBoxSetup(String tactic) {
+		sub1.getItems().clear();
+		sub2.getItems().clear();
+		sub3.getItems().clear();
+		sub4.getItems().clear();
+		sub5.getItems().clear();
+		sub6.getItems().clear();
+		sub7.getItems().clear();
+		sub8.getItems().clear();
+		sub9.getItems().clear();
+		
 		if (tactic.equals("4-3-3")) {
 			sub1.getItems().addAll("GK", "RB", "RCB", "LCB", "LB", "CDM", "LCM", "RCM", "RW", "ST", "LW");
 			sub2.getItems().addAll("GK", "RB", "RCB", "LCB", "LB", "CDM", "LCM", "RCM", "RW", "ST", "LW");
@@ -487,9 +503,7 @@ public class TacticController implements Initializable {
 	public void tacticBoxChange() {
 		Tournament current = Tournament.getInstance();
 		Team t = current.getTeams()[current.getMyTeamId()];
-		System.out.println("Eski" + t.getTactic());
 		t.setTactic(tacticBox.getValue());
-		System.out.println("Değişen" + t.getTactic());
 		tacticFieldSetup();
 		calibrateNames();
 		gridUpdate();
@@ -500,12 +514,15 @@ public class TacticController implements Initializable {
 	public void tempoBoxChange() {
 		Tournament current = Tournament.getInstance();
 		Team t = current.getTeams()[current.getMyTeamId()];
+		t.setTempo(tempoBox.getValue());
+		tempoBox.getSelectionModel().select(t.getTempo());
 	}
 
 	@FXML
 	public void styleBoxChange() {
 		Tournament current = Tournament.getInstance();
 		Team t = current.getTeams()[current.getMyTeamId()];
+		t.setStyle(styleBox.getValue());
 	}
 
 }

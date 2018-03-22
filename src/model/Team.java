@@ -17,8 +17,8 @@ public class Team implements Serializable {
 	private String nationality;
 	private String nick;
 	private double stars;
-	private int style;
-	private int tempo;
+	private String style;
+	private String tempo;
 	private Manager manager;
 	private President president;
 	private ArrayList<Player> players;
@@ -39,7 +39,7 @@ public class Team implements Serializable {
 	 * @param players
 	 */
 	public Team(String name, String color, String tactic, String stadium, String history, String nationality,
-			String nick, double stars, int style, int tempo, Manager manager, President president,
+			String nick, double stars, String style, String tempo, Manager manager, President president,
 			ArrayList<Player> players) {
 		this.name = name;
 		this.color = color;
@@ -179,7 +179,7 @@ public class Team implements Serializable {
 	/**
 	 * @return the style
 	 */
-	public int getStyle() {
+	public String getStyle() {
 		return style;
 	}
 
@@ -187,14 +187,14 @@ public class Team implements Serializable {
 	 * @param style
 	 *            the style to set
 	 */
-	public void setStyle(int style) {
+	public void setStyle(String style) {
 		this.style = style;
 	}
 
 	/**
 	 * @return the tempo
 	 */
-	public int getTempo() {
+	public String getTempo() {
 		return tempo;
 	}
 
@@ -202,7 +202,7 @@ public class Team implements Serializable {
 	 * @param tempo
 	 *            the tempo to set
 	 */
-	public void setTempo(int tempo) {
+	public void setTempo(String tempo) {
 		this.tempo = tempo;
 	}
 

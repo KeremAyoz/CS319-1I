@@ -148,30 +148,30 @@ public class DatabaseAccess {
 		ArrayList<Player> players = new ArrayList<Player>();
 		ArrayList<Action> actions = new ArrayList<Action>();
 		// GK
-		players.add(new Player("Trapp", 30, 180, 70, "Germany", "GK", getOverall(), 'R', 1000000, 10000000, true,
+		players.add(new Player("Trapp", 30, 180, 70, "Germany", "GK", 81, 'R', 1000000, 10000000, true,
 				getAttributes(), actions));
 		// DF
-		players.add(new Player("Meunier", 30, 180, 70, "Belgium", "RB", getOverall(), 'R', 1000000, 10000000, true,
+		players.add(new Player("Meunier", 30, 180, 70, "Belgium", "RB", 81, 'R', 1000000, 10000000, true,
 				getAttributes(), actions));
-		players.add(new Player("Marquinhos", 30, 180, 70, "Brazil", "CB", getOverall(), 'R', 1000000, 10000000, true,
+		players.add(new Player("Marquinhos", 30, 180, 70, "Brazil", "CB", 82, 'R', 1000000, 10000000, true,
 				getAttributes(), actions));
-		players.add(new Player("Thiago Silva", 30, 180, 70, "Brazil", "CB", getOverall(), 'R', 1000000, 10000000, true,
+		players.add(new Player("Silva", 30, 180, 70, "Brazil", "CB", 88, 'R', 1000000, 10000000, true,
 				getAttributes(), actions));
-		players.add(new Player("Kurzawa", 30, 180, 70, "France", "LB", getOverall(), 'R', 1000000, 10000000, true,
+		players.add(new Player("Kurzawa", 30, 180, 70, "France", "LB", 82, 'R', 1000000, 10000000, true,
 				getAttributes(), actions));
 		// MF
-		players.add(new Player("Marco Verratti", 30, 180, 70, "Italia", "CM", getOverall(), 'R', 1000000, 10000000,
+		players.add(new Player("Verratti", 30, 180, 70, "Italy", "CM", 84, 'R', 1000000, 10000000,
 				true, getAttributes(), actions));
-		players.add(new Player("Rabiot", 30, 180, 70, "France", "CM", getOverall(), 'R', 1000000, 10000000, true,
+		players.add(new Player("Rabiot", 30, 180, 70, "France", "CM", 81, 'R', 1000000, 10000000, true,
 				getAttributes(), actions));
-		players.add(new Player("Di Maria", 30, 180, 70, "Argentina", "CM", getOverall(), 'R', 1000000, 10000000, true,
+		players.add(new Player("Di Maria", 30, 180, 70, "Argentina", "CM", 84, 'R', 1000000, 10000000, true,
 				getAttributes(), actions));
 		// FW
-		players.add(new Player("Mbappe", 30, 180, 70, "France", "LW", getOverall(), 'R', 1000000, 10000000, true,
+		players.add(new Player("Mbappe", 30, 180, 70, "France", "LW", 83, 'R', 1000000, 10000000, true,
 				getAttributes(), actions));
-		players.add(new Player("Edinson Cavani", 30, 180, 70, "Uruguay", "ST", getOverall(), 'R', 1000000, 10000000,
+		players.add(new Player("Cavani", 30, 180, 70, "Uruguay", "ST", 85, 'R', 1000000, 10000000,
 				true, getAttributes(), actions));
-		players.add(new Player("Neymar", 30, 180, 70, "Brazil", "LW", getOverall(), 'R', 1000000, 10000000, true,
+		players.add(new Player("Neymar", 30, 180, 70, "Brazil", "LW", 89, 'R', 1000000, 10000000, true,
 				getAttributes(), actions));
 		// Others
 		players.add(new Player("Areola", 30, 180, 70, "France", "GK", getOverall(), 'R', 1000000, 10000000, true,
@@ -182,15 +182,15 @@ public class DatabaseAccess {
 				getAttributes(), actions));
 		players.add(new Player("Ben Arfa", 30, 180, 70, "France", "CM", getOverall(), 'R', 1000000, 10000000, true,
 				getAttributes(), actions));
-		players.add(new Player("Lassana Diarra", 30, 180, 70, "France", "CM", getOverall(), 'R', 1000000, 10000000,
+		players.add(new Player("Lass", 30, 180, 70, "France", "CM", getOverall(), 'R', 1000000, 10000000,
 				true, getAttributes(), actions));
-		players.add(new Player("Yuri Berchiche", 30, 180, 70, "Spain", "LB", getOverall(), 'R', 1000000, 10000000, true,
+		players.add(new Player("Yuri", 30, 180, 70, "Spain", "LB", getOverall(), 'R', 1000000, 10000000, true,
 				getAttributes(), actions));
 		players.add(new Player("Giovani", 30, 180, 70, "Argentina", "CM", getOverall(), 'R', 1000000, 10000000, true,
 				getAttributes(), actions));
-		players.add(new Player("Dani Alves", 30, 180, 70, "Brazil", "RB", getOverall(), 'R', 1000000, 10000000, true,
+		players.add(new Player("Alves", 30, 180, 70, "Brazil", "RB", getOverall(), 'R', 1000000, 10000000, true,
 				getAttributes(), actions));
-		players.add(new Player("Thiago Motta", 30, 180, 70, "Italy", "CM", getOverall(), 'R', 1000000, 10000000, true,
+		players.add(new Player("Motta", 30, 180, 70, "Italy", "CM", getOverall(), 'R', 1000000, 10000000, true,
 				getAttributes(), actions));
 		players.add(new Player("Kimpembe", 30, 180, 70, "France", "CB", getOverall(), 'R', 1000000, 10000000, true,
 				getAttributes(), actions));
@@ -200,7 +200,7 @@ public class DatabaseAccess {
 		// President
 		President president = new President("El Khalafi", 71, 180, 70, "Quatar");
 		// Team
-		Team team = new Team("Paris Saint Germain", "Red-Blue", "433", "Parc de Prince", "PSG", "France", "PSG", 5.0, 0,
+		Team team = new Team("Paris Saint Germain", "Red-Blue", "4-3-3", "Parc de Prince", "PSG", "France", "PSG", 5.0, 0,
 				0, manager, president, players);
 		return team;
 	}

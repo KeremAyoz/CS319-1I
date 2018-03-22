@@ -62,62 +62,62 @@
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="510.0" prefWidth="612.0">
                      <children>
-                        <ImageView fitHeight="528.0" fitWidth="611.0" preserveRatio="true">
+                        <ImageView fx:id="tacticField" fitHeight="492.0" fitWidth="612.0" pickOnBounds="true">
                            <image>
-                              <Image url="@../../img/redTeam.JPG" />
+                              <Image url="@../../img/tactics/4-3-3.png" />
                            </image>
                         </ImageView>
-                        <Text fx:id="gk" fill="#2c2d2f" layoutX="292.0" layoutY="453.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Neuer" AnchorPane.leftAnchor="265.0" AnchorPane.topAnchor="435.0">
+                        <Text fx:id="gk" fill="#2c2d2f" layoutX="285.0" layoutY="474.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Neuer" AnchorPane.leftAnchor="278.0" AnchorPane.topAnchor="453.0">
                            <font>
                               <Font name="Gill Sans Bold" size="15.0" />
                            </font>
                         </Text>
-                        <Text fx:id="lb" fill="#2c2d2f" layoutX="55.0" layoutY="328.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Marcelo" AnchorPane.leftAnchor="33.0" AnchorPane.topAnchor="305.0">
+                        <Text fx:id="lb" fill="#2c2d2f" layoutX="94.0" layoutY="364.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Marcelo">
                            <font>
                               <Font name="Gill Sans Bold" size="15.0" />
                            </font>
                         </Text>
-                        <Text fx:id="cb1" fill="#2c2d2f" layoutX="195.0" layoutY="370.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Subotic" AnchorPane.leftAnchor="175.0">
+                        <Text fx:id="cb1" fill="#2c2d2f" layoutX="223.0" layoutY="409.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Subotic">
                            <font>
                               <Font name="Gill Sans Bold" size="15.0" />
                            </font>
                         </Text>
-                        <Text fx:id="cb2" fill="#2c2d2f" layoutX="391.0" layoutY="370.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hummels" AnchorPane.leftAnchor="360.0" AnchorPane.topAnchor="347.0">
+                        <Text fx:id="cb2" fill="#2c2d2f" layoutX="359.20000000000005" layoutY="409.20000000000005" strokeType="OUTSIDE" strokeWidth="0.0" text="Hummels">
                            <font>
                               <Font name="Gill Sans Bold" size="15.0" />
                            </font>
                         </Text>
-                        <Text fx:id="rb" fill="#2c2d2f" layoutX="536.0" layoutY="328.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pizscel" AnchorPane.rightAnchor="27.0">
+                        <Text fx:id="rb" fill="#2c2d2f" layoutX="536.0" layoutY="365.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pizscel">
                            <font>
                               <Font name="Gill Sans Bold" size="15.0" />
                            </font>
                         </Text>
-                        <Text fx:id="cm3" fill="#2c2d2f" layoutX="306.0" layoutY="310.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Toure" AnchorPane.leftAnchor="280.0" AnchorPane.topAnchor="285.0">
+                        <Text fx:id="cm3" fill="#2c2d2f" layoutX="306.0" layoutY="310.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Toure">
                            <font>
                               <Font name="Gill Sans Bold" size="15.0" />
                            </font>
                         </Text>
-                        <Text fx:id="lw" fill="#2c2d2f" layoutX="95.0" layoutY="162.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ronaldo" AnchorPane.leftAnchor="84.0" AnchorPane.topAnchor="140.0">
+                        <Text fx:id="lw" fill="#2c2d2f" layoutX="114.79999999999998" layoutY="185.98652343749998" strokeType="OUTSIDE" strokeWidth="0.0" text="Ronaldo">
                            <font>
                               <Font name="Gill Sans Bold" size="15.0" />
                            </font>
                         </Text>
-                        <Text fx:id="st" fill="#2c2d2f" layoutX="282.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gomis" AnchorPane.topAnchor="71.0">
+                        <Text fx:id="st" fill="#2c2d2f" layoutX="286.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gomis">
                            <font>
                               <Font name="Gill Sans Bold" size="15.0" />
                            </font>
                         </Text>
-                        <Text fx:id="cm1" fill="#2c2d2f" layoutX="200.0" layoutY="223.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Iniesta" AnchorPane.leftAnchor="184.0" AnchorPane.topAnchor="200.0">
+                        <Text fx:id="cm1" fill="#2c2d2f" layoutX="200.0" layoutY="223.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Iniesta">
                            <font>
                               <Font name="Gill Sans Bold" size="15.0" />
                            </font>
                         </Text>
-                        <Text fx:id="cm2" fill="#2c2d2f" layoutX="391.0" layoutY="223.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Modric" AnchorPane.leftAnchor="370.0" AnchorPane.topAnchor="200.0">
+                        <Text fx:id="cm2" fill="#2c2d2f" layoutX="391.0" layoutY="223.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Modric">
                            <font>
                               <Font name="Gill Sans Bold" size="15.0" />
                            </font>
                         </Text>
-                        <Text fx:id="rw" fill="#2c2d2f" layoutX="476.0" layoutY="162.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Messi" AnchorPane.topAnchor="135.0">
+                        <Text fx:id="rw" fill="#2c2d2f" layoutX="476.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Messi">
                            <font>
                               <Font name="Gill Sans Bold" size="15.0" />
                            </font>
@@ -182,9 +182,9 @@
                </font>
             </Text>
             <ImageView fx:id="logo" fitHeight="80.0" fitWidth="121.0" layoutX="78.0" layoutY="182.0" pickOnBounds="true" preserveRatio="true" />
-            <ComboBox fx:id="tacticBox" layoutX="849.0" layoutY="820.0" prefHeight="34.0" prefWidth="90.0" promptText="4-3-3" />
-            <ComboBox fx:id="styleBox" layoutX="1017.0" layoutY="820.0" prefHeight="34.0" prefWidth="90.0" promptText="Attack" />
-            <ComboBox fx:id="tempoBox" layoutX="1181.0" layoutY="820.0" prefHeight="34.0" prefWidth="90.0" promptText="Fast" />
+            <ComboBox fx:id="tacticBox" layoutX="849.0" layoutY="820.0" onAction="#tacticBoxChange" prefHeight="34.0" prefWidth="90.0" promptText="4-3-3" />
+            <ComboBox fx:id="styleBox" layoutX="1017.0" layoutY="820.0" onAction="#styleBoxChange" prefHeight="34.0" prefWidth="90.0" promptText="Attack" />
+            <ComboBox fx:id="tempoBox" layoutX="1181.0" layoutY="820.0" onAction="#tempoBoxChange" prefHeight="34.0" prefWidth="90.0" promptText="Fast" />
             <Text fill="#610e0e" layoutX="868.0" layoutY="804.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tactic">
                <font>
                   <Font name="Gill Sans Bold" size="17.0" />

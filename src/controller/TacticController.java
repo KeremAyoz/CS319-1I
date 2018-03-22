@@ -64,11 +64,12 @@ public class TacticController implements Initializable {
 	private ComboBox<String> tempoBox;
 	@FXML
 	private GridPane gridPlayer;
-	private GridPane initial;
 	@FXML
 	private ScrollPane scrollPlayer;
 	@FXML
 	private ImageView logo;
+	@FXML
+	private ImageView tacticField;
 
 	@FXML
 	private ComboBox<String> sub1;
@@ -141,23 +142,12 @@ public class TacticController implements Initializable {
 	public void initialize(URL url, ResourceBundle rb) {
 		Tournament current = Tournament.getInstance();
 		Team t = current.getTeams()[current.getMyTeamId()];
-		teamName.setText(t.getName());
 
-		// Names of the players as Text
-		gk.setText(t.getPlayers().get(0).getName());
-		this.rb.setText(t.getPlayers().get(1).getName());
-		cb1.setText(t.getPlayers().get(2).getName());
-		cb2.setText(t.getPlayers().get(3).getName());
-		lb.setText(t.getPlayers().get(4).getName());
-		cm1.setText(t.getPlayers().get(5).getName());
-		cm3.setText(t.getPlayers().get(6).getName());
-		cm2.setText(t.getPlayers().get(7).getName());
-		rw.setText(t.getPlayers().get(8).getName());
-		st.setText(t.getPlayers().get(9).getName());
-		lw.setText(t.getPlayers().get(10).getName());
+		tacticFieldSetup();
+		calibrateNames();
 
 		// Team Logo
-		File file = new File("img/galatasaray.png");
+		File file = new File("img/psg.png");
 		Image image = new Image(file.toURI().toString());
 		logo.setImage(image);
 
@@ -172,12 +162,150 @@ public class TacticController implements Initializable {
 	}
 
 	@FXML
+	public void calibrateNames() {
+		Tournament current = Tournament.getInstance();
+		Team t = current.getTeams()[current.getMyTeamId()];
+		// Names of the players as Text
+		gk.setText(t.getPlayers().get(0).getName());
+		rb.setText(t.getPlayers().get(1).getName());
+		cb1.setText(t.getPlayers().get(2).getName());
+		cb2.setText(t.getPlayers().get(3).getName());
+		lb.setText(t.getPlayers().get(4).getName());
+		cm1.setText(t.getPlayers().get(5).getName());
+		cm3.setText(t.getPlayers().get(6).getName());
+		cm2.setText(t.getPlayers().get(7).getName());
+		rw.setText(t.getPlayers().get(8).getName());
+		st.setText(t.getPlayers().get(9).getName());
+		lw.setText(t.getPlayers().get(10).getName());
+
+		if (t.getTactic().equals("4-3-3")) {
+			gk.setLayoutX(270);
+			gk.setLayoutY(96);
+
+			rb.setLayoutX(453);
+			rb.setLayoutY(370);
+
+			cb1.setLayoutX(223);
+			cb1.setLayoutY(390);
+
+			cb2.setLayoutX(359);
+			cb2.setLayoutY(390);
+
+			lb.setLayoutX(94);
+			lb.setLayoutY(370);
+
+			// CDM becomes RW
+			cm3.setLayoutX(280);
+			cm3.setLayoutY(300);
+
+			// Stays as midfielders
+			cm2.setLayoutX(350);
+			cm2.setLayoutY(235);
+
+			cm1.setLayoutX(220);
+			cm1.setLayoutY(235);
+
+			// becomes LW
+			rw.setLayoutX(425);
+			rw.setLayoutY(170);
+
+			// LW becomes LF
+			lw.setLayoutX(145);
+			lw.setLayoutY(170);
+
+			// ST becomes RF
+			st.setLayoutX(286);
+			st.setLayoutY(110);
+		}
+
+		else if (t.getTactic().equals("4-4-2")) {
+			gk.setLayoutX(286);
+			gk.setLayoutY(101);
+
+			rb.setLayoutX(453);
+			rb.setLayoutY(370);
+
+			cb1.setLayoutX(223);
+			cb1.setLayoutY(390);
+
+			cb2.setLayoutX(359);
+			cb2.setLayoutY(390);
+
+			lb.setLayoutX(94);
+			lb.setLayoutY(369);
+
+			cm3.setLayoutX(435);
+			cm3.setLayoutY(225);
+
+			cm2.setLayoutX(350);
+			cm2.setLayoutY(270);
+
+			cm1.setLayoutX(220);
+			cm1.setLayoutY(270);
+
+			rw.setLayoutX(120);
+			rw.setLayoutY(225);
+
+			lw.setLayoutX(240);
+			lw.setLayoutY(125);
+
+			st.setLayoutX(330);
+			st.setLayoutY(125);
+		} else if (t.getTactic().equals("4-2-3-1")) {
+			gk.setLayoutX(270);
+			gk.setLayoutY(96);
+
+			rb.setLayoutX(450);
+			rb.setLayoutY(379);
+
+			cb1.setLayoutX(223);
+			cb1.setLayoutY(390);
+
+			cb2.setLayoutX(359);
+			cb2.setLayoutY(390);
+
+			lb.setLayoutX(94);
+			lb.setLayoutY(370);
+
+			cm3.setLayoutX(370);
+			cm3.setLayoutY(285);
+
+			cm2.setLayoutX(425);
+			cm2.setLayoutY(200);
+
+			cm1.setLayoutX(194);
+			cm1.setLayoutY(285);
+
+			rw.setLayoutX(280);
+			rw.setLayoutY(220);
+
+			lw.setLayoutX(286);
+			lw.setLayoutY(115);
+
+			st.setLayoutX(140);
+			st.setLayoutY(200);
+		}
+	}
+
+	@FXML
+	public void tacticFieldSetup() {
+		Tournament current = Tournament.getInstance();
+		Team t = current.getTeams()[current.getMyTeamId()];
+		teamName.setText(t.getName());
+		File tactic = new File("img/tactics/" + t.getTactic() + ".png");
+		Image tacticImage = new Image(tactic.toURI().toString(), 610, 490, false, false);
+		tacticField.setImage(tacticImage);
+	}
+
+	@FXML
 	public void sub1Change() {
 		Tournament current = Tournament.getInstance();
 		Team t = current.getTeams()[current.getMyTeamId()];
 		// Swapping
 		Collections.swap(t.getPlayers(), sub1.getSelectionModel().getSelectedIndex(), 11);
 		gridUpdate();
+		sub1.getSelectionModel().clearSelection();
+		calibrateNames();
 	}
 
 	@FXML
@@ -187,6 +315,8 @@ public class TacticController implements Initializable {
 		// Swapping
 		Collections.swap(t.getPlayers(), sub2.getSelectionModel().getSelectedIndex(), 12);
 		gridUpdate();
+		sub2.getSelectionModel().clearSelection();
+		calibrateNames();
 	}
 
 	@FXML
@@ -196,6 +326,8 @@ public class TacticController implements Initializable {
 		// Swapping
 		Collections.swap(t.getPlayers(), sub3.getSelectionModel().getSelectedIndex(), 13);
 		gridUpdate();
+		sub3.getSelectionModel().clearSelection();
+		calibrateNames();
 	}
 
 	@FXML
@@ -205,6 +337,8 @@ public class TacticController implements Initializable {
 		// Swapping
 		Collections.swap(t.getPlayers(), sub4.getSelectionModel().getSelectedIndex(), 14);
 		gridUpdate();
+		sub4.getSelectionModel().clearSelection();
+		calibrateNames();
 	}
 
 	@FXML
@@ -214,6 +348,8 @@ public class TacticController implements Initializable {
 		// Swapping
 		Collections.swap(t.getPlayers(), sub5.getSelectionModel().getSelectedIndex(), 15);
 		gridUpdate();
+		sub5.getSelectionModel().clearSelection();
+		calibrateNames();
 	}
 
 	@FXML
@@ -223,6 +359,8 @@ public class TacticController implements Initializable {
 		// Swapping
 		Collections.swap(t.getPlayers(), sub6.getSelectionModel().getSelectedIndex(), 16);
 		gridUpdate();
+		sub6.getSelectionModel().clearSelection();
+		calibrateNames();
 	}
 
 	@FXML
@@ -232,6 +370,8 @@ public class TacticController implements Initializable {
 		// Swapping
 		Collections.swap(t.getPlayers(), sub7.getSelectionModel().getSelectedIndex(), 17);
 		gridUpdate();
+		sub7.getSelectionModel().clearSelection();
+		calibrateNames();
 	}
 
 	@FXML
@@ -241,6 +381,8 @@ public class TacticController implements Initializable {
 		// Swapping
 		Collections.swap(t.getPlayers(), sub8.getSelectionModel().getSelectedIndex(), 18);
 		gridUpdate();
+		sub8.getSelectionModel().clearSelection();
+		calibrateNames();
 	}
 
 	@FXML
@@ -250,6 +392,8 @@ public class TacticController implements Initializable {
 		// Swapping
 		Collections.swap(t.getPlayers(), sub9.getSelectionModel().getSelectedIndex(), 19);
 		gridUpdate();
+		sub9.getSelectionModel().clearSelection();
+		calibrateNames();
 	}
 
 	@FXML
@@ -274,7 +418,7 @@ public class TacticController implements Initializable {
 				value.setStyle("-fx-font-weight: bold");
 			}
 
-			File nationImg = new File("img/flags/" + nation.getText().toLowerCase() + ".png");
+			File nationImg = new File("img/flags/" + nation.getText().toLowerCase().trim() + ".png");
 			ImageView flag = new ImageView(new Image(nationImg.toURI().toString()));
 			flag.setFitHeight(20);
 			flag.setFitWidth(40);
@@ -286,7 +430,6 @@ public class TacticController implements Initializable {
 		}
 
 		// Positions displayed according to the tactic
-		System.out.println(t.getTactic());
 		String[] positions;
 		if (t.getTactic().equals("4-3-3"))
 			positions = new String[] { "GK", "RB", "RCB", "LCB", "LB", "CDM", "LCM", "RCM", "RW", "ST", "LW" };
@@ -338,6 +481,31 @@ public class TacticController implements Initializable {
 			sub8.getItems().addAll("GK", "RB", "RCB", "LCB", "LB", "RCM", "LCM", "RW", "CAM", "LW", "ST");
 			sub9.getItems().addAll("GK", "RB", "RCB", "LCB", "LB", "RCM", "LCM", "RW", "CAM", "LW", "ST");
 		}
+	}
+
+	@FXML
+	public void tacticBoxChange() {
+		Tournament current = Tournament.getInstance();
+		Team t = current.getTeams()[current.getMyTeamId()];
+		System.out.println("Eski" + t.getTactic());
+		t.setTactic(tacticBox.getValue());
+		System.out.println("Değişen" + t.getTactic());
+		tacticFieldSetup();
+		calibrateNames();
+		gridUpdate();
+		comboBoxSetup(t.getTactic());
+	}
+
+	@FXML
+	public void tempoBoxChange() {
+		Tournament current = Tournament.getInstance();
+		Team t = current.getTeams()[current.getMyTeamId()];
+	}
+
+	@FXML
+	public void styleBoxChange() {
+		Tournament current = Tournament.getInstance();
+		Team t = current.getTeams()[current.getMyTeamId()];
 	}
 
 }

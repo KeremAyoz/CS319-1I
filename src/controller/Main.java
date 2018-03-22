@@ -194,7 +194,7 @@ public class Main extends Application {
 		Database.saveCurrentGame(c);
 		System.out.println(c.getTeams() == null);
 		Database.loadCurrentGame();
-		c.setMyTeamId(3);
+		c.setMyTeamId(4);
 		launch(args);
 		Team team1 = getFirstTeam();
 		Team team2 = getSecondTeam();

@@ -140,7 +140,7 @@ public class DatabaseAccess {
 		// President
 		President president = new President("Mustafa Cengiz", 71, 180, 70, "Turkey");
 		// Team
-		Team team = new Team("Galatasaray", "Red-Yellow", "433", "Ali Sami Yen", "Cimbom", "Turkey", "GAL", 5.0, 0, 0,
+		Team team = new Team("Galatasaray", "Red-Yellow", "4-3-3", "Ali Sami Yen", "Cimbom", "Turkey", "GAL", 5.0, 0, 0,
 				manager, president, players);
 		return team;
 	}

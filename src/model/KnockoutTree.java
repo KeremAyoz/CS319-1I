@@ -35,7 +35,7 @@ public class KnockoutTree implements Serializable{
 		ArrayList<Action> actions = new ArrayList<Action>();
 		
 		if( idMatch == 0 ) {
-			matches[0] = new Match( teams[1] , teams[2] , "Pierluigi Collina" , "Sunny" , actions );
+			matches[0] = new Match( 0 , 0 , 0 , teams[1] , teams[2] , "Pierluigi Collina" , "Sunny" , actions );
 			matches[0].matchSimulation();
 			int firstTeamPoint = matches[0].getPointHome();
 			int secondTeamPoint = matches[0].getPointAway();
@@ -50,14 +50,14 @@ public class KnockoutTree implements Serializable{
 		}
 		
 		else if( idMatch % 2 == 1 ) {
-			matches[idMatch] = new Match( teams[idMatch+2] , teams[idMatch+3] , "Pierluigi Collina" , "Sunny" , actions );
+			matches[idMatch] = new Match( 0 , 0 , 0 , teams[idMatch+2] , teams[idMatch+3] , "Pierluigi Collina" , "Sunny" , actions );
 			matches[idMatch].matchSimulation();
 			return;
 		}
 		
 		else {
 			
-			matches[idMatch] = new Match( teams[idMatch+2] , teams[idMatch+1] , "Pierluigi Collina" , "Sunny" , actions );
+			matches[idMatch] = new Match( 0 , 0 , 0 , teams[idMatch+2] , teams[idMatch+1] , "Pierluigi Collina" , "Sunny" , actions );
 			matches[idMatch].matchSimulation();
 			
 			int firstMatchFirstTeamPoint = matches[idMatch-1].getPointHome();

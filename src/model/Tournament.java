@@ -22,13 +22,37 @@ public class Tournament implements Serializable{
 	
 	private int myTeamId;
 	private int myGroupId;
-	private int currentWeek;
 	
-	private final int TOP5 = 5;
-	private final int MID_SEASON_WEEK = 6;
-	private final int TEAMS_PER_GROUP = 4;
-	private final int NUMBER_OF_GROUPS = 8;
-	private final int NUMBER_OF_TEAMS = TEAMS_PER_GROUP * NUMBER_OF_GROUPS;
+	private int currentDay;
+	private int currentMonth;
+	private int currentYear;
+	private int currentWeek;  // NOT USED UP TO NOW
+	private int lastMatchId;
+	private int lastMatchWeek;
+
+	private int[] myGroupMatchIds;
+	
+	private static final int INITIAL_DAY = 1;
+	private static final int INITIAL_MONTH = 11;
+	private static final int INITIAL_YEAR = 2018;
+
+	private final static int TOP5 = 5;
+	private final static int NUMBER_OF_STATS = 7;
+	private final static int MID_SEASON_WEEK = 6;
+	private final static int TEAMS_PER_GROUP = 4;
+	private final static int NUMBER_OF_GROUPS = 8;
+	private final static int NUMBER_OF_TEAMS = 32;
+	private final static int MATCHES_PER_GROUP = 12;
+	private final static int NUMBER_OF_MY_GROUP_MATCHES = 6;
+	
+	private final static int TOTAL_MONTHS = 12;
+	private final static int[] DAYS_MONTH = { 31 , 28 , 31 , 30 , 31 , 30 , 31 , 31 , 30 , 31 , 30 , 31 };
+	
+	private final static int[] GROUP_MATCH_DAYS = { 3 , 4 , 10 , 11 , 17 , 18 , 24 , 25 , 1 , 2 , 8 , 9 };
+	private final static int[] GROUP_MATCH_MONTHS = { 11 , 11 , 11 , 11 , 11 , 11 , 11 , 11 , 12 , 12 , 12 , 12 };
+	private final static int[] GROUP_MATCH_YEARS = { 2018 , 2018 , 2018 , 2018 , 2018 , 2018 , 2018 , 2018 , 2018 , 2018 , 2018 , 2018 };
+	
+	// ELIMINATION MATCH DATES - TO BE ADDED
 	
 	/**
 	 * @param teams
@@ -45,27 +69,50 @@ public class Tournament implements Serializable{
 	 * @return the instance
 	 */
 	public static Tournament getInstance() {
+		
 		if (instance == null) {
-			Group[] groups = new Group[8];
-			int[][] stats = new int[4][7];
-			Match[] match = new Match[12];
-			ArrayList<Action> actions = new ArrayList<Action>();
-			for (int i = 0; i < 12; i++)
-				match[i] = new Match(null, null, "","", actions);
 			
-			Team[] teams = new Team[4];
-			for (int i = 0; i < 4; i++)
+			ArrayList<Action> actions = new ArrayList<Action>();
+			Match[] match = new Match[MATCHES_PER_GROUP];
+			for (int i = 0; i < MATCHES_PER_GROUP; i++)
+				match[i] = new Match(0, 0, 0, null, null, "","", actions);
+			
+			Team[] teams = new Team[TEAMS_PER_GROUP];
+			for (int i = 0; i < TEAMS_PER_GROUP; i++)
 				teams[i] = null;
 			
-			for (int i = 0; i < 8; i++)
+			int[][] stats = new int[TEAMS_PER_GROUP][NUMBER_OF_STATS];
+			
+			Group[] groups = new Group[NUMBER_OF_GROUPS];
+			for (int i = 0; i < NUMBER_OF_GROUPS; i++)
 				groups[i] = new Group(stats,teams, match);
 			
 			ArrayList<Match> matches = new ArrayList<Match>();
 			KnockoutTree kn = new KnockoutTree();
-			Elimination knockout = new Elimination(kn, matches);	
+			Elimination knockout = new Elimination(kn, matches);
+			
 			instance = new Tournament(DatabaseAccess.buildTeams(),groups,knockout);
+			
+			instance.distributeTeams();
+			instance.chooseMyGroupId();
+			
+			instance.currentDay = INITIAL_DAY;
+			instance.currentMonth = INITIAL_MONTH;
+			instance.currentYear = INITIAL_YEAR;
+			instance.lastMatchId = -1;
+			instance.lastMatchWeek = -1;
+			
+			for( int i = 0 ; i < NUMBER_OF_GROUPS ; i++ ) {
+				instance.groups[i].setMatchCalendarOrder();
+				for( int j = 0 ; j < MATCHES_PER_GROUP ; j++ )
+					instance.groups[i].createMatch(j, GROUP_MATCH_DAYS[j], GROUP_MATCH_MONTHS[j], GROUP_MATCH_YEARS[j]);
+			}
+			instance.chooseMyGroupMatchIds();
+			
 			return instance;
+			
 		}
+		
 		else
 			return instance;
 		
@@ -73,6 +120,34 @@ public class Tournament implements Serializable{
 	
 	public static void setInstance( Tournament t ) {
 		instance = t;
+	}
+	
+	public boolean isOnGroupMatch() {
+		if( lastMatchWeek == NUMBER_OF_MY_GROUP_MATCHES - 1 )
+			return false;
+		int nextMatchId = myGroupMatchIds[lastMatchWeek + 1];
+		if( currentDay == GROUP_MATCH_DAYS[nextMatchId] && currentMonth == GROUP_MATCH_MONTHS[nextMatchId] && currentYear == GROUP_MATCH_YEARS[nextMatchId] )
+			return true;
+		return false;
+	}
+	
+	public void goNextDay() {
+		currentDay++;
+		if( currentDay > DAYS_MONTH[currentMonth] ) {
+			currentDay = 1;
+			currentMonth++;
+			if( currentMonth > TOTAL_MONTHS ) {
+				currentMonth = 1;
+				currentYear++;
+			}
+		}
+	}
+	
+	public void chooseMyGroupMatchIds() {
+		myGroupMatchIds = new int[NUMBER_OF_MY_GROUP_MATCHES];
+		for( int i = 0 ; i < 2 * MATCHES_PER_GROUP ; i++ )
+			if( groups[myGroupId].getMatchCalendarSingleTeamId(i) == myTeamId )
+				myGroupMatchIds[i/4] = i/2;
 	}
 	
 	public void orderGroups() {
@@ -105,13 +180,12 @@ public class Tournament implements Serializable{
 		
 	}
 	
-	public void playWeek() {
-		
-		currentWeek++;
-	}
-	
-	public void playMyMatch() {
-		
+	public void playMyGroupMatch() throws InterruptedException {
+		int nextMatchId = myGroupMatchIds[lastMatchWeek + 1];
+		lastMatchWeek++;
+		lastMatchId = nextMatchId;
+		groups[myGroupId].playMatch(nextMatchId);
+		goNextDay();
 	}
 	
 	public boolean isGroupStage() {
@@ -134,11 +208,18 @@ public class Tournament implements Serializable{
 				myTeamId = i;
 	}
 	
+	public void chooseMyGroupId() {
+		for( int i = 0 ; i < groups.length ; i++ )
+			for( int j = 0 ; j < groups[i].getTeams().length ; j++ )
+				if( groups[i].getTeam(j).getName().equals( teams[myTeamId].getName() ) )
+					myGroupId = i;
+	}
+	
 	public void chooseMyGroupId( String teamName ) {
 		for( int i = 0 ; i < groups.length ; i++ )
 			for( int j = 0 ; j < groups[i].getTeams().length ; j++ )
 				if( groups[i].getTeam(j).getName().equals( teamName ) )
-					setMyGroupId(i);
+					myGroupId = i;
 	}
 	
 	public Team[] getEliminationTeams() {
@@ -155,6 +236,14 @@ public class Tournament implements Serializable{
 
 	public void setEliminationTeamIds(int[] eliminationTeamIds) {
 		this.eliminationTeamIds = eliminationTeamIds;
+	}
+	
+	public int[] getMyGroupMatchIds() {
+		return myGroupMatchIds;
+	}
+
+	public void setMyGroupMatchIds(int[] myGroupMatchIds) {
+		this.myGroupMatchIds = myGroupMatchIds;
 	}
 	
 	/**
@@ -219,8 +308,9 @@ public class Tournament implements Serializable{
 		for( int i = 0 ; i < NUMBER_OF_GROUPS ; i++ ) {
 			// groups[i] = new Group();
 			Team[] groupTeams = new Team[TEAMS_PER_GROUP];
-			for( int j = 0 ; j < TEAMS_PER_GROUP ; j++ )
-				groupTeams[j] = teams[ list.get( i * NUMBER_OF_GROUPS + j ) ];
+			for( int j = 0 ; j < TEAMS_PER_GROUP ; j++ ) {
+				groupTeams[j] = teams[ list.get( i * TEAMS_PER_GROUP + j ) ];
+			}
 			groups[i].setTeams( groupTeams );
 		}
 	}
@@ -383,6 +473,46 @@ public class Tournament implements Serializable{
 
 	public void setMyGroupId(int myGroupId) {
 		this.myGroupId = myGroupId;
+	}
+	
+	public int getCurrentDay() {
+		return currentDay;
+	}
+
+	public void setCurrentDay(int currentDay) {
+		this.currentDay = currentDay;
+	}
+
+	public int getCurrentMonth() {
+		return currentMonth;
+	}
+
+	public void setCurrentMonth(int currentMonth) {
+		this.currentMonth = currentMonth;
+	}
+
+	public int getCurrentYear() {
+		return currentYear;
+	}
+
+	public void setCurrentYear(int currentYear) {
+		this.currentYear = currentYear;
+	}
+	
+	public int getLastMatchId() {
+		return lastMatchId;
+	}
+
+	public void setLastMatchId(int lastMatchId) {
+		this.lastMatchId = lastMatchId;
+	}
+	
+	public int getLastMatchWeek() {
+		return lastMatchWeek;
+	}
+
+	public void setLastMatchWeek(int lastMatchWeek) {
+		this.lastMatchWeek = lastMatchWeek;
 	}
 	
 }

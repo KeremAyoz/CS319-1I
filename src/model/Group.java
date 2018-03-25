@@ -120,17 +120,22 @@ public class Group implements Serializable{
 		
 	}
 	
-	public void playMatch( int idMatch ) throws InterruptedException {
-		
+	public void createMatch( int idMatch , int day , int month , int year ) {
 		int idHome = matchCalendar[idMatch * 2];
 		int idAway = matchCalendar[idMatch * 2 + 1];
 		ArrayList<Action> actions = new ArrayList<Action>();
-		
-		matches[idMatch] = new Match( teams[idHome] , teams[idAway] , "Pierluigi Collina" , "Sunny" , actions );
+		matches[idMatch] = new Match( day , month , year , teams[idHome] , teams[idAway] , "Pierluigi Collina" , "Sunny" , actions );
+	}
+	
+	public void createMatch( int idWeek , int dayOrder , int day , int month , int year ) {
+		createMatch( 2 * idWeek + dayOrder , day , month , year );
+	}
+	
+	public void playMatch( int idMatch ) throws InterruptedException {
+		int idHome = matchCalendar[idMatch * 2];
+		int idAway = matchCalendar[idMatch * 2 + 1];
 		matches[idMatch].matchSimulation();
-		
 		modifyGroupStatistics( idMatch , idHome , idAway );
-		
 	}
 	
 	public void playMatch( int idWeek , int dayOrder ) throws InterruptedException {
@@ -232,6 +237,10 @@ public class Group implements Serializable{
 		return matchCalendar;
 	}
 
+	public int getMatchCalendarSingleTeamId( int no ) {
+		return matchCalendar[no];
+	}
+	
 	public void setMatchCalendar(int[] matchCalendar) {
 		this.matchCalendar = matchCalendar;
 	}

@@ -200,7 +200,7 @@ public class Main extends Application {
 		Team team1 = getFirstTeam();
 		Team team2 = getSecondTeam();
 		ArrayList<Action> actions = new ArrayList<Action>();
-		Match match = new Match(team1, team2, "Pierluigi Collina", "Sunny", actions);
+		Match match = new Match( 0 , 0 , 0 , team1, team2, "Pierluigi Collina", "Sunny", actions);
 		actions = match.matchSimulation();
 		System.out.println("Match Score: " + match.getGoalHome() + " / " + match.getGoalAway());
 		for (int i = 0; i < actions.size(); i++) {

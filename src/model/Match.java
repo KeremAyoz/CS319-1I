@@ -16,6 +16,10 @@ public class Match implements Serializable{
 	private String weather;
 	private ArrayList<Action> actions;
 	
+	private int date_day;
+	private int date_month;
+	private int date_year;
+	
 	private boolean delay;
 	
 	private int goalHome;
@@ -40,7 +44,10 @@ public class Match implements Serializable{
 	 * @param weather
 	 * @param actions
 	 */
-	public Match(Team home, Team away, String referee, String weather, ArrayList<Action> actions) {
+	public Match(int date_day , int date_month, int date_year, Team home, Team away, String referee, String weather, ArrayList<Action> actions) {
+		this.date_day = date_day;
+		this.date_month = date_month;
+		this.date_year = date_year;
 		this.home = home;
 		this.away = away;
 		this.referee = referee;
@@ -51,7 +58,10 @@ public class Match implements Serializable{
 		this.setDelay(false);
 	}
 
-	public Match(Team home, Team away, String referee, String weather, ArrayList<Action> actions, boolean delay) {
+	public Match(int date_day , int date_month, int date_year, Team home, Team away, String referee, String weather, ArrayList<Action> actions, boolean delay) {
+		this.date_day = date_day;
+		this.date_month = date_month;
+		this.date_year = date_year;
 		this.home = home;
 		this.away = away;
 		this.referee = referee;
@@ -267,6 +277,30 @@ public class Match implements Serializable{
 
 	public void setDelay(boolean delay) {
 		this.delay = delay;
+	}
+	
+	public int getDate_day() {
+		return date_day;
+	}
+
+	public void setDate_day(int date_day) {
+		this.date_day = date_day;
+	}
+
+	public int getDate_month() {
+		return date_month;
+	}
+
+	public void setDate_month(int date_month) {
+		this.date_month = date_month;
+	}
+
+	public int getDate_year() {
+		return date_year;
+	}
+
+	public void setDate_year(int date_year) {
+		this.date_year = date_year;
 	}
 	
 }

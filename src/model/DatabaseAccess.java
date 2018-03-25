@@ -1977,7 +1977,7 @@ public class DatabaseAccess {
 		teams[26] = createAtletico();
 		teams[27] = createInter();
 		teams[28] = createFenerbahce();
-		teams[29] = createTotthenam();
+		teams[29] = createTottenham();
 		teams[30] = createJuventus();
 		teams[31] = createPsv();
 		return teams;

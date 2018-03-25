@@ -103,11 +103,13 @@ public class MatchPlayController implements Initializable {
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
-
+		
+		
 		Team home = Main.getFirstTeam();
 		Team away = Main.getSecondTeam();
 		ArrayList<Action> actions = new ArrayList<Action>();
 		Match match = new Match(home, away, "Pierluigi Collina", "Sunny", actions);
+		match.setDelay(true);
 		try {
 			actions = match.matchSimulation();
 		} catch (InterruptedException e) {
@@ -115,32 +117,7 @@ public class MatchPlayController implements Initializable {
 			e.printStackTrace();
 		}
 
-		homeName.setText(home.getName());
-		awayName.setText(away.getName());
-
-		hGK.setText(home.getPlayers().get(0).getName());
-		hRB.setText(home.getPlayers().get(1).getName());
-		hCB1.setText(home.getPlayers().get(2).getName());
-		hCB2.setText(home.getPlayers().get(3).getName());
-		hLB.setText(home.getPlayers().get(4).getName());
-		hCM1.setText(home.getPlayers().get(5).getName());
-		hCM2.setText(home.getPlayers().get(6).getName());
-		hCM3.setText(home.getPlayers().get(7).getName());
-		hRW.setText(home.getPlayers().get(8).getName());
-		hST.setText(home.getPlayers().get(9).getName());
-		hLW.setText(home.getPlayers().get(10).getName());
-
-		aGK.setText(away.getPlayers().get(0).getName());
-		aRB.setText(away.getPlayers().get(1).getName());
-		aCB1.setText(away.getPlayers().get(2).getName());
-		aCB2.setText(away.getPlayers().get(3).getName());
-		aLB.setText(away.getPlayers().get(4).getName());
-		aCM1.setText(away.getPlayers().get(5).getName());
-		aCM2.setText(away.getPlayers().get(6).getName());
-		aCM3.setText(away.getPlayers().get(7).getName());
-		aRW.setText(away.getPlayers().get(8).getName());
-		aST.setText(away.getPlayers().get(9).getName());
-		aLW.setText(away.getPlayers().get(10).getName());
+		
 
 		ArrayList<String> actionList = new ArrayList<String>();
 
@@ -197,7 +174,6 @@ public class MatchPlayController implements Initializable {
 		}
 		
 		score.setText(match.getGoalHome() + " - " + match.getGoalAway());
-
 	}
 	
 	@FXML

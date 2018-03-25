@@ -8,9 +8,7 @@ import java.time.Month;
 import java.time.format.DateTimeFormatter;
 import java.util.Collections;
 import java.util.ResourceBundle;
-
 import javax.swing.plaf.synth.SynthSpinnerUI;
-
 import javafx.fxml.FXML;
 import model.*;
 import javafx.fxml.FXMLLoader;

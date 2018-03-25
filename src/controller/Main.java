@@ -195,6 +195,7 @@ public class Main extends Application {
 		System.out.println(c.getTeams() == null);
 		Database.loadCurrentGame();
 		c.setMyTeamId(4);
+		TeamController.setCurrentTeamId(4);
 		launch(args);
 		Team team1 = getFirstTeam();
 		Team team2 = getSecondTeam();

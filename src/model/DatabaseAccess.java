@@ -1866,7 +1866,7 @@ public class DatabaseAccess {
 		players.add(new Player("Toure", 29, 185, 70, "Cameroon", "RB", getOverall(), 'R', 1000000, 10000000,
 				true, getAttributes(), actions));
 		players.add(new Player("Serrano", 23, 175, 70, "France", "LB", getOverall(), 'R', 1000000, 10000000,
-				true, getAttributes(), actions));3
+				true, getAttributes(), actions));
 		players.add(new Player("Tielemans", 28, 191, 70, "Belgium", "CM", getOverall(), 'R', 1000000, 10000000, true,
 				getAttributes(), actions));
 		players.add(new Player("Glik", 19, 185, 70, "Poland", "CB", getOverall(), 'R', 1000000, 10000000, true,

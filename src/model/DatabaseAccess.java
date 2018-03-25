@@ -1717,7 +1717,7 @@ public class DatabaseAccess {
 		return team;
 	}
 
-	public static Team createTotthenam() {
+	public static Team createTottenham() {
 		ArrayList<Player> players = new ArrayList<Player>();
 		ArrayList<Action> actions = new ArrayList<Action>();
 		// GK 1
@@ -1949,7 +1949,7 @@ public class DatabaseAccess {
 	public static Team[] buildTeams() {
 		Team[] teams = new Team[32];
 		teams[0] = createAjax();
-		teams[1] = createDortmund();
+		teams[1] = createMonaco();
 		teams[2] = createBarcelona();
 		teams[3] = createGalatasaray();
 		teams[4] = createPsg();

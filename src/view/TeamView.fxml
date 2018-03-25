@@ -57,7 +57,7 @@
                   <Image url="@../../img/logo.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="teamImage" fitHeight="273.0" fitWidth="300.0" layoutX="967.0" layoutY="216.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="teamImage" fitHeight="273.0" fitWidth="300.0" layoutX="975.0" layoutY="220.0" pickOnBounds="true" preserveRatio="true" />
             <GridPane fx:id="playerGrid" gridLinesVisible="true" layoutX="83.0" layoutY="200.0" prefHeight="662.0" prefWidth="764.0">
               <columnConstraints>
                 <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="200.0" prefWidth="100.0" />
@@ -116,12 +116,55 @@
                <font>
                   <Font name="Gill Sans Bold" size="16.0" />
                </font></Text>
-            <Pane layoutX="899.0" layoutY="500.0" prefHeight="342.0" prefWidth="458.0" />
-            <Text fx:id="name" layoutX="1100.0" layoutY="550.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" />
-            <Text fx:id="nick" layoutX="1100.0" layoutY="750.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" />
-            <Text fx:id="stars" layoutX="1100.0" layoutY="800.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" />
-            <Text fx:id="history" layoutX="1100.0" layoutY="650.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" />
-            <Text fx:id="stadium" layoutX="1100.0" layoutY="600.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" />
+            <Pane layoutX="895.0" layoutY="508.0" prefHeight="342.0" prefWidth="458.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#dde6ee" height="264.0" layoutX="60.0" layoutY="63.0" stroke="BLACK" strokeType="INSIDE" width="319.0" />
+                  <Text layoutX="90.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Stadium:">
+                     <font>
+                        <Font name="Gill Sans Bold" size="18.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="90.0" layoutY="151.0" strokeType="OUTSIDE" strokeWidth="0.0" text="History:">
+                     <font>
+                        <Font name="Gill Sans Bold" size="18.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="90.0" layoutY="197.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nation:">
+                     <font>
+                        <Font name="Gill Sans Bold" size="18.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="90.0" layoutY="246.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nick:">
+                     <font>
+                        <Font name="Gill Sans Bold" size="18.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="90.0" layoutY="295.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Stars:">
+                     <font>
+                        <Font name="Gill Sans Bold" size="18.0" />
+                     </font>
+                  </Text>
+               </children></Pane>
+            <Text fx:id="name" layoutX="940.0" layoutY="550.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Paris Saint Germain" textAlignment="CENTER">
+               <font>
+                  <Font name="Gill Sans UltraBold" size="29.0" />
+               </font></Text>
+            <Text fx:id="nick" layoutX="1097.0" layoutY="754.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER">
+               <font>
+                  <Font name="Gill Sans" size="17.0" />
+               </font></Text>
+            <Text fx:id="stars" layoutX="1097.0" layoutY="806.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER">
+               <font>
+                  <Font name="Gill Sans" size="17.0" />
+               </font></Text>
+            <Text fx:id="history" layoutX="1097.0" layoutY="660.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER">
+               <font>
+                  <Font name="Gill Sans" size="17.0" />
+               </font></Text>
+            <Text fx:id="stadium" layoutX="1097.0" layoutY="615.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER">
+               <font>
+                  <Font name="Gill Sans" size="17.0" />
+               </font></Text>
          </children>
       </Pane>
       <Text fx:id="value" layoutX="687.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Value">
@@ -130,6 +173,9 @@
          </font></Text>
       <Box layoutX="800.0" layoutY="500.0" />
       <Box layoutX="1000.0" layoutY="600.0" />
-      <Text fx:id="nation" layoutX="1100.0" layoutY="700.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" />
+      <Text fx:id="nation" layoutX="1097.0" layoutY="706.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER">
+         <font>
+            <Font name="Gill Sans" size="17.0" />
+         </font></Text>
    </children>
 </Pane>

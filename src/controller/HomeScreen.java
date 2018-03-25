@@ -20,7 +20,7 @@ public class HomeScreen implements Initializable {
 	    @FXML private WebView deneme;
 
 	    public void newGameClicked() throws IOException {
-	        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/TopMenu.fxml"));
+	        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/NewGameView.fxml"));
 	        Parent root = loader.load();
 	        Main.getMainStage().setScene(new Scene(root)); 
 	    }

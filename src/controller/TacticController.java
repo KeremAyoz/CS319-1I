@@ -302,7 +302,6 @@ public class TacticController implements Initializable {
 		Tournament current = Tournament.getInstance();
 		Team t = current.getTeams()[current.getMyTeamId()];
 		teamName.setText(t.getName());
-		teamName.setStyle("-fx-text-inner-color: blue;");
 		File tactic = new File("img/tactics/" + t.getTactic() + ".png");
 		Image tacticImage = new Image(tactic.toURI().toString(), 610, 490, false, false);
 		tacticField.setImage(tacticImage);

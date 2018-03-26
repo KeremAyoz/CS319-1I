@@ -26,7 +26,7 @@ public class HomeScreen implements Initializable {
 	    }
 	    
 	    public void loadGameClicked() throws IOException {
-	        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/TopMenu.fxml"));
+	        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/TeamView.fxml"));
 	        Parent root = loader.load();
 	        Main.getMainStage().setScene(new Scene(root)); 
 	    }

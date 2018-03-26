@@ -9,6 +9,9 @@ import java.time.format.DateTimeFormatter;
 import java.util.Collections;
 import java.util.ResourceBundle;
 import javax.swing.plaf.synth.SynthSpinnerUI;
+
+import com.sun.prism.paint.Color;
+
 import javafx.fxml.FXML;
 import model.*;
 import javafx.fxml.FXMLLoader;
@@ -145,7 +148,10 @@ public class TacticController implements Initializable {
 		calibrateNames();
 
 		// Team Logo
-		File file = new File("img/psg.png");
+		String st = t.getName().toLowerCase().trim();
+		st = st.replaceAll("\\s+","");
+		System.out.println(st);
+		File file = new File("img/logos/" + st + ".png");
 		Image image = new Image(file.toURI().toString());
 		logo.setImage(image);
 
@@ -296,6 +302,7 @@ public class TacticController implements Initializable {
 		Tournament current = Tournament.getInstance();
 		Team t = current.getTeams()[current.getMyTeamId()];
 		teamName.setText(t.getName());
+		teamName.setStyle("-fx-text-inner-color: blue;");
 		File tactic = new File("img/tactics/" + t.getTactic() + ".png");
 		Image tacticImage = new Image(tactic.toURI().toString(), 610, 490, false, false);
 		tacticField.setImage(tacticImage);
@@ -409,7 +416,7 @@ public class TacticController implements Initializable {
 
 		Tournament current = Tournament.getInstance();
 		Team t = current.getTeams()[current.getMyTeamId()];
-		for (int i = 0; i < 19; i++) {
+		for (int i = 0; i < 20; i++) {
 			Text playerName = new Text(t.getPlayers().get(i).getName());
 			Text overall = new Text(t.getPlayers().get(i).getOverall() + "");
 			Text nation = new Text(t.getPlayers().get(i).getNationality());

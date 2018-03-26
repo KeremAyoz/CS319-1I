@@ -190,13 +190,14 @@ public class Main extends Application {
 	}
 
 	public static void main(String[] args) throws InterruptedException, IOException, ClassNotFoundException {
-		Tournament c = Tournament.getInstance();
+		/*Tournament c = Tournament.getInstance();
 		Database.saveCurrentGame(c);
-		System.out.println(c.getTeams() == null);
-		Database.loadCurrentGame();
+		System.out.println(c.getTeams() == null);*/
+		Tournament c = Database.loadCurrentGame();
 		c.setMyTeamId(4);
 		TeamController.setCurrentTeamId(4);
 		launch(args);
+		Database.saveCurrentGame(c);/*
 		Team team1 = getFirstTeam();
 		Team team2 = getSecondTeam();
 		ArrayList<Action> actions = new ArrayList<Action>();
@@ -285,7 +286,7 @@ public class Main extends Application {
 		System.out.print("Real Madrid: ");
 		for( int i = 0 ; i < team2.getPlayers().size() ; i++ )
 			System.out.print( team2.getPlayers().get(i).getCntRedCard() + " " );
-		System.out.println();
+		System.out.println();*/
 	}
 
 	public static void setMainStage(Stage mainStage) {

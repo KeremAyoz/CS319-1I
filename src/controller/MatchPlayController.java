@@ -109,7 +109,7 @@ public class MatchPlayController implements Initializable {
 		Team away = Main.getSecondTeam();
 		ArrayList<Action> actions = new ArrayList<Action>();
 		Match match = new Match(0, 0, 0, home, away, "Pierluigi Collina", "Sunny", actions);
-		match.setDelay(true);
+		match.setDelay(false);
 		try {
 			actions = match.matchSimulation();
 		} catch (InterruptedException e) {

@@ -71,7 +71,7 @@ public class Tournament implements Serializable{
 	public static Tournament getInstance() {
 		
 		if (instance == null) {
-			
+			System.out.println("Something");
 			ArrayList<Action> actions = new ArrayList<Action>();
 			Match[] match = new Match[MATCHES_PER_GROUP];
 			for (int i = 0; i < MATCHES_PER_GROUP; i++)

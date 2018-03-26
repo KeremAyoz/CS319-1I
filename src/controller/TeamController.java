@@ -60,7 +60,8 @@ public class TeamController implements Initializable {
 			Text pFoot = new Text(p.getFoot() + "");
 			Text pSalary = new Text(String.valueOf(p.getSalary()));
 			Text pValue = new Text(String.valueOf(p.getValue()));
-
+ 
+			
 			File nationImg = new File("img/flags/" + p.getNationality().toLowerCase().trim() + ".png");
 			ImageView flag = new ImageView(new Image(nationImg.toURI().toString()));
 			flag.setFitHeight(20);
@@ -76,7 +77,10 @@ public class TeamController implements Initializable {
 		}
 		
 		//Team Logo
-		File file = new File("img/psg.png");
+		String st = cur.getName().toLowerCase().trim();
+		st = st.replaceAll("\\s+","");
+		System.out.println(st);
+		File file = new File("img/logos/" + st + ".png");
 		Image image = new Image(file.toURI().toString());
 		teamImage.setImage(image);
 		

@@ -182,6 +182,40 @@ public class NewGameController implements Initializable {
 		team31.setToggleGroup(toggleGroup);
 		team32.setToggleGroup(toggleGroup);
 
+		Tournament cur = Tournament.getInstance();
+		team1.setText(cur.getTeams()[0].getName());
+		team2.setText(cur.getTeams()[1].getName());
+		team3.setText(cur.getTeams()[2].getName());
+		team4.setText(cur.getTeams()[3].getName());
+		team5.setText(cur.getTeams()[4].getName());
+		team6.setText(cur.getTeams()[5].getName());
+		team7.setText(cur.getTeams()[6].getName());
+		team8.setText(cur.getTeams()[7].getName());
+		team9.setText(cur.getTeams()[8].getName());
+		team10.setText(cur.getTeams()[9].getName());
+		team11.setText(cur.getTeams()[10].getName());
+		team12.setText(cur.getTeams()[11].getName());
+		team13.setText(cur.getTeams()[12].getName());
+		team14.setText(cur.getTeams()[13].getName());
+		team15.setText(cur.getTeams()[14].getName());
+		team16.setText(cur.getTeams()[15].getName());
+		team17.setText(cur.getTeams()[16].getName());
+		team18.setText(cur.getTeams()[17].getName());
+		team19.setText(cur.getTeams()[18].getName());
+		team20.setText(cur.getTeams()[19].getName());
+		team21.setText(cur.getTeams()[20].getName());
+		team22.setText(cur.getTeams()[21].getName());
+		team23.setText(cur.getTeams()[22].getName());
+		team24.setText(cur.getTeams()[23].getName());
+		team25.setText(cur.getTeams()[24].getName());
+		team26.setText(cur.getTeams()[25].getName());
+		team27.setText(cur.getTeams()[26].getName());
+		team28.setText(cur.getTeams()[27].getName());
+		team29.setText(cur.getTeams()[28].getName());
+		team30.setText(cur.getTeams()[29].getName());
+		team31.setText(cur.getTeams()[30].getName());
+		team32.setText(cur.getTeams()[31].getName());
+
 	}
 
 	@FXML
@@ -198,7 +232,7 @@ public class NewGameController implements Initializable {
 
 	@FXML
 	public void pressedDone() throws IOException {
-		String teamSelected = ((RadioButton)((toggleGroup.getSelectedToggle()))).getText();
+		String teamSelected = ((RadioButton) ((toggleGroup.getSelectedToggle()))).getText();
 		Tournament t = Tournament.getInstance();
 		int id = -1;
 		for (int i = 0; i < 32; i++) {
@@ -208,9 +242,9 @@ public class NewGameController implements Initializable {
 				break;
 			}
 		}
-		System.out.println("Geçti");
 		t.setMyTeamId(id);
-		Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("/view/TopMenu.fxml"));
+		TeamController.setCurrentTeamId(id);
+		Parent root = FXMLLoader.load(getClass().getResource("/view/TeamView.fxml")); // lands seçili olmalı
 		Main.getMainStage().setScene(new Scene(root));
 	}
 

@@ -89,7 +89,6 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
             </GridPane>
             <Text fx:id="playerName" layoutX="139.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player Name">
@@ -118,7 +117,7 @@
                </font></Text>
             <Pane layoutX="895.0" layoutY="508.0" prefHeight="342.0" prefWidth="458.0">
                <children>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#dde6ee" height="264.0" layoutX="60.0" layoutY="63.0" stroke="BLACK" strokeType="INSIDE" width="319.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#dde6ee" height="264.0" layoutX="60.0" layoutY="63.0" stroke="BLACK" strokeType="INSIDE" width="352.0" />
                   <Text layoutX="90.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Stadium:">
                      <font>
                         <Font name="Gill Sans Bold" size="18.0" />
@@ -145,9 +144,9 @@
                      </font>
                   </Text>
                </children></Pane>
-            <Text fx:id="name" layoutX="940.0" layoutY="550.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Paris Saint Germain" textAlignment="CENTER">
+            <Text fx:id="name" layoutX="985.0" layoutY="550.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Paris Saint Germain" textAlignment="CENTER">
                <font>
-                  <Font name="Gill Sans UltraBold" size="29.0" />
+                  <Font name="Gill Sans Bold" size="34.0" />
                </font></Text>
             <Text fx:id="nick" layoutX="1097.0" layoutY="754.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER">
                <font>

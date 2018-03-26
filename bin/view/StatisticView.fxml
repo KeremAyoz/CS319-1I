@@ -1,16 +1,196 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.StatisticController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.StatisticController">
    <children>
-      <ImageView fitHeight="127.0" fitWidth="410.0" layoutX="172.0" layoutY="245.0">
-         <image>
-            <Image url="@../../img/home.jpg" />
-         </image>
-      </ImageView>
+      <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1400.0">
+         <children>
+            <Hyperlink layoutX="189.0" layoutY="41.0" onAction="#teamClicked" prefHeight="58.0" prefWidth="134.0" text="Team" textFill="#802525">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Hyperlink>
+            <Hyperlink layoutX="291.0" layoutY="41.0" onAction="#tacticClicked" prefHeight="58.0" prefWidth="134.0" text="Tactics" textFill="#802525">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Hyperlink>
+            <Hyperlink layoutX="411.0" layoutY="41.0" onAction="#groupClicked" prefHeight="58.0" prefWidth="167.0" text="Group Stage" textFill="#802525">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Hyperlink>
+            <Hyperlink layoutX="579.0" layoutY="41.0" onAction="#knockoutClicked" prefHeight="58.0" prefWidth="134.0" text="Knockout" textFill="#802525">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Hyperlink>
+            <Hyperlink layoutX="724.0" layoutY="41.0" onAction="#statClicked" prefHeight="58.0" prefWidth="134.0" text="Statistics" textFill="#802525">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Hyperlink>
+            <Hyperlink layoutX="869.0" layoutY="41.0" onAction="#calendarClicked" prefHeight="58.0" prefWidth="134.0" text="Calendar" textFill="#802525">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Hyperlink>
+            <Hyperlink layoutX="989.0" layoutY="41.0" onAction="#saveClicked" prefHeight="58.0" prefWidth="171.0" text="Save&amp;Exit" textFill="#802525">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Hyperlink>
+            <Button layoutX="1185.0" layoutY="38.0" mnemonicParsing="false" onAction="#continueClicked" prefHeight="73.0" prefWidth="152.0" text="Continue">
+               <font>
+                  <Font name="System Bold" size="26.0" />
+               </font>
+            </Button>
+            <Line endX="1160.0" layoutX="240.0" layoutY="145.0" startX="-240.0" />
+            <ImageView fitHeight="151.0" fitWidth="135.0" layoutX="25.0" preserveRatio="true">
+               <image>
+                  <Image url="@../../img/logo.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="351.0" layoutX="94.0" layoutY="400.0" stroke="BLACK" strokeType="INSIDE" width="280.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="351.0" layoutX="400.0" layoutY="400.0" stroke="BLACK" strokeType="INSIDE" width="280.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="351.0" layoutX="700.0" layoutY="400.0" stroke="BLACK" strokeType="INSIDE" width="280.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="351.0" layoutX="1000.0" layoutY="400.0" stroke="BLACK" strokeType="INSIDE" width="280.0" />
+            <Text fill="#0c3fe8" layoutX="117.0" layoutY="444.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Top Scorers">
+               <font>
+                  <Font name="Gill Sans UltraBold" size="32.0" />
+               </font>
+            </Text>
+            <Text fill="#4e8d6d" layoutX="407.0" layoutY="444.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Top Assisters">
+               <font>
+                  <Font name="Gill Sans UltraBold" size="32.0" />
+               </font>
+            </Text>
+            <Text fill="#b9b435" layoutX="725.0" layoutY="444.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Yellow Card">
+               <font>
+                  <Font name="Gill Sans UltraBold" size="32.0" />
+               </font>
+            </Text>
+            <Text fill="RED" layoutX="1047.0" layoutY="444.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Red Card">
+               <font>
+                  <Font name="Gill Sans UltraBold" size="32.0" />
+               </font>
+            </Text>
+            <Text fill="#5e5d5d" layoutX="488.0" layoutY="231.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Statistics of the Stars League" textAlignment="CENTER">
+               <font>
+                  <Font name="Gill Sans" size="36.0" />
+               </font>
+            </Text>
+            <Line endX="140.0" layoutX="232.0" layoutY="463.0" startX="-135.0" />
+            <Line endX="70.0" layoutX="610.0" layoutY="464.0" startX="-210.0" />
+            <Line endX="120.0" layoutX="858.0" layoutY="464.0" startX="-155.0" />
+            <Line endX="120.0" layoutX="1160.0" layoutY="464.0" startX="-155.0" />
+            <Text layoutX="95.0" layoutY="497.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ronaldo                     10" textAlignment="CENTER" wrappingWidth="275.69396209716797">
+               <font>
+                  <Font name="Gill Sans" size="26.0" />
+               </font>
+            </Text>
+            <Text layoutX="95.0" layoutY="545.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Messi                         10" textAlignment="CENTER" wrappingWidth="274.1863250732422">
+               <font>
+                  <Font name="Gill Sans" size="26.0" />
+               </font>
+            </Text>
+            <Text layoutX="95.0" layoutY="593.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gomis                          8" textAlignment="CENTER" wrappingWidth="276.60758209228516">
+               <font>
+                  <Font name="Gill Sans" size="26.0" />
+               </font>
+            </Text>
+            <Text layoutX="95.0" layoutY="647.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Agustin                         7" textAlignment="CENTER" wrappingWidth="277.8181915283203">
+               <font>
+                  <Font name="Gill Sans" size="26.0" />
+               </font>
+            </Text>
+            <Text layoutX="95.0" layoutY="708.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sane                             5" textAlignment="CENTER" wrappingWidth="280.2394332885742">
+               <font>
+                  <Font name="Gill Sans" size="26.0" />
+               </font>
+            </Text>
+            <Text layoutX="403.0" layoutY="708.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sane                             5" textAlignment="CENTER" wrappingWidth="280.2394332885742">
+               <font>
+                  <Font name="Gill Sans" size="26.0" />
+               </font>
+            </Text>
+            <Text layoutX="403.0" layoutY="647.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Agustin                         7" textAlignment="CENTER" wrappingWidth="277.8181915283203">
+               <font>
+                  <Font name="Gill Sans" size="26.0" />
+               </font>
+            </Text>
+            <Text layoutX="403.0" layoutY="593.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gomis                          8" textAlignment="CENTER" wrappingWidth="276.60758209228516">
+               <font>
+                  <Font name="Gill Sans" size="26.0" />
+               </font>
+            </Text>
+            <Text layoutX="403.0" layoutY="545.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Messi                         10" textAlignment="CENTER" wrappingWidth="274.1863250732422">
+               <font>
+                  <Font name="Gill Sans" size="26.0" />
+               </font>
+            </Text>
+            <Text layoutX="403.0" layoutY="497.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ronaldo                     10" textAlignment="CENTER" wrappingWidth="275.69396209716797">
+               <font>
+                  <Font name="Gill Sans" size="26.0" />
+               </font>
+            </Text>
+            <Text layoutX="701.0" layoutY="708.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sane                             5" textAlignment="CENTER" wrappingWidth="280.2394332885742">
+               <font>
+                  <Font name="Gill Sans" size="26.0" />
+               </font>
+            </Text>
+            <Text layoutX="701.0" layoutY="647.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Agustin                         7" textAlignment="CENTER" wrappingWidth="277.8181915283203">
+               <font>
+                  <Font name="Gill Sans" size="26.0" />
+               </font>
+            </Text>
+            <Text layoutX="701.0" layoutY="593.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gomis                          8" textAlignment="CENTER" wrappingWidth="276.60758209228516">
+               <font>
+                  <Font name="Gill Sans" size="26.0" />
+               </font>
+            </Text>
+            <Text layoutX="701.0" layoutY="545.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Messi                         10" textAlignment="CENTER" wrappingWidth="274.1863250732422">
+               <font>
+                  <Font name="Gill Sans" size="26.0" />
+               </font>
+            </Text>
+            <Text layoutX="701.0" layoutY="497.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ronaldo                     10" textAlignment="CENTER" wrappingWidth="275.69396209716797">
+               <font>
+                  <Font name="Gill Sans" size="26.0" />
+               </font>
+            </Text>
+            <Text layoutX="1005.0" layoutY="708.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sane                             5" textAlignment="CENTER" wrappingWidth="280.2394332885742">
+               <font>
+                  <Font name="Gill Sans" size="26.0" />
+               </font>
+            </Text>
+            <Text layoutX="1005.0" layoutY="647.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Agustin                         7" textAlignment="CENTER" wrappingWidth="277.8181915283203">
+               <font>
+                  <Font name="Gill Sans" size="26.0" />
+               </font>
+            </Text>
+            <Text layoutX="1005.0" layoutY="593.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gomis                          8" textAlignment="CENTER" wrappingWidth="276.60758209228516">
+               <font>
+                  <Font name="Gill Sans" size="26.0" />
+               </font>
+            </Text>
+            <Text layoutX="1005.0" layoutY="545.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Messi                         10" textAlignment="CENTER" wrappingWidth="274.1863250732422">
+               <font>
+                  <Font name="Gill Sans" size="26.0" />
+               </font>
+            </Text>
+            <Text layoutX="1005.0" layoutY="497.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ronaldo                     10" textAlignment="CENTER" wrappingWidth="275.69396209716797">
+               <font>
+                  <Font name="Gill Sans" size="26.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
    </children>
 </Pane>

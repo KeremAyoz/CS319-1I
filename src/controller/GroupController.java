@@ -109,7 +109,6 @@ public class GroupController implements Initializable {
 		t2.setText(cur.getTeam(1).getName());
 		t3.setText(cur.getTeam(2).getName());
 		t4.setText(cur.getTeam(3).getName());
-		System.out.println("HEEEY" + cur.getStatistics()[3][2]);
 		
 		t1p.setText(String.valueOf(cur.getStatistics()[0][0]));
 		t2p.setText(String.valueOf(cur.getStatistics()[1][0]));

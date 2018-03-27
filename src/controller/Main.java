@@ -196,6 +196,9 @@ public class Main extends Application {
 		Tournament c = Database.loadCurrentGame();
 		c.setMyTeamId(4);
 		TeamController.setCurrentTeamId(4);
+		c.getTeams()[4].getPlayers().get(10).setCntGoal(8);
+		c.getTeams()[4].getPlayers().get(9).setCntGoal(8);
+		System.out.println(c.getTeams()[4].getPlayers().get(10).getCntGoal());
 		launch(args);
 		Database.saveCurrentGame(c);/*
 		Team team1 = getFirstTeam();

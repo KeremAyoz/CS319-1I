@@ -73,6 +73,29 @@ public class TacticController implements Initializable {
 	private ImageView tacticField;
 
 	@FXML
+	private ComboBox<String> pl1;
+	@FXML
+	private ComboBox<String> pl2;
+	@FXML
+	private ComboBox<String> pl3;
+	@FXML
+	private ComboBox<String> pl4;
+	@FXML
+	private ComboBox<String> pl5;
+	@FXML
+	private ComboBox<String> pl6;
+	@FXML
+	private ComboBox<String> pl7;
+	@FXML
+	private ComboBox<String> pl8;
+	@FXML
+	private ComboBox<String> pl9;
+	@FXML
+	private ComboBox<String> pl10;
+	@FXML
+	private ComboBox<String> pl11;
+
+	@FXML
 	private ComboBox<String> sub1;
 	@FXML
 	private ComboBox<String> sub2;
@@ -146,10 +169,10 @@ public class TacticController implements Initializable {
 
 		tacticFieldSetup();
 		calibrateNames();
-
+		playerBoxSetup(t.getTactic(), false);
 		// Team Logo
 		String st = t.getName().toLowerCase().trim();
-		st = st.replaceAll("\\s+","");
+		st = st.replaceAll("\\s+", "");
 		System.out.println(st);
 		File file = new File("img/logos/" + st + ".png");
 		Image image = new Image(file.toURI().toString());
@@ -160,6 +183,9 @@ public class TacticController implements Initializable {
 		styleBox.getItems().addAll("Attack", "Defensive", "Holding");
 		tempoBox.getItems().addAll("Fast", "Normal", "Slow");
 
+		tacticBox.getSelectionModel().select(t.getTactic());
+		styleBox.getSelectionModel().select(t.getStyle());
+		tempoBox.getSelectionModel().select(t.getTempo());
 		// Sub-players' comboBox setup
 		comboBoxSetup(t.getTactic());
 		gridUpdate();
@@ -198,7 +224,7 @@ public class TacticController implements Initializable {
 			lb.setLayoutX(94);
 			lb.setLayoutY(370);
 
-			//RW
+			// RW
 			cm1.setLayoutX(280);
 			cm1.setLayoutY(300);
 
@@ -237,20 +263,20 @@ public class TacticController implements Initializable {
 
 			lb.setLayoutX(94);
 			lb.setLayoutY(369);
-			
-			//RW
+
+			// RW
 			cm1.setLayoutX(435);
 			cm1.setLayoutY(225);
-			
-			//RCM
+
+			// RCM
 			cm2.setLayoutX(350);
 			cm2.setLayoutY(270);
-			
-			//LCM
+
+			// LCM
 			cm3.setLayoutX(220);
 			cm3.setLayoutY(270);
-			
-			//LW
+
+			// LW
 			rw.setLayoutX(120);
 			rw.setLayoutY(225);
 
@@ -274,15 +300,15 @@ public class TacticController implements Initializable {
 
 			lb.setLayoutX(94);
 			lb.setLayoutY(370);
-			
-			//RCM
+
+			// RCM
 			cm1.setLayoutX(370);
 			cm1.setLayoutY(285);
 
 			cm2.setLayoutX(425);
 			cm2.setLayoutY(200);
-			
-			//LCM
+
+			// LCM
 			cm3.setLayoutX(194);
 			cm3.setLayoutY(285);
 
@@ -407,6 +433,127 @@ public class TacticController implements Initializable {
 	}
 
 	@FXML
+	public void pl1Change() {
+		Tournament current = Tournament.getInstance();
+		Team t = current.getTeams()[current.getMyTeamId()];
+		// Swapping
+		Collections.swap(t.getPlayers(), pl1.getSelectionModel().getSelectedIndex(), 0);
+		gridUpdate();
+		playerBoxSetup(t.getTactic(), false);
+		calibrateNames();
+	}
+
+	@FXML
+	public void pl2Change() {
+		Tournament current = Tournament.getInstance();
+		Team t = current.getTeams()[current.getMyTeamId()];
+		// Swapping
+		Collections.swap(t.getPlayers(), pl2.getSelectionModel().getSelectedIndex(), 1);
+		gridUpdate();
+		playerBoxSetup(t.getTactic(), false);
+		calibrateNames();
+	}
+
+	@FXML
+	public void pl3Change() {
+		Tournament current = Tournament.getInstance();
+		Team t = current.getTeams()[current.getMyTeamId()];
+		// Swapping
+		Collections.swap(t.getPlayers(), pl3.getSelectionModel().getSelectedIndex(), 2);
+		gridUpdate();
+		playerBoxSetup(t.getTactic(), false);
+		calibrateNames();
+	}
+
+	@FXML
+	public void pl4Change() {
+		Tournament current = Tournament.getInstance();
+		Team t = current.getTeams()[current.getMyTeamId()];
+		// Swapping
+		Collections.swap(t.getPlayers(), pl4.getSelectionModel().getSelectedIndex(), 3);
+		gridUpdate();
+		playerBoxSetup(t.getTactic(), false);
+		calibrateNames();
+	}
+
+	@FXML
+	public void pl5Change() {
+		Tournament current = Tournament.getInstance();
+		Team t = current.getTeams()[current.getMyTeamId()];
+		// Swapping
+		Collections.swap(t.getPlayers(), pl5.getSelectionModel().getSelectedIndex(), 4);
+		gridUpdate();
+		playerBoxSetup(t.getTactic(), false);
+		calibrateNames();
+	}
+
+	@FXML
+	public void pl6Change() {
+		Tournament current = Tournament.getInstance();
+		Team t = current.getTeams()[current.getMyTeamId()];
+		// Swapping
+		Collections.swap(t.getPlayers(), pl6.getSelectionModel().getSelectedIndex(), 5);
+		gridUpdate();
+		playerBoxSetup(t.getTactic(), false);
+		calibrateNames();
+	}
+
+	@FXML
+	public void pl7Change() {
+		Tournament current = Tournament.getInstance();
+		Team t = current.getTeams()[current.getMyTeamId()];
+		// Swapping
+		Collections.swap(t.getPlayers(), pl7.getSelectionModel().getSelectedIndex(), 6);
+		gridUpdate();
+		playerBoxSetup(t.getTactic(), false);
+		calibrateNames();
+	}
+
+	@FXML
+	public void pl8Change() {
+		Tournament current = Tournament.getInstance();
+		Team t = current.getTeams()[current.getMyTeamId()];
+		// Swapping
+		Collections.swap(t.getPlayers(), pl8.getSelectionModel().getSelectedIndex(), 7);
+		gridUpdate();
+		playerBoxSetup(t.getTactic(), false);
+		calibrateNames();
+	}
+
+	@FXML
+	public void pl9Change() {
+		Tournament current = Tournament.getInstance();
+		Team t = current.getTeams()[current.getMyTeamId()];
+		// Swapping
+		Collections.swap(t.getPlayers(), pl9.getSelectionModel().getSelectedIndex(), 8);
+		gridUpdate();
+		playerBoxSetup(t.getTactic(), false);
+		calibrateNames();
+	}
+
+	@FXML
+	public void pl10Change() {
+		Tournament current = Tournament.getInstance();
+		Team t = current.getTeams()[current.getMyTeamId()];
+		// Swapping
+		Collections.swap(t.getPlayers(), pl10.getSelectionModel().getSelectedIndex(), 9);
+		gridUpdate();
+		playerBoxSetup(t.getTactic(), false);
+		calibrateNames();
+	}
+
+	@FXML
+	public void pl11Change() {
+		Tournament current = Tournament.getInstance();
+		Team t = current.getTeams()[current.getMyTeamId()];
+		// Swapping
+		Collections.swap(t.getPlayers(), pl11.getSelectionModel().getSelectedIndex(), 10);
+		gridUpdate();
+		playerBoxSetup(t.getTactic(), false);
+		calibrateNames();
+	}
+
+	@FXML
 	public void gridUpdate() {
 		// Clear grid text fields
 		for (int i = 0; i < gridPlayer.getChildren().size(); i++)
@@ -438,22 +585,79 @@ public class TacticController implements Initializable {
 			gridPlayer.add(flag, 3, i);
 			gridPlayer.add(value, 4, i);
 		}
+	}
 
-		// Positions displayed according to the tactic
-		String[] positions;
-		if (t.getTactic().equals("4-3-3"))
-			positions = new String[] { "GK", "RB", "RCB", "LCB", "LB", "CDM", "LCM", "RCM", "RW", "ST", "LW" };
-		else if (t.getTactic().equals("4-4-2"))
-			positions = new String[] { "GK", "RB", "RCB", "LCB", "LB", "RW", "LCM", "RCM", "LW", "RF", "LF" };
-		else // 4-2-3-1
-			positions = new String[] { "GK", "RB", "RCB", "LCB", "LB", "RCM", "LCM", "RW", "CAM", "LW", "ST" };
+	public void playerBoxSetup(String tactic, boolean clear) {
 
-		for (int i = 0; i < 11; i++) {
-			Text position = new Text(positions[i]);
-			position.setStyle("-fx-font-weight: bold");
-			gridPlayer.add(position, 0, i);
+		if (false) {
+			pl1.getItems().clear();
+			pl2.getItems().clear();
+			pl3.getItems().clear();
+			pl4.getItems().clear();
+			pl5.getItems().clear();
+			pl6.getItems().clear();
+			pl7.getItems().clear();
+			pl8.getItems().clear();
+			pl9.getItems().clear();
+			pl10.getItems().clear();
+			pl11.getItems().clear();
+			System.out.println("Here");
 		}
 
+		if (tactic.equals("4-3-3")) {
+			pl1.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "CDM", "LCM", "RCM", "RW", "ST", "LW");
+			pl2.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "CDM", "LCM", "RCM", "RW", "ST", "LW");
+			pl3.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "CDM", "LCM", "RCM", "RW", "ST", "LW");
+			pl4.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "CDM", "LCM", "RCM", "RW", "ST", "LW");
+			pl5.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "CDM", "LCM", "RCM", "RW", "ST", "LW");
+			pl6.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "CDM", "LCM", "RCM", "RW", "ST", "LW");
+			pl7.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "CDM", "LCM", "RCM", "RW", "ST", "LW");
+			pl8.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "CDM", "LCM", "RCM", "RW", "ST", "LW");
+			pl9.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "CDM", "LCM", "RCM", "RW", "ST", "LW");
+			pl10.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "CDM", "LCM", "RCM", "RW", "ST", "LW");
+			pl11.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "CDM", "LCM", "RCM", "RW", "ST", "LW");
+		}
+
+		else if (tactic.equals("4-4-2")) {
+			pl1.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "RW", "LCM", "RCM", "LW", "RF", "LF");
+			pl2.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "RW", "LCM", "RCM", "LW", "RF", "LF");
+			pl3.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "RW", "LCM", "RCM", "LW", "RF", "LF");
+			pl4.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "RW", "LCM", "RCM", "LW", "RF", "LF");
+			pl5.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "RW", "LCM", "RCM", "LW", "RF", "LF");
+			pl6.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "RW", "LCM", "RCM", "LW", "RF", "LF");
+			pl7.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "RW", "LCM", "RCM", "LW", "RF", "LF");
+			pl8.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "RW", "LCM", "RCM", "LW", "RF", "LF");
+			pl9.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "RW", "LCM", "RCM", "LW", "RF", "LF");
+			pl10.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "RW", "LCM", "RCM", "LW", "RF", "LF");
+			pl11.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "RW", "LCM", "RCM", "LW", "RF", "LF");
+		}
+
+		else {
+			pl1.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "RCM", "LCM", "RW", "CAM", "LW", "ST");
+			pl2.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "RCM", "LCM", "RW", "CAM", "LW", "ST");
+			pl3.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "RCM", "LCM", "RW", "CAM", "LW", "ST");
+			pl4.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "RCM", "LCM", "RW", "CAM", "LW", "ST");
+			pl5.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "RCM", "LCM", "RW", "CAM", "LW", "ST");
+			pl6.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "RCM", "LCM", "RW", "CAM", "LW", "ST");
+			pl7.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "RCM", "LCM", "RW", "CAM", "LW", "ST");
+			pl8.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "RCM", "LCM", "RW", "CAM", "LW", "ST");
+			pl9.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "RCM", "LCM", "RW", "CAM", "LW", "ST");
+			pl10.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "RCM", "LCM", "RW", "CAM", "LW", "ST");
+			pl11.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "RCM", "LCM", "RW", "CAM", "LW", "ST");
+		}
+
+		pl1.getSelectionModel().select(0);
+		pl2.getSelectionModel().select(1);
+		pl3.getSelectionModel().select(2);
+		pl4.getSelectionModel().select(3);
+		pl5.getSelectionModel().select(4);
+		pl6.getSelectionModel().select(5);
+		pl7.getSelectionModel().select(6);
+		pl8.getSelectionModel().select(7);
+		pl9.getSelectionModel().select(8);
+		pl10.getSelectionModel().select(9);
+		pl11.getSelectionModel().select(10);
+		System.out.println("Here2");
 	}
 
 	@FXML
@@ -467,39 +671,39 @@ public class TacticController implements Initializable {
 		sub7.getItems().clear();
 		sub8.getItems().clear();
 		sub9.getItems().clear();
-		
+
 		if (tactic.equals("4-3-3")) {
-			sub1.getItems().addAll("GK", "RB", "RCB", "LCB", "LB", "CDM", "LCM", "RCM", "RW", "ST", "LW");
-			sub2.getItems().addAll("GK", "RB", "RCB", "LCB", "LB", "CDM", "LCM", "RCM", "RW", "ST", "LW");
-			sub3.getItems().addAll("GK", "RB", "RCB", "LCB", "LB", "CDM", "LCM", "RCM", "RW", "ST", "LW");
-			sub4.getItems().addAll("GK", "RB", "RCB", "LCB", "LB", "CDM", "LCM", "RCM", "RW", "ST", "LW");
-			sub5.getItems().addAll("GK", "RB", "RCB", "LCB", "LB", "CDM", "LCM", "RCM", "RW", "ST", "LW");
-			sub6.getItems().addAll("GK", "RB", "RCB", "LCB", "LB", "CDM", "LCM", "RCM", "RW", "ST", "LW");
-			sub7.getItems().addAll("GK", "RB", "RCB", "LCB", "LB", "CDM", "LCM", "RCM", "RW", "ST", "LW");
-			sub8.getItems().addAll("GK", "RB", "RCB", "LCB", "LB", "CDM", "LCM", "RCM", "RW", "ST", "LW");
-			sub9.getItems().addAll("GK", "RB", "RCB", "LCB", "LB", "CDM", "LCM", "RCM", "RW", "ST", "LW");
+			sub1.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "CDM", "LCM", "RCM", "RW", "ST", "LW");
+			sub2.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "CDM", "LCM", "RCM", "RW", "ST", "LW");
+			sub3.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "CDM", "LCM", "RCM", "RW", "ST", "LW");
+			sub4.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "CDM", "LCM", "RCM", "RW", "ST", "LW");
+			sub5.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "CDM", "LCM", "RCM", "RW", "ST", "LW");
+			sub6.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "CDM", "LCM", "RCM", "RW", "ST", "LW");
+			sub7.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "CDM", "LCM", "RCM", "RW", "ST", "LW");
+			sub8.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "CDM", "LCM", "RCM", "RW", "ST", "LW");
+			sub9.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "CDM", "LCM", "RCM", "RW", "ST", "LW");
 		}
 
 		else if (tactic.equals("4-4-2")) {
-			sub1.getItems().addAll("GK", "RB", "RCB", "LCB", "LB", "RW", "LCM", "RCM", "LW", "RF", "LF");
-			sub2.getItems().addAll("GK", "RB", "RCB", "LCB", "LB", "RW", "LCM", "RCM", "LW", "RF", "LF");
-			sub3.getItems().addAll("GK", "RB", "RCB", "LCB", "LB", "RW", "LCM", "RCM", "LW", "RF", "LF");
-			sub4.getItems().addAll("GK", "RB", "RCB", "LCB", "LB", "RW", "LCM", "RCM", "LW", "RF", "LF");
-			sub5.getItems().addAll("GK", "RB", "RCB", "LCB", "LB", "RW", "LCM", "RCM", "LW", "RF", "LF");
-			sub6.getItems().addAll("GK", "RB", "RCB", "LCB", "LB", "RW", "LCM", "RCM", "LW", "RF", "LF");
-			sub7.getItems().addAll("GK", "RB", "RCB", "LCB", "LB", "RW", "LCM", "RCM", "LW", "RF", "LF");
-			sub8.getItems().addAll("GK", "RB", "RCB", "LCB", "LB", "RW", "LCM", "RCM", "LW", "RF", "LF");
-			sub9.getItems().addAll("GK", "RB", "RCB", "LCB", "LB", "RW", "LCM", "RCM", "LW", "RF", "LF");
+			sub1.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "RW", "LCM", "RCM", "LW", "RF", "LF");
+			sub2.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "RW", "LCM", "RCM", "LW", "RF", "LF");
+			sub3.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "RW", "LCM", "RCM", "LW", "RF", "LF");
+			sub4.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "RW", "LCM", "RCM", "LW", "RF", "LF");
+			sub5.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "RW", "LCM", "RCM", "LW", "RF", "LF");
+			sub6.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "RW", "LCM", "RCM", "LW", "RF", "LF");
+			sub7.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "RW", "LCM", "RCM", "LW", "RF", "LF");
+			sub8.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "RW", "LCM", "RCM", "LW", "RF", "LF");
+			sub9.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "RW", "LCM", "RCM", "LW", "RF", "LF");
 		} else {
-			sub1.getItems().addAll("GK", "RB", "RCB", "LCB", "LB", "RCM", "LCM", "RW", "CAM", "LW", "ST");
-			sub2.getItems().addAll("GK", "RB", "RCB", "LCB", "LB", "RCM", "LCM", "RW", "CAM", "LW", "ST");
-			sub3.getItems().addAll("GK", "RB", "RCB", "LCB", "LB", "RCM", "LCM", "RW", "CAM", "LW", "ST");
-			sub4.getItems().addAll("GK", "RB", "RCB", "LCB", "LB", "RCM", "LCM", "RW", "CAM", "LW", "ST");
-			sub5.getItems().addAll("GK", "RB", "RCB", "LCB", "LB", "RCM", "LCM", "RW", "CAM", "LW", "ST");
-			sub6.getItems().addAll("GK", "RB", "RCB", "LCB", "LB", "RCM", "LCM", "RW", "CAM", "LW", "ST");
-			sub7.getItems().addAll("GK", "RB", "RCB", "LCB", "LB", "RCM", "LCM", "RW", "CAM", "LW", "ST");
-			sub8.getItems().addAll("GK", "RB", "RCB", "LCB", "LB", "RCM", "LCM", "RW", "CAM", "LW", "ST");
-			sub9.getItems().addAll("GK", "RB", "RCB", "LCB", "LB", "RCM", "LCM", "RW", "CAM", "LW", "ST");
+			sub1.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "RCM", "LCM", "RW", "CAM", "LW", "ST");
+			sub2.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "RCM", "LCM", "RW", "CAM", "LW", "ST");
+			sub3.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "RCM", "LCM", "RW", "CAM", "LW", "ST");
+			sub4.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "RCM", "LCM", "RW", "CAM", "LW", "ST");
+			sub5.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "RCM", "LCM", "RW", "CAM", "LW", "ST");
+			sub6.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "RCM", "LCM", "RW", "CAM", "LW", "ST");
+			sub7.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "RCM", "LCM", "RW", "CAM", "LW", "ST");
+			sub8.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "RCM", "LCM", "RW", "CAM", "LW", "ST");
+			sub9.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "RCM", "LCM", "RW", "CAM", "LW", "ST");
 		}
 	}
 
@@ -512,6 +716,8 @@ public class TacticController implements Initializable {
 		calibrateNames();
 		gridUpdate();
 		comboBoxSetup(t.getTactic());
+		playerBoxSetup(t.getTactic(), true);
+
 	}
 
 	@FXML

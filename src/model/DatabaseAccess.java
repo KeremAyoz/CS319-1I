@@ -1695,7 +1695,7 @@ public class DatabaseAccess {
 				getAttributes(), actions));
 		players.add(new Player("Ismail Koybasi", 28, 191, 70, "Turkey", "LB", getOverall(), 'R', 76, 10000000,
 				true, getAttributes(), actions));
-		players.add(new Player("Samed", 19, 185, 70, "Turkey", "CB", getOverall(), 'R', 69, 10000000, true,
+		players.add(new Player("Janssen", 26, 185, 75, "Turkey", "ST", 79, 'R', 69, 10000000, true,
 				getAttributes(), actions));
 		players.add(new Player("Alper", 21, 178, 70, "Turkey", "CM", getOverall(), 'R', 77, 10000000, true,
 				getAttributes(), actions));
@@ -1705,6 +1705,8 @@ public class DatabaseAccess {
 				getAttributes(), actions));
 		players.add(new Player("Soldado ", 25, 175, 70, "Spain", "ST", getOverall(), 'R', 79, 10000000, true,
 				getAttributes(), actions));
+		players.add(new Player("Soldado", 32, 183, 70, "Spain", "ST", 80, 'R', 78, 7200000,
+				true, getAttributes(), actions));
 		
 
 		// Manager
@@ -1712,7 +1714,7 @@ public class DatabaseAccess {
 		// President
 		President president = new President("Aziz Yıldırım", 47, 175, 70, "Turkey");
 		// Team
-		Team team = new Team("Fenerbahçe", "Yellow", "442", "Ülker Stadyumu", "Yellow and Navy Blue", "Turkey",
+		Team team = new Team("Fenerbahce", "Yellow", "4-4-2", "Ülker Stadyumu", "Yellow and Navy Blue", "Turkey",
 				"Viva Fenerbahçe", 5.0, "Attack", "Fast", manager, president, players);
 		return team;
 	}

@@ -59,7 +59,7 @@ public class TeamController implements Initializable {
 			Text pOverall = new Text(String.valueOf(p.getOverall()));
 			Text pFoot = new Text(p.getFoot() + "");
 			Text pSalary = new Text(String.valueOf(p.getSalary()));
-			Text pValue = new Text(String.valueOf(p.getValue()));
+			Text pValue = new Text(cur.getPlayers().get(i).getValue() / 1000000 + "m €");
  
 			
 			File nationImg = new File("img/flags/" + p.getNationality().toLowerCase().trim() + ".png");

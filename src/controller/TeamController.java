@@ -24,8 +24,10 @@ import javafx.scene.control.Labeled;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 
 public class TeamController implements Initializable {
@@ -73,7 +75,8 @@ public class TeamController implements Initializable {
 			playerGrid.add(pFoot, 3, i);
 			playerGrid.add(pSalary, 4, i);
 			playerGrid.add(pValue, 5, i);
-			playerGrid.add(flag, 6, i);			
+			playerGrid.add(flag, 6, i);
+		
 		}
 		
 		//Team Logo
@@ -91,6 +94,35 @@ public class TeamController implements Initializable {
 		nick.setText(cur.getNick());
 		stars.setText(String.valueOf(cur.getStars()));
 		
+		for (int i = 0 ; i < 7 ; i++) {
+            for (int j = 0; j < 20; j++) {
+                addPane(i, j);
+            }
+        }
+		
+	}
+	
+	//Taken from https://code.i-harness.com/en/q/2b1fed4
+	private int[] addPane(int colIndex, int rowIndex) {
+		Pane pane = new Pane();
+		int [] res = new int[2];
+		pane.setOnMouseClicked(e -> {
+			PlayerController.setPlayerID(rowIndex); 
+			PlayerController.setTeamID(currentTeamId);
+			try {
+				changeToPlayerView();
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		});
+		playerGrid.add(pane, colIndex, rowIndex);
+		return res;
+	}
+	
+	public void changeToPlayerView() throws IOException {
+		Parent root = FXMLLoader.load(getClass().getResource("/view/PlayerView.fxml")); 
+		Main.getMainStage().setScene(new Scene(root));
 	}
 
 	/**

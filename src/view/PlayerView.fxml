@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PlayerController">
+   <children>
+      <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1400.0">
+         <children>
+            <Hyperlink layoutX="189.0" layoutY="41.0" onAction="#teamClicked" prefHeight="58.0" prefWidth="134.0" text="Team" textFill="#802525">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Hyperlink>
+            <Hyperlink layoutX="291.0" layoutY="41.0" onAction="#tacticClicked" prefHeight="58.0" prefWidth="134.0" text="Tactics" textFill="#802525">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Hyperlink>
+            <Hyperlink layoutX="411.0" layoutY="41.0" onAction="#groupClicked" prefHeight="58.0" prefWidth="167.0" text="Group Stage" textFill="#802525">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Hyperlink>
+            <Hyperlink layoutX="579.0" layoutY="41.0" onAction="#knockoutClicked" prefHeight="58.0" prefWidth="134.0" text="Knockout" textFill="#802525">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Hyperlink>
+            <Hyperlink layoutX="724.0" layoutY="41.0" onAction="#statClicked" prefHeight="58.0" prefWidth="134.0" text="Statistics" textFill="#802525">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Hyperlink>
+            <Hyperlink layoutX="869.0" layoutY="41.0" onAction="#calendarClicked" prefHeight="58.0" prefWidth="134.0" text="Calendar" textFill="#802525">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Hyperlink>
+            <Hyperlink layoutX="989.0" layoutY="41.0" onAction="#saveClicked" prefHeight="58.0" prefWidth="171.0" text="Save&amp;Exit" textFill="#802525">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Hyperlink>
+            <Button layoutX="1185.0" layoutY="38.0" mnemonicParsing="false" onAction="#continueClicked" prefHeight="73.0" prefWidth="152.0" text="Continue">
+               <font>
+                  <Font name="System Bold" size="26.0" />
+               </font>
+            </Button>
+            <Line endX="1160.0" layoutX="240.0" layoutY="145.0" startX="-240.0" />
+            <ImageView fitHeight="151.0" fitWidth="135.0" layoutX="25.0" preserveRatio="true">
+               <image>
+                  <Image url="@../../img/logo.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="playerClub" fitHeight="117.0" fitWidth="127.0" layoutX="24.0" layoutY="168.0" pickOnBounds="true" preserveRatio="true" />
+            <Line endX="900.0" layoutX="410.0" layoutY="257.0" startX="-260.0" />
+            <Text fx:id="playerName" layoutX="197.0" layoutY="233.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lionel Messi">
+               <font>
+                  <Font name="Gill Sans Bold" size="55.0" />
+               </font>
+            </Text>
+            <Text fx:id="overall" fill="#750b0b" layoutX="1235.0" layoutY="238.0" strokeType="OUTSIDE" strokeWidth="0.0" text="97">
+               <font>
+                  <Font name="Gill Sans SemiBold" size="59.0" />
+               </font>
+            </Text>
+            <Text fill="#b9adad" layoutX="1102.0" layoutY="240.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Overall:">
+               <font>
+                  <Font name="Gill Sans SemiBold" size="33.0" />
+               </font>
+            </Text>
+            <Text fill="#750b0b" layoutX="344.0" layoutY="347.0" strokeType="OUTSIDE" strokeWidth="0.0" text="General">
+               <font>
+                  <Font name="Gill Sans SemiBold" size="42.0" />
+               </font>
+            </Text>
+            <Text fill="#750b0b" layoutX="988.0" layoutY="376.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Attributes">
+               <font>
+                  <Font name="Gill Sans SemiBold" size="42.0" />
+               </font>
+            </Text>
+            <Text fill="#750b0b" layoutX="343.0" layoutY="635.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Statistics">
+               <font>
+                  <Font name="Gill Sans SemiBold" size="42.0" />
+               </font>
+            </Text>
+            <GridPane fx:id="generalGrid" layoutX="175.0" layoutY="375.0" prefHeight="197.0" prefWidth="470.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+            </GridPane>
+            <GridPane fx:id="statGrid" layoutX="172.0" layoutY="700.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+            </GridPane>
+            <GridPane fx:id="attGrid" gridLinesVisible="true" layoutX="865.0" layoutY="419.0" prefHeight="308.0" prefWidth="428.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+            </GridPane>
+         </children>
+      </Pane>
+   </children>
+</Pane>

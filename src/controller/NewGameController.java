@@ -244,7 +244,7 @@ public class NewGameController implements Initializable {
 		}
 		t.setMyTeamId(id);
 		TeamController.setCurrentTeamId(id);
-		Parent root = FXMLLoader.load(getClass().getResource("/view/TeamView.fxml")); // lands seçili olmalı
+		Parent root = FXMLLoader.load(getClass().getResource("/view/TeamView.fxml"));
 		Main.getMainStage().setScene(new Scene(root));
 	}
 

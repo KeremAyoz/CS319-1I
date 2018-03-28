@@ -58,7 +58,7 @@
                </image>
             </ImageView>
             <ImageView fx:id="teamImage" fitHeight="273.0" fitWidth="300.0" layoutX="975.0" layoutY="220.0" pickOnBounds="true" preserveRatio="true" />
-            <GridPane fx:id="playerGrid" gridLinesVisible="true" layoutX="83.0" layoutY="200.0" prefHeight="662.0" prefWidth="764.0">
+            <GridPane fx:id="playerGrid" gridLinesVisible="true" layoutX="84.0" layoutY="200.0" prefHeight="662.0" prefWidth="764.0">
               <columnConstraints>
                 <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="200.0" prefWidth="100.0" />
                 <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />

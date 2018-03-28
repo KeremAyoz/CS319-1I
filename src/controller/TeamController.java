@@ -73,9 +73,9 @@ public class TeamController implements Initializable {
 			playerGrid.add(pPosition, 1, i);
 			playerGrid.add(pOverall, 2, i);
 			playerGrid.add(pFoot, 3, i);
-			playerGrid.add(pSalary, 4, i);
-			playerGrid.add(pValue, 5, i);
-			playerGrid.add(flag, 6, i);
+			playerGrid.add(pSalary, 5, i);
+			playerGrid.add(pValue, 6, i);
+			playerGrid.add(flag, 4, i);
 		
 		}
 		
@@ -160,7 +160,7 @@ public class TeamController implements Initializable {
 
 	@FXML
 	public void knockoutClicked() throws IOException {
-		Parent root = FXMLLoader.load(getClass().getResource("/view/Knockout.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("/view/KnockoutView.fxml"));
 		Main.getMainStage().setScene(new Scene(root));
 	}
 

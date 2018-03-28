@@ -34,25 +34,30 @@ public class StatisticController implements Initializable {
 		String[] assisters = c.getTopAssists();
 		String[] redCards = c.getTopRedCards();
 		String[] yellowCards = c.getTopYellowCards();
-
+		
+		String style ="-fx-text-fill: black;"+
+			    "-fx-background-color: white;"+
+			    "-fx-font: Gill Sans;"+
+			    "-fx-font-family: Gill Sans;"+
+			    "-fx-font-weight: bold;"+
+			    "-fx-font-size: 18;";
+		
 		for (int i = 0; i < 5; i++) {
 			Text t1 = new Text();
 			t1.setText(scorers[i]);
-			t1.setStyle("-fx-text-fill: black;"+
-				    "-fx-background-color: white;"+
-				    "-fx-font: Gill Sans;"+
-				    "-fx-font-family: Gill Sans;"+
-				    "-fx-font-weight: bold;"+
-				    "-fx-font-size: 18;");
+			t1.setStyle(style);
 			scorer.add(t1, 0, i);
 			Text t2 = new Text();
 			t2.setText(assisters[i]);
+			t2.setStyle(style);
 			assister.add(t2, 0, i);
 			Text t3 = new Text();
 			t3.setText(redCards[i]);
+			t3.setStyle(style);
 			red.add(t3, 0, i);
 			Text t4 = new Text();
 			t4.setText(yellowCards[i]);
+			t4.setStyle(style);
 			yellow.add(t4, 0, i);
 		}
 
@@ -78,7 +83,7 @@ public class StatisticController implements Initializable {
 
 	@FXML
 	public void knockoutClicked() throws IOException {
-		Parent root = FXMLLoader.load(getClass().getResource("/view/Knockout.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("/view/KnockoutView.fxml"));
 		Main.getMainStage().setScene(new Scene(root));
 	}
 

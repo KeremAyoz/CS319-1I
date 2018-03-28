@@ -343,7 +343,7 @@ public class Tournament implements Serializable{
 		String[] data = new String[TOP5];
 		
 		for( int i = 0 ; i < TOP5 ; i++ )
-			data[i] = bestPlayers[i] + " , " + bestGoals[i];
+			data[i] = bestPlayers[i] + "\t\t\t\t\t" + bestGoals[i];
 		
 		return data;
 		
@@ -377,7 +377,7 @@ public class Tournament implements Serializable{
 		String[] data = new String[TOP5];
 		
 		for( int i = 0 ; i < TOP5 ; i++ )
-			data[i] = bestPlayers[i] + " , " + bestAssists[i];
+			data[i] = bestPlayers[i] + "\t\t\t\t\t" + bestAssists[i];
 		
 		return data;
 		
@@ -411,7 +411,7 @@ public class Tournament implements Serializable{
 		String[] data = new String[TOP5];
 		
 		for( int i = 0 ; i < TOP5 ; i++ )
-			data[i] = bestPlayers[i] + " , " + bestYellowCards[i];
+			data[i] = bestPlayers[i] + "\t\t\t\t\t" + bestYellowCards[i];
 		
 		return data;
 		
@@ -445,7 +445,7 @@ public class Tournament implements Serializable{
 		String[] data = new String[TOP5];
 		
 		for( int i = 0 ; i < TOP5 ; i++ )
-			data[i] = bestPlayers[i] + " , " + bestRedCards[i];
+			data[i] = bestPlayers[i] + "\t\t\t\t\t" + bestRedCards[i];
 		
 		return data;
 		

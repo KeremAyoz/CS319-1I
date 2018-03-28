@@ -196,7 +196,7 @@ public class MatchPlayController implements Initializable {
 
 	@FXML
 	public void knockoutClicked() throws IOException {
-		Parent root = FXMLLoader.load(getClass().getResource("/view/Knockout.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("/view/KnockoutView.fxml"));
 		Main.getMainStage().setScene(new Scene(root));
 	}
 

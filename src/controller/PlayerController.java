@@ -75,30 +75,30 @@ public class PlayerController implements Initializable {
 		overall.setText(String.valueOf(p.getOverall()));
 
 		// General
-		generalGrid.add(new Text(t.getName()), 0, 0);
-		generalGrid.add(new Text(p.getPosition()), 0, 1);
-		generalGrid.add(new Text(String.valueOf(p.getAge())), 0, 2);
-		generalGrid.add(new Text("" + p.getFoot()), 0, 3);
+		generalGrid.add(new Text(t.getName()), 1, 0);
+		generalGrid.add(new Text(p.getPosition()), 1, 1);
+		generalGrid.add(new Text(String.valueOf(p.getAge())), 1, 2);
+		generalGrid.add(new Text("" + p.getFoot()), 1, 3);
 		File nationImg = new File("img/flags/" + p.getNationality().toLowerCase().trim() + ".png");
 		ImageView flag = new ImageView(new Image(nationImg.toURI().toString()));
 		flag.setFitHeight(20);
 		flag.setFitWidth(40);
-		generalGrid.add(flag, 0, 4);
-		generalGrid.add(new Text(String.valueOf(p.getHeight()) + "cm"), 1, 0);
-		generalGrid.add(new Text(String.valueOf(p.getWeight()) + "kg"), 1, 1);
-		generalGrid.add(new Text(p.getValue() / 1000000 + "m €"), 1, 2);
-		generalGrid.add(new Text(p.getSalary() / 1000000 + "m €"), 1, 3);
-		generalGrid.add(new Text("Available"), 1, 4);
+		generalGrid.add(flag, 1, 4);
+		generalGrid.add(new Text(String.valueOf(p.getHeight()) + "cm"), 3, 0);
+		generalGrid.add(new Text(String.valueOf(p.getWeight()) + "kg"), 3, 1);
+		generalGrid.add(new Text(p.getValue() / 1000000.0 + "m €"), 3, 2);
+		generalGrid.add(new Text(p.getSalary() / 1000000.0 + "m €"), 3, 3);
+		generalGrid.add(new Text("Available"), 3, 4);
 
 		// Attributes
-		attGrid.add(new Text(String.valueOf(p.getAttributes()[0])), 0, 0);
-		attGrid.add(new Text(String.valueOf(p.getAttributes()[1])), 0, 1);
-		attGrid.add(new Text(String.valueOf(p.getAttributes()[2])), 0, 2);
-		attGrid.add(new Text(String.valueOf(p.getAttributes()[3])), 0, 3);
-		attGrid.add(new Text(String.valueOf(p.getAttributes()[4])), 1, 0);
-		attGrid.add(new Text(String.valueOf(p.getAttributes()[5])), 1, 1);
-		attGrid.add(new Text(String.valueOf(p.getAttributes()[6])), 1, 2);
-		attGrid.add(new Text(String.valueOf(p.getAttributes()[7])), 1, 3);
+		attGrid.add(new Text(String.valueOf(p.getAttributes()[0])), 1, 0);
+		attGrid.add(new Text(String.valueOf(p.getAttributes()[1])), 1, 1);
+		attGrid.add(new Text(String.valueOf(p.getAttributes()[2])), 1, 2);
+		attGrid.add(new Text(String.valueOf(p.getAttributes()[3])), 1, 3);
+		attGrid.add(new Text(String.valueOf(p.getAttributes()[4])), 3, 0);
+		attGrid.add(new Text(String.valueOf(p.getAttributes()[5])), 3, 1);
+		attGrid.add(new Text(String.valueOf(p.getAttributes()[6])), 3, 2);
+		attGrid.add(new Text(String.valueOf(p.getAttributes()[7])), 3, 3);
 
 		// Statistics
 		statGrid.add(new Text(String.valueOf(12)), 0, 0);
@@ -106,7 +106,29 @@ public class PlayerController implements Initializable {
 		statGrid.add(new Text(String.valueOf(p.getCntAssist())), 2, 0);
 		statGrid.add(new Text(String.valueOf(p.getCntYellowCard())), 3, 0);
 		statGrid.add(new Text(String.valueOf(p.getCntRedCard())), 4, 0);
-
+		
+		String style = "-fx-text-fill: black;"+
+			    "-fx-background-color: white;"+
+			    "-fx-font: Gill Sans;"+
+			    "-fx-font-family: Gill Sans;"+
+			    "-fx-font-weight: regular;"+
+			    "-fx-font-size: 14;";
+		
+		for (int i = 0; i < generalGrid.getChildren().size(); i++) {
+			if (generalGrid.getChildren().get(i).getClass().equals(playerName.getClass()))
+				((Text)(generalGrid.getChildren().get(i))).setStyle(style);
+		}
+		
+		for (int i = 0; i < statGrid.getChildren().size(); i++) {
+			if (statGrid.getChildren().get(i).getClass().equals(playerName.getClass()))
+				((Text)(statGrid.getChildren().get(i))).setStyle(style);
+		}
+		
+		for (int i = 0; i < attGrid.getChildren().size(); i++) {
+			if (attGrid.getChildren().get(i).getClass().equals(playerName.getClass()))
+				((Text)(attGrid.getChildren().get(i))).setStyle(style);
+		}
+	
 	}
 
 	@FXML
@@ -129,7 +151,7 @@ public class PlayerController implements Initializable {
 
 	@FXML
 	public void knockoutClicked() throws IOException {
-		Parent root = FXMLLoader.load(getClass().getResource("/view/Knockout.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("/view/KnockoutView.fxml"));
 		Main.getMainStage().setScene(new Scene(root));
 	}
 
@@ -165,7 +187,8 @@ public class PlayerController implements Initializable {
 	}
 
 	/**
-	 * @param playerID the playerID to set
+	 * @param playerID
+	 *            the playerID to set
 	 */
 	public static void setPlayerID(int playerID) {
 		PlayerController.playerID = playerID;
@@ -179,7 +202,8 @@ public class PlayerController implements Initializable {
 	}
 
 	/**
-	 * @param teamID the teamID to set
+	 * @param teamID
+	 *            the teamID to set
 	 */
 	public static void setTeamID(int teamID) {
 		PlayerController.teamID = teamID;

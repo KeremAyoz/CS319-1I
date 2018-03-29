@@ -50,6 +50,8 @@ public class Group implements Serializable{
 	
 	public Group() {
 		matches = new Match[NUMBER_OF_MATCHES];
+		if( matches == null )
+			System.out.println( "const bok" );
 		statistics = new int[TEAMS_PER_GROUP][NUMBER_OF_STATS];
 		// TODO Auto-generated constructor stub
 	}
@@ -120,10 +122,21 @@ public class Group implements Serializable{
 		
 	}
 	
+	// new Match()
 	public void createMatch( int idMatch , int day , int month , int year ) {
 		int idHome = matchCalendar[idMatch * 2];
 		int idAway = matchCalendar[idMatch * 2 + 1];
 		ArrayList<Action> actions = new ArrayList<Action>();
+		/*
+		matches[idMatch].setDay(day);
+		matches[idMatch].setMonth(month);
+		matches[idMatch].setYear(year);
+		matches[idMatch].setHome(teams[idHome]);
+		matches[idMatch].setAway(teams[idAway]);
+		matches[idMatch].setReferee("Pierluigi Collina");
+		matches[idMatch].setWeather("Sunny");
+		matches[idMatch].setActions(actions);
+		*/
 		matches[idMatch] = new Match( day , month , year , teams[idHome] , teams[idAway] , "Pierluigi Collina" , "Sunny" , actions );
 	}
 	
@@ -215,7 +228,9 @@ public class Group implements Serializable{
 	 *            the teams to set
 	 */
 	public void setTeams(Team[] teams) {
+		// System.out.println( "setTeams 1" );
 		this.teams = teams;
+		// System.out.println( "setTeams 2" );
 	}
 
 	/**

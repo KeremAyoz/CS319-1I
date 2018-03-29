@@ -31,6 +31,10 @@ public class Match implements Serializable{
 	private final int MATCH_DURATION = 90;
 	private final int NUMBER_OF_PLAYERS = 11;
 	
+	private final int POINTS_WIN = 3;
+	private final int POINTS_DRAW = 1;
+	private final int POINTS_LOSS = 0;
+	
 	private final int RANDOM_GOAL = 3;
 	private final int RANDOM_YELLOW = 5;
 	private final int RANDOM_RED = 1;
@@ -160,16 +164,16 @@ public class Match implements Serializable{
 				actions.add( actionGenerator( i , random_value ) );
 		}
 		if( goalHome > goalAway ) {
-			setPointHome( 3 );
-			setPointAway( 0 );
+			setPointHome( POINTS_WIN );
+			setPointAway( POINTS_LOSS );
 		}
 		else if( goalHome < goalAway ) {
-			setPointHome( 0 );
-			setPointAway( 3 );
+			setPointHome( POINTS_LOSS );
+			setPointAway( POINTS_WIN );
 		}
 		else {
-			setPointHome( 1 );
-			setPointAway( 1 );
+			setPointHome( POINTS_DRAW );
+			setPointAway( POINTS_DRAW );
 		}
 		System.out.println( "Match Ends" );
 		for( int i = 0 ; i < NUMBER_OF_PLAYERS ; i++ ) {

@@ -122,41 +122,10 @@ public class MatchPlayController implements Initializable {
 	@FXML
 	private Label label;
 	
-	@FXML
-	private void updateView() {
-		/*
-		timer.setText("0");
-		//timeline
-		while(currentTime < 90) {
-			timer.setText(String.valueOf(currentTime));
-			try {
-				timer.setText(String.valueOf(currentTime));
-				Thread.sleep(1000);
-				timer.setText(String.valueOf(currentTime));
-				currentTime++;
-				timer.setText(String.valueOf(currentTime));
-				System.out.println("TİİİEM E  " + timer.getText());
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			System.out.println(currentTime);
-			while (paused) {
-				
-			}
-		}
-		*/
-	}
 	
-	@FXML
-	public void pauseClicked() {
-		paused = true;
-	}
+	ArrayList<Action> actions;
 	
-	@FXML
-	public void playClicked() {
-		paused = false;
-	}
+	
 	
 	public void doTime() {
 		Timeline timeline = new Timeline();
@@ -168,31 +137,60 @@ public class MatchPlayController implements Initializable {
 
 			@Override
 			public void handle(ActionEvent event) {
+				actions = new ArrayList<Action>();
 				// TODO Auto-generated method stub
 				if (!paused) {
+					Action a = currentMatch.actionGenerator(seconds, ((int)(Math.random()*100)));
+					if (a != null)
+						actions.add(a);
+					System.out.println("NOTHINGGG");
 					seconds++;
 					label.setText(seconds.toString() + "'");
+					if (actions != null)
+						updateActionView();
 					 if (seconds > 89)
 						 timeline.stop(); 
 				}
+				System.out.println("NOTHINGGG");
 			}
 			
 		}) ;
 		timeline.getKeyFrames().add(frame); 
 		timeline.playFromStart();
 	}
+	
+	public void updateActionView() {
+		for (int i = 0; i < actions.size(); i++) {
+			eventGrid.add(new Text(actions.get(i).toString()), 1, i);
+		}
+		
+	}
+	
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
+		Tournament t = Tournament.getInstance();
 		currentTime = 0;
 		paused = false;
 		label.setTextFill(Color.BLACK);
-		doTime();
+		
+		currentMatch = t.getGroups()[0].getMatch(0);
+		
+		if (currentMatch != null) {
+			Team home = currentMatch.getHome();
+			Team away = currentMatch.getAway();
+			
+			homeName.setText(home.getName());
+			awayName.setText(away.getName());
+			
+			doTime();
+			
+		}
+		
+		
+		
+		
+		
 		/*
-		Team home = currentMatch.getHome();
-		Team away = currentMatch.getAway();
-		
-		ArrayList<Action> actions = new ArrayList<Action>();
-		
 		try {
 			actions = currentMatch.matchSimulation();
 		} catch (InterruptedException e) {
@@ -309,6 +307,16 @@ public class MatchPlayController implements Initializable {
 	public void continueClicked() throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("/view/MatchPlayView.fxml"));
 		Main.getMainStage().setScene(new Scene(root));
+	}
+	
+	@FXML
+	public void pauseClicked() {
+		paused = true;
+	}
+	
+	@FXML
+	public void playClicked() {
+		paused = false;
 	}
 
 }

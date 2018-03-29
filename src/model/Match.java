@@ -231,7 +231,7 @@ public class Match implements Serializable{
 			}
 		}
 		
-		else {
+		else if (random_value <= RANDOM_TOTAL){
 			int random_player = (int) (Math.random() * NUMBER_OF_PLAYERS);
 			if( random_team == 0 ) {
 				return new Injury( minute , home.getPlayers().get(random_player) );
@@ -240,6 +240,7 @@ public class Match implements Serializable{
 				return new Injury( minute , away.getPlayers().get(random_player) );
 			}
 		}
+		return null;
 		
 	}
 

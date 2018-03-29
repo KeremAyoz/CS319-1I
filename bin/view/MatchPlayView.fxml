@@ -7,7 +7,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseEntered="#updateView" prefHeight="900.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MatchPlayController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MatchPlayController">
    <children>
       <Pane fx:id="referee" layoutX="-8.0" layoutY="23.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1400.0">
          <children>
@@ -80,7 +80,7 @@
                         <Font name="Gill Sans Bold" size="33.0" />
                      </font>
                   </Label>
-                  <Button layoutX="1121.0" layoutY="351.0" mnemonicParsing="false" onAction="#pauseClicked" prefHeight="40.0" prefWidth="64.0" text="Pause">
+                  <Button layoutX="1120.0" layoutY="351.0" mnemonicParsing="false" onAction="#pauseClicked" prefHeight="40.0" prefWidth="64.0" text="Pause">
                      <font>
                         <Font name="Gill Sans SemiBold" size="15.0" />
                      </font></Button>

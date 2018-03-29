@@ -44,7 +44,7 @@
       </ImageView>
       <Button layoutX="635.0" layoutY="553.0" mnemonicParsing="false" onAction="#creditsClicked" prefHeight="50.0" prefWidth="150.0" text="Credits">
          <font>
-            <Font size="19.0" />
+            <Font name="System Bold" size="19.0" />
          </font>
       </Button>
    </children>

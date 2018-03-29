@@ -148,6 +148,11 @@ public class MatchPlayController implements Initializable {
 		*/
 	}
 	
+	@FXML
+	public void pauseClicked() {
+		paused = true;
+	}
+	
 	public void doTime() {
 		Timeline timeline = new Timeline();
 		timeline.setCycleCount(Timeline.INDEFINITE);
@@ -159,10 +164,12 @@ public class MatchPlayController implements Initializable {
 			@Override
 			public void handle(ActionEvent event) {
 				// TODO Auto-generated method stub
-				seconds++;
-				label.setText(seconds.toString() + "'");
-				 if (seconds > 89)
-					 timeline.stop(); 
+				if (!paused) {
+					seconds++;
+					label.setText(seconds.toString() + "'");
+					 if (seconds > 89)
+						 timeline.stop(); 
+				}
 			}
 			
 		}) ;

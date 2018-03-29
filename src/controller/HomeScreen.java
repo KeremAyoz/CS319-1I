@@ -37,6 +37,13 @@ public class HomeScreen implements Initializable {
 	        Main.getMainStage().setScene(new Scene(root)); 
 	    }
 	    
+	    @FXML
+	    public void creditsClicked() throws IOException {
+	        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/CreditsView.fxml"));
+	        Parent root = loader.load();
+	        Main.getMainStage().setScene(new Scene(root)); 
+	    }
+	    
 	    public void exitClicked() throws IOException {
 	        System.exit(0);
 	    }

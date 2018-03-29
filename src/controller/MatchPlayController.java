@@ -10,20 +10,27 @@ import java.time.Month;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.concurrent.TimeUnit;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.application.Application;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
+import javafx.event.EventHandler;
+import javafx.event.ActionEvent;
 import model.*;
 
 /**
@@ -99,26 +106,93 @@ public class MatchPlayController implements Initializable {
 
 	@FXML
 	private GridPane eventGrid;
+	@FXML
 	private ScrollPane scrollEvent;
+	@FXML
+	private Text timer;
+	
+	private Match currentMatch;
+	private boolean paused;
+	private int currentTime;
+	
+	
+	private final Integer START_TIME = 0;
+	private Integer seconds = START_TIME;
+	
+	@FXML
+	private Label label;
+	
+	@FXML
+	private void updateView() {
+		/*
+		timer.setText("0");
+		//timeline
+		while(currentTime < 90) {
+			timer.setText(String.valueOf(currentTime));
+			try {
+				timer.setText(String.valueOf(currentTime));
+				Thread.sleep(1000);
+				timer.setText(String.valueOf(currentTime));
+				currentTime++;
+				timer.setText(String.valueOf(currentTime));
+				System.out.println("TİİİEM E  " + timer.getText());
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			System.out.println(currentTime);
+			while (paused) {
+				
+			}
+		}
+		*/
+	}
+	
+	public void doTime() {
+		Timeline timeline = new Timeline();
+		timeline.setCycleCount(Timeline.INDEFINITE);
+		if (timeline == null) {
+			timeline.stop();
+		} 
+		KeyFrame frame = new KeyFrame(Duration.seconds(1), new EventHandler<ActionEvent>() {
 
+			@Override
+			public void handle(ActionEvent event) {
+				// TODO Auto-generated method stub
+				seconds++;
+				label.setText(seconds.toString() + "'");
+				 if (seconds > 89)
+					 timeline.stop(); 
+			}
+			
+		}) ;
+		timeline.getKeyFrames().add(frame); 
+		timeline.playFromStart();
+	}
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
+		currentTime = 0;
+		paused = false;
+		label.setTextFill(Color.BLACK);
+		doTime();
+		/*
+		Team home = currentMatch.getHome();
+		Team away = currentMatch.getAway();
 		
-		
-		Team home = Main.getFirstTeam();
-		Team away = Main.getSecondTeam();
 		ArrayList<Action> actions = new ArrayList<Action>();
-		Match match = new Match(0, 0, 0, home, away, "Pierluigi Collina", "Sunny", actions);
-		match.setDelay(false);
+		
 		try {
-			actions = match.matchSimulation();
+			actions = currentMatch.matchSimulation();
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
 		
-
+		for (int i = 1; i < 91; i++) 
+			actions.add(currentMatch.actionGenerator(i, 5));
+		
+		//currentMatch.updateData();
+		/*
 		ArrayList<String> actionList = new ArrayList<String>();
 
 		for (int i = 0; i < actions.size(); i++) {
@@ -173,8 +247,9 @@ public class MatchPlayController implements Initializable {
 			eventGrid.add(t, 1, i);
 		}
 		
-		score.setText(match.getGoalHome() + " - " + match.getGoalAway());
+		score.setText(currentMatch.getGoalHome() + " - " + currentMatch.getGoalAway());*/
 	}
+	
 	
 	@FXML
 	public void teamClicked() throws IOException {

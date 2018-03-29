@@ -111,7 +111,7 @@ public class PlayerController implements Initializable {
 			    "-fx-background-color: white;"+
 			    "-fx-font: Gill Sans;"+
 			    "-fx-font-family: Gill Sans;"+
-			    "-fx-font-weight: regular;"+
+			    //"-fx-font-weight: regular;"+
 			    "-fx-font-size: 14;";
 		
 		for (int i = 0; i < generalGrid.getChildren().size(); i++) {

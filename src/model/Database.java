@@ -12,18 +12,11 @@ public class Database {
 	private static final String DEFAULT_FILE_NAME = "default.txt";
 	private static final String CURRENT_FILE_NAME = "current.txt";
 	
-	private Database() {
-		
-	}
-	
-	public static void loadNewGame() {
-		
-	}
 	
 	public static Tournament loadCurrentGame() throws IOException, ClassNotFoundException {
 		FileInputStream file = new FileInputStream( CURRENT_FILE_NAME );
 		ObjectInputStream ois = new ObjectInputStream( file );
-		Tournament.setInstance( (Tournament) ois.readObject() );
+		Tournament.setInstance( ((Tournament) ois.readObject()) );
 		ois.close();
 		return Tournament.getInstance();
 	}

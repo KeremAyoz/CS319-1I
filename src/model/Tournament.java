@@ -133,7 +133,7 @@ public class Tournament implements Serializable{
 		return false;
 	}
 	
-	public void goNextDay() {
+	public void passTomorrow() {
 		currentDay++;
 		if( currentDay > DAYS_MONTH[currentMonth] ) {
 			currentDay = 1;
@@ -143,6 +143,32 @@ public class Tournament implements Serializable{
 				currentYear++;
 			}
 		}
+	}
+	
+	public void playOtherTeams() throws InterruptedException {
+		for( int i = 0 ; i < NUMBER_OF_GROUPS ; i++ )
+			if( i != myGroupId )
+				for( int j = 0 ; j < MATCHES_PER_GROUP ; j++ )
+					if( currentDay == groups[i].getMatchDay(j) )
+						if( currentMonth == groups[i].getMatchMonth(j) )
+							if( currentYear == groups[i].getMatchYear(j) )
+								groups[i].playMatch(j);
+	}
+	
+	// modifyGroupStatistics() !
+	public Match goNextDay() throws InterruptedException {
+		Match match = null;
+		if( isOnGroupMatch() ) {
+			playOtherTeams();
+			int nextMatchId = myGroupMatchIds[lastMatchWeek + 1];
+			lastMatchWeek++;
+			lastMatchId = nextMatchId;
+			match = groups[myGroupId].getMatch(nextMatchId);
+			return match;
+		}
+		playOtherTeams();
+		passTomorrow();
+		return match;
 	}
 	
 	public void chooseMyGroupMatchIds() {

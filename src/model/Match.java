@@ -16,9 +16,9 @@ public class Match implements Serializable{
 	private String weather;
 	private ArrayList<Action> actions;
 	
-	private int date_day;
-	private int date_month;
-	private int date_year;
+	private int day;
+	private int month;
+	private int year;
 	
 	private boolean delay;
 	
@@ -44,10 +44,10 @@ public class Match implements Serializable{
 	 * @param weather
 	 * @param actions
 	 */
-	public Match(int date_day , int date_month, int date_year, Team home, Team away, String referee, String weather, ArrayList<Action> actions) {
-		this.date_day = date_day;
-		this.date_month = date_month;
-		this.date_year = date_year;
+	public Match(int day , int month, int year, Team home, Team away, String referee, String weather, ArrayList<Action> actions) {
+		this.day = day;
+		this.month = month;
+		this.year = year;
 		this.home = home;
 		this.away = away;
 		this.referee = referee;
@@ -58,10 +58,10 @@ public class Match implements Serializable{
 		this.setDelay(false);
 	}
 
-	public Match(int date_day , int date_month, int date_year, Team home, Team away, String referee, String weather, ArrayList<Action> actions, boolean delay) {
-		this.date_day = date_day;
-		this.date_month = date_month;
-		this.date_year = date_year;
+	public Match(int day , int month, int year, Team home, Team away, String referee, String weather, ArrayList<Action> actions, boolean delay) {
+		this.day = day;
+		this.month = month;
+		this.year = year;
 		this.home = home;
 		this.away = away;
 		this.referee = referee;
@@ -279,28 +279,28 @@ public class Match implements Serializable{
 		this.delay = delay;
 	}
 	
-	public int getDate_day() {
-		return date_day;
+	public int getDay() {
+		return day;
 	}
 
-	public void setDate_day(int date_day) {
-		this.date_day = date_day;
+	public void setDay(int day) {
+		this.day = day;
 	}
 
-	public int getDate_month() {
-		return date_month;
+	public int getMonth() {
+		return month;
 	}
 
-	public void setDate_month(int date_month) {
-		this.date_month = date_month;
+	public void setMonth(int month) {
+		this.month = month;
 	}
 
-	public int getDate_year() {
-		return date_year;
+	public int getYear() {
+		return year;
 	}
 
-	public void setDate_year(int date_year) {
-		this.date_year = date_year;
+	public void setYear(int year) {
+		this.year = year;
 	}
 	
 }

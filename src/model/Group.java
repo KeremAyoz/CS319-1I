@@ -265,4 +265,20 @@ public class Group implements Serializable{
 		this.orderedNames = orderedNames;
 	}
 	
+	public Match getMatch( int id ) {
+		return matches[id];
+	}
+	
+	public int getMatchDay( int id ) {
+		return matches[id].getDay();
+	}
+	
+	public int getMatchMonth( int id ) {
+		return matches[id].getMonth();
+	}
+	
+	public int getMatchYear( int id ) {
+		return matches[id].getYear();
+	}
+	
 }

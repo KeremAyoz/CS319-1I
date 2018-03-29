@@ -72,7 +72,7 @@ public class DatabaseAccess {
 		President president = new President("Josep Maria Bartomeu", 55, 180, 70, "Spain");
 		// Team
 		Team team = new Team("FC Barcelona", "Red", "4-3-3", "Camp Nou", "Barça", "Spain",
-				"Blaugranes or Azulgranas", 5.0, "Attack", "Fast", manager, president, players);
+				"FCB", 5.0, "Attack", "Fast", manager, president, players);
 		return team;
 	}
 

@@ -190,10 +190,9 @@ public class Main extends Application {
 	}
 
 	public static void main(String[] args) throws InterruptedException, IOException, ClassNotFoundException {
-		/*Tournament c = Tournament.getInstance();
+		Tournament c = Tournament.getInstance();
+		c.getTeams()[2].setColor("Bok rengi");
 		Database.saveCurrentGame(c);
-		System.out.println(c.getTeams() == null);*/
-		Tournament c = Database.loadCurrentGame();
 		c.setMyTeamId(4);
 		TeamController.setCurrentTeamId(4);
 		c.getTeams()[4].getPlayers().get(10).setCntGoal(8);

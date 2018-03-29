@@ -1,5 +1,7 @@
 package model;
 
+import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -291,9 +293,14 @@ public class Tournament implements Serializable{
 		this.knockout = knockout;
 	}
 
-	private Object readResolve() {
-		return instance;
-	}
+	protected Object readResolve() {
+        return getInstance();
+    }
+
+    private void readObject(ObjectInputStream ois) throws IOException, ClassNotFoundException {
+        ois.defaultReadObject();
+        instance = this;
+    }
 	
 	/*
 	 * !!! WARNING !!!

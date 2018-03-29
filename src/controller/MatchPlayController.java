@@ -100,25 +100,29 @@ public class MatchPlayController implements Initializable {
 	@FXML
 	private GridPane eventGrid;
 	private ScrollPane scrollEvent;
+	
+	private Match currentMatch;
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
 		
+		Team home = currentMatch.getHome();
+		Team away = currentMatch.getAway();
 		
-		Team home = Main.getFirstTeam();
-		Team away = Main.getSecondTeam();
 		ArrayList<Action> actions = new ArrayList<Action>();
-		Match match = new Match(0, 0, 0, home, away, "Pierluigi Collina", "Sunny", actions);
-		match.setDelay(false);
+		
 		try {
-			actions = match.matchSimulation();
+			actions = currentMatch.matchSimulation();
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
 		
-
+		for (int i = 1; i < 91; i++) 
+			actions.add(currentMatch.actionGenerator(i, 5));
+		
+		//currentMatch.updateData();
+		
 		ArrayList<String> actionList = new ArrayList<String>();
 
 		for (int i = 0; i < actions.size(); i++) {
@@ -173,7 +177,7 @@ public class MatchPlayController implements Initializable {
 			eventGrid.add(t, 1, i);
 		}
 		
-		score.setText(match.getGoalHome() + " - " + match.getGoalAway());
+		score.setText(currentMatch.getGoalHome() + " - " + currentMatch.getGoalAway());
 	}
 	
 	@FXML

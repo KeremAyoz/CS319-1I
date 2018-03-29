@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
@@ -57,34 +58,33 @@
                   <Image url="@../../img/logo.png" />
                </image>
             </ImageView>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="351.0" layoutX="94.0" layoutY="400.0" stroke="BLACK" strokeType="INSIDE" width="280.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="351.0" layoutX="400.0" layoutY="400.0" stroke="BLACK" strokeType="INSIDE" width="280.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="351.0" layoutX="700.0" layoutY="400.0" stroke="BLACK" strokeType="INSIDE" width="280.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="351.0" layoutX="1000.0" layoutY="400.0" stroke="BLACK" strokeType="INSIDE" width="280.0" />
-            <Text fill="#0c3fe8" layoutX="154.0" layoutY="444.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Top Scorers">
+            <Text fill="#802525" layoutX="149.0" layoutY="444.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Top Scorers">
                <font>
-                  <Font name="Gill Sans UltraBold" size="32.0" />
+                  <Font name="Gill Sans SemiBold" size="32.0" />
                </font>
             </Text>
-            <Text fill="#4e8d6d" layoutX="453.0" layoutY="443.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Top Assisters">
+            <Text fill="#802525" layoutX="445.0" layoutY="443.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Top Assisters">
                <font>
-                  <Font name="Gill Sans UltraBold" size="32.0" />
+                  <Font name="Gill Sans SemiBold" size="32.0" />
                </font>
             </Text>
-            <Text fill="#b9b435" layoutX="762.0" layoutY="444.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Yellow Card">
+            <Text fill="#802525" layoutX="756.0" layoutY="444.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Yellow Card">
                <font>
-                  <Font name="Gill Sans UltraBold" size="32.0" />
+                  <Font name="Gill Sans SemiBold" size="32.0" />
                </font>
             </Text>
-            <Text fill="RED" layoutX="1084.0" layoutY="444.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Red Card">
+            <Text fill="#802525" layoutX="1078.0" layoutY="444.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Red Card">
                <font>
-                  <Font name="Gill Sans UltraBold" size="32.0" />
+                  <Font name="Gill Sans SemiBold" size="32.0" />
                </font>
             </Text>
-            <Text fill="#5e5d5d" layoutX="488.0" layoutY="254.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Statistics of the Stars League" textAlignment="CENTER">
+            <Text fill="#5e5d5d" layoutX="562.0" layoutY="258.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Stars of the League" textAlignment="CENTER">
                <font>
                   <Font name="Gill Sans" size="36.0" />
                </font>
+               <effect>
+                  <Glow />
+               </effect>
             </Text>
             <Line endX="140.0" layoutX="232.0" layoutY="463.0" startX="-135.0" />
             <Line endX="70.0" layoutX="610.0" layoutY="464.0" startX="-210.0" />
@@ -102,7 +102,7 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
             </GridPane>
-            <GridPane fx:id="assister" gridLinesVisible="true" layoutX="401.0" layoutY="464.0" prefHeight="286.0" prefWidth="278.0">
+            <GridPane fx:id="assister" gridLinesVisible="true" layoutX="401.0" layoutY="464.0" prefHeight="286.0" prefWidth="279.0">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                </columnConstraints>
@@ -114,7 +114,7 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                </rowConstraints>
             </GridPane>
-            <GridPane fx:id="yellow" gridLinesVisible="true" layoutX="702.0" layoutY="463.0" prefHeight="286.0" prefWidth="276.0">
+            <GridPane fx:id="yellow" gridLinesVisible="true" layoutX="702.0" layoutY="463.0" prefHeight="286.0" prefWidth="279.0">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                </columnConstraints>
@@ -126,7 +126,7 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                </rowConstraints>
             </GridPane>
-            <GridPane fx:id="red" gridLinesVisible="true" layoutX="1002.0" layoutY="463.0" prefHeight="286.0" prefWidth="276.0">
+            <GridPane fx:id="red" gridLinesVisible="true" layoutX="1002.0" layoutY="463.0" prefHeight="286.0" prefWidth="279.0">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                </columnConstraints>

@@ -35,7 +35,7 @@ public class Main extends Application {
 		mainStage.setScene(new Scene(root, 1400, 900));
 	//	mainStage.setFullScreen(true);
 	//	mainStage.setFullScreenExitKeyCombination(KeyCombination.NO_MATCH);
-		primaryStage.setFullScreen(true);
+		//primaryStage.setFullScreen(true);
 		mainStage.show();
 	}
 	/*

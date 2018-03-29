@@ -28,50 +28,50 @@ public class DatabaseAccess {
 		
 		players.add(new Player("Semedo", 30, 180, 70, "Portugal", "RB", getOverall(), 'R', 81 , 60000000,
 				true, getAttributes(), actions));
-		players.add(new Player("Pique", 30, 180, 70, "Spain", "CB", getOverall(), 'R', 87, 10000000, true,
+		players.add(new Player("Pique", 30, 180, 70, "Spain", "CB", getOverall(), 'R', 87, 60000000, true,
 				getAttributes(), actions));
-		players.add(new Player("Umtiti", 30, 180, 70, "Spain", "CB", getOverall(), 'R', 84, 10000000, true,
+		players.add(new Player("Umtiti", 30, 180, 70, "Spain", "CB", getOverall(), 'R', 84, 30000000, true,
 				getAttributes(), actions));
-		players.add(new Player("Alba", 30, 180, 70, "France", "LB", getOverall(), 'R', 86, 10000000, true,
+		players.add(new Player("Alba", 30, 180, 70, "France", "LB", getOverall(), 'R', 86, 55000000, true,
 				getAttributes(), actions));
-		players.add(new Player("Rakitic", 30, 180, 70, "Crotia", "CM", getOverall(), 'R', 86, 10000000, true,
+		players.add(new Player("Rakitic", 30, 180, 70, "Crotia", "CM", getOverall(), 'R', 86, 25000000, true,
 				getAttributes(), actions));
-		players.add(new Player("Busquets", 30, 180, 70, "Spain", "CM", getOverall(), 'R', 87, 10000000,
+		players.add(new Player("Busquets", 30, 180, 70, "Spain", "CM", getOverall(), 'R', 87, 30000000,
 				true, getAttributes(), actions));
-		players.add(new Player("Iniesta", 30, 180, 70, "Spain", "CM", getOverall(), 'R', 88, 10000000, true,
+		players.add(new Player("Iniesta", 30, 180, 70, "Spain", "CM", getOverall(), 'R', 88, 33000000, true,
 				getAttributes(), actions));
-		players.add(new Player("Dembele", 30, 180, 70, "Spain", "RW", getOverall(), 'R', 83, 10000000, true,
+		players.add(new Player("Dembele", 30, 180, 70, "Spain", "RW", getOverall(), 'R', 83, 65000000, true,
 				getAttributes(), actions));
-		players.add(new Player("Suarez", 30, 180, 70, "Uruguay", "ST", getOverall(), 'R', 89, 10000000, true,
+		players.add(new Player("Suarez", 30, 180, 70, "Uruguay", "ST", getOverall(), 'R', 89, 90000000, true,
 				getAttributes(), actions));
-		players.add(new Player("Messi", 30, 180, 70, "Argentina", "LW", getOverall(), 'R', 92, 10000000,
+		players.add(new Player("Messi", 30, 180, 70, "Argentina", "LW", getOverall(), 'R', 92, 500000000,
 				true, getAttributes(), actions));
 		// Others
 		
 		players.add(new Player("Cillessen", 30, 180, 70, "Netherlands", "GK", getOverall(), 'R', 80,
-				10000000, true, getAttributes(), actions));
-		players.add(new Player("Coutinho", 30, 180, 70, "Brazil", "LW", getOverall(), 'R', 87, 10000000,
+				8000000, true, getAttributes(), actions));
+		players.add(new Player("Coutinho", 30, 180, 70, "Brazil", "LW", getOverall(), 'R', 87, 60000000,
 				true, getAttributes(), actions));
-		players.add(new Player("Paulinho", 30, 180, 70, "Brazil", "CM", getOverall(), 'R', 81, 10000000, true,
+		players.add(new Player("Paulinho", 30, 180, 70, "Brazil", "CM", getOverall(), 'R', 81, 40000000, true,
 				getAttributes(), actions));
-		players.add(new Player("Alcacer", 30, 180, 70, "Spain", "ST", getOverall(), 'R', 80, 10000000, true,
+		players.add(new Player("Alcacer", 30, 180, 70, "Spain", "ST", getOverall(), 'R', 80, 8000000, true,
 				getAttributes(), actions));
-		players.add(new Player("Roberto", 30, 180, 70, "Spain", "RB", getOverall(), 'R', 82, 10000000, true,
+		players.add(new Player("Roberto", 30, 180, 70, "Spain", "RB", getOverall(), 'R', 82, 20000000, true,
 				getAttributes(), actions));
-		players.add(new Player("Gomes", 30, 180, 70, "Portugal", "CM", getOverall(), 'R', 83, 10000000, true,
+		players.add(new Player("Gomes", 30, 180, 70, "Portugal", "CM", getOverall(), 'R', 83, 25000000, true,
 				getAttributes(), actions));
-		players.add(new Player("Vidal", 30, 180, 70, "Spain", "RB", getOverall(), 'R', 79, 10000000, true,
+		players.add(new Player("Vidal", 30, 180, 70, "Spain", "RB", getOverall(), 'R', 79, 11000000, true,
 				getAttributes(), actions));
-		players.add(new Player("Digne", 30, 180, 70, "France", "LB", getOverall(), 'R', 77, 10000000, true,
+		players.add(new Player("Digne", 30, 180, 70, "France", "LB", getOverall(), 'R', 77, 8000000, true,
 				getAttributes(), actions));
-		players.add(new Player("Vermaelen", 30, 180, 70, "Belgium", "CB", getOverall(), 'R', 76, 10000000,
+		players.add(new Player("Vermaelen", 30, 180, 70, "Belgium", "CB", getOverall(), 'R', 76, 14000000,
 				true, getAttributes(), actions));
 		// Manager
 		Manager manager = new Manager("Ernesto Valverde", 54, 180, 70, "Spain", getOverall(), 2);
 		// President
 		President president = new President("Josep Maria Bartomeu", 55, 180, 70, "Spain");
 		// Team
-		Team team = new Team("FC Barcelona", "Red", "4-3-3", "Camp Nou", "1st 4ever", "Spain",
+		Team team = new Team("FC Barcelona", "Red", "4-3-3", "Camp Nou", "Barça", "Spain",
 				"Blaugranes or Azulgranas", 5.0, "Attack", "Fast", manager, president, players);
 		return team;
 	}

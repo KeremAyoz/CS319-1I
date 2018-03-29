@@ -1,1 +1,10 @@
+<<<<<<< HEAD
 **/.DS_Store
+=======
+.DS_Store
+.classpath
+.project
+/.idea
+/bin
+
+>>>>>>> unstable

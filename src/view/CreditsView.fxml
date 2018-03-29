@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="controller.CreditsController">
+   <children>
+      <Pane layoutX="-27.0" layoutY="-8.0" prefHeight="900.0" prefWidth="1400.0">
+         <children>
+            <ImageView fitHeight="529.0" fitWidth="518.0" layoutX="351.0" layoutY="130.0">
+               <image>
+                  <Image url="@../../img/logo.png" />
+               </image>
+            </ImageView>
+            <Text layoutX="75.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kerem Ayöz" wrappingWidth="296.66590881347656">
+               <font>
+                  <Font name="Gill Sans" size="47.0" />
+               </font>
+            </Text>
+            <Text layoutX="75.0" layoutY="650.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Babanazar Gutlygeldiyev" wrappingWidth="308.0509490966797">
+               <font>
+                  <Font size="47.0" />
+               </font>
+            </Text>
+            <Text layoutX="800.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Metehan Kaya" wrappingWidth="323.2311553955078">
+               <font>
+                  <Font name="Gill Sans" size="47.0" />
+               </font>
+            </Text>
+            <Text layoutX="800.0" layoutY="650.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Yılmaz Berkay Beken" wrappingWidth="429.4920196533203">
+               <font>
+                  <Font name="Gill Sans" size="47.0" />
+               </font>
+            </Text>
+            <Button fx:id="backToMainMenuClicked" layoutX="550.0" layoutY="800.0" mnemonicParsing="false" onAction="#backToMainMenuClicked" text="Back To Main Menu" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

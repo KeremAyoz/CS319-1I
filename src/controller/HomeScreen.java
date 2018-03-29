@@ -32,7 +32,7 @@ public class HomeScreen implements Initializable {
 	    }
 	    
 	    public void helpClicked() throws IOException {
-	        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/TopMenu.fxml"));
+	        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/HelpView.fxml"));
 	        Parent root = loader.load();
 	        Main.getMainStage().setScene(new Scene(root)); 
 	    }

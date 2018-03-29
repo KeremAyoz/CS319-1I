@@ -119,7 +119,7 @@ public class DatabaseAccess {
 				getAttributes(), actions));
 		players.add(new Player("Donk", 30, 180, 70, "Netherlands", "CM", getOverall(), 'R', 76, 1500000,
 				true, getAttributes(), actions));
-		players.add(new Player("Eren", 30, 180, 70, "Switzerland", "ST", getOverall(), 'R', 77, 3500000
+		players.add(new Player("Eren", 30, 180, 70, "Switzerland", "ST", getOverall(), 'R', 77, 3500000,
 				true, getAttributes(), actions));
 		players.add(new Player("Sinan", 30, 180, 70, "Turkey", "RW", getOverall(), 'R', 77, 6500000, true,
 				getAttributes(), actions));

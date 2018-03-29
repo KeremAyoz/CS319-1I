@@ -114,7 +114,7 @@ public class MatchPlayController implements Initializable {
 	private Match currentMatch;
 	private boolean paused;
 	private int currentTime;
-	
+	private int actionCount = 0;
 	
 	private final Integer START_TIME = 0;
 	private Integer seconds = START_TIME;
@@ -160,8 +160,9 @@ public class MatchPlayController implements Initializable {
 	}
 	
 	public void updateActionView() {
+		//eventGrid.getChildren().clear();
 		for (int i = 0; i < actions.size(); i++) {
-			eventGrid.add(new Text(actions.get(i).toString()), 1, i);
+			eventGrid.add(new Text(actions.get(i).toString()), 1, actionCount++);
 		}
 		
 	}

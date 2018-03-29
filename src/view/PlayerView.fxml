@@ -104,54 +104,54 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Text fill="#686060" strokeType="OUTSIDE" strokeWidth="0.0" text="Team:">
+                  <Text fill="#686060" strokeType="OUTSIDE" strokeWidth="0.0" text="  Team:">
                      <font>
-                        <Font name="System Bold" size="16.0" />
+                        <Font name="Gill Sans SemiBold" size="16.0" />
                      </font>
                   </Text>
-                  <Text fill="#686060" strokeType="OUTSIDE" strokeWidth="0.0" text="Position:" GridPane.rowIndex="1">
+                  <Text fill="#686060" strokeType="OUTSIDE" strokeWidth="0.0" text="  Position:" GridPane.rowIndex="1">
                      <font>
-                        <Font name="System Bold" size="16.0" />
+                        <Font name="Gill Sans SemiBold" size="16.0" />
                      </font>
                   </Text>
-                  <Text fill="#686060" strokeType="OUTSIDE" strokeWidth="0.0" text="Age:" GridPane.rowIndex="2">
+                  <Text fill="#686060" strokeType="OUTSIDE" strokeWidth="0.0" text="  Age:" GridPane.rowIndex="2">
                      <font>
-                        <Font name="System Bold" size="16.0" />
+                        <Font name="Gill Sans SemiBold" size="16.0" />
                      </font>
                   </Text>
-                  <Text fill="#686060" strokeType="OUTSIDE" strokeWidth="0.0" text="Foot:" GridPane.rowIndex="3">
+                  <Text fill="#686060" strokeType="OUTSIDE" strokeWidth="0.0" text="  Foot:" GridPane.rowIndex="3">
                      <font>
-                        <Font name="System Bold" size="16.0" />
+                        <Font name="Gill Sans SemiBold" size="16.0" />
                      </font>
                   </Text>
-                  <Text fill="#686060" strokeType="OUTSIDE" strokeWidth="0.0" text="Nation:" GridPane.rowIndex="4">
+                  <Text fill="#686060" strokeType="OUTSIDE" strokeWidth="0.0" text="  Nation:" GridPane.rowIndex="4">
                      <font>
-                        <Font name="System Bold" size="16.0" />
+                        <Font name="Gill Sans SemiBold" size="16.0" />
                      </font>
                   </Text>
-                  <Text fill="#686060" strokeType="OUTSIDE" strokeWidth="0.0" text="Height:" GridPane.columnIndex="2">
+                  <Text fill="#686060" strokeType="OUTSIDE" strokeWidth="0.0" text="  Height:" GridPane.columnIndex="2">
                      <font>
-                        <Font name="System Bold" size="16.0" />
+                        <Font name="Gill Sans SemiBold" size="16.0" />
                      </font>
                   </Text>
-                  <Text fill="#686060" strokeType="OUTSIDE" strokeWidth="0.0" text="Weight:" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                  <Text fill="#686060" strokeType="OUTSIDE" strokeWidth="0.0" text="  Weight:" GridPane.columnIndex="2" GridPane.rowIndex="1">
                      <font>
-                        <Font name="System Bold" size="16.0" />
+                        <Font name="Gill Sans SemiBold" size="16.0" />
                      </font>
                   </Text>
-                  <Text fill="#686060" strokeType="OUTSIDE" strokeWidth="0.0" text="Value:" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                  <Text fill="#686060" strokeType="OUTSIDE" strokeWidth="0.0" text="  Value:" GridPane.columnIndex="2" GridPane.rowIndex="2">
                      <font>
-                        <Font name="System Bold" size="16.0" />
+                        <Font name="Gill Sans SemiBold" size="16.0" />
                      </font>
                   </Text>
-                  <Text fill="#686060" strokeType="OUTSIDE" strokeWidth="0.0" text="Salary:" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                  <Text fill="#686060" strokeType="OUTSIDE" strokeWidth="0.0" text="  Salary:" GridPane.columnIndex="2" GridPane.rowIndex="3">
                      <font>
-                        <Font name="System Bold" size="16.0" />
+                        <Font name="Gill Sans SemiBold" size="16.0" />
                      </font>
                   </Text>
-                  <Text fill="#686060" strokeType="OUTSIDE" strokeWidth="0.0" text="Status:" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                  <Text fill="#686060" strokeType="OUTSIDE" strokeWidth="0.0" text="  Status:" GridPane.columnIndex="2" GridPane.rowIndex="4">
                      <font>
-                        <Font name="System Bold" size="16.0" />
+                        <Font name="Gill Sans SemiBold" size="16.0" />
                      </font>
                   </Text>
                </children>
@@ -182,71 +182,71 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Text fill="#686060" strokeType="OUTSIDE" strokeWidth="0.0" text="Pace:">
+                  <Text fill="#686060" strokeType="OUTSIDE" strokeWidth="0.0" text="  Pace:">
                      <font>
-                        <Font name="System Bold" size="16.0" />
+                        <Font name="Gill Sans SemiBold" size="16.0" />
                      </font>
                   </Text>
-                  <Text fill="#686060" strokeType="OUTSIDE" strokeWidth="0.0" text="Shooting:" GridPane.rowIndex="1">
+                  <Text fill="#686060" strokeType="OUTSIDE" strokeWidth="0.0" text="  Shooting:" GridPane.rowIndex="1">
                      <font>
-                        <Font name="System Bold" size="16.0" />
+                        <Font name="Gill Sans SemiBold" size="16.0" />
                      </font>
                   </Text>
-                  <Text fill="#686060" strokeType="OUTSIDE" strokeWidth="0.0" text="Dribbling:" GridPane.rowIndex="2">
+                  <Text fill="#686060" strokeType="OUTSIDE" strokeWidth="0.0" text="  Dribbling:" GridPane.rowIndex="2">
                      <font>
-                        <Font name="System Bold" size="16.0" />
+                        <Font name="Gill Sans SemiBold" size="16.0" />
                      </font>
                   </Text>
-                  <Text fill="#686060" strokeType="OUTSIDE" strokeWidth="0.0" text="Passing:" GridPane.rowIndex="3">
+                  <Text fill="#686060" strokeType="OUTSIDE" strokeWidth="0.0" text="  Passing:" GridPane.rowIndex="3">
                      <font>
-                        <Font name="System Bold" size="16.0" />
+                        <Font name="Gill Sans SemiBold" size="16.0" />
                      </font>
                   </Text>
-                  <Text fill="#686060" strokeType="OUTSIDE" strokeWidth="0.0" text="Defence:" GridPane.columnIndex="2">
+                  <Text fill="#686060" strokeType="OUTSIDE" strokeWidth="0.0" text="  Defence:" GridPane.columnIndex="2">
                      <font>
-                        <Font name="System Bold" size="16.0" />
+                        <Font name="Gill Sans SemiBold" size="16.0" />
                      </font>
                   </Text>
-                  <Text fill="#686060" strokeType="OUTSIDE" strokeWidth="0.0" text="Physical:" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                  <Text fill="#686060" strokeType="OUTSIDE" strokeWidth="0.0" text="  Physical:" GridPane.columnIndex="2" GridPane.rowIndex="1">
                      <font>
-                        <Font name="System Bold" size="16.0" />
+                        <Font name="Gill Sans SemiBold" size="16.0" />
                      </font>
                   </Text>
-                  <Text fill="#686060" strokeType="OUTSIDE" strokeWidth="0.0" text="Goal Keeping:" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                  <Text fill="#686060" strokeType="OUTSIDE" strokeWidth="0.0" text="  Gk:" GridPane.columnIndex="2" GridPane.rowIndex="2">
                      <font>
-                        <Font name="System Bold" size="16.0" />
+                        <Font name="Gill Sans SemiBold" size="16.0" />
                      </font>
                   </Text>
-                  <Text fill="#686060" strokeType="OUTSIDE" strokeWidth="0.0" text="Mental:" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                  <Text fill="#686060" strokeType="OUTSIDE" strokeWidth="0.0" text="  Mental:" GridPane.columnIndex="2" GridPane.rowIndex="3">
                      <font>
-                        <Font name="System Bold" size="16.0" />
+                        <Font name="Gill Sans SemiBold" size="16.0" />
                      </font>
                   </Text>
                </children>
             </GridPane>
             <Text fill="#686060" layoutX="177.0" layoutY="690.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Match Played">
                <font>
-                  <Font name="System Bold" size="14.0" />
+                  <Font name="Gill Sans SemiBold" size="16.0" />
                </font>
             </Text>
             <Text fill="#686060" layoutX="304.0" layoutY="690.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Goals">
                <font>
-                  <Font name="System Bold" size="14.0" />
+                  <Font name="Gill Sans SemiBold" size="16.0" />
                </font>
             </Text>
-            <Text fill="#686060" layoutX="403.0" layoutY="690.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Assists">
+            <Text fill="#686060" layoutX="401.0" layoutY="690.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Assists">
                <font>
-                  <Font name="System Bold" size="14.0" />
+                  <Font name="Gill Sans SemiBold" size="16.0" />
                </font>
             </Text>
-            <Text fill="#686060" layoutX="489.0" layoutY="690.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Yellow Card">
+            <Text fill="#686060" layoutX="481.0" layoutY="690.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Yellow Card">
                <font>
-                  <Font name="System Bold" size="14.0" />
+                  <Font name="Gill Sans SemiBold" size="16.0" />
                </font>
             </Text>
-            <Text fill="#686060" layoutX="597.0" layoutY="690.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Red Card">
+            <Text fill="#686060" layoutX="592.0" layoutY="690.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Red Card">
                <font>
-                  <Font name="System Bold" size="14.0" />
+                  <Font name="Gill Sans SemiBold" size="16.0" />
                </font>
             </Text>
          </children>

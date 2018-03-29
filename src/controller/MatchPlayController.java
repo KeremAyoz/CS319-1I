@@ -153,6 +153,11 @@ public class MatchPlayController implements Initializable {
 		paused = true;
 	}
 	
+	@FXML
+	public void playClicked() {
+		paused = false;
+	}
+	
 	public void doTime() {
 		Timeline timeline = new Timeline();
 		timeline.setCycleCount(Timeline.INDEFINITE);

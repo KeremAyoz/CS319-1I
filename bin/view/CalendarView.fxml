@@ -42,7 +42,7 @@
                   <Font size="22.0" />
                </font>
             </Hyperlink>
-            <Hyperlink layoutX="989.0" layoutY="41.0" onAction="#saveClicked" prefHeight="58.0" prefWidth="171.0" text="Save&amp;Exit" textFill="#802525">
+            <Hyperlink layoutX="989.0" layoutY="41.0" onAction="#saveClicked" prefHeight="58.0" prefWidth="136.0" text="Save&amp;Exit" textFill="#802525">
                <font>
                   <Font size="22.0" />
                </font>

@@ -44,7 +44,7 @@
                         <Font size="22.0" />
                      </font>
                   </Hyperlink>
-                  <Hyperlink ellipsisString="" layoutX="989.0" layoutY="41.0" onAction="#saveClicked" prefHeight="58.0" prefWidth="171.0" text="Save&amp;Exit" textFill="#802525">
+                  <Hyperlink ellipsisString="" layoutX="989.0" layoutY="41.0" onAction="#saveClicked" prefHeight="58.0" prefWidth="123.0" text="Save&amp;Exit" textFill="#802525">
                      <font>
                         <Font size="22.0" />
                      </font>
@@ -80,10 +80,15 @@
                         <Font name="Gill Sans Bold" size="33.0" />
                      </font>
                   </Label>
-                  <Button layoutX="1137.0" layoutY="351.0" mnemonicParsing="false" onAction="#pauseClicked" prefHeight="40.0" prefWidth="64.0" text="II">
+                  <Button layoutX="1121.0" layoutY="351.0" mnemonicParsing="false" onAction="#pauseClicked" prefHeight="40.0" prefWidth="64.0" text="Pause">
                      <font>
                         <Font name="Gill Sans SemiBold" size="15.0" />
                      </font></Button>
+                  <Button layoutX="1203.0" layoutY="351.0" mnemonicParsing="false" onAction="#playClicked" prefHeight="40.0" prefWidth="64.0" text="Play">
+                     <font>
+                        <Font name="Gill Sans SemiBold" size="15.0" />
+                     </font>
+                  </Button>
                </children>
             </Pane>
             <ImageView fitHeight="458.0" fitWidth="1128.0" layoutX="164.0" layoutY="424.0" preserveRatio="true">

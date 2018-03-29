@@ -52,7 +52,7 @@
                   <Cursor fx:constant="OPEN_HAND" />
                </cursor>
             </Hyperlink>
-            <Hyperlink ellipsisString="0" layoutX="989.0" layoutY="41.0" onAction="#saveClicked" prefHeight="58.0" prefWidth="115.0" text="Save&amp;Exit" textFill="#802525" textOverrun="CLIP">
+            <Hyperlink ellipsisString="0" layoutX="989.0" layoutY="41.0" onAction="#saveClicked" prefHeight="58.0" prefWidth="125.0" text="Save&amp;Exit" textFill="#802525" textOverrun="CLIP">
                <font>
                   <Font size="22.0" />
                </font>

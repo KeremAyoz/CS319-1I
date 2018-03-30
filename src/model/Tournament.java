@@ -78,9 +78,6 @@ public class Tournament implements Serializable{
 	public static Tournament getInstance() {
 		
 		if (instance == null) {
-			
-			System.out.println("Something");
-			
 			Group[] groups = new Group[NUMBER_OF_GROUPS];
 			
 			for (int i = 0; i < NUMBER_OF_GROUPS; i++) {
@@ -584,6 +581,7 @@ public class Tournament implements Serializable{
 	}
 
 	public int getMyGroupId() {
+		System.out.println("BENİM GRUBUM: " + myGroupId);
 		return myGroupId;
 	}
 

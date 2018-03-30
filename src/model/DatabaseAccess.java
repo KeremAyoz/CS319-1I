@@ -241,6 +241,8 @@ public class DatabaseAccess {
 				getAttributes(), actions));
 		players.add(new Player("Ibrahimovic", 30, 180, 70, "Sweden", "ST", getOverall(), 'R', 86, 8000000, true,
 				getAttributes(), actions));
+		players.add(new Player("Mctominay", 30, 180, 70, "England", "CM", getOverall(), 'R', 86, 8000000, true,
+				getAttributes(), actions));
 		
 		// Manager
 		Manager manager = new Manager("Mourinho", 65, 180, 70, "Portugal", getOverall(), 2);

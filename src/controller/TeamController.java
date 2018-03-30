@@ -53,6 +53,7 @@ public class TeamController implements Initializable {
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
+		System.out.println("Here" + currentTeamId);
 		Team cur = Tournament.getInstance().getTeams()[currentTeamId];
 		for (int i = 0; i < 20; i++) {
 			Player p = cur.getPlayers().get(i);

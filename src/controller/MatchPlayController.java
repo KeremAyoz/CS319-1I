@@ -123,7 +123,11 @@ public class MatchPlayController implements Initializable {
 		Tournament t = Tournament.getInstance();
 		paused = false;
 		label.setTextFill(Color.BLACK);
-		currentMatch = t.getGroups()[t.getMyGroupId()].getMatch(t.getMyGroupMatchIds()[0]);
+		if (t.getGroups()[t.getMyGroupId()].getMatch(t.getMyGroupMatchIds()[0]).getAway().getName().equals(t.getTeams()[t.getMyTeamId()].getName()) ||
+				t.getGroups()[t.getMyGroupId()].getMatch(t.getMyGroupMatchIds()[0]).getHome().getName().equals(t.getTeams()[t.getMyTeamId()].getName()))
+			currentMatch = t.getGroups()[t.getMyGroupId()].getMatch(t.getMyGroupMatchIds()[0]);
+		else 
+			currentMatch = t.getGroups()[t.getMyGroupId()].getMatch(t.getMyGroupMatchIds()[1]);
 		if (currentMatch != null) {
 			Team home = currentMatch.getHome();
 			Team away = currentMatch.getAway();

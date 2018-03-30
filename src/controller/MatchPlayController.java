@@ -123,11 +123,15 @@ public class MatchPlayController implements Initializable {
 		Tournament t = Tournament.getInstance();
 		paused = false;
 		label.setTextFill(Color.BLACK);
-		if (t.getGroups()[t.getMyGroupId()].getMatch(t.getMyGroupMatchIds()[0]).getAway().getName().equals(t.getTeams()[t.getMyTeamId()].getName()) ||
-				t.getGroups()[t.getMyGroupId()].getMatch(t.getMyGroupMatchIds()[0]).getHome().getName().equals(t.getTeams()[t.getMyTeamId()].getName()))
-			currentMatch = t.getGroups()[t.getMyGroupId()].getMatch(t.getMyGroupMatchIds()[0]);
-		else 
-			currentMatch = t.getGroups()[t.getMyGroupId()].getMatch(t.getMyGroupMatchIds()[1]);
+		for (int i = 0; i < 12; i++) {
+			if (t.getGroups()[t.getMyGroupId()].getMatch(t.getMyGroupMatchIds()[i]).getAway().getName().equals(t.getTeams()[t.getMyTeamId()].getName()) ||
+					t.getGroups()[t.getMyGroupId()].getMatch(t.getMyGroupMatchIds()[i]).getHome().getName().equals(t.getTeams()[t.getMyTeamId()].getName())) {
+				currentMatch = t.getGroups()[t.getMyGroupId()].getMatch(t.getMyGroupMatchIds()[i]);
+				break;
+			}
+
+		}
+		
 		if (currentMatch != null) {
 			Team home = currentMatch.getHome();
 			Team away = currentMatch.getAway();
@@ -146,6 +150,7 @@ public class MatchPlayController implements Initializable {
 			
 			
 			doTime();
+			System.out.println("Match is over");
 
 		}
 	}

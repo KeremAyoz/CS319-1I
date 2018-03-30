@@ -13,7 +13,7 @@
          <children>
             <Pane layoutY="-15.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1400.0">
                <children>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a3a2a266" height="67.0" layoutX="388.0" layoutY="199.0" stroke="BLACK" strokeType="INSIDE" width="660.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a3a2a266" height="67.0" layoutX="388.0" layoutY="199.0" stroke="BLACK" strokeType="INSIDE" width="649.0" />
                   <Circle fill="WHITE" layoutX="700.0" layoutY="782.0" radius="30.0" stroke="BLACK" strokeType="INSIDE" />
                   <Hyperlink ellipsisString="" layoutX="189.0" layoutY="41.0" onAction="#teamClicked" prefHeight="58.0" prefWidth="134.0" text="Team" textFill="#802525">
                      <font>
@@ -66,7 +66,7 @@
                         <Font name="Gill Sans Bold" size="38.0" />
                      </font>
                   </Text>
-                  <Text fx:id="awayName" fill="#034fc3" layoutX="790.0" layoutY="248.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Real Madrid">
+                  <Text fx:id="awayName" fill="#034fc3" layoutX="793.0" layoutY="248.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Real Madrid">
                      <font>
                         <Font name="Gill Sans Bold" size="38.0" />
                      </font>
@@ -100,6 +100,8 @@
                         <Font name="Gill Sans UltraBold" size="34.0" />
                      </font>
                   </Text>
+                  <ImageView fx:id="homeLineup" fitHeight="454.0" fitWidth="456.0" layoutX="23.0" layoutY="317.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="awayLineup" fitHeight="454.0" fitWidth="456.0" layoutX="938.0" layoutY="317.0" pickOnBounds="true" preserveRatio="true" />
                </children>
             </Pane>
             <ScrollPane fx:id="scrollEvent" layoutX="500.0" layoutY="300.0" prefHeight="413.0" prefWidth="422.0">

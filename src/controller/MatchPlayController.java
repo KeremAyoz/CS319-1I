@@ -100,6 +100,11 @@ public class MatchPlayController implements Initializable {
 	private ScrollPane scrollEvent;
 	@FXML
 	private Text timer;
+	
+	@FXML
+	private ImageView homeLineup;
+	@FXML
+	private ImageView awayLineup;
 
 	private Match currentMatch;
 	private boolean paused;
@@ -125,7 +130,17 @@ public class MatchPlayController implements Initializable {
 
 			homeName.setText(home.getName());
 			awayName.setText(away.getName());
-
+			
+			File tactic = new File("img/tactics/" + home.getTactic() + ".png");
+			Image tacticImage = new Image(tactic.toURI().toString(), 456, 454, false, false);
+			homeLineup.setImage(tacticImage);
+			
+			File tactic2 = new File("img/tactics/" + away.getTactic() + ".png");
+			Image tacticImage2 = new Image(tactic2.toURI().toString(), 456, 454, false, false);
+			awayLineup.setImage(tacticImage2);
+			
+			
+			
 			doTime();
 
 		}

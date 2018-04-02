@@ -170,17 +170,50 @@
                               <ComboBox fx:id="sub3" onAction="#sub3Change" prefHeight="47.0" prefWidth="71.0" GridPane.rowIndex="13" />
                               <ComboBox fx:id="sub2" onAction="#sub2Change" prefHeight="47.0" prefWidth="71.0" GridPane.rowIndex="12" />
                               <ComboBox fx:id="sub1" onAction="#sub1Change" prefHeight="47.0" prefWidth="71.0" GridPane.rowIndex="11" />
-                              <ComboBox fx:id="pl1" onAction="#pl1Change" prefHeight="61.0" prefWidth="71.0" />
-                              <ComboBox fx:id="pl2" onAction="#pl2Change" prefHeight="56.0" prefWidth="71.0" GridPane.rowIndex="1" />
-                              <ComboBox fx:id="pl3" onAction="#pl3Change" prefHeight="57.0" prefWidth="71.0" GridPane.rowIndex="2" />
-                              <ComboBox fx:id="pl4" onAction="#pl4Change" prefHeight="58.0" prefWidth="71.0" GridPane.rowIndex="3" />
-                              <ComboBox fx:id="pl5" onAction="#pl5Change" prefHeight="56.0" prefWidth="71.0" GridPane.rowIndex="4" />
-                              <ComboBox fx:id="pl6" onAction="#pl6Change" prefHeight="76.0" prefWidth="71.0" GridPane.rowIndex="5" />
-                              <ComboBox fx:id="pl7" onAction="#pl7Change" prefHeight="81.0" prefWidth="71.0" GridPane.rowIndex="6" />
-                              <ComboBox fx:id="pl8" onAction="#pl8Change" prefHeight="64.0" prefWidth="71.0" GridPane.rowIndex="7" />
-                              <ComboBox fx:id="pl9" onAction="#pl9Change" prefHeight="86.0" prefWidth="71.0" GridPane.rowIndex="8" />
-                              <ComboBox fx:id="pl10" onAction="#pl10Change" prefHeight="77.0" prefWidth="71.0" GridPane.rowIndex="9" />
-                              <ComboBox fx:id="pl11" onAction="#pl11Change" prefHeight="100.0" prefWidth="71.0" GridPane.rowIndex="10" />
+                              <ComboBox fx:id="pl1" onAction="#pl1Change" prefHeight="61.0" prefWidth="71.0">
+                                 <cursor>
+                                    <Cursor fx:constant="OPEN_HAND" />
+                                 </cursor></ComboBox>
+                              <ComboBox fx:id="pl2" onAction="#pl2Change" prefHeight="56.0" prefWidth="71.0" GridPane.rowIndex="1">
+                                 <cursor>
+                                    <Cursor fx:constant="OPEN_HAND" />
+                                 </cursor></ComboBox>
+                              <ComboBox fx:id="pl3" onAction="#pl3Change" prefHeight="57.0" prefWidth="71.0" GridPane.rowIndex="2">
+                                 <cursor>
+                                    <Cursor fx:constant="OPEN_HAND" />
+                                 </cursor></ComboBox>
+                              <ComboBox fx:id="pl4" onAction="#pl4Change" prefHeight="58.0" prefWidth="71.0" GridPane.rowIndex="3">
+                                 <cursor>
+                                    <Cursor fx:constant="OPEN_HAND" />
+                                 </cursor></ComboBox>
+                              <ComboBox fx:id="pl5" onAction="#pl5Change" prefHeight="56.0" prefWidth="71.0" GridPane.rowIndex="4">
+                                 <cursor>
+                                    <Cursor fx:constant="OPEN_HAND" />
+                                 </cursor></ComboBox>
+                              <ComboBox fx:id="pl6" onAction="#pl6Change" prefHeight="76.0" prefWidth="71.0" GridPane.rowIndex="5">
+                                 <cursor>
+                                    <Cursor fx:constant="OPEN_HAND" />
+                                 </cursor></ComboBox>
+                              <ComboBox fx:id="pl7" onAction="#pl7Change" prefHeight="81.0" prefWidth="71.0" GridPane.rowIndex="6">
+                                 <cursor>
+                                    <Cursor fx:constant="OPEN_HAND" />
+                                 </cursor></ComboBox>
+                              <ComboBox fx:id="pl8" onAction="#pl8Change" prefHeight="64.0" prefWidth="71.0" GridPane.rowIndex="7">
+                                 <cursor>
+                                    <Cursor fx:constant="OPEN_HAND" />
+                                 </cursor></ComboBox>
+                              <ComboBox fx:id="pl9" onAction="#pl9Change" prefHeight="86.0" prefWidth="71.0" GridPane.rowIndex="8">
+                                 <cursor>
+                                    <Cursor fx:constant="OPEN_HAND" />
+                                 </cursor></ComboBox>
+                              <ComboBox fx:id="pl10" onAction="#pl10Change" prefHeight="77.0" prefWidth="71.0" GridPane.rowIndex="9">
+                                 <cursor>
+                                    <Cursor fx:constant="OPEN_HAND" />
+                                 </cursor></ComboBox>
+                              <ComboBox fx:id="pl11" onAction="#pl11Change" prefHeight="100.0" prefWidth="71.0" GridPane.rowIndex="10">
+                                 <cursor>
+                                    <Cursor fx:constant="OPEN_HAND" />
+                                 </cursor></ComboBox>
                            </children>
                         </GridPane>
                      </children>

@@ -23,6 +23,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
@@ -100,6 +101,11 @@ public class MatchPlayController implements Initializable {
 	private ScrollPane scrollEvent;
 	@FXML
 	private Text timer;
+	@FXML
+	private ImageView homeLogo;
+	@FXML
+	private ImageView awayLogo;
+	
 	
 	@FXML
 	private ImageView homeLineup;
@@ -115,6 +121,19 @@ public class MatchPlayController implements Initializable {
 
 	@FXML
 	private Label label;
+	
+	@FXML
+	private ComboBox<String> homeTactic;
+	@FXML
+	private ComboBox<String> awayTactic;
+	@FXML
+	private ComboBox<String> homeStyle;
+	@FXML
+	private ComboBox<String> awayStyle;
+	@FXML
+	private ComboBox<String> homeTempo;
+	@FXML
+	private ComboBox<String> awayTempo;
 
 	ArrayList<Action> actions;
 
@@ -138,6 +157,48 @@ public class MatchPlayController implements Initializable {
 
 			homeName.setText(home.getName());
 			awayName.setText(away.getName());
+			
+			homeName.setStyle("-fx-text-base-color: " + home.getColor().trim().toLowerCase() + ";");
+			awayName.setStyle("-fx-text-base-color: " + away.getColor().trim().toLowerCase() + ";");
+			
+			String st = home.getName().toLowerCase().trim();
+			st = st.replaceAll("\\s+", "");
+			File logo1 = new File("img/logos/" + st + ".png");
+			Image image = new Image(logo1.toURI().toString());
+			homeLogo.setImage(image);
+			
+			String st2 = away.getName().toLowerCase().trim();
+			st2 = st2.replaceAll("\\s+", "");
+			File logo2 = new File("img/logos/" + st2 + ".png");
+			Image image2 = new Image(logo2.toURI().toString());
+			awayLogo.setImage(image2);
+			
+			if (home.getName().equals(t.getTeams()[t.getMyTeamId()].getName())) {
+				homeTactic.getItems().addAll("4-3-3", "4-4-2", "4-2-3-1");
+				homeStyle.getItems().addAll("Attack", "Defensive", "Holding");
+				homeTempo.getItems().addAll("Fast", "Normal", "Slow");
+				homeTactic.getSelectionModel().select(home.getTactic());
+				homeStyle.getSelectionModel().select(home.getStyle());
+				homeTempo.getSelectionModel().select(home.getTempo());
+				awayTactic.setDisable(true);
+				awayStyle.setDisable(true);
+				awayTempo.setDisable(true);
+			}
+					
+			else {
+				awayTactic.getItems().addAll("4-3-3", "4-4-2", "4-2-3-1");
+				awayStyle.getItems().addAll("Attack", "Defensive", "Holding");
+				awayTempo.getItems().addAll("Fast", "Normal", "Slow");
+				awayTactic.getSelectionModel().select(away.getTactic());
+				awayStyle.getSelectionModel().select(away.getStyle());
+				awayTempo.getSelectionModel().select(away.getTempo());
+				homeTactic.setDisable(true);
+				homeStyle.setDisable(true);
+				homeTempo.setDisable(true);
+			}
+			
+			
+			
 			
 			File tactic = new File("img/tactics/" + home.getTactic() + ".png");
 			Image tacticImage = new Image(tactic.toURI().toString(), 456, 454, false, false);

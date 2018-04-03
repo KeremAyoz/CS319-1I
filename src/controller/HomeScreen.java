@@ -23,18 +23,21 @@ public class HomeScreen implements Initializable {
 	        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/NewGameView.fxml"));
 	        Parent root = loader.load();
 	        Main.getMainStage().setScene(new Scene(root)); 
+	        Main.getMainStage().setFullScreen(true);
 	    }
 	    
 	    public void loadGameClicked() throws IOException {
 	        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/TeamView.fxml"));
 	        Parent root = loader.load();
 	        Main.getMainStage().setScene(new Scene(root)); 
+	        Main.getMainStage().setFullScreen(true);
 	    }
 	    
 	    public void helpClicked() throws IOException {
 	        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/HelpView.fxml"));
 	        Parent root = loader.load();
 	        Main.getMainStage().setScene(new Scene(root)); 
+	        Main.getMainStage().setFullScreen(true);
 	    }
 	    
 	    @FXML
@@ -42,6 +45,7 @@ public class HomeScreen implements Initializable {
 	        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/CreditsView.fxml"));
 	        Parent root = loader.load();
 	        Main.getMainStage().setScene(new Scene(root)); 
+	        Main.getMainStage().setFullScreen(true);
 	    }
 	    
 	    public void exitClicked() throws IOException {

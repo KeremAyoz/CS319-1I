@@ -243,6 +243,7 @@ public class NewGameController implements Initializable {
 			}
 		}
 		t.setMyTeamId(id);
+		t.chooseMyGroupId();
 		TeamController.setCurrentTeamId(id);
 		Parent root = FXMLLoader.load(getClass().getResource("/view/TeamView.fxml"));
 		Main.getMainStage().setScene(new Scene(root));

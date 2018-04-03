@@ -85,8 +85,8 @@ public class MatchStart implements Initializable {
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
 
-		Team home = Main.getFirstTeam();
-		Team away = Main.getSecondTeam();
+		Team home = null;
+		Team away = null;
 		ArrayList<Action> actions = new ArrayList<Action>();
 		Match match = new Match(0 , 0 , 0 , home, away, "Pierluigi Collina", "Sunny", actions);
 		try {

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
@@ -7,7 +8,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1400.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.KnockoutController">
   <children>
     <Rectangle arcHeight="5.0" arcWidth="5.0" fill="BLACK" height="20.0" layoutX="196.0" layoutY="252.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
     <Rectangle arcHeight="5.0" arcWidth="5.0" fill="BLACK" height="20.0" layoutX="335.0" layoutY="559.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
@@ -16,7 +17,7 @@
     <Line endX="100.0" layoutX="700.0" layoutY="451.0" startX="-100.0" strokeWidth="6.2" />
     <ImageView id="cup.png" fitHeight="105.0" fitWidth="105.0" layoutX="648.0" layoutY="398.0">
       <image>
-        <Image url="@../../../../cup.png" preserveRatio="true" smooth="true" />
+        <Image preserveRatio="true" smooth="true" url="@../../../../cup.png" />
       </image>
     </ImageView>
     <Rectangle arcHeight="5.0" arcWidth="5.0" height="42.0" layoutX="522.0" layoutY="429.0" stroke="BLACK" strokeType="INSIDE" width="109.0">
@@ -180,5 +181,55 @@
     <Text id="lastLeft1" font="$x8" layoutX="1093.0" layoutY="635.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Manchester City" />
     <Text id="lastLeft1" font="$x5" layoutX="1098.0" layoutY="515.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CS319-I FC" />
     <Text font="$x7" layoutX="1106.0" layoutY="576.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2-2 / None" />
+      <Pane layoutY="1.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1400.0">
+         <children>
+            <Hyperlink layoutX="189.0" layoutY="41.0" onAction="#teamClicked" prefHeight="58.0" prefWidth="134.0" text="Team" textFill="#802525">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Hyperlink>
+            <Hyperlink layoutX="291.0" layoutY="41.0" onAction="#tacticClicked" prefHeight="58.0" prefWidth="134.0" text="Tactics" textFill="#802525">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Hyperlink>
+            <Hyperlink layoutX="411.0" layoutY="41.0" onAction="#groupClicked" prefHeight="58.0" prefWidth="167.0" text="Group Stage" textFill="#802525">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Hyperlink>
+            <Hyperlink layoutX="579.0" layoutY="41.0" onAction="#knockoutClicked" prefHeight="58.0" prefWidth="134.0" text="Knockout" textFill="#802525">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Hyperlink>
+            <Hyperlink layoutX="724.0" layoutY="41.0" onAction="#statClicked" prefHeight="58.0" prefWidth="134.0" text="Statistics" textFill="#802525">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Hyperlink>
+            <Hyperlink layoutX="869.0" layoutY="41.0" onAction="#calendarClicked" prefHeight="58.0" prefWidth="134.0" text="Calendar" textFill="#802525">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Hyperlink>
+            <Hyperlink layoutX="989.0" layoutY="41.0" onAction="#saveClicked" prefHeight="58.0" prefWidth="171.0" text="Save&amp;Exit" textFill="#802525">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Hyperlink>
+            <Button layoutX="1185.0" layoutY="38.0" mnemonicParsing="false" onAction="#continueClicked" prefHeight="73.0" prefWidth="152.0" text="Continue">
+               <font>
+                  <Font name="System Bold" size="26.0" />
+               </font>
+            </Button>
+            <Line endX="1160.0" layoutX="240.0" layoutY="145.0" startX="-240.0" />
+            <ImageView fitHeight="151.0" fitWidth="135.0" layoutX="25.0" preserveRatio="true">
+               <image>
+                  <Image url="@../../img/logo.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
   </children>
 </Pane>

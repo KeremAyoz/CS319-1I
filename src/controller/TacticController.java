@@ -113,53 +113,74 @@ public class TacticController implements Initializable {
 	private ComboBox<String> sub8;
 	@FXML
 	private ComboBox<String> sub9;
+	
+	@FXML
+	private ComboBox<String> homeTactic;
+	@FXML
+	private ComboBox<String> awayTactic;
+	@FXML
+	private ComboBox<String> homeStyle;
+	@FXML
+	private ComboBox<String> awayStyle;
+	@FXML
+	private ComboBox<String> homeTempo;
+	@FXML
+	private ComboBox<String> awayTempo;
 
 	@FXML
 	public void teamClicked() throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("/view/TeamView.fxml"));
 		Main.getMainStage().setScene(new Scene(root));
+		Main.getMainStage().setFullScreen(true);
 	}
 
 	@FXML
 	public void tacticClicked() throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("/view/TacticView.fxml"));
 		Main.getMainStage().setScene(new Scene(root));
+		Main.getMainStage().setFullScreen(true);
 	}
 
 	@FXML
 	public void groupClicked() throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("/view/GroupView.fxml"));
 		Main.getMainStage().setScene(new Scene(root));
+		Main.getMainStage().setFullScreen(true);
 	}
 
 	@FXML
 	public void knockoutClicked() throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("/view/KnockoutView.fxml"));
 		Main.getMainStage().setScene(new Scene(root));
+		Main.getMainStage().setFullScreen(true);
 	}
 
 	@FXML
 	public void statClicked() throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("/view/StatisticView.fxml"));
 		Main.getMainStage().setScene(new Scene(root));
+		Main.getMainStage().setFullScreen(true);
 	}
 
 	@FXML
 	public void calendarClicked() throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("/view/CalendarView.fxml"));
 		Main.getMainStage().setScene(new Scene(root));
+		Main.getMainStage().setFullScreen(true);
 	}
 
 	@FXML
 	public void saveClicked() throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("/view/HomeScreen.fxml"));
 		Main.getMainStage().setScene(new Scene(root));
+		Main.getMainStage().setFullScreen(true);
 	}
 
 	@FXML
 	public void continueClicked() throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("/view/MatchPlayView.fxml"));
 		Main.getMainStage().setScene(new Scene(root));
+		Main.getMainStage().setFullScreen(true);
 	}
 
 	@Override
@@ -340,7 +361,7 @@ public class TacticController implements Initializable {
 		// Swapping
 		Collections.swap(t.getPlayers(), sub1.getSelectionModel().getSelectedIndex(), 11);
 		gridUpdate();
-		sub1.getSelectionModel().clearSelection();
+		comboBoxSetup(t.getTactic());
 		calibrateNames();
 	}
 
@@ -351,7 +372,7 @@ public class TacticController implements Initializable {
 		// Swapping
 		Collections.swap(t.getPlayers(), sub2.getSelectionModel().getSelectedIndex(), 12);
 		gridUpdate();
-		sub2.getSelectionModel().clearSelection();
+		comboBoxSetup(t.getTactic());
 		calibrateNames();
 	}
 
@@ -362,7 +383,7 @@ public class TacticController implements Initializable {
 		// Swapping
 		Collections.swap(t.getPlayers(), sub3.getSelectionModel().getSelectedIndex(), 13);
 		gridUpdate();
-		sub3.getSelectionModel().clearSelection();
+		comboBoxSetup(t.getTactic());
 		calibrateNames();
 	}
 
@@ -373,7 +394,7 @@ public class TacticController implements Initializable {
 		// Swapping
 		Collections.swap(t.getPlayers(), sub4.getSelectionModel().getSelectedIndex(), 14);
 		gridUpdate();
-		sub4.getSelectionModel().clearSelection();
+		comboBoxSetup(t.getTactic());
 		calibrateNames();
 	}
 
@@ -384,7 +405,7 @@ public class TacticController implements Initializable {
 		// Swapping
 		Collections.swap(t.getPlayers(), sub5.getSelectionModel().getSelectedIndex(), 15);
 		gridUpdate();
-		sub5.getSelectionModel().clearSelection();
+		comboBoxSetup(t.getTactic());
 		calibrateNames();
 	}
 
@@ -395,7 +416,7 @@ public class TacticController implements Initializable {
 		// Swapping
 		Collections.swap(t.getPlayers(), sub6.getSelectionModel().getSelectedIndex(), 16);
 		gridUpdate();
-		sub6.getSelectionModel().clearSelection();
+		comboBoxSetup(t.getTactic());
 		calibrateNames();
 	}
 
@@ -406,7 +427,7 @@ public class TacticController implements Initializable {
 		// Swapping
 		Collections.swap(t.getPlayers(), sub7.getSelectionModel().getSelectedIndex(), 17);
 		gridUpdate();
-		sub7.getSelectionModel().clearSelection();
+		comboBoxSetup(t.getTactic());
 		calibrateNames();
 	}
 
@@ -417,7 +438,7 @@ public class TacticController implements Initializable {
 		// Swapping
 		Collections.swap(t.getPlayers(), sub8.getSelectionModel().getSelectedIndex(), 18);
 		gridUpdate();
-		sub8.getSelectionModel().clearSelection();
+		comboBoxSetup(t.getTactic());
 		calibrateNames();
 	}
 
@@ -428,7 +449,7 @@ public class TacticController implements Initializable {
 		// Swapping
 		Collections.swap(t.getPlayers(), sub9.getSelectionModel().getSelectedIndex(), 19);
 		gridUpdate();
-		sub9.getSelectionModel().clearSelection();
+		comboBoxSetup(t.getTactic());
 		calibrateNames();
 	}
 
@@ -589,21 +610,6 @@ public class TacticController implements Initializable {
 
 	public void playerBoxSetup(String tactic, boolean clear) {
 
-		if (false) {
-			pl1.getItems().clear();
-			pl2.getItems().clear();
-			pl3.getItems().clear();
-			pl4.getItems().clear();
-			pl5.getItems().clear();
-			pl6.getItems().clear();
-			pl7.getItems().clear();
-			pl8.getItems().clear();
-			pl9.getItems().clear();
-			pl10.getItems().clear();
-			pl11.getItems().clear();
-			System.out.println("Here");
-		}
-
 		if (tactic.equals("4-3-3")) {
 			pl1.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "CDM", "LCM", "RCM", "RW", "ST", "LW");
 			pl2.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "CDM", "LCM", "RCM", "RW", "ST", "LW");
@@ -657,54 +663,55 @@ public class TacticController implements Initializable {
 		pl9.getSelectionModel().select(8);
 		pl10.getSelectionModel().select(9);
 		pl11.getSelectionModel().select(10);
-		System.out.println("Here2");
 	}
 
 	@FXML
 	public void comboBoxSetup(String tactic) {
-		sub1.getItems().clear();
-		sub2.getItems().clear();
-		sub3.getItems().clear();
-		sub4.getItems().clear();
-		sub5.getItems().clear();
-		sub6.getItems().clear();
-		sub7.getItems().clear();
-		sub8.getItems().clear();
-		sub9.getItems().clear();
 
 		if (tactic.equals("4-3-3")) {
-			sub1.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "CDM", "LCM", "RCM", "RW", "ST", "LW");
-			sub2.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "CDM", "LCM", "RCM", "RW", "ST", "LW");
-			sub3.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "CDM", "LCM", "RCM", "RW", "ST", "LW");
-			sub4.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "CDM", "LCM", "RCM", "RW", "ST", "LW");
-			sub5.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "CDM", "LCM", "RCM", "RW", "ST", "LW");
-			sub6.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "CDM", "LCM", "RCM", "RW", "ST", "LW");
-			sub7.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "CDM", "LCM", "RCM", "RW", "ST", "LW");
-			sub8.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "CDM", "LCM", "RCM", "RW", "ST", "LW");
-			sub9.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "CDM", "LCM", "RCM", "RW", "ST", "LW");
+			sub1.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "CDM", "LCM", "RCM", "RW", "ST", "LW", " ");
+			sub2.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "CDM", "LCM", "RCM", "RW", "ST", "LW", " ");
+			sub3.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "CDM", "LCM", "RCM", "RW", "ST", "LW", " ");
+			sub4.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "CDM", "LCM", "RCM", "RW", "ST", "LW", " ");
+			sub5.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "CDM", "LCM", "RCM", "RW", "ST", "LW", " ");
+			sub6.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "CDM", "LCM", "RCM", "RW", "ST", "LW", " ");
+			sub7.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "CDM", "LCM", "RCM", "RW", "ST", "LW", " ");
+			sub8.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "CDM", "LCM", "RCM", "RW", "ST", "LW", " ");
+			sub9.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "CDM", "LCM", "RCM", "RW", "ST", "LW", " ");
 		}
 
 		else if (tactic.equals("4-4-2")) {
-			sub1.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "RW", "LCM", "RCM", "LW", "RF", "LF");
-			sub2.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "RW", "LCM", "RCM", "LW", "RF", "LF");
-			sub3.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "RW", "LCM", "RCM", "LW", "RF", "LF");
-			sub4.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "RW", "LCM", "RCM", "LW", "RF", "LF");
-			sub5.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "RW", "LCM", "RCM", "LW", "RF", "LF");
-			sub6.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "RW", "LCM", "RCM", "LW", "RF", "LF");
-			sub7.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "RW", "LCM", "RCM", "LW", "RF", "LF");
-			sub8.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "RW", "LCM", "RCM", "LW", "RF", "LF");
-			sub9.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "RW", "LCM", "RCM", "LW", "RF", "LF");
+			sub1.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "RW", "LCM", "RCM", "LW", "RF", "LF", "");
+			sub2.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "RW", "LCM", "RCM", "LW", "RF", "LF", "");
+			sub3.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "RW", "LCM", "RCM", "LW", "RF", "LF", "");
+			sub4.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "RW", "LCM", "RCM", "LW", "RF", "LF", "");
+			sub5.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "RW", "LCM", "RCM", "LW", "RF", "LF", "");
+			sub6.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "RW", "LCM", "RCM", "LW", "RF", "LF", " ");
+			sub7.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "RW", "LCM", "RCM", "LW", "RF", "LF", " ");
+			sub8.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "RW", "LCM", "RCM", "LW", "RF", "LF", " ");
+			sub9.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "RW", "LCM", "RCM", "LW", "RF", "LF", " ");
 		} else {
-			sub1.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "RCM", "LCM", "RW", "CAM", "LW", "ST");
-			sub2.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "RCM", "LCM", "RW", "CAM", "LW", "ST");
-			sub3.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "RCM", "LCM", "RW", "CAM", "LW", "ST");
-			sub4.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "RCM", "LCM", "RW", "CAM", "LW", "ST");
-			sub5.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "RCM", "LCM", "RW", "CAM", "LW", "ST");
-			sub6.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "RCM", "LCM", "RW", "CAM", "LW", "ST");
-			sub7.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "RCM", "LCM", "RW", "CAM", "LW", "ST");
-			sub8.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "RCM", "LCM", "RW", "CAM", "LW", "ST");
-			sub9.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "RCM", "LCM", "RW", "CAM", "LW", "ST");
+			sub1.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "RCM", "LCM", "RW", "CAM", "LW", "ST", " ");
+			sub2.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "RCM", "LCM", "RW", "CAM", "LW", "ST", " ");
+			sub3.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "RCM", "LCM", "RW", "CAM", "LW", "ST", " ");
+			sub4.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "RCM", "LCM", "RW", "CAM", "LW", "ST", " ");
+			sub5.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "RCM", "LCM", "RW", "CAM", "LW", "ST", " ");
+			sub6.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "RCM", "LCM", "RW", "CAM", "LW", "ST", " ");
+			sub7.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "RCM", "LCM", "RW", "CAM", "LW", "ST", " ");
+			sub8.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "RCM", "LCM", "RW", "CAM", "LW", "ST", " ");
+			sub9.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "RCM", "LCM", "RW", "CAM", "LW", "ST", " ");
 		}
+		
+		sub1.getSelectionModel().select(11);
+		sub2.getSelectionModel().select(11);
+		sub3.getSelectionModel().select(11);
+		sub4.getSelectionModel().select(11);
+		sub5.getSelectionModel().select(11);
+		sub6.getSelectionModel().select(11);
+		sub7.getSelectionModel().select(11);
+		sub8.getSelectionModel().select(11);
+		sub9.getSelectionModel().select(11);
+		
 	}
 
 	@FXML

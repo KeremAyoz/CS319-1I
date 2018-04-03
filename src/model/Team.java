@@ -55,7 +55,13 @@ public class Team implements Serializable {
 		this.president = president;
 		this.players = players;
 	}
-
+	
+	public boolean contains(Player p) {
+		for (int i = 0; i < players.size(); i++) 
+			if (players.get(i).getName().equals(p.getName())) 
+				return true;
+		return false;
+	}
 	/**
 	 * @return the name
 	 */

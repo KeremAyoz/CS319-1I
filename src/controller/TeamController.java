@@ -53,6 +53,7 @@ public class TeamController implements Initializable {
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
+		System.out.println("Here" + currentTeamId);
 		Team cur = Tournament.getInstance().getTeams()[currentTeamId];
 		for (int i = 0; i < 20; i++) {
 			Player p = cur.getPlayers().get(i);
@@ -150,42 +151,49 @@ public class TeamController implements Initializable {
 	public void tacticClicked() throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("/view/TacticView.fxml"));
 		Main.getMainStage().setScene(new Scene(root));
+		Main.getMainStage().setFullScreen(true);
 	}
 
 	@FXML
 	public void groupClicked() throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("/view/GroupView.fxml"));
 		Main.getMainStage().setScene(new Scene(root));
+		Main.getMainStage().setFullScreen(true);
 	}
 
 	@FXML
 	public void knockoutClicked() throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("/view/KnockoutView.fxml"));
 		Main.getMainStage().setScene(new Scene(root));
+		Main.getMainStage().setFullScreen(true);
 	}
 
 	@FXML
 	public void statClicked() throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("/view/StatisticView.fxml"));
 		Main.getMainStage().setScene(new Scene(root));
+		Main.getMainStage().setFullScreen(true);
 	}
 
 	@FXML
 	public void calendarClicked() throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("/view/CalendarView.fxml"));
 		Main.getMainStage().setScene(new Scene(root));
+		Main.getMainStage().setFullScreen(true);
 	}
 
 	@FXML
 	public void saveClicked() throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("/view/HomeScreen.fxml"));
 		Main.getMainStage().setScene(new Scene(root));
+		Main.getMainStage().setFullScreen(true);
 	}
 
 	@FXML
 	public void continueClicked() throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("/view/MatchPlayView.fxml"));
 		Main.getMainStage().setScene(new Scene(root));
+		Main.getMainStage().setFullScreen(true);
 	}
 
 }

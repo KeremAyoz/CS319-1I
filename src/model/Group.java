@@ -50,8 +50,6 @@ public class Group implements Serializable{
 	
 	public Group() {
 		matches = new Match[NUMBER_OF_MATCHES];
-		if( matches == null )
-			System.out.println( "const bok" );
 		statistics = new int[TEAMS_PER_GROUP][NUMBER_OF_STATS];
 		// TODO Auto-generated constructor stub
 	}

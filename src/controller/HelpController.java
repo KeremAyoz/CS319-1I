@@ -11,8 +11,11 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.web.WebView;
+import javafx.stage.Screen;
 
 public class HelpController implements Initializable{
+	int screenWidth = (int) Screen.getPrimary().getBounds().getWidth();
+	int screenHeight = (int) Screen.getPrimary().getBounds().getHeight();
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {

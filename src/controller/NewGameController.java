@@ -43,8 +43,12 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
+import javafx.stage.Screen;
 
 public class NewGameController implements Initializable {
+
+	int screenWidth = (int) Screen.getPrimary().getBounds().getWidth();
+	int screenHeight = (int) Screen.getPrimary().getBounds().getHeight();
 
 	@FXML
 	private RadioButton team1;
@@ -251,7 +255,8 @@ public class NewGameController implements Initializable {
 
 	public void blurLeft(boolean blurred) {
 		ColorAdjust adj = new ColorAdjust(0, -0.9, -0.5, 0);
-		GaussianBlur blur = new GaussianBlur(35); // 55 is just to show edge effect more clearly.
+		GaussianBlur blur = new GaussianBlur(35); // 55 is just to show edge
+													// effect more clearly.
 		adj.setInput(blur);
 		if (!blurred)
 			adj = null;
@@ -272,7 +277,8 @@ public class NewGameController implements Initializable {
 
 	public void blurRight(boolean blurred) {
 		ColorAdjust adj = new ColorAdjust(0, -0.9, -0.5, 0);
-		GaussianBlur blur = new GaussianBlur(35); // 55 is just to show edge effect more clearly.
+		GaussianBlur blur = new GaussianBlur(35); // 55 is just to show edge
+													// effect more clearly.
 		adj.setInput(blur);
 		if (!blurred)
 			adj = null;

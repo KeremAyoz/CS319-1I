@@ -15,9 +15,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 public class GroupController implements Initializable {
+	int screenWidth = (int) Screen.getPrimary().getBounds().getWidth();
+	int screenHeight = (int) Screen.getPrimary().getBounds().getHeight();
+
 	@FXML
 	private Text t1;
 	@FXML
@@ -110,7 +114,7 @@ public class GroupController implements Initializable {
 		t2.setText(cur.getTeam(1).getName());
 		t3.setText(cur.getTeam(2).getName());
 		t4.setText(cur.getTeam(3).getName());
-		
+
 		t1p.setText(String.valueOf(cur.getStatistics()[0][0]));
 		t2p.setText(String.valueOf(cur.getStatistics()[1][0]));
 		t3p.setText(String.valueOf(cur.getStatistics()[2][0]));
@@ -120,7 +124,7 @@ public class GroupController implements Initializable {
 		t2w.setText(String.valueOf(cur.getStatistics()[1][1]));
 		t3w.setText(String.valueOf(cur.getStatistics()[2][1]));
 		t4w.setText(String.valueOf(cur.getStatistics()[3][1]));
-		
+
 		t1d.setText(String.valueOf(cur.getStatistics()[0][2]));
 		t2d.setText(String.valueOf(cur.getStatistics()[1][2]));
 		t3d.setText(String.valueOf(cur.getStatistics()[2][2]));
@@ -153,92 +157,124 @@ public class GroupController implements Initializable {
 		String group = groupName.getValue();
 		setup(group);
 	}
-	
+
 	@FXML
 	public void teamClicked() throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("/view/TeamView.fxml"));
-        Stage m = Main.getMainStage();
-        Scene t = Main.getMainStage().getScene();
+		root.setScaleX(screenWidth / 1400.0);
+		root.setScaleY(screenHeight / 900.0);
+		root.setLayoutX(335);
+		root.setLayoutY(100);
+		Stage m = Main.getMainStage();
+		Scene t = Main.getMainStage().getScene();
 		t.setRoot(root);
-        m.setScene(t);
-        m.setFullScreen(true);
-        Main.setMainStage(m);
+		m.setScene(t);
+		m.setFullScreen(true);
+		Main.setMainStage(m);
 	}
 
 	@FXML
 	public void tacticClicked() throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("/view/TacticView.fxml"));
+		root.setScaleX(screenWidth / 1400.0);
+		root.setScaleY(screenHeight / 900.0);
+		root.setLayoutX(335);
+		root.setLayoutY(100);
 		Stage m = Main.getMainStage();
-        Scene t = Main.getMainStage().getScene();
+		Scene t = Main.getMainStage().getScene();
 		t.setRoot(root);
-        m.setScene(t);
-        m.setFullScreen(true);
-        Main.setMainStage(m);  
+		m.setScene(t);
+		m.setFullScreen(true);
+		Main.setMainStage(m);
 	}
 
 	@FXML
 	public void groupClicked() throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("/view/GroupView.fxml"));
+		root.setScaleX(screenWidth / 1400.0);
+		root.setScaleY(screenHeight / 900.0);
+		root.setLayoutX(335);
+		root.setLayoutY(100);
 		Stage m = Main.getMainStage();
-        Scene t = Main.getMainStage().getScene();
+		Scene t = Main.getMainStage().getScene();
 		t.setRoot(root);
-        m.setScene(t);
-        m.setFullScreen(true);
-        Main.setMainStage(m);
+		m.setScene(t);
+		m.setFullScreen(true);
+		Main.setMainStage(m);
 	}
 
 	@FXML
 	public void knockoutClicked() throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("/view/KnockoutView.fxml"));
+		root.setScaleX(screenWidth / 1400.0);
+		root.setScaleY(screenHeight / 900.0);
+		root.setLayoutX(335);
+		root.setLayoutY(100);
 		Stage m = Main.getMainStage();
-        Scene t = Main.getMainStage().getScene();
+		Scene t = Main.getMainStage().getScene();
 		t.setRoot(root);
-        m.setScene(t);
-        m.setFullScreen(true);
-        Main.setMainStage(m); 
+		m.setScene(t);
+		m.setFullScreen(true);
+		Main.setMainStage(m);
 	}
 
 	@FXML
 	public void statClicked() throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("/view/StatisticView.fxml"));
+		root.setScaleX(screenWidth / 1400.0);
+		root.setScaleY(screenHeight / 900.0);
+		root.setLayoutX(335);
+		root.setLayoutY(100);
 		Stage m = Main.getMainStage();
-        Scene t = Main.getMainStage().getScene();
+		Scene t = Main.getMainStage().getScene();
 		t.setRoot(root);
-        m.setScene(t);
-        m.setFullScreen(true);
-        Main.setMainStage(m);  
+		m.setScene(t);
+		m.setFullScreen(true);
+		Main.setMainStage(m);
 	}
 
 	@FXML
 	public void calendarClicked() throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("/view/CalendarView.fxml"));
+		root.setScaleX(screenWidth / 1400.0);
+		root.setScaleY(screenHeight / 900.0);
+		root.setLayoutX(335);
+		root.setLayoutY(100);
 		Stage m = Main.getMainStage();
-        Scene t = Main.getMainStage().getScene();
+		Scene t = Main.getMainStage().getScene();
 		t.setRoot(root);
-        m.setScene(t);
-        m.setFullScreen(true);
-        Main.setMainStage(m);  
+		m.setScene(t);
+		m.setFullScreen(true);
+		Main.setMainStage(m);
 	}
 
 	@FXML
 	public void saveClicked() throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("/view/HomeScreen.fxml"));
+		root.setScaleX(screenWidth / 1400.0);
+		root.setScaleY(screenHeight / 900.0);
+		root.setLayoutX(335);
+		root.setLayoutY(100);
 		Stage m = Main.getMainStage();
-        Scene t = Main.getMainStage().getScene();
+		Scene t = Main.getMainStage().getScene();
 		t.setRoot(root);
-        m.setScene(t);
-        m.setFullScreen(true);
-        Main.setMainStage(m);
+		m.setScene(t);
+		m.setFullScreen(true);
+		Main.setMainStage(m);
 	}
 
 	@FXML
 	public void continueClicked() throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("/view/MatchPlayView.fxml"));
+		root.setScaleX(screenWidth / 1400.0);
+		root.setScaleY(screenHeight / 900.0);
+		root.setLayoutX(335);
+		root.setLayoutY(100);
 		Stage m = Main.getMainStage();
-        Scene t = Main.getMainStage().getScene();
+		Scene t = Main.getMainStage().getScene();
 		t.setRoot(root);
-        m.setScene(t);
-        m.setFullScreen(true);
-        Main.setMainStage(m); 
+		m.setScene(t);
+		m.setFullScreen(true);
+		Main.setMainStage(m);
 	}
 }

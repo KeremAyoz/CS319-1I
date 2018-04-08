@@ -5,12 +5,17 @@ import java.util.ArrayList;
 import javafx.application.Application;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Cursor;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCombination;
+import javafx.scene.input.MouseButton;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import model.*;
 
@@ -27,29 +32,28 @@ public class Main extends Application {
 	public void start(Stage primaryStage) throws Exception {
 		mainStage = primaryStage;
 		mainStage.setTitle("Stars League");
-		mainStage.setResizable(false);
-		// Opening scene
-		mainStage.setFullScreen(true);
+		mainStage.setResizable(true);
 		Parent root = FXMLLoader.load(getClass().getResource("/view/HomeScreen.fxml"));
-		mainStage.setFullScreenExitHint("");
-		mainStage.setScene(new Scene(root));
-		mainStage.setFullScreen(true);
-	//	mainStage.setFullScreenExitKeyCombination(KeyCombination.NO_MATCH);
-		//primaryStage.setFullScreen(true);
-		mainStage.show();
 		
+		mainStage.setFullScreenExitHint("");
+
+		int screenWidth = (int) Screen.getPrimary().getBounds().getWidth();
+		int screenHeight = (int) Screen.getPrimary().getBounds().getHeight();
+		
+		root.setScaleX(screenWidth/1400.0);
+		root.setScaleY(screenHeight/900.0);
+		root.setLayoutX(301);
+		root.setLayoutY(98);
+		
+		Scene scene = new Scene(root, screenWidth, screenHeight);
+
+		mainStage.setScene(scene);
+		mainStage.setFullScreen(true);
+		mainStage.show();
+
 	}
-	/*
-	primaryStage.fullScreenProperty().addListener(new ChangeListener<Boolean>() {
 
-        @Override
-        public void changed(ObservableValue<? extends Boolean> observable,
-                Boolean oldValue, Boolean newValue) {
-            if(newValue != null && !newValue.booleanValue())
-                primaryStage.setFullScreen(true);
-        }
-    }*/
-
+	
 	public static int getOverall() {
 		return MIN_SCORE + (int) (Math.random() * DIFF_SCORE + 1);
 	}
@@ -60,7 +64,6 @@ public class Main extends Application {
 			attributes[i] = MIN_SCORE + (int) (Math.random() * DIFF_SCORE + 1);
 		return attributes;
 	}
-
 
 	public static void main(String[] args) throws InterruptedException, IOException, ClassNotFoundException {
 		Tournament c = Tournament.getInstance();
@@ -75,7 +78,5 @@ public class Main extends Application {
 	public static Stage getMainStage() {
 		return mainStage;
 	}
-	
-	
 
 }

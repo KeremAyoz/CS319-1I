@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.image.*?>
@@ -10,7 +11,7 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="861.0" prefWidth="1378.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CalendarController">
    <children>
-      <Pane layoutX="-2.0" layoutY="-6.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1400.0">
+      <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1400.0">
          <children>
             <Hyperlink layoutX="189.0" layoutY="41.0" onAction="#teamClicked" prefHeight="58.0" prefWidth="134.0" text="Team" textFill="#802525">
                <font>
@@ -58,64 +59,85 @@
                   <Image url="@../../img/logo.png" />
                </image>
             </ImageView>
-            <Text layoutX="130.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Monday" wrappingWidth="95.54060363769531">
+            <Text fill="#5e5e5e" layoutX="130.0" layoutY="201.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Monday" wrappingWidth="95.54060363769531">
                <font>
                   <Font size="23.0" />
                </font>
+               <effect>
+                  <Glow />
+               </effect>
             </Text>
-            <Text layoutX="305.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tuesday" wrappingWidth="95.54060363769531">
+            <Text fill="#5e5e5e" layoutX="305.0" layoutY="201.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tuesday" wrappingWidth="95.54060363769531">
                <font>
                   <Font size="23.0" />
                </font>
+               <effect>
+                  <Glow />
+               </effect>
             </Text>
-            <Text layoutX="462.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Wednesday" wrappingWidth="129.77064514160156">
+            <Text fill="#5e5e5e" layoutX="462.0" layoutY="201.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Wednesday" wrappingWidth="129.77064514160156">
                <font>
                   <Font size="23.0" />
                </font>
+               <effect>
+                  <Glow />
+               </effect>
             </Text>
-            <Text layoutX="654.0" layoutY="181.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Thursday" wrappingWidth="107.27546691894531">
+            <Text fill="#5e5e5e" layoutX="654.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Thursday" wrappingWidth="107.27546691894531">
                <font>
                   <Font size="23.0" />
                </font>
+               <effect>
+                  <Glow />
+               </effect>
             </Text>
-            <Text layoutX="837.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Friday" wrappingWidth="72.20172119140625">
+            <Text fill="#5e5e5e" layoutX="837.0" layoutY="202.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Friday" wrappingWidth="72.20172119140625">
                <font>
                   <Font size="23.0" />
                </font>
+               <effect>
+                  <Glow />
+               </effect>
             </Text>
-            <Text layoutX="992.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Saturday" wrappingWidth="98.07000732421875">
+            <Text fill="#5e5e5e" layoutX="992.0" layoutY="202.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Saturday" wrappingWidth="98.07000732421875">
                <font>
                   <Font size="23.0" />
                </font>
+               <effect>
+                  <Glow />
+               </effect>
             </Text>
-            <Text layoutX="1177.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sunday" wrappingWidth="81.07000732421875">
+            <Text fill="#5e5e5e" layoutX="1177.0" layoutY="203.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sunday" wrappingWidth="81.07000732421875">
                <font>
                   <Font size="23.0" />
                </font>
+               <effect>
+                  <Glow />
+               </effect>
             </Text>
          </children>
       </Pane>
-      <ScrollPane layoutY="178.0" prefHeight="659.0" prefWidth="1374.0">
+      <ScrollPane layoutY="220.0" prefHeight="659.0" prefWidth="1374.0">
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="2550.0" prefWidth="1344.0">
                <children>
                   <GridPane fx:id="gridCalendar" gridLinesVisible="true" layoutX="88.0" layoutY="65.0" prefHeight="2193.0" prefWidth="1213.0">
                     <columnConstraints>
-                        <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                      <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                     </columnConstraints>
                     <rowConstraints>
-                      <RowConstraints maxHeight="220.0" minHeight="0.0" prefHeight="70.0" vgrow="SOMETIMES" />
-                      <RowConstraints maxHeight="130.0" minHeight="10.0" prefHeight="70.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="192.0" minHeight="0.0" prefHeight="70.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="192.0" minHeight="10.0" prefHeight="70.0" vgrow="SOMETIMES" />
-                      <RowConstraints maxHeight="192.0" minHeight="10.0" prefHeight="70.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="192.0" minHeight="10.0" prefHeight="70.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="220.0" minHeight="0.0" prefHeight="70.0" valignment="CENTER" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="130.0" minHeight="10.0" prefHeight="70.0" valignment="CENTER" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="192.0" minHeight="0.0" prefHeight="70.0" valignment="CENTER" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="192.0" minHeight="10.0" prefHeight="70.0" valignment="CENTER" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="192.0" minHeight="10.0" prefHeight="70.0" valignment="CENTER" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="192.0" minHeight="10.0" prefHeight="70.0" valignment="CENTER" vgrow="SOMETIMES" />
                         <RowConstraints maxHeight="192.0" minHeight="10.0" prefHeight="70.0" vgrow="SOMETIMES" />
                         <RowConstraints maxHeight="192.0" minHeight="10.0" prefHeight="70.0" vgrow="SOMETIMES" />
                         <RowConstraints maxHeight="192.0" minHeight="10.0" prefHeight="70.0" vgrow="SOMETIMES" />

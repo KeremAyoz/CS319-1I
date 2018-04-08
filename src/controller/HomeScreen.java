@@ -1,6 +1,5 @@
 package controller;
 
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -18,66 +17,87 @@ import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 public class HomeScreen implements Initializable {
-	
-	    @FXML private Button searchButton;
-	    @FXML private TextField searchField;
-	    @FXML private WebView deneme;
-	    
-	    public void newGameClicked() throws IOException {
-	        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/NewGameView.fxml"));
-	        Parent root = loader.load();
-	        Stage m = Main.getMainStage();
-	        Scene t = Main.getMainStage().getScene();
-			t.setRoot(root);
-	        m.setScene(t);
-	        m.setFullScreen(true);
-	        Main.setMainStage(m); 
-	    }
-	    
-	    public void loadGameClicked() throws IOException {
-	        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/TeamView.fxml"));
-	        Parent root = loader.load();
-	        Stage m = Main.getMainStage();
-	        Scene t = Main.getMainStage().getScene();
-			t.setRoot(root);
-	        m.setScene(t);
-	        m.setFullScreen(true);
-	        Main.setMainStage(m); 
-	    }
-	    
-	    public void helpClicked() throws IOException {
-	        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/HelpView.fxml"));
-	        Parent root = loader.load();
-	        Stage m = Main.getMainStage();
-	        Scene t = Main.getMainStage().getScene();
-			t.setRoot(root);
-	        m.setScene(t);
-	        m.setFullScreen(true);
-	        Main.setMainStage(m); 
-	    }
-	    
-	    @FXML
-	    public void creditsClicked() throws IOException {
-	        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/CreditsView.fxml"));
-	        Parent root = loader.load();
-	        Stage m = Main.getMainStage();
-	        Scene t = Main.getMainStage().getScene();
-			t.setRoot(root);
-	        m.setScene(t);
-	        m.setFullScreen(true);
-	        Main.setMainStage(m);   
-	    }
-	    
-	    public void exitClicked() throws IOException {
-	        System.exit(0);
-	    }
-	    
-	    /**
-	     * Initializes the controller class.
-	     */
-	    @Override
-	    public void initialize(URL url, ResourceBundle rb)
-	    {
-	        // TODO
-	    }
+
+	int screenWidth = (int) Screen.getPrimary().getBounds().getWidth();
+	int screenHeight = (int) Screen.getPrimary().getBounds().getHeight();
+
+	@FXML
+	private Button searchButton;
+	@FXML
+	private TextField searchField;
+	@FXML
+	private WebView deneme;
+
+	public void newGameClicked() throws IOException {
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/NewGameView.fxml"));
+		Parent root = loader.load();
+		root.setScaleX(screenWidth / 1400.0);
+		root.setScaleY(screenHeight / 900.0);
+		root.setLayoutX(335);
+		root.setLayoutY(100);
+		Stage m = Main.getMainStage();
+		Scene t = Main.getMainStage().getScene();
+		t.setRoot(root);
+		m.setScene(t);
+		m.setFullScreen(true);
+		Main.setMainStage(m);
+	}
+
+	public void loadGameClicked() throws IOException {
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/TeamView.fxml"));
+		Parent root = loader.load();
+		root.setScaleX(screenWidth / 1400.0);
+		root.setScaleY(screenHeight / 900.0);
+		root.setLayoutX(335);
+		root.setLayoutY(100);
+		Stage m = Main.getMainStage();
+		Scene t = Main.getMainStage().getScene();
+		t.setRoot(root);
+		m.setScene(t);
+		m.setFullScreen(true);
+		Main.setMainStage(m);
+	}
+
+	public void helpClicked() throws IOException {
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/HelpView.fxml"));
+		Parent root = loader.load();
+		root.setScaleX(screenWidth / 1400.0);
+		root.setScaleY(screenHeight / 900.0);
+		root.setLayoutX(335);
+		root.setLayoutY(100);
+		Stage m = Main.getMainStage();
+		Scene t = Main.getMainStage().getScene();
+		t.setRoot(root);
+		m.setScene(t);
+		m.setFullScreen(true);
+		Main.setMainStage(m);
+	}
+
+	@FXML
+	public void creditsClicked() throws IOException {
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/CreditsView.fxml"));
+		Parent root = loader.load();
+		root.setScaleX(screenWidth / 1400.0);
+		root.setScaleY(screenHeight / 900.0);
+		root.setLayoutX(335);
+		root.setLayoutY(100);
+		Stage m = Main.getMainStage();
+		Scene t = Main.getMainStage().getScene();
+		t.setRoot(root);
+		m.setScene(t);
+		m.setFullScreen(true);
+		Main.setMainStage(m);
+	}
+
+	public void exitClicked() throws IOException {
+		System.exit(0);
+	}
+
+	/**
+	 * Initializes the controller class.
+	 */
+	@Override
+	public void initialize(URL url, ResourceBundle rb) {
+		// TODO
+	}
 }

@@ -19,9 +19,7 @@ import javafx.stage.Stage;
 public class KnockoutController implements Initializable {
 
 	@Override
-	public void initialize(URL location, ResourceBundle resources) {
-		// TODO Auto-generated method stub
-		
+	public void initialize(URL location, ResourceBundle resources) {	
 	}
 	
 	@FXML

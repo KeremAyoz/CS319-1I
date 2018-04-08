@@ -25,11 +25,11 @@ public class Main extends Application {
 	
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		
 		mainStage = primaryStage;
 		mainStage.setTitle("Stars League");
 		mainStage.setResizable(false);
 		// Opening scene
+		mainStage.setFullScreen(true);
 		Parent root = FXMLLoader.load(getClass().getResource("/view/HomeScreen.fxml"));
 		mainStage.setFullScreenExitHint("");
 		mainStage.setScene(new Scene(root));
@@ -37,6 +37,7 @@ public class Main extends Application {
 	//	mainStage.setFullScreenExitKeyCombination(KeyCombination.NO_MATCH);
 		//primaryStage.setFullScreen(true);
 		mainStage.show();
+		
 	}
 	/*
 	primaryStage.fullScreenProperty().addListener(new ChangeListener<Boolean>() {

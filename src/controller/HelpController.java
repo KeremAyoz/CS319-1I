@@ -24,5 +24,6 @@ public class HelpController implements Initializable{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/HomeScreen.fxml"));
         Parent root = loader.load();
         Main.getMainStage().setScene(new Scene(root)); 
+        Main.getMainStage().setFullScreen(true);
     }
 }

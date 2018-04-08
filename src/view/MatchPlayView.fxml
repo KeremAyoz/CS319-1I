@@ -9,11 +9,10 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MatchPlayController">
    <children>
-      <Pane fx:id="referee" layoutX="-8.0" layoutY="23.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1400.0">
+      <Pane fx:id="referee" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1400.0">
          <children>
-            <Pane layoutY="-15.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1400.0">
+            <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1400.0">
                <children>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a3a2a266" height="67.0" layoutX="388.0" layoutY="199.0" stroke="BLACK" strokeType="INSIDE" width="649.0" />
                   <Circle fill="WHITE" layoutX="700.0" layoutY="782.0" radius="30.0" stroke="BLACK" strokeType="INSIDE" />
                   <Hyperlink ellipsisString="" layoutX="189.0" layoutY="41.0" onAction="#teamClicked" prefHeight="58.0" prefWidth="134.0" text="Team" textFill="#802525">
                      <font>
@@ -61,17 +60,17 @@
                         <Image url="@../../img/logo.png" />
                      </image>
                   </ImageView>
-                  <Text fx:id="homeName" fill="#6b0101" layoutX="407.0" layoutY="249.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Barcelona">
+                  <Text fx:id="homeName" fill="#6b0101" layoutX="348.0" layoutY="237.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Barcelona" wrappingWidth="284.2846908569336">
                      <font>
                         <Font name="Gill Sans Bold" size="38.0" />
                      </font>
                   </Text>
-                  <Text fx:id="awayName" fill="#034fc3" layoutX="793.0" layoutY="248.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Real Madrid">
+                  <Text fx:id="awayName" fill="#034fc3" layoutX="832.0" layoutY="237.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Real Madrid" wrappingWidth="341.1319580078125">
                      <font>
                         <Font name="Gill Sans Bold" size="38.0" />
                      </font>
                   </Text>
-                  <Label fx:id="label" layoutX="682.0" layoutY="765.0" text="0'">
+                  <Label fx:id="label" layoutX="682.0" layoutY="763.0" text="0'" textFill="#790d0d">
                      <font>
                         <Font name="Gill Sans Bold" size="33.0" />
                      </font>
@@ -85,33 +84,41 @@
                         <Font name="Gill Sans SemiBold" size="15.0" />
                      </font>
                   </Button>
-                  <Text fx:id="scoreHome" layoutX="653.0" layoutY="246.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                  <Text fx:id="scoreHome" layoutX="653.0" layoutY="237.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
                      <font>
                         <Font name="Gill Sans SemiBold" size="34.0" />
                      </font>
                   </Text>
-                  <Text fx:id="scoreAway" layoutX="732.0" layoutY="246.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                  <Text fx:id="scoreAway" layoutX="732.0" layoutY="237.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
                      <font>
                         <Font name="Gill Sans SemiBold" size="34.0" />
                      </font>
                   </Text>
-                  <Text layoutX="698.0" layoutY="247.0" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
+                  <Text layoutX="698.0" layoutY="237.0" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
                      <font>
                         <Font name="Gill Sans UltraBold" size="34.0" />
                      </font>
                   </Text>
-                  <ImageView fx:id="homeLineup" fitHeight="454.0" fitWidth="456.0" layoutX="23.0" layoutY="317.0" pickOnBounds="true" preserveRatio="true" />
-                  <ImageView fx:id="awayLineup" fitHeight="454.0" fitWidth="456.0" layoutX="938.0" layoutY="317.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="homeLineup" fitHeight="414.0" fitWidth="450.0" layoutX="24.0" layoutY="299.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="awayLineup" fitHeight="414.0" fitWidth="450.0" layoutX="936.0" layoutY="299.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="homeLogo" fitHeight="130.0" fitWidth="130.0" layoutX="166.0" layoutY="162.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="awayLogo" fitHeight="130.0" fitWidth="130.0" layoutX="1147.0" layoutY="162.0" pickOnBounds="true" preserveRatio="true" />
+                  <ComboBox fx:id="homeTactic" layoutX="68.0" layoutY="760.0" prefHeight="27.0" prefWidth="100.0" />
+                  <ComboBox fx:id="homeStyle" layoutX="184.0" layoutY="759.0" prefHeight="27.0" prefWidth="100.0" />
+                  <ComboBox fx:id="homeTempo" layoutX="305.0" layoutY="759.0" prefHeight="27.0" prefWidth="100.0" />
+                  <ComboBox fx:id="awayTempo" layoutX="1215.0" layoutY="760.0" prefHeight="27.0" prefWidth="100.0" />
+                  <ComboBox fx:id="awayStyle" layoutX="1094.0" layoutY="760.0" prefHeight="27.0" prefWidth="100.0" />
+                  <ComboBox fx:id="awayTactic" layoutX="978.0" layoutY="760.0" prefHeight="27.0" prefWidth="100.0" />
                </children>
             </Pane>
-            <ScrollPane fx:id="scrollEvent" layoutX="500.0" layoutY="300.0" prefHeight="413.0" prefWidth="422.0">
+            <ScrollPane fx:id="scrollEvent" layoutX="490.0" layoutY="300.0" prefHeight="413.0" prefWidth="422.0">
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="743.0" prefWidth="403.0">
                      <children>
                         <GridPane fx:id="eventGrid" prefHeight="636.0" prefWidth="403.0">
                           <columnConstraints>
-                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="466.53839111328125" minWidth="10.0" prefWidth="77.3560791015625" />
-                              <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="532.8506164550781" minWidth="10.0" prefWidth="338.6439208984375" />
+                            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="466.53839111328125" minWidth="10.0" prefWidth="89.0" />
+                              <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="532.8506164550781" minWidth="10.0" prefWidth="314.0" />
                           </columnConstraints>
                           <rowConstraints>
                             <RowConstraints maxHeight="40.0" minHeight="0.0" prefHeight="40.0" vgrow="SOMETIMES" />

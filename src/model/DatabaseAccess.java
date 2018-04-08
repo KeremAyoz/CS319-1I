@@ -1824,7 +1824,7 @@ public class DatabaseAccess {
 				9000000, true, getAttributes(), actions));
 		players.add(new Player("Bernardeschi", 21, 185, 70, "Italy", "RW", getOverall(), 'R', 81, 15000000, true,
 				getAttributes(), actions));
-		players.add(new Player("Mandzukic", 30, 183, 70, "Cratia", "ST", getOverall(), 'R', 84,
+		players.add(new Player("Mandzukic", 30, 183, 70, "Crotia", "ST", getOverall(), 'R', 84,
 				15000000, true, getAttributes(), actions));
 		players.add(new Player("Höwedes", 25, 175, 70, "Germany", "CB", getOverall(), 'R', 79, 8000000,
 				true, getAttributes(), actions));
@@ -1833,7 +1833,7 @@ public class DatabaseAccess {
 		// President
 		President president = new President(" Agnelli", 50, 175, 70, "Italy");
 		// Team
-		Team team = new Team("Juventus F.C.", "Black", "4-4-2", "Juventus Stadium", "The Lillywhites", "Italy",
+		Team team = new Team("Juventus", "Black", "4-4-2", "Juventus Stadium", "The Lillywhites", "Italy",
 				"Zebre", 5.0, "Attack", "Fast", manager, president, players);
 		return team;
 	}

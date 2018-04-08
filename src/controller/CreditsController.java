@@ -18,7 +18,6 @@ import model.Manager;
 
 
 public class CreditsController implements Initializable {
-	Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -30,6 +29,7 @@ public class CreditsController implements Initializable {
 	public void backToMainMenuClicked() throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("/view/HomeScreen.fxml"));
 		Main.getMainStage().setScene(new Scene(root));
+		Main.getMainStage().setFullScreen(true);
 	}
 
 }

@@ -15,6 +15,7 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
 public class StatisticController implements Initializable {
 
@@ -34,14 +35,10 @@ public class StatisticController implements Initializable {
 		String[] assisters = c.getTopAssists();
 		String[] redCards = c.getTopRedCards();
 		String[] yellowCards = c.getTopYellowCards();
-		
-		String style ="-fx-text-fill: black;"+
-			    "-fx-background-color: white;"+
-			    "-fx-font: Gill Sans;"+
-			    "-fx-font-family: Gill Sans;"+
-			    "-fx-font-weight: bold;"+
-			    "-fx-font-size: 18;";
-		
+
+		String style = "-fx-text-fill: black;" + "-fx-background-color: white;" + "-fx-font: Gill Sans;"
+				+ "-fx-font-family: Gill Sans;" + "-fx-font-weight: bold;" + "-fx-font-size: 18;";
+
 		for (int i = 0; i < 5; i++) {
 			Text t1 = new Text();
 			t1.setText(scorers[i]);
@@ -66,49 +63,89 @@ public class StatisticController implements Initializable {
 	@FXML
 	public void teamClicked() throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("/view/TeamView.fxml"));
-		Main.getMainStage().setScene(new Scene(root));
+        Stage m = Main.getMainStage();
+        Scene t = Main.getMainStage().getScene();
+		t.setRoot(root);
+        m.setScene(t);
+        m.setFullScreen(true);
+        Main.setMainStage(m);
 	}
 
 	@FXML
 	public void tacticClicked() throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("/view/TacticView.fxml"));
-		Main.getMainStage().setScene(new Scene(root));
+		Stage m = Main.getMainStage();
+        Scene t = Main.getMainStage().getScene();
+		t.setRoot(root);
+        m.setScene(t);
+        m.setFullScreen(true);
+        Main.setMainStage(m);  
 	}
 
 	@FXML
 	public void groupClicked() throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("/view/GroupView.fxml"));
-		Main.getMainStage().setScene(new Scene(root));
+		Stage m = Main.getMainStage();
+        Scene t = Main.getMainStage().getScene();
+		t.setRoot(root);
+        m.setScene(t);
+        m.setFullScreen(true);
+        Main.setMainStage(m);
 	}
 
 	@FXML
 	public void knockoutClicked() throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("/view/KnockoutView.fxml"));
-		Main.getMainStage().setScene(new Scene(root));
+		Stage m = Main.getMainStage();
+        Scene t = Main.getMainStage().getScene();
+		t.setRoot(root);
+        m.setScene(t);
+        m.setFullScreen(true);
+        Main.setMainStage(m); 
 	}
 
 	@FXML
 	public void statClicked() throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("/view/StatisticView.fxml"));
-		Main.getMainStage().setScene(new Scene(root));
+		Stage m = Main.getMainStage();
+        Scene t = Main.getMainStage().getScene();
+		t.setRoot(root);
+        m.setScene(t);
+        m.setFullScreen(true);
+        Main.setMainStage(m);  
 	}
 
 	@FXML
 	public void calendarClicked() throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("/view/CalendarView.fxml"));
-		Main.getMainStage().setScene(new Scene(root));
+		Stage m = Main.getMainStage();
+        Scene t = Main.getMainStage().getScene();
+		t.setRoot(root);
+        m.setScene(t);
+        m.setFullScreen(true);
+        Main.setMainStage(m);  
 	}
 
 	@FXML
 	public void saveClicked() throws IOException {
-		Parent root = FXMLLoader.load(getClass().getResource("/view/TacticView.fxml"));
-		Main.getMainStage().setScene(new Scene(root));
+		Parent root = FXMLLoader.load(getClass().getResource("/view/HomeScreen.fxml"));
+		Stage m = Main.getMainStage();
+        Scene t = Main.getMainStage().getScene();
+		t.setRoot(root);
+        m.setScene(t);
+        m.setFullScreen(true);
+        Main.setMainStage(m);
 	}
 
 	@FXML
 	public void continueClicked() throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("/view/MatchPlayView.fxml"));
-		Main.getMainStage().setScene(new Scene(root));
+		Stage m = Main.getMainStage();
+        Scene t = Main.getMainStage().getScene();
+		t.setRoot(root);
+        m.setScene(t);
+        m.setFullScreen(true);
+        Main.setMainStage(m); 
 	}
 
 }

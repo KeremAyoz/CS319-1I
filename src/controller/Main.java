@@ -31,9 +31,9 @@ public class Main extends Application {
 		mainStage.setResizable(false);
 		// Opening scene
 		Parent root = FXMLLoader.load(getClass().getResource("/view/HomeScreen.fxml"));
-		//mainStage.setFullScreen(true);
-		mainStage.setScene(new Scene(root, 1400, 900));
-	//	mainStage.setFullScreen(true);
+		mainStage.setFullScreenExitHint("");
+		mainStage.setScene(new Scene(root));
+		mainStage.setFullScreen(true);
 	//	mainStage.setFullScreenExitKeyCombination(KeyCombination.NO_MATCH);
 		//primaryStage.setFullScreen(true);
 		mainStage.show();

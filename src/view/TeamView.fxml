@@ -11,68 +11,17 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TeamController">
    <children>
-      <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1400.0">
+      <Box layoutX="800.0" layoutY="500.0" />
+      <Box layoutX="1000.0" layoutY="600.0" />
+      <Text fx:id="nation" layoutX="1097.0" layoutY="710.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER">
+         <font>
+            <Font name="Gill Sans" size="17.0" />
+         </font></Text>
+   <fx:include source="TopMenu.fxml" />
+      <Pane layoutY="147.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="751.0" prefWidth="1400.0">
          <children>
-            <Hyperlink ellipsisString="0" layoutX="189.0" layoutY="41.0" onAction="#teamClicked" prefHeight="58.0" prefWidth="76.0" text="Team" textFill="#802525" textOverrun="CLIP">
-               <font>
-                  <Font size="22.0" />
-               </font>
-            </Hyperlink>
-            <Hyperlink ellipsisString="0" layoutX="291.0" layoutY="41.0" onAction="#tacticClicked" prefHeight="58.0" prefWidth="89.0" text="Tactics" textFill="#802525" textOverrun="CLIP">
-               <font>
-                  <Font size="22.0" />
-               </font>
-            </Hyperlink>
-            <Hyperlink ellipsisString="0" layoutX="411.0" layoutY="41.0" onAction="#groupClicked" prefHeight="58.0" prefWidth="152.0" text="Group Stage" textFill="#802525" textOverrun="CLIP">
-               <font>
-                  <Font size="22.0" />
-               </font>
-            </Hyperlink>
-            <Hyperlink ellipsisString="0" layoutX="579.0" layoutY="41.0" onAction="#knockoutClicked" prefHeight="58.0" prefWidth="115.0" text="Knockout" textFill="#802525" textOverrun="CLIP">
-               <font>
-                  <Font size="22.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="OPEN_HAND" />
-               </cursor>
-            </Hyperlink>
-            <Hyperlink ellipsisString="0" layoutX="724.0" layoutY="41.0" onAction="#statClicked" prefHeight="58.0" prefWidth="115.0" text="Statistics" textFill="#802525" textOverrun="CLIP">
-               <font>
-                  <Font size="22.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="OPEN_HAND" />
-               </cursor>
-            </Hyperlink>
-            <Hyperlink ellipsisString="0" layoutX="869.0" layoutY="41.0" onAction="#calendarClicked" prefHeight="58.0" prefWidth="107.0" text="Calendar" textFill="#802525" textOverrun="CLIP">
-               <font>
-                  <Font size="22.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="OPEN_HAND" />
-               </cursor>
-            </Hyperlink>
-            <Hyperlink ellipsisString="0" layoutX="989.0" layoutY="41.0" onAction="#saveClicked" prefHeight="58.0" prefWidth="125.0" text="Save&amp;Exit" textFill="#802525" textOverrun="CLIP">
-               <font>
-                  <Font size="22.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="OPEN_HAND" />
-               </cursor>
-            </Hyperlink>
-            <Button layoutX="1185.0" layoutY="38.0" mnemonicParsing="false" onAction="#continueClicked" prefHeight="73.0" prefWidth="152.0" text="Continue">
-               <font>
-                  <Font name="System Bold" size="26.0" />
-               </font>
-            </Button>
-            <Line endX="1160.0" layoutX="240.0" layoutY="145.0" startX="-240.0" />
-            <ImageView fitHeight="151.0" fitWidth="135.0" layoutX="25.0" preserveRatio="true">
-               <image>
-                  <Image url="@../../img/logo.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="teamImage" fitHeight="273.0" fitWidth="300.0" layoutX="975.0" layoutY="220.0" pickOnBounds="true" preserveRatio="true" />
-            <GridPane fx:id="playerGrid" gridLinesVisible="true" layoutX="84.0" layoutY="200.0" prefHeight="662.0" prefWidth="764.0">
+            <ImageView fx:id="teamImage" fitHeight="273.0" fitWidth="300.0" layoutX="975.0" layoutY="78.0" pickOnBounds="true" preserveRatio="true" />
+            <GridPane fx:id="playerGrid" gridLinesVisible="true" layoutX="84.0" layoutY="58.0" prefHeight="662.0" prefWidth="764.0">
               <columnConstraints>
                 <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="200.0" prefWidth="100.0" />
                 <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -108,27 +57,27 @@
                   <Glow level="0.29" />
                </effect>
             </GridPane>
-            <Text fx:id="playerName" layoutX="139.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player Name">
+            <Text fx:id="playerName" layoutX="139.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player Name">
                <font>
                   <Font name="Gill Sans Bold" size="16.0" />
                </font></Text>
-            <Text fx:id="availableWeek" layoutX="593.0" layoutY="184.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nation">
+            <Text fx:id="availableWeek" layoutX="593.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nation">
                <font>
                   <Font name="Gill Sans Bold" size="16.0" />
                </font></Text>
-            <Text fx:id="foot" layoutX="499.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Foot">
+            <Text fx:id="foot" layoutX="499.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Foot">
                <font>
                   <Font name="Gill Sans Bold" size="16.0" />
                </font></Text>
-            <Text fx:id="overall" layoutX="395.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Overall" textAlignment="CENTER">
+            <Text fx:id="overall" layoutX="395.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Overall" textAlignment="CENTER">
                <font>
                   <Font name="Gill Sans Bold" size="16.0" />
                </font></Text>
-            <Text fx:id="position" layoutX="294.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Position" textAlignment="CENTER">
+            <Text fx:id="position" layoutX="294.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Position" textAlignment="CENTER">
                <font>
                   <Font name="Gill Sans Bold" size="16.0" />
                </font></Text>
-            <Pane layoutX="895.0" layoutY="508.0" prefHeight="342.0" prefWidth="458.0">
+            <Pane layoutX="895.0" layoutY="366.0" prefHeight="342.0" prefWidth="458.0">
                <children>
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#dde6ee" height="264.0" layoutX="60.0" layoutY="63.0" stroke="BLACK" strokeType="INSIDE" width="352.0" />
                   <Text layoutX="90.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Stadium:">
@@ -157,43 +106,37 @@
                      </font>
                   </Text>
                </children></Pane>
-            <Text fx:id="name" layoutX="985.0" layoutY="550.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Paris Saint Germain" textAlignment="CENTER">
+            <Text fx:id="name" layoutX="985.0" layoutY="408.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Paris Saint Germain" textAlignment="CENTER">
                <font>
                   <Font name="Gill Sans Bold" size="34.0" />
                </font></Text>
-            <Text fx:id="nick" layoutX="1097.0" layoutY="754.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER">
+            <Text fx:id="nick" layoutX="1097.0" layoutY="612.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER">
                <font>
                   <Font name="Gill Sans" size="17.0" />
                </font></Text>
-            <Text fx:id="stars" layoutX="1097.0" layoutY="806.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER">
+            <Text fx:id="stars" layoutX="1097.0" layoutY="664.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER">
                <font>
                   <Font name="Gill Sans" size="17.0" />
                </font></Text>
-            <Text fx:id="history" layoutX="1097.0" layoutY="660.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER">
+            <Text fx:id="history" layoutX="1097.0" layoutY="518.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER">
                <font>
                   <Font name="Gill Sans" size="17.0" />
                </font></Text>
-            <Text fx:id="stadium" layoutX="1097.0" layoutY="615.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER">
+            <Text fx:id="stadium" layoutX="1097.0" layoutY="473.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER">
                <font>
                   <Font name="Gill Sans" size="17.0" />
                </font></Text>
-            <Text fx:id="value" layoutX="788.0" layoutY="184.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Value">
+            <Text fx:id="value" layoutX="788.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Value">
                <font>
                   <Font name="Gill Sans Bold" size="16.0" />
                </font>
             </Text>
-            <Text fx:id="salary" layoutX="690.0" layoutY="184.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Salary">
+            <Text fx:id="salary" layoutX="690.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Salary">
                <font>
                   <Font name="Gill Sans Bold" size="16.0" />
                </font>
             </Text>
          </children>
       </Pane>
-      <Box layoutX="800.0" layoutY="500.0" />
-      <Box layoutX="1000.0" layoutY="600.0" />
-      <Text fx:id="nation" layoutX="1097.0" layoutY="706.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER">
-         <font>
-            <Font name="Gill Sans" size="17.0" />
-         </font></Text>
    </children>
 </Pane>

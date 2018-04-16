@@ -2,6 +2,9 @@ package controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
+
+import javax.swing.event.ChangeEvent;
+
 import javafx.application.Application;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -21,13 +24,10 @@ import model.*;
 
 public class Main extends Application {
 	private static Stage mainStage;
-
-	private static final int DIFF_SCORE = 10;
-	private static final int MIN_SCORE = 90;
-	private static final int MAX_SCORE = 100;
-
-	private static final int NUMBER_OF_PLAYERS = 11;
 	
+	private int screenWidth = (int) Screen.getPrimary().getBounds().getWidth();
+	private int screenHeight = (int) Screen.getPrimary().getBounds().getHeight();
+
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		mainStage = primaryStage;
@@ -42,8 +42,7 @@ public class Main extends Application {
 		
 		root.setScaleX(screenWidth/1400.0);
 		root.setScaleY(screenHeight/900.0);
-		root.setLayoutX(301);
-		root.setLayoutY(98);
+		root.setLayoutX(20);
 		
 		Scene scene = new Scene(root, screenWidth, screenHeight);
 
@@ -53,17 +52,6 @@ public class Main extends Application {
 
 	}
 
-	
-	public static int getOverall() {
-		return MIN_SCORE + (int) (Math.random() * DIFF_SCORE + 1);
-	}
-
-	public static int[] getAttributes() {
-		int[] attributes = new int[8];
-		for (int i = 0; i < 8; i++)
-			attributes[i] = MIN_SCORE + (int) (Math.random() * DIFF_SCORE + 1);
-		return attributes;
-	}
 
 	public static void main(String[] args) throws InterruptedException, IOException, ClassNotFoundException {
 		Tournament c = Tournament.getInstance();
@@ -78,5 +66,4 @@ public class Main extends Application {
 	public static Stage getMainStage() {
 		return mainStage;
 	}
-
 }

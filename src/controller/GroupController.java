@@ -103,12 +103,13 @@ public class GroupController implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		groupName.getItems().addAll("A", "B", "C", "D", "E", "F", "G", "H");
 		setup("A");
+		groupName.getSelectionModel().selectFirst();
 	}
 
 	public void setup(String group) {
 		char c = group.charAt(0);
 		int num = (int) c - 65;
-		gName.setText("GROUP " + c);
+		gName.setText("GROUP ");
 		Group cur = Tournament.getInstance().getGroups()[num];
 		t1.setText(cur.getTeam(0).getName());
 		t2.setText(cur.getTeam(1).getName());
@@ -156,125 +157,5 @@ public class GroupController implements Initializable {
 	public void groupChange() {
 		String group = groupName.getValue();
 		setup(group);
-	}
-
-	@FXML
-	public void teamClicked() throws IOException {
-		Parent root = FXMLLoader.load(getClass().getResource("/view/TeamView.fxml"));
-		root.setScaleX(screenWidth / 1400.0);
-		root.setScaleY(screenHeight / 900.0);
-		root.setLayoutX(335);
-		root.setLayoutY(100);
-		Stage m = Main.getMainStage();
-		Scene t = Main.getMainStage().getScene();
-		t.setRoot(root);
-		m.setScene(t);
-		m.setFullScreen(true);
-		Main.setMainStage(m);
-	}
-
-	@FXML
-	public void tacticClicked() throws IOException {
-		Parent root = FXMLLoader.load(getClass().getResource("/view/TacticView.fxml"));
-		root.setScaleX(screenWidth / 1400.0);
-		root.setScaleY(screenHeight / 900.0);
-		root.setLayoutX(335);
-		root.setLayoutY(100);
-		Stage m = Main.getMainStage();
-		Scene t = Main.getMainStage().getScene();
-		t.setRoot(root);
-		m.setScene(t);
-		m.setFullScreen(true);
-		Main.setMainStage(m);
-	}
-
-	@FXML
-	public void groupClicked() throws IOException {
-		Parent root = FXMLLoader.load(getClass().getResource("/view/GroupView.fxml"));
-		root.setScaleX(screenWidth / 1400.0);
-		root.setScaleY(screenHeight / 900.0);
-		root.setLayoutX(335);
-		root.setLayoutY(100);
-		Stage m = Main.getMainStage();
-		Scene t = Main.getMainStage().getScene();
-		t.setRoot(root);
-		m.setScene(t);
-		m.setFullScreen(true);
-		Main.setMainStage(m);
-	}
-
-	@FXML
-	public void knockoutClicked() throws IOException {
-		Parent root = FXMLLoader.load(getClass().getResource("/view/KnockoutView.fxml"));
-		root.setScaleX(screenWidth / 1400.0);
-		root.setScaleY(screenHeight / 900.0);
-		root.setLayoutX(335);
-		root.setLayoutY(100);
-		Stage m = Main.getMainStage();
-		Scene t = Main.getMainStage().getScene();
-		t.setRoot(root);
-		m.setScene(t);
-		m.setFullScreen(true);
-		Main.setMainStage(m);
-	}
-
-	@FXML
-	public void statClicked() throws IOException {
-		Parent root = FXMLLoader.load(getClass().getResource("/view/StatisticView.fxml"));
-		root.setScaleX(screenWidth / 1400.0);
-		root.setScaleY(screenHeight / 900.0);
-		root.setLayoutX(335);
-		root.setLayoutY(100);
-		Stage m = Main.getMainStage();
-		Scene t = Main.getMainStage().getScene();
-		t.setRoot(root);
-		m.setScene(t);
-		m.setFullScreen(true);
-		Main.setMainStage(m);
-	}
-
-	@FXML
-	public void calendarClicked() throws IOException {
-		Parent root = FXMLLoader.load(getClass().getResource("/view/CalendarView.fxml"));
-		root.setScaleX(screenWidth / 1400.0);
-		root.setScaleY(screenHeight / 900.0);
-		root.setLayoutX(335);
-		root.setLayoutY(100);
-		Stage m = Main.getMainStage();
-		Scene t = Main.getMainStage().getScene();
-		t.setRoot(root);
-		m.setScene(t);
-		m.setFullScreen(true);
-		Main.setMainStage(m);
-	}
-
-	@FXML
-	public void saveClicked() throws IOException {
-		Parent root = FXMLLoader.load(getClass().getResource("/view/HomeScreen.fxml"));
-		root.setScaleX(screenWidth / 1400.0);
-		root.setScaleY(screenHeight / 900.0);
-		root.setLayoutX(335);
-		root.setLayoutY(100);
-		Stage m = Main.getMainStage();
-		Scene t = Main.getMainStage().getScene();
-		t.setRoot(root);
-		m.setScene(t);
-		m.setFullScreen(true);
-		Main.setMainStage(m);
-	}
-
-	@FXML
-	public void continueClicked() throws IOException {
-		Parent root = FXMLLoader.load(getClass().getResource("/view/MatchPlayView.fxml"));
-		root.setScaleX(screenWidth / 1400.0);
-		root.setScaleY(screenHeight / 900.0);
-		root.setLayoutX(335);
-		root.setLayoutY(100);
-		Stage m = Main.getMainStage();
-		Scene t = Main.getMainStage().getScene();
-		t.setRoot(root);
-		m.setScene(t);
-		m.setFullScreen(true);
-		Main.setMainStage(m);
 	}
 }

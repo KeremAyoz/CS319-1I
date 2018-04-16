@@ -44,6 +44,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
 import javafx.stage.Screen;
+import javafx.stage.Stage;
 
 public class NewGameController implements Initializable {
 
@@ -249,8 +250,16 @@ public class NewGameController implements Initializable {
 		t.setMyTeamId(id);
 		t.chooseMyGroupId();
 		TeamController.setCurrentTeamId(id);
-		Parent root = FXMLLoader.load(getClass().getResource("/view/TeamView.fxml"));
-		Main.getMainStage().setScene(new Scene(root));
+		Parent root = FXMLLoader.load(getClass().getResource("/view/TacticView.fxml"));
+		root.setScaleX(screenWidth/1400.0);
+		root.setScaleY(screenHeight/900.0);
+		root.setLayoutX(20);
+		Stage m = Main.getMainStage();
+		Scene ts = Main.getMainStage().getScene();
+		ts.setRoot(root);
+		m.setScene(ts);
+		m.setFullScreen(true);
+		Main.setMainStage(m);
 	}
 
 	public void blurLeft(boolean blurred) {

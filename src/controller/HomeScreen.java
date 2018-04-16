@@ -21,20 +21,12 @@ public class HomeScreen implements Initializable {
 	int screenWidth = (int) Screen.getPrimary().getBounds().getWidth();
 	int screenHeight = (int) Screen.getPrimary().getBounds().getHeight();
 
-	@FXML
-	private Button searchButton;
-	@FXML
-	private TextField searchField;
-	@FXML
-	private WebView deneme;
-
 	public void newGameClicked() throws IOException {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/NewGameView.fxml"));
 		Parent root = loader.load();
 		root.setScaleX(screenWidth / 1400.0);
 		root.setScaleY(screenHeight / 900.0);
-		root.setLayoutX(335);
-		root.setLayoutY(100);
+		root.setLayoutX(20);
 		Stage m = Main.getMainStage();
 		Scene t = Main.getMainStage().getScene();
 		t.setRoot(root);
@@ -48,8 +40,7 @@ public class HomeScreen implements Initializable {
 		Parent root = loader.load();
 		root.setScaleX(screenWidth / 1400.0);
 		root.setScaleY(screenHeight / 900.0);
-		root.setLayoutX(335);
-		root.setLayoutY(100);
+		root.setLayoutX(20);
 		Stage m = Main.getMainStage();
 		Scene t = Main.getMainStage().getScene();
 		t.setRoot(root);
@@ -63,8 +54,7 @@ public class HomeScreen implements Initializable {
 		Parent root = loader.load();
 		root.setScaleX(screenWidth / 1400.0);
 		root.setScaleY(screenHeight / 900.0);
-		root.setLayoutX(335);
-		root.setLayoutY(100);
+		root.setLayoutX(20);
 		Stage m = Main.getMainStage();
 		Scene t = Main.getMainStage().getScene();
 		t.setRoot(root);
@@ -79,8 +69,7 @@ public class HomeScreen implements Initializable {
 		Parent root = loader.load();
 		root.setScaleX(screenWidth / 1400.0);
 		root.setScaleY(screenHeight / 900.0);
-		root.setLayoutX(335);
-		root.setLayoutY(100);
+		root.setLayoutX(20);
 		Stage m = Main.getMainStage();
 		Scene t = Main.getMainStage().getScene();
 		t.setRoot(root);
@@ -98,6 +87,5 @@ public class HomeScreen implements Initializable {
 	 */
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
-		// TODO
 	}
 }

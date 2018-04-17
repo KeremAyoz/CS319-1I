@@ -16,6 +16,7 @@ import java.util.concurrent.TimeUnit;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Application;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import javafx.fxml.FXML;
@@ -40,6 +41,10 @@ import model.*;
  *
  */
 public class MatchPlayController implements Initializable {
+
+	int screenWidth = (int) Screen.getPrimary().getBounds().getWidth();
+	int screenHeight = (int) Screen.getPrimary().getBounds().getHeight();
+
 	/*
 	 * @FXML private Text hGK;
 	 * 
@@ -105,8 +110,7 @@ public class MatchPlayController implements Initializable {
 	private ImageView homeLogo;
 	@FXML
 	private ImageView awayLogo;
-	
-	
+
 	@FXML
 	private ImageView homeLineup;
 	@FXML
@@ -121,7 +125,7 @@ public class MatchPlayController implements Initializable {
 
 	@FXML
 	private Label label;
-	
+
 	@FXML
 	private ComboBox<String> homeTactic;
 	@FXML
@@ -143,36 +147,38 @@ public class MatchPlayController implements Initializable {
 		paused = false;
 		label.setTextFill(Color.BLACK);
 		for (int i = 0; i < 12; i++) {
-			if (t.getGroups()[t.getMyGroupId()].getMatch(t.getMyGroupMatchIds()[i]).getAway().getName().equals(t.getTeams()[t.getMyTeamId()].getName()) ||
-					t.getGroups()[t.getMyGroupId()].getMatch(t.getMyGroupMatchIds()[i]).getHome().getName().equals(t.getTeams()[t.getMyTeamId()].getName())) {
+			if (t.getGroups()[t.getMyGroupId()].getMatch(t.getMyGroupMatchIds()[i]).getAway().getName()
+					.equals(t.getTeams()[t.getMyTeamId()].getName())
+					|| t.getGroups()[t.getMyGroupId()].getMatch(t.getMyGroupMatchIds()[i]).getHome().getName()
+							.equals(t.getTeams()[t.getMyTeamId()].getName())) {
 				currentMatch = t.getGroups()[t.getMyGroupId()].getMatch(t.getMyGroupMatchIds()[i]);
 				break;
 			}
 
 		}
-		
+
 		if (currentMatch != null) {
 			Team home = currentMatch.getHome();
 			Team away = currentMatch.getAway();
 
 			homeName.setText(home.getName());
 			awayName.setText(away.getName());
-			
+
 			homeName.setStyle("-fx-text-base-color: " + home.getColor().trim().toLowerCase() + ";");
 			awayName.setStyle("-fx-text-base-color: " + away.getColor().trim().toLowerCase() + ";");
-			
+
 			String st = home.getName().toLowerCase().trim();
 			st = st.replaceAll("\\s+", "");
 			File logo1 = new File("img/logos/" + st + ".png");
 			Image image = new Image(logo1.toURI().toString());
 			homeLogo.setImage(image);
-			
+
 			String st2 = away.getName().toLowerCase().trim();
 			st2 = st2.replaceAll("\\s+", "");
 			File logo2 = new File("img/logos/" + st2 + ".png");
 			Image image2 = new Image(logo2.toURI().toString());
 			awayLogo.setImage(image2);
-			
+
 			if (home.getName().equals(t.getTeams()[t.getMyTeamId()].getName())) {
 				homeTactic.getItems().addAll("4-3-3", "4-4-2", "4-2-3-1");
 				homeStyle.getItems().addAll("Attack", "Defensive", "Holding");
@@ -184,7 +190,7 @@ public class MatchPlayController implements Initializable {
 				awayStyle.setDisable(true);
 				awayTempo.setDisable(true);
 			}
-					
+
 			else {
 				awayTactic.getItems().addAll("4-3-3", "4-4-2", "4-2-3-1");
 				awayStyle.getItems().addAll("Attack", "Defensive", "Holding");
@@ -196,20 +202,15 @@ public class MatchPlayController implements Initializable {
 				homeStyle.setDisable(true);
 				homeTempo.setDisable(true);
 			}
-			
-			
-			
-			
+
 			File tactic = new File("img/tactics/" + home.getTactic() + ".png");
 			Image tacticImage = new Image(tactic.toURI().toString(), 456, 454, false, false);
 			homeLineup.setImage(tacticImage);
-			
+
 			File tactic2 = new File("img/tactics/" + away.getTactic() + ".png");
 			Image tacticImage2 = new Image(tactic2.toURI().toString(), 456, 454, false, false);
 			awayLineup.setImage(tacticImage2);
-			
-			
-			
+
 			doTime();
 			System.out.println("Match is over");
 
@@ -246,76 +247,20 @@ public class MatchPlayController implements Initializable {
 	public void updateActionView() {
 		for (int i = 0; i < actions.size(); i++) {
 			eventGrid.add(new Text(actions.get(i).toString()), 1, actionCount++);
-			String actionName = actions.get(i).getClass().getName().toLowerCase().substring(6) ;
+			String actionName = actions.get(i).getClass().getName().toLowerCase().substring(6);
 			File nationImg = new File("img/actions/" + actionName + ".png");
 			ImageView act = new ImageView(new Image(nationImg.toURI().toString()));
 			act.setFitHeight(30);
 			act.setFitWidth(30);
-			eventGrid.add(act, 0, actionCount-1);
+			eventGrid.add(act, 0, actionCount - 1);
 			if (actionName.equals("goal")) {
-				if (currentMatch.getHome().contains(((Goal)(actions.get(i))).getScored())) 
+				if (currentMatch.getHome().contains(((Goal) (actions.get(i))).getScored()))
 					scoreHome.setText(String.valueOf(Integer.parseInt(scoreHome.getText()) + 1));
-				else 
+				else
 					scoreAway.setText(String.valueOf(Integer.parseInt(scoreAway.getText()) + 1));
 			}
 		}
 
-	}
-
-	@FXML
-	public void teamClicked() throws IOException {
-		Parent root = FXMLLoader.load(getClass().getResource("/view/TeamView.fxml"));
-		Main.getMainStage().setScene(new Scene(root));
-		Main.getMainStage().setFullScreen(true);
-	}
-
-	@FXML
-	public void tacticClicked() throws IOException {
-		Parent root = FXMLLoader.load(getClass().getResource("/view/TacticView.fxml"));
-		Main.getMainStage().setScene(new Scene(root));
-		Main.getMainStage().setFullScreen(true);
-	}
-
-	@FXML
-	public void groupClicked() throws IOException {
-		Parent root = FXMLLoader.load(getClass().getResource("/view/GroupView.fxml"));
-		Main.getMainStage().setScene(new Scene(root));
-		Main.getMainStage().setFullScreen(true);
-	}
-
-	@FXML
-	public void knockoutClicked() throws IOException {
-		Parent root = FXMLLoader.load(getClass().getResource("/view/KnockoutView.fxml"));
-		Main.getMainStage().setScene(new Scene(root));
-		Main.getMainStage().setFullScreen(true);
-	}
-
-	@FXML
-	public void statClicked() throws IOException {
-		Parent root = FXMLLoader.load(getClass().getResource("/view/StatisticView.fxml"));
-		Main.getMainStage().setScene(new Scene(root));
-		Main.getMainStage().setFullScreen(true);
-	}
-
-	@FXML
-	public void calendarClicked() throws IOException {
-		Parent root = FXMLLoader.load(getClass().getResource("/view/CalendarView.fxml"));
-		Main.getMainStage().setScene(new Scene(root));
-		Main.getMainStage().setFullScreen(true);
-	}
-
-	@FXML
-	public void saveClicked() throws IOException {
-		Parent root = FXMLLoader.load(getClass().getResource("/view/HomeScreen.fxml"));
-		Main.getMainStage().setScene(new Scene(root));
-		Main.getMainStage().setFullScreen(true);
-	}
-
-	@FXML
-	public void continueClicked() throws IOException {
-		Parent root = FXMLLoader.load(getClass().getResource("/view/MatchPlayView.fxml"));
-		Main.getMainStage().setScene(new Scene(root));
-		Main.getMainStage().setFullScreen(true);
 	}
 
 	@FXML

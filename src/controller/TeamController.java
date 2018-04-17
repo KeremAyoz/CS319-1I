@@ -29,8 +29,13 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
+import javafx.stage.Screen;
+import javafx.stage.Stage;
 
 public class TeamController implements Initializable {
+
+	int screenWidth = (int) Screen.getPrimary().getBounds().getWidth();
+	int screenHeight = (int) Screen.getPrimary().getBounds().getHeight();
 
 	@FXML
 	private GridPane playerGrid;
@@ -63,8 +68,7 @@ public class TeamController implements Initializable {
 			Text pFoot = new Text(p.getFoot() + "");
 			Text pSalary = new Text(String.valueOf(p.getSalary()));
 			Text pValue = new Text(cur.getPlayers().get(i).getValue() / 1000000 + "m €");
- 
-			
+
 			File nationImg = new File("img/flags/" + p.getNationality().toLowerCase().trim() + ".png");
 			ImageView flag = new ImageView(new Image(nationImg.toURI().toString()));
 			flag.setFitHeight(20);
@@ -77,38 +81,38 @@ public class TeamController implements Initializable {
 			playerGrid.add(pSalary, 5, i);
 			playerGrid.add(pValue, 6, i);
 			playerGrid.add(flag, 4, i);
-		
+
 		}
-		
-		//Team Logo
+
+		// Team Logo
 		String st = cur.getName().toLowerCase().trim();
-		st = st.replaceAll("\\s+","");
+		st = st.replaceAll("\\s+", "");
 		System.out.println(st);
 		File file = new File("img/logos/" + st + ".png");
 		Image image = new Image(file.toURI().toString());
 		teamImage.setImage(image);
-		
+
 		name.setText(cur.getName());
 		stadium.setText(cur.getStadium());
 		history.setText(cur.getHistory());
 		nation.setText(cur.getNationality());
 		nick.setText(cur.getNick());
 		stars.setText(String.valueOf(cur.getStars()));
-		
-		for (int i = 0 ; i < 7 ; i++) {
-            for (int j = 0; j < 20; j++) {
-                addPane(i, j);
-            }
-        }
-		
+
+		for (int i = 0; i < 7; i++) {
+			for (int j = 0; j < 20; j++) {
+				addPane(i, j);
+			}
+		}
+
 	}
-	
-	//Taken from https://code.i-harness.com/en/q/2b1fed4
+
+	// Taken from https://code.i-harness.com/en/q/2b1fed4
 	private int[] addPane(int colIndex, int rowIndex) {
 		Pane pane = new Pane();
-		int [] res = new int[2];
+		int[] res = new int[2];
 		pane.setOnMouseClicked(e -> {
-			PlayerController.setPlayerID(rowIndex); 
+			PlayerController.setPlayerID(rowIndex);
 			PlayerController.setTeamID(currentTeamId);
 			try {
 				changeToPlayerView();
@@ -120,10 +124,18 @@ public class TeamController implements Initializable {
 		playerGrid.add(pane, colIndex, rowIndex);
 		return res;
 	}
-	
+
 	public void changeToPlayerView() throws IOException {
-		Parent root = FXMLLoader.load(getClass().getResource("/view/PlayerView.fxml")); 
-		Main.getMainStage().setScene(new Scene(root));
+		Parent root = FXMLLoader.load(getClass().getResource("/view/PlayerView.fxml"));
+		root.setScaleX(screenWidth/1400.0);
+		root.setScaleY(screenHeight/900.0);
+		root.setLayoutX(20);
+		Stage m = Main.getMainStage();
+		Scene t = Main.getMainStage().getScene();
+		t.setRoot(root);
+		m.setScene(t);
+		m.setFullScreen(true);
+		Main.setMainStage(m);
 	}
 
 	/**
@@ -140,60 +152,4 @@ public class TeamController implements Initializable {
 	public static void setCurrentTeamId(int currentTeamId2) {
 		currentTeamId = currentTeamId2;
 	}
-
-	@FXML
-	public void teamClicked() throws IOException {
-		Parent root = FXMLLoader.load(getClass().getResource("/view/TeamView.fxml"));
-		Main.getMainStage().setScene(new Scene(root));
-	}
-
-	@FXML
-	public void tacticClicked() throws IOException {
-		Parent root = FXMLLoader.load(getClass().getResource("/view/TacticView.fxml"));
-		Main.getMainStage().setScene(new Scene(root));
-		Main.getMainStage().setFullScreen(true);
-	}
-
-	@FXML
-	public void groupClicked() throws IOException {
-		Parent root = FXMLLoader.load(getClass().getResource("/view/GroupView.fxml"));
-		Main.getMainStage().setScene(new Scene(root));
-		Main.getMainStage().setFullScreen(true);
-	}
-
-	@FXML
-	public void knockoutClicked() throws IOException {
-		Parent root = FXMLLoader.load(getClass().getResource("/view/KnockoutView.fxml"));
-		Main.getMainStage().setScene(new Scene(root));
-		Main.getMainStage().setFullScreen(true);
-	}
-
-	@FXML
-	public void statClicked() throws IOException {
-		Parent root = FXMLLoader.load(getClass().getResource("/view/StatisticView.fxml"));
-		Main.getMainStage().setScene(new Scene(root));
-		Main.getMainStage().setFullScreen(true);
-	}
-
-	@FXML
-	public void calendarClicked() throws IOException {
-		Parent root = FXMLLoader.load(getClass().getResource("/view/CalendarView.fxml"));
-		Main.getMainStage().setScene(new Scene(root));
-		Main.getMainStage().setFullScreen(true);
-	}
-
-	@FXML
-	public void saveClicked() throws IOException {
-		Parent root = FXMLLoader.load(getClass().getResource("/view/HomeScreen.fxml"));
-		Main.getMainStage().setScene(new Scene(root));
-		Main.getMainStage().setFullScreen(true);
-	}
-
-	@FXML
-	public void continueClicked() throws IOException {
-		Parent root = FXMLLoader.load(getClass().getResource("/view/MatchPlayView.fxml"));
-		Main.getMainStage().setScene(new Scene(root));
-		Main.getMainStage().setFullScreen(true);
-	}
-
 }

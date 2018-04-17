@@ -43,8 +43,13 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
+import javafx.stage.Screen;
+import javafx.stage.Stage;
 
 public class NewGameController implements Initializable {
+
+	int screenWidth = (int) Screen.getPrimary().getBounds().getWidth();
+	int screenHeight = (int) Screen.getPrimary().getBounds().getHeight();
 
 	@FXML
 	private RadioButton team1;
@@ -245,13 +250,22 @@ public class NewGameController implements Initializable {
 		t.setMyTeamId(id);
 		t.chooseMyGroupId();
 		TeamController.setCurrentTeamId(id);
-		Parent root = FXMLLoader.load(getClass().getResource("/view/TeamView.fxml"));
-		Main.getMainStage().setScene(new Scene(root));
+		Parent root = FXMLLoader.load(getClass().getResource("/view/TacticView.fxml"));
+		root.setScaleX(screenWidth/1400.0);
+		root.setScaleY(screenHeight/900.0);
+		root.setLayoutX(20);
+		Stage m = Main.getMainStage();
+		Scene ts = Main.getMainStage().getScene();
+		ts.setRoot(root);
+		m.setScene(ts);
+		m.setFullScreen(true);
+		Main.setMainStage(m);
 	}
 
 	public void blurLeft(boolean blurred) {
 		ColorAdjust adj = new ColorAdjust(0, -0.9, -0.5, 0);
-		GaussianBlur blur = new GaussianBlur(35); // 55 is just to show edge effect more clearly.
+		GaussianBlur blur = new GaussianBlur(35); // 55 is just to show edge
+													// effect more clearly.
 		adj.setInput(blur);
 		if (!blurred)
 			adj = null;
@@ -272,7 +286,8 @@ public class NewGameController implements Initializable {
 
 	public void blurRight(boolean blurred) {
 		ColorAdjust adj = new ColorAdjust(0, -0.9, -0.5, 0);
-		GaussianBlur blur = new GaussianBlur(35); // 55 is just to show edge effect more clearly.
+		GaussianBlur blur = new GaussianBlur(35); // 55 is just to show edge
+													// effect more clearly.
 		adj.setInput(blur);
 		if (!blurred)
 			adj = null;

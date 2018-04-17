@@ -2,63 +2,54 @@ package controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
+
+import javax.swing.event.ChangeEvent;
+
 import javafx.application.Application;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Cursor;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCombination;
+import javafx.scene.input.MouseButton;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import model.*;
 
 public class Main extends Application {
 	private static Stage mainStage;
-
-	private static final int DIFF_SCORE = 10;
-	private static final int MIN_SCORE = 90;
-	private static final int MAX_SCORE = 100;
-
-	private static final int NUMBER_OF_PLAYERS = 11;
 	
+	private int screenWidth = (int) Screen.getPrimary().getBounds().getWidth();
+	private int screenHeight = (int) Screen.getPrimary().getBounds().getHeight();
+
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		mainStage = primaryStage;
 		mainStage.setTitle("Stars League");
-		mainStage.setResizable(false);
-		// Opening scene
-		mainStage.setFullScreen(true);
+		mainStage.setResizable(true);
 		Parent root = FXMLLoader.load(getClass().getResource("/view/HomeScreen.fxml"));
-		//mainStage.setFullScreen(true);
-		mainStage.setScene(new Scene(root, 1400, 900));
-	//	mainStage.setFullScreen(true);
-	//	mainStage.setFullScreenExitKeyCombination(KeyCombination.NO_MATCH);
-		//primaryStage.setFullScreen(true);
-		mainStage.show();
 		
-	}
-	/*
-	primaryStage.fullScreenProperty().addListener(new ChangeListener<Boolean>() {
+		mainStage.setFullScreenExitHint("");
 
-        @Override
-        public void changed(ObservableValue<? extends Boolean> observable,
-                Boolean oldValue, Boolean newValue) {
-            if(newValue != null && !newValue.booleanValue())
-                primaryStage.setFullScreen(true);
-        }
-    }*/
+		int screenWidth = (int) Screen.getPrimary().getBounds().getWidth();
+		int screenHeight = (int) Screen.getPrimary().getBounds().getHeight();
+		
+		root.setScaleX(screenWidth/1400.0);
+		root.setScaleY(screenHeight/900.0);
+		root.setLayoutX(20);
+		
+		Scene scene = new Scene(root, screenWidth, screenHeight);
 
-	public static int getOverall() {
-		return MIN_SCORE + (int) (Math.random() * DIFF_SCORE + 1);
-	}
+		mainStage.setScene(scene);
+		mainStage.setFullScreen(true);
+		mainStage.show();
 
-	public static int[] getAttributes() {
-		int[] attributes = new int[8];
-		for (int i = 0; i < 8; i++)
-			attributes[i] = MIN_SCORE + (int) (Math.random() * DIFF_SCORE + 1);
-		return attributes;
 	}
 
 
@@ -75,7 +66,4 @@ public class Main extends Application {
 	public static Stage getMainStage() {
 		return mainStage;
 	}
-	
-	
-
 }

@@ -9,87 +9,42 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PlayerController">
    <children>
-      <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1400.0">
+   <fx:include source="TopMenu.fxml" />
+      <Pane layoutY="146.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="754.0" prefWidth="1400.0">
          <children>
-            <Hyperlink layoutX="189.0" layoutY="41.0" onAction="#teamClicked" prefHeight="58.0" prefWidth="134.0" text="Team" textFill="#802525">
-               <font>
-                  <Font size="22.0" />
-               </font>
-            </Hyperlink>
-            <Hyperlink layoutX="291.0" layoutY="41.0" onAction="#tacticClicked" prefHeight="58.0" prefWidth="134.0" text="Tactics" textFill="#802525">
-               <font>
-                  <Font size="22.0" />
-               </font>
-            </Hyperlink>
-            <Hyperlink layoutX="411.0" layoutY="41.0" onAction="#groupClicked" prefHeight="58.0" prefWidth="167.0" text="Group Stage" textFill="#802525">
-               <font>
-                  <Font size="22.0" />
-               </font>
-            </Hyperlink>
-            <Hyperlink layoutX="579.0" layoutY="41.0" onAction="#knockoutClicked" prefHeight="58.0" prefWidth="134.0" text="Knockout" textFill="#802525">
-               <font>
-                  <Font size="22.0" />
-               </font>
-            </Hyperlink>
-            <Hyperlink layoutX="724.0" layoutY="41.0" onAction="#statClicked" prefHeight="58.0" prefWidth="134.0" text="Statistics" textFill="#802525">
-               <font>
-                  <Font size="22.0" />
-               </font>
-            </Hyperlink>
-            <Hyperlink layoutX="869.0" layoutY="41.0" onAction="#calendarClicked" prefHeight="58.0" prefWidth="134.0" text="Calendar" textFill="#802525">
-               <font>
-                  <Font size="22.0" />
-               </font>
-            </Hyperlink>
-            <Hyperlink layoutX="989.0" layoutY="41.0" onAction="#saveClicked" prefHeight="58.0" prefWidth="171.0" text="Save&amp;Exit" textFill="#802525">
-               <font>
-                  <Font size="22.0" />
-               </font>
-            </Hyperlink>
-            <Button layoutX="1185.0" layoutY="38.0" mnemonicParsing="false" onAction="#continueClicked" prefHeight="73.0" prefWidth="152.0" text="Continue">
-               <font>
-                  <Font name="System Bold" size="26.0" />
-               </font>
-            </Button>
-            <Line endX="1160.0" layoutX="240.0" layoutY="145.0" startX="-240.0" />
-            <ImageView fitHeight="151.0" fitWidth="135.0" layoutX="25.0" preserveRatio="true">
-               <image>
-                  <Image url="@../../img/logo.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="playerClub" fitHeight="117.0" fitWidth="127.0" layoutX="24.0" layoutY="168.0" pickOnBounds="true" preserveRatio="true" />
-            <Line endX="900.0" layoutX="410.0" layoutY="257.0" startX="-250.0" />
-            <Text fx:id="playerName" layoutX="186.0" layoutY="233.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lionel Messi">
+            <ImageView fx:id="playerClub" fitHeight="117.0" fitWidth="127.0" layoutX="24.0" layoutY="72.0" pickOnBounds="true" preserveRatio="true" />
+            <Line endX="900.0" layoutX="410.0" layoutY="170.0" startX="-250.0" />
+            <Text fx:id="playerName" layoutX="186.0" layoutY="148.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lionel Messi">
                <font>
                   <Font name="Gill Sans Bold" size="55.0" />
                </font>
             </Text>
-            <Text fx:id="overall" fill="#750b0b" layoutX="1235.0" layoutY="238.0" strokeType="OUTSIDE" strokeWidth="0.0" text="97">
+            <Text fx:id="overall" fill="#750b0b" layoutX="1235.0" layoutY="153.0" strokeType="OUTSIDE" strokeWidth="0.0" text="97">
                <font>
                   <Font name="Gill Sans SemiBold" size="59.0" />
                </font>
             </Text>
-            <Text fill="#b9adad" layoutX="1102.0" layoutY="240.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Overall:">
+            <Text fill="#b9adad" layoutX="1102.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Overall:">
                <font>
                   <Font name="Gill Sans SemiBold" size="33.0" />
                </font>
             </Text>
-            <Text fill="#750b0b" layoutX="344.0" layoutY="347.0" strokeType="OUTSIDE" strokeWidth="0.0" text="General">
+            <Text fill="#750b0b" layoutX="344.0" layoutY="262.0" strokeType="OUTSIDE" strokeWidth="0.0" text="General">
                <font>
                   <Font name="Gill Sans SemiBold" size="42.0" />
                </font>
             </Text>
-            <Text fill="#750b0b" layoutX="988.0" layoutY="376.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Attributes">
+            <Text fill="#750b0b" layoutX="988.0" layoutY="291.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Attributes">
                <font>
                   <Font name="Gill Sans SemiBold" size="42.0" />
                </font>
             </Text>
-            <Text fill="#750b0b" layoutX="336.0" layoutY="641.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Statistics">
+            <Text fill="#750b0b" layoutX="336.0" layoutY="556.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Statistics">
                <font>
                   <Font name="Gill Sans SemiBold" size="42.0" />
                </font>
             </Text>
-            <GridPane fx:id="generalGrid" gridLinesVisible="true" layoutX="175.0" layoutY="375.0" prefHeight="197.0" prefWidth="500.0">
+            <GridPane fx:id="generalGrid" gridLinesVisible="true" layoutX="175.0" layoutY="290.0" prefHeight="197.0" prefWidth="500.0">
               <columnConstraints>
                   <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="113.0" minWidth="10.0" prefWidth="76.0" />
                   <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="160.0" minWidth="10.0" prefWidth="152.0" />
@@ -156,7 +111,7 @@
                   </Text>
                </children>
             </GridPane>
-            <GridPane fx:id="statGrid" gridLinesVisible="true" layoutX="172.0" layoutY="700.0" prefHeight="30.0" prefWidth="500.0">
+            <GridPane fx:id="statGrid" gridLinesVisible="true" layoutX="172.0" layoutY="615.0" prefHeight="30.0" prefWidth="500.0">
               <columnConstraints>
                 <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                   <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -168,7 +123,7 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
               </rowConstraints>
             </GridPane>
-            <GridPane fx:id="attGrid" gridLinesVisible="true" layoutX="865.0" layoutY="419.0" prefHeight="308.0" prefWidth="428.0">
+            <GridPane fx:id="attGrid" gridLinesVisible="true" layoutX="865.0" layoutY="334.0" prefHeight="308.0" prefWidth="428.0">
               <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                   <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -224,27 +179,27 @@
                   </Text>
                </children>
             </GridPane>
-            <Text fill="#686060" layoutX="177.0" layoutY="690.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Match Played">
+            <Text fill="#686060" layoutX="177.0" layoutY="605.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Match Played">
                <font>
                   <Font name="Gill Sans SemiBold" size="16.0" />
                </font>
             </Text>
-            <Text fill="#686060" layoutX="304.0" layoutY="690.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Goals">
+            <Text fill="#686060" layoutX="304.0" layoutY="605.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Goals">
                <font>
                   <Font name="Gill Sans SemiBold" size="16.0" />
                </font>
             </Text>
-            <Text fill="#686060" layoutX="401.0" layoutY="690.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Assists">
+            <Text fill="#686060" layoutX="401.0" layoutY="605.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Assists">
                <font>
                   <Font name="Gill Sans SemiBold" size="16.0" />
                </font>
             </Text>
-            <Text fill="#686060" layoutX="481.0" layoutY="690.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Yellow Card">
+            <Text fill="#686060" layoutX="481.0" layoutY="605.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Yellow Card">
                <font>
                   <Font name="Gill Sans SemiBold" size="16.0" />
                </font>
             </Text>
-            <Text fill="#686060" layoutX="592.0" layoutY="690.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Red Card">
+            <Text fill="#686060" layoutX="592.0" layoutY="605.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Red Card">
                <font>
                   <Font name="Gill Sans SemiBold" size="16.0" />
                </font>

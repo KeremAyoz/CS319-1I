@@ -30,8 +30,13 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
+import javafx.stage.Screen;
+import javafx.stage.Stage;
 
 public class TacticController implements Initializable {
+
+	int screenWidth = (int) Screen.getPrimary().getBounds().getWidth();
+	int screenHeight = (int) Screen.getPrimary().getBounds().getHeight();
 
 	@FXML
 	private Text teamName;
@@ -113,75 +118,6 @@ public class TacticController implements Initializable {
 	private ComboBox<String> sub8;
 	@FXML
 	private ComboBox<String> sub9;
-	
-	@FXML
-	private ComboBox<String> homeTactic;
-	@FXML
-	private ComboBox<String> awayTactic;
-	@FXML
-	private ComboBox<String> homeStyle;
-	@FXML
-	private ComboBox<String> awayStyle;
-	@FXML
-	private ComboBox<String> homeTempo;
-	@FXML
-	private ComboBox<String> awayTempo;
-
-	@FXML
-	public void teamClicked() throws IOException {
-		Parent root = FXMLLoader.load(getClass().getResource("/view/TeamView.fxml"));
-		Main.getMainStage().setScene(new Scene(root));
-		Main.getMainStage().setFullScreen(true);
-	}
-
-	@FXML
-	public void tacticClicked() throws IOException {
-		Parent root = FXMLLoader.load(getClass().getResource("/view/TacticView.fxml"));
-		Main.getMainStage().setScene(new Scene(root));
-		Main.getMainStage().setFullScreen(true);
-	}
-
-	@FXML
-	public void groupClicked() throws IOException {
-		Parent root = FXMLLoader.load(getClass().getResource("/view/GroupView.fxml"));
-		Main.getMainStage().setScene(new Scene(root));
-		Main.getMainStage().setFullScreen(true);
-	}
-
-	@FXML
-	public void knockoutClicked() throws IOException {
-		Parent root = FXMLLoader.load(getClass().getResource("/view/KnockoutView.fxml"));
-		Main.getMainStage().setScene(new Scene(root));
-		Main.getMainStage().setFullScreen(true);
-	}
-
-	@FXML
-	public void statClicked() throws IOException {
-		Parent root = FXMLLoader.load(getClass().getResource("/view/StatisticView.fxml"));
-		Main.getMainStage().setScene(new Scene(root));
-		Main.getMainStage().setFullScreen(true);
-	}
-
-	@FXML
-	public void calendarClicked() throws IOException {
-		Parent root = FXMLLoader.load(getClass().getResource("/view/CalendarView.fxml"));
-		Main.getMainStage().setScene(new Scene(root));
-		Main.getMainStage().setFullScreen(true);
-	}
-
-	@FXML
-	public void saveClicked() throws IOException {
-		Parent root = FXMLLoader.load(getClass().getResource("/view/HomeScreen.fxml"));
-		Main.getMainStage().setScene(new Scene(root));
-		Main.getMainStage().setFullScreen(true);
-	}
-
-	@FXML
-	public void continueClicked() throws IOException {
-		Parent root = FXMLLoader.load(getClass().getResource("/view/MatchPlayView.fxml"));
-		Main.getMainStage().setScene(new Scene(root));
-		Main.getMainStage().setFullScreen(true);
-	}
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
@@ -701,7 +637,7 @@ public class TacticController implements Initializable {
 			sub8.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "RCM", "LCM", "RW", "CAM", "LW", "ST", " ");
 			sub9.getItems().setAll("GK", "RB", "RCB", "LCB", "LB", "RCM", "LCM", "RW", "CAM", "LW", "ST", " ");
 		}
-		
+
 		sub1.getSelectionModel().select(11);
 		sub2.getSelectionModel().select(11);
 		sub3.getSelectionModel().select(11);
@@ -711,7 +647,7 @@ public class TacticController implements Initializable {
 		sub7.getSelectionModel().select(11);
 		sub8.getSelectionModel().select(11);
 		sub9.getSelectionModel().select(11);
-		
+
 	}
 
 	@FXML

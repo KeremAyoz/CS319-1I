@@ -15,8 +15,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
+import javafx.stage.Screen;
+import javafx.stage.Stage;
 
 public class GroupController implements Initializable {
+	int screenWidth = (int) Screen.getPrimary().getBounds().getWidth();
+	int screenHeight = (int) Screen.getPrimary().getBounds().getHeight();
+
 	@FXML
 	private Text t1;
 	@FXML
@@ -98,18 +103,19 @@ public class GroupController implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		groupName.getItems().addAll("A", "B", "C", "D", "E", "F", "G", "H");
 		setup("A");
+		groupName.getSelectionModel().selectFirst();
 	}
 
 	public void setup(String group) {
 		char c = group.charAt(0);
 		int num = (int) c - 65;
-		gName.setText("GROUP " + c);
+		gName.setText("GROUP ");
 		Group cur = Tournament.getInstance().getGroups()[num];
 		t1.setText(cur.getTeam(0).getName());
 		t2.setText(cur.getTeam(1).getName());
 		t3.setText(cur.getTeam(2).getName());
 		t4.setText(cur.getTeam(3).getName());
-		
+
 		t1p.setText(String.valueOf(cur.getStatistics()[0][0]));
 		t2p.setText(String.valueOf(cur.getStatistics()[1][0]));
 		t3p.setText(String.valueOf(cur.getStatistics()[2][0]));
@@ -119,7 +125,7 @@ public class GroupController implements Initializable {
 		t2w.setText(String.valueOf(cur.getStatistics()[1][1]));
 		t3w.setText(String.valueOf(cur.getStatistics()[2][1]));
 		t4w.setText(String.valueOf(cur.getStatistics()[3][1]));
-		
+
 		t1d.setText(String.valueOf(cur.getStatistics()[0][2]));
 		t2d.setText(String.valueOf(cur.getStatistics()[1][2]));
 		t3d.setText(String.valueOf(cur.getStatistics()[2][2]));
@@ -152,61 +158,4 @@ public class GroupController implements Initializable {
 		String group = groupName.getValue();
 		setup(group);
 	}
-	
-	@FXML
-	public void teamClicked() throws IOException {
-		Parent root = FXMLLoader.load(getClass().getResource("/view/TeamView.fxml"));
-		Main.getMainStage().setScene(new Scene(root));
-		Main.getMainStage().setFullScreen(true);
-	}
-
-	@FXML
-	public void tacticClicked() throws IOException {
-		Parent root = FXMLLoader.load(getClass().getResource("/view/TacticView.fxml"));
-		Main.getMainStage().setScene(new Scene(root));
-		Main.getMainStage().setFullScreen(true);
-	}
-
-	@FXML
-	public void groupClicked() throws IOException {
-		Parent root = FXMLLoader.load(getClass().getResource("/view/GroupView.fxml"));
-		Main.getMainStage().setScene(new Scene(root));
-		Main.getMainStage().setFullScreen(true);
-	}
-
-	@FXML
-	public void knockoutClicked() throws IOException {
-		Parent root = FXMLLoader.load(getClass().getResource("/view/KnockoutView.fxml"));
-		Main.getMainStage().setScene(new Scene(root));
-		Main.getMainStage().setFullScreen(true);
-	}
-
-	@FXML
-	public void statClicked() throws IOException {
-		Parent root = FXMLLoader.load(getClass().getResource("/view/StatisticView.fxml"));
-		Main.getMainStage().setScene(new Scene(root));
-		Main.getMainStage().setFullScreen(true);
-	}
-
-	@FXML
-	public void calendarClicked() throws IOException {
-		Parent root = FXMLLoader.load(getClass().getResource("/view/CalendarView.fxml"));
-		Main.getMainStage().setScene(new Scene(root));
-		Main.getMainStage().setFullScreen(true);
-	}
-
-	@FXML
-	public void saveClicked() throws IOException {
-		Parent root = FXMLLoader.load(getClass().getResource("/view/TacticView.fxml"));
-		Main.getMainStage().setScene(new Scene(root));
-		Main.getMainStage().setFullScreen(true);
-	}
-
-	@FXML
-	public void continueClicked() throws IOException {
-		Parent root = FXMLLoader.load(getClass().getResource("/view/MatchPlayView.fxml"));
-		Main.getMainStage().setScene(new Scene(root));
-		Main.getMainStage().setFullScreen(true);
-	}
-
 }

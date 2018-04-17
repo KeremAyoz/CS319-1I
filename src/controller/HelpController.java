@@ -11,19 +11,27 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.web.WebView;
+import javafx.stage.Screen;
+import javafx.stage.Stage;
 
 public class HelpController implements Initializable{
+	int screenWidth = (int) Screen.getPrimary().getBounds().getWidth();
+	int screenHeight = (int) Screen.getPrimary().getBounds().getHeight();
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		// TODO Auto-generated method stub
-		
 	}
 	
 	public void backClicked() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/HomeScreen.fxml"));
-        Parent root = loader.load();
-        Main.getMainStage().setScene(new Scene(root)); 
-        Main.getMainStage().setFullScreen(true);
+		Parent root = FXMLLoader.load(getClass().getResource("/view/HomeScreen.fxml"));
+		root.setScaleX(screenWidth/1400.0);
+		root.setScaleY(screenHeight/900.0);
+		root.setLayoutX(20);
+		Stage m = Main.getMainStage();
+		Scene t = Main.getMainStage().getScene();
+		t.setRoot(root);
+		m.setScene(t);
+		m.setFullScreen(true);
+		Main.setMainStage(m);
     }
 }

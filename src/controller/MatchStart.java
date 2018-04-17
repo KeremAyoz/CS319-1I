@@ -13,6 +13,7 @@ import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
+import javafx.stage.Screen;
 import javafx.scene.image.*;
 
 import java.util.ArrayList;
@@ -27,6 +28,10 @@ import java.time.*;
  *
  */
 public class MatchStart implements Initializable {
+	
+	int screenWidth = (int) Screen.getPrimary().getBounds().getWidth();
+	int screenHeight = (int) Screen.getPrimary().getBounds().getHeight();
+	
 	@FXML
 	private Text hGK;
 	@FXML

@@ -19,11 +19,19 @@ import javafx.stage.Stage;
 
 public class TopMenu implements Initializable {
 	
+	@FXML
+	private Text managerName;
+	@FXML
+	private Text currentDate;
+	
 	int screenWidth = (int) Screen.getPrimary().getBounds().getWidth();
 	int screenHeight = (int) Screen.getPrimary().getBounds().getHeight();
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		Tournament t = Tournament.getInstance();
+		managerName.setText(t.getTeams()[t.getMyTeamId()].getManager().getName());
+		currentDate.setText(t.getCurrentDay() + "-" + t.getCurrentMonth() + "-" + t.getCurrentYear());
 	}
 
 	@FXML

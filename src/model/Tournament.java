@@ -32,6 +32,10 @@ public class Tournament implements Serializable{
 	private int lastMatchId;
 	private int lastMatchWeek;
 
+	private int myTeamLastMatchDay;
+	private int myTeamLastMatchMonth;
+	private int myTeamLastMatchYear;
+	
 	private int[] myGroupMatchIds;
 	
 	private static final int INITIAL_DAY = 1;
@@ -78,6 +82,7 @@ public class Tournament implements Serializable{
 	public static Tournament getInstance() {
 		
 		if (instance == null) {
+			System.out.println("BURAYA GİRDİMMM");
 			Group[] groups = new Group[NUMBER_OF_GROUPS];
 			
 			for (int i = 0; i < NUMBER_OF_GROUPS; i++) {
@@ -107,19 +112,7 @@ public class Tournament implements Serializable{
 			
 			instance.distributeTeams();
 			instance.chooseMyGroupId();
-			
-			instance.currentDay = INITIAL_DAY;
-			instance.currentMonth = INITIAL_MONTH;
-			instance.currentYear = INITIAL_YEAR;
-			instance.lastMatchId = -1;
-			instance.lastMatchWeek = -1;
-			
-			for( int i = 0 ; i < NUMBER_OF_GROUPS ; i++ ) {
-				instance.groups[i].setMatchCalendarOrder();
-				for( int j = 0 ; j < MATCHES_PER_GROUP ; j++ )
-					instance.groups[i].createMatch(j, GROUP_MATCH_DAYS[j], GROUP_MATCH_MONTHS[j], GROUP_MATCH_YEARS[j]);
-			}
-			instance.chooseMyGroupMatchIds();
+		
 			
 			return instance;
 			
@@ -135,11 +128,13 @@ public class Tournament implements Serializable{
 	}
 	
 	public boolean isOnGroupMatch() {
+		System.out.println("IS ON GROUP MATCH METHOD");
 		if( lastMatchWeek == NUMBER_OF_MY_GROUP_MATCHES - 1 )
 			return false;
 		int nextMatchId = myGroupMatchIds[lastMatchWeek + 1];
 		if( currentDay == GROUP_MATCH_DAYS[nextMatchId] && currentMonth == GROUP_MATCH_MONTHS[nextMatchId] && currentYear == GROUP_MATCH_YEARS[nextMatchId] )
 			return true;
+		System.out.println("FALSE");
 		return false;
 	}
 	
@@ -218,7 +213,7 @@ public class Tournament implements Serializable{
 	
 	public void playOtherTeams() throws InterruptedException {
 		for( int i = 0 ; i < NUMBER_OF_GROUPS ; i++ )
-			if( i != myGroupId )
+			if( i != myGroupId || (i == myGroupId && (currentDay != myTeamLastMatchDay || currentMonth != myTeamLastMatchMonth || currentYear != myTeamLastMatchYear)) )
 				for( int j = 0 ; j < MATCHES_PER_GROUP ; j++ )
 					if( currentDay == groups[i].getMatchDay(j) )
 						if( currentMonth == groups[i].getMatchMonth(j) )
@@ -230,11 +225,15 @@ public class Tournament implements Serializable{
 	public Match goNextDay() throws InterruptedException {
 		Match match = null;
 		if( isOnGroupMatch() ) {
+			myTeamLastMatchDay = currentDay;
+			myTeamLastMatchMonth = currentMonth;
+			myTeamLastMatchYear = currentYear;
 			playOtherTeams();
 			int nextMatchId = myGroupMatchIds[lastMatchWeek + 1];
 			lastMatchWeek++;
 			lastMatchId = nextMatchId;
 			match = groups[myGroupId].getMatch(nextMatchId);
+			passTomorrow();
 			return match;
 		}
 		playOtherTeams();
@@ -426,6 +425,22 @@ public class Tournament implements Serializable{
 			instance.groups[i] = new Group();
 			instance.groups[i].setTeams( groupTeams );
 		}
+		
+		instance.currentDay = INITIAL_DAY;
+		instance.currentMonth = INITIAL_MONTH;
+		instance.currentYear = INITIAL_YEAR;
+		instance.lastMatchId = -1;
+		instance.lastMatchWeek = -1;
+		instance.myTeamLastMatchDay = -1;
+		instance.myTeamLastMatchMonth = -1;
+		instance.myTeamLastMatchYear = -1;
+		
+		for( int i = 0 ; i < NUMBER_OF_GROUPS ; i++ ) {
+			instance.groups[i].setMatchCalendarOrder();
+			for( int j = 0 ; j < MATCHES_PER_GROUP ; j++ )
+				instance.groups[i].createMatch(j, GROUP_MATCH_DAYS[j], GROUP_MATCH_MONTHS[j], GROUP_MATCH_YEARS[j]);
+		}
+		instance.chooseMyGroupMatchIds();
 	}
 	
 	public String[] getTopGoals() {
@@ -581,7 +596,6 @@ public class Tournament implements Serializable{
 	}
 
 	public int getMyGroupId() {
-		System.out.println("BENİM GRUBUM: " + myGroupId);
 		return myGroupId;
 	}
 

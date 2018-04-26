@@ -236,8 +236,9 @@ public class NewGameController implements Initializable {
 	}
 
 	@FXML
-	public void pressedDone() throws IOException {
+	public void pressedDone() throws IOException, ClassNotFoundException {
 		String teamSelected = ((RadioButton) ((toggleGroup.getSelectedToggle()))).getText();
+		Tournament.setInstance(Database.newGameLoad());
 		Tournament t = Tournament.getInstance();
 		int id = -1;
 		for (int i = 0; i < 32; i++) {
@@ -248,6 +249,7 @@ public class NewGameController implements Initializable {
 			}
 		}
 		t.setMyTeamId(id);
+		t.distributeTeams();
 		t.chooseMyGroupId();
 		TeamController.setCurrentTeamId(id);
 		Parent root = FXMLLoader.load(getClass().getResource("/view/TacticView.fxml"));

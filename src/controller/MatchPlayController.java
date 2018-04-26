@@ -146,15 +146,22 @@ public class MatchPlayController implements Initializable {
 		Tournament t = Tournament.getInstance();
 		paused = false;
 		label.setTextFill(Color.BLACK);
-		for (int i = 0; i < 12; i++) {
-			if (t.getGroups()[t.getMyGroupId()].getMatch(t.getMyGroupMatchIds()[i]).getAway().getName()
-					.equals(t.getTeams()[t.getMyTeamId()].getName())
-					|| t.getGroups()[t.getMyGroupId()].getMatch(t.getMyGroupMatchIds()[i]).getHome().getName()
-							.equals(t.getTeams()[t.getMyTeamId()].getName())) {
-				currentMatch = t.getGroups()[t.getMyGroupId()].getMatch(t.getMyGroupMatchIds()[i]);
-				break;
+		
+		try {
+			do {
+				currentMatch = t.goNextDay();
 			}
-
+			while (currentMatch == null);
+			System.out.println(currentMatch.getHome().getName() + " -  " + currentMatch.getAway().getName());
+			
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		if (currentMatch == null) {
+			System.out.println("Match yok");
+			return;
 		}
 
 		if (currentMatch != null) {

@@ -86,7 +86,7 @@ public class Group implements Serializable{
 		
 		// Statistics - Played
 		statistics[idHome][TOTAL_PLAYED] += 1;
-		statistics[idHome][TOTAL_PLAYED] += 1;
+		statistics[idAway][TOTAL_PLAYED] += 1;
 		
 		// Statistics - Win
 		if( matches[idMatch].getPointHome() == POINTS_WIN )
@@ -112,11 +112,11 @@ public class Group implements Serializable{
 		
 		// Statistics - Conceded
 		statistics[idHome][TOTAL_CONCEDED] += matches[idMatch].getGoalAway();
-		statistics[idHome][TOTAL_CONCEDED] += matches[idMatch].getGoalHome();
+		statistics[idAway][TOTAL_CONCEDED] += matches[idMatch].getGoalHome();
 		
 		// Statistics - Points
 		statistics[idHome][TOTAL_POINTS] += matches[idMatch].getPointHome();
-		statistics[idHome][TOTAL_POINTS] += matches[idMatch].getPointAway();
+		statistics[idAway][TOTAL_POINTS] += matches[idMatch].getPointAway();
 		
 	}
 	

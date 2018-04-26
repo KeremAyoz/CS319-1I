@@ -19,6 +19,12 @@ public class DatabaseAccess {
 		return attributes;
 	}
 
+	for( int i = 0 ; i < teams.length ; i++ ) {
+		for( int j = 0 ; j < teams[i].getPlayers().size() ; j++ ) {
+			int salary = teams[i].getPlayers().get(j).getValue() / 10;
+		}
+}
+	
 	public static Team createBarcelona() {
 		ArrayList<Player> players = new ArrayList<Player>();
 		ArrayList<Action> actions = new ArrayList<Action>();
@@ -71,7 +77,7 @@ public class DatabaseAccess {
 		// President
 		President president = new President("Josep Maria Bartomeu", 55, 180, 70, "Spain");
 		// Team
-		Team team = new Team("FC Barcelona", "Red", "4-3-3", "Camp Nou", "Barça", "Spain",
+		Team team = new Team("FC Barcelona", "red", "4-3-3", "Camp Nou", "Barça", "Spain",
 				"FCB", 5.0, "Attack", "Fast", manager, president, players);
 		return team;
 	}
@@ -131,7 +137,7 @@ public class DatabaseAccess {
 		// President
 		President president = new President("Mustafa Cengiz", 71, 180, 70, "Turkey");
 		// Team
-		Team team = new Team("Galatasaray", "Red", "4-3-3", "Ali Sami Yen", "Cimbom", "Turkey", "GAL", 5.0,
+		Team team = new Team("Galatasaray", "red", "4-3-3", "Ali Sami Yen", "Cimbom", "Turkey", "GAL", 5.0,
 				"Attack", "Fast", manager, president, players);
 		return team;
 	}
@@ -190,7 +196,7 @@ public class DatabaseAccess {
 		// President
 		President president = new President("El Khalafi", 71, 180, 70, "Quatar");
 		// Team
-		Team team = new Team("Paris Saint Germain", "Blue", "4-3-3", "Parc de Prince", "PSG", "France", "PSG", 5.0,
+		Team team = new Team("Paris Saint Germain", "blue", "4-3-3", "Parc de Prince", "PSG", "France", "PSG", 5.0,
 				"Attack", "Fast", manager, president, players);
 		return team;
 	}
@@ -249,7 +255,7 @@ public class DatabaseAccess {
 		// President
 		President president = new President("Henry Davies", 71, 180, 70, "England");
 		// Team
-		Team team = new Team("Manchester United", "Red-Yellow", "4-3-3", "Old Trafford", "Red Devils", "England", "MUN",
+		Team team = new Team("Manchester United", "red", "4-3-3", "Old Trafford", "Red Devils", "England", "MUN",
 				5.0, "Attack", "Fast", manager, president, players);
 		return team;
 	}
@@ -307,7 +313,7 @@ public class DatabaseAccess {
 		// President
 		President president = new President("Abramovich", 71, 180, 70, "France");
 		// Team
-		Team team = new Team("Chelsea", "Blue", "4-3-3", "Stamford Bridge", "Blues", "England", "CHE", 5.0,
+		Team team = new Team("Chelsea", "blue", "4-3-3", "Stamford Bridge", "Blues", "England", "CHE", 5.0,
 				"Attack", "Fast", manager, president, players);
 		return team;
 	}
@@ -365,7 +371,7 @@ public class DatabaseAccess {
 		// President
 		President president = new President("Reyes", 71, 180, 70, "Portugal");
 		// Team
-		Team team = new Team("FC Porto", "Blue", "4-3-3", "Estadio do Dragao", "Porto Kings", "Portugal", "POR", 5.0,
+		Team team = new Team("FC Porto", "blue", "4-3-3", "Estadio do Dragao", "Porto Kings", "Portugal", "POR", 5.0,
 				"Attack", "Fast", manager, president, players);
 		return team;
 	}
@@ -423,7 +429,7 @@ public class DatabaseAccess {
 		// President
 		President president = new President("Pallotta", 71, 180, 70, "Italy");
 		// Team
-		Team team = new Team("AS Roma", "Red", "4-3-3", "Stadio Olimpico", "Wolfs", "Italy", "ROM", 5.0, "Attack",
+		Team team = new Team("AS Roma", "red", "4-3-3", "Stadio Olimpico", "Wolfs", "Italy", "ROM", 5.0, "Attack",
 				"Fast", manager, president, players);
 		return team;
 	}
@@ -482,7 +488,7 @@ public class DatabaseAccess {
 		// President
 		President president = new President("Genesio", 71, 180, 70, "Portugal");
 		// Team
-		Team team = new Team("OlympiqueLyonnais", "Blue", "4-3-3", "Stade de Gerland", "Les Gones", "France", "LYO", 5.0, "Attack",
+		Team team = new Team("OlympiqueLyonnais", "white", "4-3-3", "Stade de Gerland", "Les Gones", "France", "LYO", 5.0, "Attack",
 				"Fast", manager, president, players);
 		return team;
 	}
@@ -541,7 +547,7 @@ public class DatabaseAccess {
 		// President
 		President president = new President("Genesio", 71, 180, 70, "Portugal");
 		// Team
-		Team team = new Team("Bayer Leverkusen", "Red", "4-3-3", "Bay Arena", "Bayer Lions", "Germany", "LEV", 5.0,
+		Team team = new Team("Bayer Leverkusen", "black", "4-3-3", "Bay Arena", "Bayer Lions", "Germany", "LEV", 5.0,
 				"Attack", "Fast", manager, president, players);
 		return team;
 	}
@@ -600,7 +606,7 @@ public class DatabaseAccess {
 		// President
 		President president = new President("Müller", 71, 180, 70, "Germany");
 		// Team
-		Team team = new Team("RB Leipzig", "White", "4-3-3", "RB Arena", "Bulls", "Germany", "RBL", 5.0, "Attack",
+		Team team = new Team("RB Leipzig", "red", "4-3-3", "RB Arena", "Bulls", "Germany", "RBL", 5.0, "Attack",
 				"Fast", manager, president, players);
 		return team;
 	}
@@ -658,7 +664,7 @@ public class DatabaseAccess {
 		// President
 		President president = new President("Sergio", 71, 180, 70, "Portugal");
 		// Team
-		Team team = new Team("SLBenfica", "Red", "4-3-3", "Estadio da Luz", "Eagles", "Portugal", "BEN", 5.0,
+		Team team = new Team("SLBenfica", "red", "4-3-3", "Estadio da Luz", "Eagles", "Portugal", "BEN", 5.0,
 				"Attack", "Fast", manager, president, players);
 		return team;
 	}
@@ -716,7 +722,7 @@ public class DatabaseAccess {
 		// President
 		President president = new President("Xi Yhang", 71, 180, 70, "China");
 		// Team
-		Team team = new Team("AC Milan", "Red", "4-3-3", "San Siro", "Rossoneri", "Italy", "ACM", 5.0, "Attack",
+		Team team = new Team("AC Milan", "red", "4-3-3", "San Siro", "Rossoneri", "Italy", "ACM", 5.0, "Attack",
 				"Fast", manager, president, players);
 		return team;
 	}
@@ -776,7 +782,7 @@ public class DatabaseAccess {
 		// President
 		President president = new President("Jakob", 71, 180, 70, "Switzerland");
 		// Team
-		Team team = new Team("FC Basel", "Red", "4-3-3", "St Jakob-Park", "Switz", "Switzerland", "BAS", 5.0,
+		Team team = new Team("FC Basel", "blue", "4-3-3", "St Jakob-Park", "Switz", "Switzerland", "BAS", 5.0,
 				"Attack", "Fast", manager, president, players);
 		return team;
 	}
@@ -835,7 +841,7 @@ public class DatabaseAccess {
 		// President
 		President president = new President("Igor", 71, 180, 70, "Russia");
 		// Team
-		Team team = new Team("Spartak Moscow", "Red", "4-3-3", "Otkrytie Arena", "Spartak", "Russia", "SMO", 5.0,
+		Team team = new Team("Spartak Moscow", "red", "4-3-3", "Otkrytie Arena", "Spartak", "Russia", "SMO", 5.0,
 				"Attack", "Fast", manager, president, players);
 		return team;
 	}
@@ -893,7 +899,7 @@ public class DatabaseAccess {
 		// President
 		President president = new President("Garcia", 71, 180, 70, "Portugal");
 		// Team
-		Team team = new Team("Sporting Lisbon", "Green", "4-3-3", "Sporting Arena", "Rossoneri", "Portugal", "SPL",
+		Team team = new Team("Sporting Lisbon", "green", "4-3-3", "Sporting Arena", "Rossoneri", "Portugal", "SPL",
 				5.0, "Attack", "Fast", manager, president, players);
 		return team;
 	}
@@ -952,7 +958,7 @@ public class DatabaseAccess {
 		// President
 		President president = new President("John Houlding", 71, 180, 70, "Spain");
 		// Team
-		Team team = new Team("Liverpool", "Red", "4-3-3", "Anfield Road", "You Will Never Walk Alone", "England",
+		Team team = new Team("Liverpool", "red", "4-3-3", "Anfield Road", "You Will Never Walk Alone", "England",
 				"LIV", 5.0, "Attack", "Fast", manager, president, players);
 		return team;
 	}
@@ -1013,7 +1019,7 @@ public class DatabaseAccess {
 		// President
 		President president = new President("Florentino Perez", 71, 180, 70, "Spain");
 		// Team
-		Team team = new Team("Real Madrid", "Purple", "4-3-3", "Santiago Bernabeu", "Los Galacticos", "Spain", "RMC", 5.0,
+		Team team = new Team("Real Madrid", "purple", "4-3-3", "Santiago Bernabeu", "Los Galacticos", "Spain", "RMC", 5.0,
 				"Attack", "Fast", manager, president, players);
 		return team;
 	}
@@ -1086,7 +1092,7 @@ public class DatabaseAccess {
 		// President
 		President president = new President("Reinhard Rauball", 71, 175, 70, "Germany");
 		// Team
-		Team team = new Team("Borussia Dortmund", "Yellow", "4-4-2", "Westfalen", "Der BVB", "Germany",
+		Team team = new Team("Borussia Dortmund", "yellow", "4-4-2", "Westfalen", "Der BVB", "Germany",
 				"Blaugranes or Azulgranas", 5.0, "Attack", "Fast", manager, president, players);
 		return team;
 	}
@@ -1157,7 +1163,7 @@ public class DatabaseAccess {
 		// President
 		President president = new President("Andrey Vatutin", 71, 175, 70, "Russia");
 		// Team
-		Team team = new Team("CSKA Moscow", "Red", "4-4-2", "VEB Arena", "Armeitsy", "Russia", "Koni ", 5.0, "Attack",
+		Team team = new Team("CSKA Moscow", "red", "4-4-2", "VEB Arena", "Armeitsy", "Russia", "Koni ", 5.0, "Attack",
 				"Fast", manager, president, players);
 		return team;
 	}
@@ -1233,7 +1239,7 @@ public class DatabaseAccess {
 		// President
 		President president = new President("Fikret Orman", 71, 175, 70, "Russia");
 		// Team
-		Team team = new Team("Besiktas", "Red", "4-3-3", "Vodafone Arena", "Kara Kartallar",
+		Team team = new Team("Besiktas", "black", "4-3-3", "Vodafone Arena", "Kara Kartallar",
 				"Turkey", "__", 5.0, "Attack", "Fast", manager, president, players);
 		return team;
 	}
@@ -1300,7 +1306,7 @@ public class DatabaseAccess {
 		// President
 		President president = new President("Sheikh Mansour", 47, 175, 70, "UAE");
 		// Team
-		Team team = new Team("Manchester City", "Blue", "4-4-2", "Etihad Stadium", "The Sky Blues",
+		Team team = new Team("Manchester City", "blue", "4-4-2", "Etihad Stadium", "The Sky Blues",
 				"United Kingdom", "__", 5.0, "Attack", "Fast", manager, president, players);
 		return team;
 	}
@@ -1367,7 +1373,7 @@ public class DatabaseAccess {
 		// President
 		President president = new President("Aurelio De Laurentiis", 68, 175, 70, "Italy");
 		// Team
-		Team team = new Team("Napoli", "Blue", "4-4-2", "Stadio San Paolo", "The Little Donkeys", "Italy", "__",
+		Team team = new Team("Napoli", "blue", "4-4-2", "Stadio San Paolo", "The Little Donkeys", "Italy", "__",
 				5.0, "Attack", "Fast", manager, president, players);
 		return team;
 	}
@@ -1428,7 +1434,7 @@ public class DatabaseAccess {
 		// President
 		President president = new President("Jan Albers", 68, 175, 70, "Netherlands");
 		// Team
-		Team team = new Team("PSV Eindhoven", "Red", "4-4-2", "Philips Stadion", "Boeren", "Netherlands", "__", 5.0,
+		Team team = new Team("PSV Eindhoven", "red", "4-4-2", "Philips Stadion", "Boeren", "Netherlands", "__", 5.0,
 				"Attack", "Fast", manager, president, players);
 		return team;
 	}
@@ -1484,7 +1490,7 @@ public class DatabaseAccess {
 		// President
 		President president = new President("Sergey Fursenko", 68, 175, 70, "Russia");
 		// Team
-		Team team = new Team("Zenit", "Blue", "4-4-2", "Petrovski Stadium",
+		Team team = new Team("Zenit", "blue", "4-4-2", "Petrovski Stadium",
 				"The Anti-aircraft Gunners", "Russia", "The Blue-White-Sky Blues", 5.0, "Attack", "Fast", manager,
 				president, players);
 		return team;
@@ -1542,7 +1548,7 @@ public class DatabaseAccess {
 		// President
 		President president = new President("Uli Hoeneß", 68, 175, 70, "Germany");
 		// Team
-		Team team = new Team("Bayern Munchen", "Red", "4-4-2", "Allianz Arena", "Die Bayern", "Germany",
+		Team team = new Team("Bayern Munchen", "red", "4-4-2", "Allianz Arena", "Die Bayern", "Germany",
 				"FC Hollywood", 5.0, "Attack", "Fast", manager, president, players);
 		return team;
 	}
@@ -1600,7 +1606,7 @@ public class DatabaseAccess {
 		// President
 		President president = new President("Enrique Cerezo", 70, 175, 70, "Spain");
 		// Team
-		Team team = new Team("Atletico Madrid", "Red", "4-4-2", "Vicente Calderon", "The Red-and-Whites", "Spain",
+		Team team = new Team("Atletico Madrid", "red", "4-4-2", "Vicente Calderon", "The Red-and-Whites", "Spain",
 				"Atlético Atleti", 5.0, "Attack", "Fast", manager, president, players);
 		return team;
 	}
@@ -1656,7 +1662,7 @@ public class DatabaseAccess {
 		// President
 		President president = new President("Erick Thohir", 47, 175, 70, "Indonesia");
 		// Team
-		Team team = new Team("Inter Milan", "Blue", "4-4-2", "San Siro Stadium", "The Black and Blues", "Italy",
+		Team team = new Team("Inter Milan", "blue", "4-4-2", "San Siro Stadium", "The Black and Blues", "Italy",
 				"The Big Grass Snake", 5.0, "Attack", "Fast", manager, president, players);
 		return team;
 	}
@@ -1716,7 +1722,7 @@ public class DatabaseAccess {
 		// President
 		President president = new President("Aziz Yıldırım", 47, 175, 70, "Turkey");
 		// Team
-		Team team = new Team("Fenerbahce", "Yellow", "4-4-2", "Ülker Stadyumu", "Yellow and Navy Blue", "Turkey",
+		Team team = new Team("Fenerbahce", "yellow", "4-4-2", "Ülker Stadyumu", "Yellow and Navy Blue", "Turkey",
 				"Viva Fenerbahçe", 5.0, "Attack", "Fast", manager, president, players);
 		return team;
 	}
@@ -1778,7 +1784,7 @@ public class DatabaseAccess {
 		// President
 		President president = new President("Daniel Levy", 47, 175, 70, "England");
 		// Team
-		Team team = new Team("Tottenham Hotspur F.C.", "White", "4-4-2", "Wembley Stadium", "The Lillywhites",
+		Team team = new Team("Tottenham Hotspur F.C.", "blue", "4-4-2", "Wembley Stadium", "The Lillywhites",
 				"United Kingdom", "Spurs", 5.0, "Attack", "Fast", manager, president, players);
 		return team;
 	}
@@ -1833,7 +1839,7 @@ public class DatabaseAccess {
 		// President
 		President president = new President(" Agnelli", 50, 175, 70, "Italy");
 		// Team
-		Team team = new Team("Juventus", "Black", "4-4-2", "Juventus Stadium", "The Lillywhites", "Italy",
+		Team team = new Team("Juventus", "black", "4-4-2", "Juventus Stadium", "The Lillywhites", "Italy",
 				"Zebre", 5.0, "Attack", "Fast", manager, president, players);
 		return team;
 	}
@@ -1888,7 +1894,7 @@ public class DatabaseAccess {
 		// President
 		President president = new President("Dmitry Rybolovlev", 51, 175, 70, "Russia");
 		// Team
-		Team team = new Team("AS Monaco", "The Red", "4-4-2", "Stade Louis II", "The Lillywhites", "Italy",
+		Team team = new Team("AS Monaco", "red", "4-4-2", "Stade Louis II", "The Lillywhites", "Italy",
 				"The Monégasques", 5.0, "Attack", "Fast", manager, president, players);
 		return team;
 	}
@@ -1943,7 +1949,7 @@ public class DatabaseAccess {
 		// President
 		President president = new President("Hennie Henrichs", 51, 175, 70, "Netherlands");
 		// Team
-		Team team = new Team("AFC Ajax", "Red", "4-4-2", "Johan Cruijff Arena", "the Jews", "Netherlands",
+		Team team = new Team("AFC Ajax", "red", "4-4-2", "Johan Cruijff Arena", "the Jews", "Netherlands",
 				"Lucky Ajax", 5.0, "Attack", "Fast", manager, president, players);
 
 		return team;

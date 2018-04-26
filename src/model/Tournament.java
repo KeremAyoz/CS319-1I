@@ -82,7 +82,6 @@ public class Tournament implements Serializable{
 	public static Tournament getInstance() {
 		
 		if (instance == null) {
-			System.out.println("BURAYA GİRDİMMM");
 			Group[] groups = new Group[NUMBER_OF_GROUPS];
 			
 			for (int i = 0; i < NUMBER_OF_GROUPS; i++) {
@@ -111,8 +110,6 @@ public class Tournament implements Serializable{
 			instance = new Tournament(DatabaseAccess.buildTeams(),groups,knockout);
 			
 			instance.distributeTeams();
-			instance.chooseMyGroupId();
-		
 			
 			return instance;
 			
@@ -201,7 +198,7 @@ public class Tournament implements Serializable{
 	
 	public void passTomorrow() {
 		currentDay++;
-		if( currentDay > DAYS_MONTH[currentMonth] ) {
+		if( currentDay > DAYS_MONTH[currentMonth-1] ) {
 			currentDay = 1;
 			currentMonth++;
 			if( currentMonth > TOTAL_MONTHS ) {
@@ -233,6 +230,7 @@ public class Tournament implements Serializable{
 			lastMatchWeek++;
 			lastMatchId = nextMatchId;
 			match = groups[myGroupId].getMatch(nextMatchId);
+			System.out.println(match.getHome().getName()+ " "+ match.getAway().getName());
 			passTomorrow();
 			return match;
 		}
@@ -244,8 +242,12 @@ public class Tournament implements Serializable{
 	public void chooseMyGroupMatchIds() {
 		myGroupMatchIds = new int[NUMBER_OF_MY_GROUP_MATCHES];
 		for( int i = 0 ; i < 2 * MATCHES_PER_GROUP ; i++ )
-			if( groups[myGroupId].getMatchCalendarSingleTeamId(i) == myTeamId )
+			if( groups[myGroupId].getMatchCalendarSingleTeamObject(i) == teams[myTeamId] )
 				myGroupMatchIds[i/4] = i/2;
+		System.out.println("myGroupMatchIds " + myGroupId + " " + myTeamId);
+		for(int i = 0; i < myGroupMatchIds.length; i++)
+			System.out.print(myGroupMatchIds[i] + " ");
+		System.out.println("");
 	}
 	
 	public void orderGroups() {
@@ -426,6 +428,8 @@ public class Tournament implements Serializable{
 			instance.groups[i].setTeams( groupTeams );
 		}
 		
+		instance.chooseMyGroupId();
+		
 		instance.currentDay = INITIAL_DAY;
 		instance.currentMonth = INITIAL_MONTH;
 		instance.currentYear = INITIAL_YEAR;
@@ -440,7 +444,9 @@ public class Tournament implements Serializable{
 			for( int j = 0 ; j < MATCHES_PER_GROUP ; j++ )
 				instance.groups[i].createMatch(j, GROUP_MATCH_DAYS[j], GROUP_MATCH_MONTHS[j], GROUP_MATCH_YEARS[j]);
 		}
+		
 		instance.chooseMyGroupMatchIds();
+		
 	}
 	
 	public String[] getTopGoals() {

@@ -250,6 +250,10 @@ public class Group implements Serializable{
 		return matchCalendar;
 	}
 
+	public Team getMatchCalendarSingleTeamObject( int no ) {
+		return teams[getMatchCalendarSingleTeamId(no)];
+	}
+	
 	public int getMatchCalendarSingleTeamId( int no ) {
 		return matchCalendar[no];
 	}

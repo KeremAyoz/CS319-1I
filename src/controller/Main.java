@@ -42,7 +42,8 @@ public class Main extends Application {
 		
 		root.setScaleX(screenWidth/1400.0);
 		root.setScaleY(screenHeight/900.0);
-		root.setLayoutX(20);
+		root.setLayoutX(301);
+		root.setLayoutY(98);
 		
 		Scene scene = new Scene(root, screenWidth, screenHeight);
 

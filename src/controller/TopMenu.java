@@ -39,7 +39,8 @@ public class TopMenu implements Initializable {
 		Parent root = FXMLLoader.load(getClass().getResource("/view/TeamView.fxml"));
 		root.setScaleX(screenWidth/1400.0);
 		root.setScaleY(screenHeight/900.0);
-		root.setLayoutX(20);
+		root.setLayoutX(320);
+		root.setLayoutY(108);
 		Stage m = Main.getMainStage();
 		Scene t = Main.getMainStage().getScene();
 		t.setRoot(root);
@@ -53,7 +54,8 @@ public class TopMenu implements Initializable {
 		Parent root = FXMLLoader.load(getClass().getResource("/view/TacticView.fxml"));
 		root.setScaleX(screenWidth/1400.0);
 		root.setScaleY(screenHeight/900.0);
-		root.setLayoutX(20);
+		root.setLayoutX(320);
+		root.setLayoutY(108);
 		Stage m = Main.getMainStage();
 		Scene t = Main.getMainStage().getScene();
 		t.setRoot(root);
@@ -67,7 +69,8 @@ public class TopMenu implements Initializable {
 		Parent root = FXMLLoader.load(getClass().getResource("/view/GroupView.fxml"));
 		root.setScaleX(screenWidth/1400.0);
 		root.setScaleY(screenHeight/900.0);
-		root.setLayoutX(20);
+		root.setLayoutX(320);
+		root.setLayoutY(108);
 		Stage m = Main.getMainStage();
 		Scene t = Main.getMainStage().getScene();
 		t.setRoot(root);
@@ -81,7 +84,8 @@ public class TopMenu implements Initializable {
 		Parent root = FXMLLoader.load(getClass().getResource("/view/KnockoutView.fxml"));
 		root.setScaleX(screenWidth/1400.0);
 		root.setScaleY(screenHeight/900.0);
-		root.setLayoutX(20);
+		root.setLayoutX(320);
+		root.setLayoutY(108);
 		Stage m = Main.getMainStage();
 		Scene t = Main.getMainStage().getScene();
 		t.setRoot(root);
@@ -95,7 +99,8 @@ public class TopMenu implements Initializable {
 		Parent root = FXMLLoader.load(getClass().getResource("/view/StatisticView.fxml"));
 		root.setScaleX(screenWidth/1400.0);
 		root.setScaleY(screenHeight/900.0);
-		root.setLayoutX(20);
+		root.setLayoutX(320);
+		root.setLayoutY(108);
 		Stage m = Main.getMainStage();
 		Scene t = Main.getMainStage().getScene();
 		t.setRoot(root);
@@ -109,7 +114,8 @@ public class TopMenu implements Initializable {
 		Parent root = FXMLLoader.load(getClass().getResource("/view/CalendarView.fxml"));
 		root.setScaleX(screenWidth/1400.0);
 		root.setScaleY(screenHeight/900.0);
-		root.setLayoutX(20);
+		root.setLayoutX(320);
+		root.setLayoutY(108);
 		Stage m = Main.getMainStage();
 		Scene t = Main.getMainStage().getScene();
 		t.setRoot(root);
@@ -123,7 +129,8 @@ public class TopMenu implements Initializable {
 		Parent root = FXMLLoader.load(getClass().getResource("/view/HomeScreen.fxml"));
 		root.setScaleX(screenWidth/1400.0);
 		root.setScaleY(screenHeight/900.0);
-		root.setLayoutX(20);
+		root.setLayoutX(357);
+		root.setLayoutY(108);
 		Stage m = Main.getMainStage();
 		Scene t = Main.getMainStage().getScene();
 		t.setRoot(root);
@@ -137,7 +144,8 @@ public class TopMenu implements Initializable {
 		Parent root = FXMLLoader.load(getClass().getResource("/view/MatchPlayView.fxml"));
 		root.setScaleX(screenWidth/1400.0);
 		root.setScaleY(screenHeight/900.0);
-		root.setLayoutX(20);
+		root.setLayoutX(320);
+		root.setLayoutY(108);
 		Stage m = Main.getMainStage();
 		Scene t = Main.getMainStage().getScene();
 		t.setRoot(root);

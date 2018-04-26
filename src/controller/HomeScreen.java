@@ -26,7 +26,8 @@ public class HomeScreen implements Initializable {
 		Parent root = loader.load();
 		root.setScaleX(screenWidth / 1400.0);
 		root.setScaleY(screenHeight / 900.0);
-		root.setLayoutX(20);
+		root.setLayoutX(310);
+		root.setLayoutY(101);
 		Stage m = Main.getMainStage();
 		Scene t = Main.getMainStage().getScene();
 		t.setRoot(root);
@@ -40,7 +41,8 @@ public class HomeScreen implements Initializable {
 		Parent root = loader.load();
 		root.setScaleX(screenWidth / 1400.0);
 		root.setScaleY(screenHeight / 900.0);
-		root.setLayoutX(20);
+		root.setLayoutX(310);
+		root.setLayoutY(101);
 		Stage m = Main.getMainStage();
 		Scene t = Main.getMainStage().getScene();
 		t.setRoot(root);
@@ -54,7 +56,8 @@ public class HomeScreen implements Initializable {
 		Parent root = loader.load();
 		root.setScaleX(screenWidth / 1400.0);
 		root.setScaleY(screenHeight / 900.0);
-		root.setLayoutX(20);
+		root.setLayoutX(310);
+		root.setLayoutY(101);
 		Stage m = Main.getMainStage();
 		Scene t = Main.getMainStage().getScene();
 		t.setRoot(root);
@@ -69,7 +72,8 @@ public class HomeScreen implements Initializable {
 		Parent root = loader.load();
 		root.setScaleX(screenWidth / 1400.0);
 		root.setScaleY(screenHeight / 900.0);
-		root.setLayoutX(20);
+		root.setLayoutX(310);
+		root.setLayoutY(101);
 		Stage m = Main.getMainStage();
 		Scene t = Main.getMainStage().getScene();
 		t.setRoot(root);

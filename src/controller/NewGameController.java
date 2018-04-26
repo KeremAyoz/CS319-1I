@@ -250,12 +250,13 @@ public class NewGameController implements Initializable {
 		}
 		t.setMyTeamId(id);
 		t.distributeTeams();
-		t.chooseMyGroupId();
+		// t.chooseMyGroupId();
 		TeamController.setCurrentTeamId(id);
 		Parent root = FXMLLoader.load(getClass().getResource("/view/TacticView.fxml"));
 		root.setScaleX(screenWidth/1400.0);
 		root.setScaleY(screenHeight/900.0);
-		root.setLayoutX(20);
+		root.setLayoutX(320);
+		root.setLayoutY(108);
 		Stage m = Main.getMainStage();
 		Scene ts = Main.getMainStage().getScene();
 		ts.setRoot(root);

@@ -9,7 +9,7 @@ import java.io.ObjectOutputStream;
 
 public class Database {
 
-	private static final String NEW_FILE_NAME = "data/new.txt";
+	private static final String NEW_FILE_NAME = "data/current.txt";
 	private static final String CURRENT_FILE_NAME = "data/current.txt";
 	
 	public static Tournament newGameLoad() throws IOException, ClassNotFoundException {

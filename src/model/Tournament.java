@@ -28,7 +28,6 @@ public class Tournament implements Serializable{
 	private int currentDay;
 	private int currentMonth;
 	private int currentYear;
-	private int currentWeek;  // NOT USED UP TO NOW
 	private int lastMatchId;
 	private int lastMatchWeek;
 
@@ -124,15 +123,7 @@ public class Tournament implements Serializable{
 		instance = t;
 	}
 	
-	public boolean isOnGroupMatch() {
-		if( lastMatchWeek == NUMBER_OF_MY_GROUP_MATCHES - 1 )
-			return false;
-		int nextMatchId = myGroupMatchIds[lastMatchWeek + 1];
-		if( currentDay == GROUP_MATCH_DAYS[nextMatchId] && currentMonth == GROUP_MATCH_MONTHS[nextMatchId] && currentYear == GROUP_MATCH_YEARS[nextMatchId] )
-			return true;
-		return false;
-	}
-	
+	/*
 	public void updateMyGroupMatchInfo( ArrayList<Action> actions , Team home , Team away ) {
 		
 		int idHome = -1 , idAway = -1;
@@ -193,6 +184,7 @@ public class Tournament implements Serializable{
 		groups[myGroupId].modifyGroupStatistics(idMatch, idHome, idAway);
 		
 	}
+	*/
 	
 	public void passTomorrow() {
 		currentDay++;
@@ -216,9 +208,27 @@ public class Tournament implements Serializable{
 								groups[i].playMatch(j);
 	}
 	
+	public boolean isOnGroupMatch() {
+		if( lastMatchWeek == NUMBER_OF_MY_GROUP_MATCHES - 1 )
+			return false;
+		int nextMatchId = myGroupMatchIds[lastMatchWeek + 1];
+		if( currentDay == GROUP_MATCH_DAYS[nextMatchId] && currentMonth == GROUP_MATCH_MONTHS[nextMatchId] && currentYear == GROUP_MATCH_YEARS[nextMatchId] )
+			return true;
+		return false;
+	}
+	
+	public boolean isOnEliminationMatch() {
+		// TODO
+		return false;
+	}
+	
 	// modifyGroupStatistics() !
 	public Match goNextDay() throws InterruptedException {
 		Match match = null;
+		if( isOnEliminationMatch() ) {
+			// TODO
+			return match;
+		}
 		if( isOnGroupMatch() ) {
 			myTeamLastMatchDay = currentDay;
 			myTeamLastMatchMonth = currentMonth;
@@ -278,6 +288,7 @@ public class Tournament implements Serializable{
 		
 	}
 	
+	/*
 	public void playMyGroupMatch() throws InterruptedException {
 		int nextMatchId = myGroupMatchIds[lastMatchWeek + 1];
 		lastMatchWeek++;
@@ -285,20 +296,25 @@ public class Tournament implements Serializable{
 		groups[myGroupId].playMatch(nextMatchId);
 		goNextDay();
 	}
+	*/
 	
+	/*
 	public boolean isGroupStage() {
-		if( currentWeek <= MID_SEASON_WEEK )
+		if( lastMatchWeek <= MID_SEASON_WEEK )
 			return true;
 		else
 			return false;
 	}
+	*/
 	
+	/*
 	public boolean isEliminationStage() {
-		if( currentWeek > MID_SEASON_WEEK )
+		if( lastMatchWeek > MID_SEASON_WEEK )
 			return true;
 		else
 			return false;
 	}
+	*/
 	
 	public void chooseMyTeamId( String teamName ) {
 		for( int i = 0 ; i < teams.length ; i++ )
@@ -589,14 +605,6 @@ public class Tournament implements Serializable{
 
 	public void setMyTeamId(int myTeamId) {
 		this.myTeamId = myTeamId;
-	}
-
-	public int getCurrentWeek() {
-		return currentWeek;
-	}
-
-	public void setCurrentWeek(int currentWeek) {
-		this.currentWeek = currentWeek;
 	}
 
 	public int getMyGroupId() {

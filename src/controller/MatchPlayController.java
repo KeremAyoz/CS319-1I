@@ -16,6 +16,10 @@ import java.util.concurrent.TimeUnit;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Application;
+import javafx.beans.InvalidationListener;
+import javafx.beans.Observable;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -24,9 +28,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.Slider;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
@@ -45,51 +53,72 @@ public class MatchPlayController implements Initializable {
 	int screenWidth = (int) Screen.getPrimary().getBounds().getWidth();
 	int screenHeight = (int) Screen.getPrimary().getBounds().getHeight();
 
-	/*
-	 * @FXML private Text hGK;
-	 * 
-	 * @FXML private Text hRB;
-	 * 
-	 * @FXML private Text hLB;
-	 * 
-	 * @FXML private Text hCB1;
-	 * 
-	 * @FXML private Text hCB2;
-	 * 
-	 * @FXML private Text hCM1;
-	 * 
-	 * @FXML private Text hCM2;
-	 * 
-	 * @FXML private Text hCM3;
-	 * 
-	 * @FXML private Text hLW;
-	 * 
-	 * @FXML private Text hRW;
-	 * 
-	 * @FXML private Text hST;
-	 * 
-	 * @FXML private Text aGK;
-	 * 
-	 * @FXML private Text aRB;
-	 * 
-	 * @FXML private Text aLB;
-	 * 
-	 * @FXML private Text aCB1;
-	 * 
-	 * @FXML private Text aCB2;
-	 * 
-	 * @FXML private Text aCM1;
-	 * 
-	 * @FXML private Text aCM2;
-	 * 
-	 * @FXML private Text aCM3;
-	 * 
-	 * @FXML private Text aLW;
-	 * 
-	 * @FXML private Text aRW;
-	 * 
-	 * @FXML private Text aST;
-	 */
+	@FXML
+	private Text hgk;
+
+	@FXML
+	private Text hrb;
+
+	@FXML
+	private Text hlb;
+
+	@FXML
+	private Text hcb1;
+
+	@FXML
+	private Text hcb2;
+
+	@FXML
+	private Text hcm1;
+
+	@FXML
+	private Text hcm2;
+
+	@FXML
+	private Text hcm3;
+
+	@FXML
+	private Text hlw;
+
+	@FXML
+	private Text hrw;
+
+	@FXML
+	private Text hst;
+
+	@FXML
+	private Text agk;
+
+	@FXML
+	private Text arb;
+
+	@FXML
+	private Text alb;
+
+	@FXML
+	private Text acb1;
+
+	@FXML
+	private Text acb2;
+
+	@FXML
+	private Text acm1;
+
+	@FXML
+	private Text acm2;
+
+	@FXML
+	private Text acm3;
+
+	@FXML
+	private Text alw;
+
+	@FXML
+	private Text arw;
+
+	@FXML
+	private Text ast;
+
 	@FXML
 	private Text homeName;
 	@FXML
@@ -112,9 +141,9 @@ public class MatchPlayController implements Initializable {
 	private ImageView awayLogo;
 
 	@FXML
-	private ImageView homeLineup;
+	private ImageView htacticField;
 	@FXML
-	private ImageView awayLineup;
+	private ImageView atacticField;
 
 	private Match currentMatch;
 	private boolean paused;
@@ -138,27 +167,44 @@ public class MatchPlayController implements Initializable {
 	private ComboBox<String> homeTempo;
 	@FXML
 	private ComboBox<String> awayTempo;
+	
+	@FXML
+	private Slider speedSlider;
 
 	ArrayList<Action> actions;
+	/**
+	 * @return the speed
+	 */
+	public double getSpeed() {
+		return speed;
+	}
+
+	/**
+	 * @param speed the speed to set
+	 */
+	public void setSpeed(double speed) {
+		this.speed = speed;
+	}
+
+	private double speed = 1;
+
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
 		Tournament t = Tournament.getInstance();
 		paused = false;
 		label.setTextFill(Color.BLACK);
-		
+
 		try {
 			do {
 				currentMatch = t.goNextDay();
-			}
-			while (currentMatch == null);
+			} while (currentMatch == null);
 			System.out.println(currentMatch.getHome().getName() + " -  " + currentMatch.getAway().getName());
-			
+
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		if (currentMatch == null) {
 			System.out.println("Match yok");
 			return;
@@ -212,27 +258,37 @@ public class MatchPlayController implements Initializable {
 
 			File tactic = new File("img/tactics/" + home.getTactic() + ".png");
 			Image tacticImage = new Image(tactic.toURI().toString(), 456, 454, false, false);
-			homeLineup.setImage(tacticImage);
+			htacticField.setImage(tacticImage);
 
 			File tactic2 = new File("img/tactics/" + away.getTactic() + ".png");
 			Image tacticImage2 = new Image(tactic2.toURI().toString(), 456, 454, false, false);
-			awayLineup.setImage(tacticImage2);
-
-			doTime();
+			atacticField.setImage(tacticImage2);
+			////////////////////////////////////////////////////////////////////////////////////////
+			calibrateNamesHome();
+			calibrateNamesAway();
+			speedSlider.valueProperty().addListener(new ChangeListener<Number>() {
+	            public void changed(ObservableValue<? extends Number> ov, Number old_val, Number new_val) {
+                    doTime();
+            }
+	            });
+				
+			}
+			////////////////////////////////////////////////////////////////////////////////////////
+			//doTime();
 			System.out.println("Match is over");
-
-		}
+			
 	}
-
+	
+	
 	public void doTime() {
 		Timeline timeline = new Timeline();
 		timeline.setCycleCount(Timeline.INDEFINITE);
-		KeyFrame frame = new KeyFrame(Duration.seconds(1), new EventHandler<ActionEvent>() {
+		System.out.println((speedSlider.getValue()+100));
+		KeyFrame frame = new KeyFrame(Duration.seconds(200/(speedSlider.getValue()/2+100)), new EventHandler<ActionEvent>() {
 
 			@Override
 			public void handle(ActionEvent event) {
 				actions = new ArrayList<Action>();
-				// TODO Auto-generated method stub
 				if (!paused) {
 					Action a = currentMatch.actionGenerator(seconds, ((int) (Math.random() * 100)));
 					if (a != null)
@@ -268,6 +324,330 @@ public class MatchPlayController implements Initializable {
 			}
 		}
 
+	}
+
+	@FXML
+	public void homeTacticChanged() {
+		Team h = currentMatch.getHome();
+		h.setTactic(homeTactic.getValue());
+		calibrateNamesHome();
+
+		File tactich = new File("img/tactics/" + h.getTactic() + ".png");
+		Image tacticImageh = new Image(tactich.toURI().toString(), 610, 490, false, false);
+		htacticField.setImage(tacticImageh);
+	}
+
+	@FXML
+	public void awayTacticChanged() {
+		Team a = currentMatch.getAway();
+		a.setTactic(awayTactic.getValue());
+		calibrateNamesAway();
+
+		File tactica = new File("img/tactics/" + a.getTactic() + ".png");
+		Image tacticImagea = new Image(tactica.toURI().toString(), 610, 490, false, false);
+		atacticField.setImage(tacticImagea);
+	}
+
+	@FXML
+	public void homeTempoChanged() {
+		Team h = currentMatch.getHome();
+		h.setTempo(homeTempo.getValue());
+	}
+	
+	@FXML
+	public void awayTempoChanged() {
+		Team a = currentMatch.getAway();
+		a.setTempo(awayTempo.getValue());
+	}
+
+	@FXML
+	public void homeStyleChanged() {
+		Team h = currentMatch.getHome();
+		h.setStyle(homeStyle.getValue());
+	}
+	
+	@FXML
+	public void awayStyleChanged() {
+		Team a = currentMatch.getHome();
+		a.setStyle(awayStyle.getValue());
+	}
+	
+	@FXML
+	public void calibrateNamesHome() {
+		Tournament current = Tournament.getInstance();
+		int homeID = -1;
+		for (int i = 0; i < current.getTeams().length; i++) {
+			if (current.getTeams()[i].getName().equals(currentMatch.getHome().getName())) {
+				homeID = i;
+				break;
+			}
+		}
+		Team t = current.getTeams()[homeID];
+		// Names of the players as Text
+		hgk.setText(t.getPlayers().get(0).getName());
+		hrb.setText(t.getPlayers().get(1).getName());
+		hcb1.setText(t.getPlayers().get(2).getName());
+		hcb2.setText(t.getPlayers().get(3).getName());
+		hlb.setText(t.getPlayers().get(4).getName());
+		hcm1.setText(t.getPlayers().get(5).getName());
+		hcm3.setText(t.getPlayers().get(6).getName());
+		hcm2.setText(t.getPlayers().get(7).getName());
+		hrw.setText(t.getPlayers().get(8).getName());
+		hst.setText(t.getPlayers().get(9).getName());
+		hlw.setText(t.getPlayers().get(10).getName());
+
+		if (t.getTactic().equals("4-3-3")) {
+			hgk.setLayoutX(200);
+			hgk.setLayoutY(96);
+
+			hrb.setLayoutX(320);
+			hrb.setLayoutY(370);
+
+			hcb2.setLayoutX(150);
+			hcb2.setLayoutY(390);
+
+			hcb1.setLayoutX(240);
+			hcb1.setLayoutY(390);
+
+			hlb.setLayoutX(60);
+			hlb.setLayoutY(370);
+
+			// RW
+			hcm1.setLayoutX(200);
+			hcm1.setLayoutY(300);
+
+			// Stays as midfielders
+			hcm2.setLayoutX(260);
+			hcm2.setLayoutY(235);
+
+			hcm3.setLayoutX(150);
+			hcm3.setLayoutY(235);
+
+			// becomes LW
+			hrw.setLayoutX(310);
+			hrw.setLayoutY(170);
+
+			// LW becomes LF
+			hlw.setLayoutX(90);
+			hlw.setLayoutY(170);
+
+			// ST becomes RF
+			hst.setLayoutX(200);
+			hst.setLayoutY(110);
+		}
+
+		else if (t.getTactic().equals("4-4-2")) {
+			hgk.setLayoutX(200);
+			hgk.setLayoutY(101);
+
+			hrb.setLayoutX(320);
+			hrb.setLayoutY(370);
+
+			hcb2.setLayoutX(150);
+			hcb2.setLayoutY(390);
+
+			hcb1.setLayoutX(240);
+			hcb1.setLayoutY(390);
+
+			hlb.setLayoutX(64);
+			hlb.setLayoutY(369);
+
+			// RW
+			hcm1.setLayoutX(310);
+			hcm1.setLayoutY(225);
+
+			// RCM
+			hcm2.setLayoutX(260);
+			hcm2.setLayoutY(270);
+
+			// LCM
+			hcm3.setLayoutX(150);
+			hcm3.setLayoutY(270);
+
+			// LW
+			hrw.setLayoutX(90);
+			hrw.setLayoutY(225);
+
+			hlw.setLayoutX(160);
+			hlw.setLayoutY(125);
+
+			hst.setLayoutX(230);
+			hst.setLayoutY(125);
+		} else if (t.getTactic().equals("4-2-3-1")) {
+			hgk.setLayoutX(200);
+			hgk.setLayoutY(96);
+
+			hrb.setLayoutX(320);
+			hrb.setLayoutY(379);
+
+			hcb2.setLayoutX(160);
+			hcb2.setLayoutY(390);
+
+			hcb1.setLayoutX(250);
+			hcb1.setLayoutY(390);
+
+			hlb.setLayoutX(64);
+			hlb.setLayoutY(370);
+
+			// RCM
+			hcm1.setLayoutX(260);
+			hcm1.setLayoutY(285);
+
+			hcm2.setLayoutX(310);
+			hcm2.setLayoutY(200);
+
+			// LCM
+			hcm3.setLayoutX(140);
+			hcm3.setLayoutY(285);
+
+			hrw.setLayoutX(200);
+			hrw.setLayoutY(220);
+
+			hlw.setLayoutX(200);
+			hlw.setLayoutY(115);
+
+			hst.setLayoutX(100);
+			hst.setLayoutY(200);
+		}
+	}
+
+	@FXML
+	public void calibrateNamesAway() {
+		Tournament current = Tournament.getInstance();
+		int awayID = -1;
+		for (int i = 0; i < current.getTeams().length; i++) {
+			if (current.getTeams()[i].getName().equals(currentMatch.getAway().getName())) {
+				awayID = i;
+				break;
+			}
+		}
+		Team t = current.getTeams()[awayID];
+		// Names of the players as Text
+		agk.setText(t.getPlayers().get(0).getName());
+		arb.setText(t.getPlayers().get(1).getName());
+		acb1.setText(t.getPlayers().get(2).getName());
+		acb2.setText(t.getPlayers().get(3).getName());
+		alb.setText(t.getPlayers().get(4).getName());
+		acm1.setText(t.getPlayers().get(5).getName());
+		acm3.setText(t.getPlayers().get(6).getName());
+		acm2.setText(t.getPlayers().get(7).getName());
+		arw.setText(t.getPlayers().get(8).getName());
+		ast.setText(t.getPlayers().get(9).getName());
+		alw.setText(t.getPlayers().get(10).getName());
+
+		if (t.getTactic().equals("4-3-3")) {
+			agk.setLayoutX(200);
+			agk.setLayoutY(96);
+
+			arb.setLayoutX(320);
+			arb.setLayoutY(370);
+
+			acb2.setLayoutX(150);
+			acb2.setLayoutY(390);
+
+			acb1.setLayoutX(240);
+			acb1.setLayoutY(390);
+
+			alb.setLayoutX(60);
+			alb.setLayoutY(370);
+
+			// RW
+			acm1.setLayoutX(200);
+			acm1.setLayoutY(300);
+
+			// Stays as midfielders
+			acm2.setLayoutX(260);
+			acm2.setLayoutY(235);
+
+			acm3.setLayoutX(150);
+			acm3.setLayoutY(235);
+
+			// becomes LW
+			arw.setLayoutX(310);
+			arw.setLayoutY(170);
+
+			// LW becomes LF
+			alw.setLayoutX(90);
+			alw.setLayoutY(170);
+
+			// ST becomes RF
+			ast.setLayoutX(200);
+			ast.setLayoutY(110);
+		}
+
+		else if (t.getTactic().equals("4-4-2")) {
+			agk.setLayoutX(200);
+			agk.setLayoutY(101);
+
+			arb.setLayoutX(320);
+			arb.setLayoutY(370);
+
+			acb2.setLayoutX(150);
+			acb2.setLayoutY(390);
+
+			acb1.setLayoutX(240);
+			acb1.setLayoutY(390);
+
+			alb.setLayoutX(64);
+			alb.setLayoutY(369);
+
+			// RW
+			acm1.setLayoutX(310);
+			acm1.setLayoutY(225);
+
+			// RCM
+			acm2.setLayoutX(260);
+			acm2.setLayoutY(270);
+
+			// LCM
+			acm3.setLayoutX(150);
+			acm3.setLayoutY(270);
+
+			// LW
+			arw.setLayoutX(90);
+			arw.setLayoutY(225);
+
+			alw.setLayoutX(160);
+			alw.setLayoutY(125);
+
+			ast.setLayoutX(230);
+			ast.setLayoutY(125);
+		} else if (t.getTactic().equals("4-2-3-1")) {
+			agk.setLayoutX(200);
+			agk.setLayoutY(96);
+
+			arb.setLayoutX(320);
+			arb.setLayoutY(379);
+
+			acb2.setLayoutX(160);
+			acb2.setLayoutY(390);
+
+			acb1.setLayoutX(250);
+			acb1.setLayoutY(390);
+
+			alb.setLayoutX(64);
+			alb.setLayoutY(370);
+
+			// RCM
+			acm1.setLayoutX(260);
+			acm1.setLayoutY(285);
+
+			acm2.setLayoutX(310);
+			acm2.setLayoutY(200);
+
+			// LCM
+			acm3.setLayoutX(140);
+			acm3.setLayoutY(285);
+
+			arw.setLayoutX(200);
+			arw.setLayoutY(220);
+
+			alw.setLayoutX(200);
+			alw.setLayoutY(115);
+
+			ast.setLayoutX(100);
+			ast.setLayoutY(200);
+		}
 	}
 
 	@FXML

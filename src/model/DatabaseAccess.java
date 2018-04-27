@@ -207,7 +207,7 @@ public class DatabaseAccess {
 				getAttributes(), actions));
 		players.add(new Player("Smalling", 30, 180, 70, "England", "CB", getOverall(), 'R', 83, 15000000, true,
 				getAttributes(), actions));
-		players.add(new Player("Bailly", 30, 180, 70, "Ivory Coast", "CB", getOverall(), 'R', 83, 15000000, true,
+		players.add(new Player("Bailly", 30, 180, 70, "ivorycoast", "CB", getOverall(), 'R', 83, 15000000, true,
 				getAttributes(), actions));
 		players.add(new Player("Shaw", 30, 180, 70, "England", "LB", getOverall(), 'R', 79, 7000000, true,
 				getAttributes(), actions));
@@ -469,7 +469,7 @@ public class DatabaseAccess {
 				getAttributes(), actions));
 		players.add(new Player("Owusu", 30, 180, 70, "France", "CM", getOverall(), 'R', 78, 4000000, true,
 				getAttributes(), actions));
-		players.add(new Player("Cornet", 30, 180, 70, "Ivory Coast", "CM", getOverall(), 'R', 77, 11000000, true,
+		players.add(new Player("Cornet", 30, 180, 70, "ivorycoast", "CM", getOverall(), 'R', 77, 11000000, true,
 				getAttributes(), actions));
 		players.add(new Player("Mariano", 30, 180, 70, "France", "ST", getOverall(), 'R', 73, 5000000, true,
 				getAttributes(), actions));
@@ -682,7 +682,7 @@ public class DatabaseAccess {
 		// MF
 		players.add(new Player("Montolivo", 30, 180, 70, "Italy", "CM", getOverall(), 'R', 78, 6000000, true,
 				getAttributes(), actions));
-		players.add(new Player("Kessie", 30, 180, 70, "Ivory Coast", "CM", getOverall(), 'R', 80, 16000000, true,
+		players.add(new Player("Kessie", 30, 180, 70, "ivorycoast", "CM", getOverall(), 'R', 80, 16000000, true,
 				getAttributes(), actions));
 		players.add(new Player("Biglia", 30, 180, 70, "Argentina", "CM", getOverall(), 'R', 81, 9000000, true,
 				getAttributes(), actions));
@@ -741,7 +741,7 @@ public class DatabaseAccess {
 		// MF
 		players.add(new Player("Okafor", 30, 180, 70, "Switzerland", "CM", getOverall(), 'R', 75, 2000000, true,
 				getAttributes(), actions));
-		players.add(new Player("Die", 30, 180, 70, "Ivory Coast", "CM", getOverall(), 'R', 76, 4500000, true,
+		players.add(new Player("Die", 30, 180, 70, "ivorycoast", "CM", getOverall(), 'R', 76, 4500000, true,
 				getAttributes(), actions));
 		players.add(new Player("Simic", 30, 180, 70, "Serbia", "CM", getOverall(), 'R', 77, 1000000, true,
 				getAttributes(), actions));
@@ -868,7 +868,7 @@ public class DatabaseAccess {
 				getAttributes(), actions));
 		players.add(new Player("Dost", 30, 180, 70, "Netherlands", "ST", getOverall(), 'R', 83, 14000000, true,
 				getAttributes(), actions));
-		players.add(new Player("Doumbia", 30, 180, 70, "Ivory Coast", "LW", getOverall(), 'R', 81, 5500000, true,
+		players.add(new Player("Doumbia", 30, 180, 70, "ivorycoast", "LW", getOverall(), 'R', 81, 5500000, true,
 				getAttributes(), actions));
 		// Others
 		players.add(new Player("Salin", 30, 180, 70, "France", "GK", getOverall(), 'R', 77, 2000000, true,
@@ -1291,7 +1291,7 @@ public class DatabaseAccess {
 		players.add(new Player("Jesus", 17, 185, 70, "Brazil", "ST", getOverall(), 'R', 85, 55000000,
 				true, getAttributes(), actions));
 		// MF 3
-		players.add(new Player("Toure", 30, 183, 70, "Ivory Coast", "CM", getOverall(), 'R', 83, 8000000,
+		players.add(new Player("Toure", 30, 183, 70, "ivorycoast", "CM", getOverall(), 'R', 83, 8000000,
 				true, getAttributes(), actions));
 		// MF 4
 		players.add(new Player("Zinchenko", 20, 196, 70, "Ukraine", "CM", getOverall(), 'R', 77, 5000000,
@@ -1729,7 +1729,7 @@ public class DatabaseAccess {
 
 		players.add(new Player("Lloris", 27, 185, 70, "France", "GK", getOverall(), 'R', 88, 35000000, true,
 				getAttributes(), actions));
-		players.add(new Player("Aurier", 35, 175, 70, "Ivory Coast", "RB", getOverall(), 'R', 83, 15000000,
+		players.add(new Player("Aurier", 35, 175, 70, "ivorycoast", "RB", getOverall(), 'R', 83, 15000000,
 				true, getAttributes(), actions));
 		players.add(new Player("Alderweireld", 31, 183, 70, "Belgium", "CB", getOverall(), 'R', 85, 22000000,
 				true, getAttributes(), actions));
@@ -1779,7 +1779,7 @@ public class DatabaseAccess {
 		// President
 		President president = new President("Daniel Levy", 47, 175, 70, "England");
 		// Team
-		Team team = new Team("Tottenham Hotspur F.C.", "blue", "4-4-2", "Wembley Stadium", "The Lillywhites",
+		Team team = new Team("Tottenham Hotspur", "blue", "4-4-2", "Wembley Stadium", "The Lillywhites",
 				"United Kingdom", "Spurs", 5.0, "Attack", "Fast", manager, president, players);
 		return team;
 	}

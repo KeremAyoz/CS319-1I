@@ -111,46 +111,46 @@ public class GroupController implements Initializable {
 		int num = (int) c - 65;
 		gName.setText("GROUP ");
 		Group cur = Tournament.getInstance().getGroups()[num];
-		t1.setText(cur.getTeam(0).getName());
-		t2.setText(cur.getTeam(1).getName());
-		t3.setText(cur.getTeam(2).getName());
-		t4.setText(cur.getTeam(3).getName());
+		cur.orderGroup();
+		t1.setText(cur.getOrderedTeamName(0));
+		t2.setText(cur.getOrderedTeamName(1));
+		t3.setText(cur.getOrderedTeamName(2));
+		t4.setText(cur.getOrderedTeamName(3));
 
-		t1p.setText(String.valueOf(cur.getStatistics()[0][0]));
-		t2p.setText(String.valueOf(cur.getStatistics()[1][0]));
-		t3p.setText(String.valueOf(cur.getStatistics()[2][0]));
-		t4p.setText(String.valueOf(cur.getStatistics()[3][0]));
+		t1p.setText(String.valueOf(cur.getOrderedStats()[0][0]));
+		t2p.setText(String.valueOf(cur.getOrderedStats()[1][0]));
+		t3p.setText(String.valueOf(cur.getOrderedStats()[2][0]));
+		t4p.setText(String.valueOf(cur.getOrderedStats()[3][0]));
 
-		t1w.setText(String.valueOf(cur.getStatistics()[0][1]));
-		t2w.setText(String.valueOf(cur.getStatistics()[1][1]));
-		t3w.setText(String.valueOf(cur.getStatistics()[2][1]));
-		t4w.setText(String.valueOf(cur.getStatistics()[3][1]));
+		t1w.setText(String.valueOf(cur.getOrderedStats()[0][1]));
+		t2w.setText(String.valueOf(cur.getOrderedStats()[1][1]));
+		t3w.setText(String.valueOf(cur.getOrderedStats()[2][1]));
+		t4w.setText(String.valueOf(cur.getOrderedStats()[3][1]));
 
-		t1d.setText(String.valueOf(cur.getStatistics()[0][2]));
-		t2d.setText(String.valueOf(cur.getStatistics()[1][2]));
-		t3d.setText(String.valueOf(cur.getStatistics()[2][2]));
-		t4d.setText(String.valueOf(cur.getStatistics()[3][2]));
+		t1d.setText(String.valueOf(cur.getOrderedStats()[0][2]));
+		t2d.setText(String.valueOf(cur.getOrderedStats()[1][2]));
+		t3d.setText(String.valueOf(cur.getOrderedStats()[2][2]));
+		t4d.setText(String.valueOf(cur.getOrderedStats()[3][2]));
 
-		t1l.setText(String.valueOf(cur.getStatistics()[0][3]));
-		t2l.setText(String.valueOf(cur.getStatistics()[1][3]));
-		t3l.setText(String.valueOf(cur.getStatistics()[2][3]));
-		t4l.setText(String.valueOf(cur.getStatistics()[3][3]));
+		t1l.setText(String.valueOf(cur.getOrderedStats()[0][3]));
+		t2l.setText(String.valueOf(cur.getOrderedStats()[1][3]));
+		t3l.setText(String.valueOf(cur.getOrderedStats()[2][3]));
+		t4l.setText(String.valueOf(cur.getOrderedStats()[3][3]));
 
-		t1s.setText(String.valueOf(cur.getStatistics()[0][4]));
-		t2s.setText(String.valueOf(cur.getStatistics()[1][4]));
-		t3s.setText(String.valueOf(cur.getStatistics()[2][4]));
-		t4s.setText(String.valueOf(cur.getStatistics()[3][4]));
+		t1s.setText(String.valueOf(cur.getOrderedStats()[0][4]));
+		t2s.setText(String.valueOf(cur.getOrderedStats()[1][4]));
+		t3s.setText(String.valueOf(cur.getOrderedStats()[2][4]));
+		t4s.setText(String.valueOf(cur.getOrderedStats()[3][4]));
 
-		t1c.setText(String.valueOf(cur.getStatistics()[0][5]));
-		t2c.setText(String.valueOf(cur.getStatistics()[1][5]));
-		t3c.setText(String.valueOf(cur.getStatistics()[2][5]));
-		t4c.setText(String.valueOf(cur.getStatistics()[3][5]));
+		t1c.setText(String.valueOf(cur.getOrderedStats()[0][5]));
+		t2c.setText(String.valueOf(cur.getOrderedStats()[1][5]));
+		t3c.setText(String.valueOf(cur.getOrderedStats()[2][5]));
+		t4c.setText(String.valueOf(cur.getOrderedStats()[3][5]));
 
-		t1pts.setText(String.valueOf(cur.getStatistics()[0][6]));
-		t2pts.setText(String.valueOf(cur.getStatistics()[1][6]));
-		t3pts.setText(String.valueOf(cur.getStatistics()[2][6]));
-		t4pts.setText(String.valueOf(cur.getStatistics()[3][6]));
-
+		t1pts.setText(String.valueOf(cur.getOrderedStats()[0][6]));
+		t2pts.setText(String.valueOf(cur.getOrderedStats()[1][6]));
+		t3pts.setText(String.valueOf(cur.getOrderedStats()[2][6]));
+		t4pts.setText(String.valueOf(cur.getOrderedStats()[3][6]));
 	}
 
 	@FXML

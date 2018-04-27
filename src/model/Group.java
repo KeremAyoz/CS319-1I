@@ -226,9 +226,7 @@ public class Group implements Serializable{
 	 *            the teams to set
 	 */
 	public void setTeams(Team[] teams) {
-		// System.out.println( "setTeams 1" );
 		this.teams = teams;
-		// System.out.println( "setTeams 2" );
 	}
 
 	/**

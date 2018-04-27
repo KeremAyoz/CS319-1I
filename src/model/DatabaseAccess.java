@@ -19,11 +19,6 @@ public class DatabaseAccess {
 		return attributes;
 	}
 
-	for( int i = 0 ; i < teams.length ; i++ ) {
-		for( int j = 0 ; j < teams[i].getPlayers().size() ; j++ ) {
-			int salary = teams[i].getPlayers().get(j).getValue() / 10;
-		}
-}
 	
 	public static Team createBarcelona() {
 		ArrayList<Player> players = new ArrayList<Player>();

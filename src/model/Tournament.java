@@ -125,13 +125,11 @@ public class Tournament implements Serializable{
 	}
 	
 	public boolean isOnGroupMatch() {
-		System.out.println("IS ON GROUP MATCH METHOD");
 		if( lastMatchWeek == NUMBER_OF_MY_GROUP_MATCHES - 1 )
 			return false;
 		int nextMatchId = myGroupMatchIds[lastMatchWeek + 1];
 		if( currentDay == GROUP_MATCH_DAYS[nextMatchId] && currentMonth == GROUP_MATCH_MONTHS[nextMatchId] && currentYear == GROUP_MATCH_YEARS[nextMatchId] )
 			return true;
-		System.out.println("FALSE");
 		return false;
 	}
 	

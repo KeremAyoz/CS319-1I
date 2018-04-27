@@ -82,6 +82,13 @@ public class Group implements Serializable{
 		
 	}
 	
+	public boolean checkAllGroupMatchesFinished() {
+		for( int i = 0 ; i < TEAMS_PER_GROUP ; i++ )
+			if( statistics[i][TOTAL_PLAYED] < NUMBER_OF_MATCHES / 2 )
+				return false;
+		return true;
+	}
+	
 	public void modifyGroupStatistics( int idMatch , int idHome , int idAway ) {
 		
 		// Statistics - Played

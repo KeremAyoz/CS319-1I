@@ -26,8 +26,17 @@ public class KnockoutTree implements Serializable {
 		for (int i = 0; i < passingTeams.length; i++)
 			list.add(i);
 		java.util.Collections.shuffle(list);
-		for (int i = 0; i < passingTeams.length; i++)
-			teams[TEAM_SIZE - passingTeams.length + i] = passingTeams[list.get(i)];
+		for (int i = 0; i < passingTeams.length; i++) {
+			int teamId = TEAM_SIZE - passingTeams.length + i;
+			teams[teamId] = passingTeams[list.get(i)];
+			if (teamId % 2 == 1) {
+				matches[teamId - 2].setHome(teams[teamId]);
+				matches[teamId - 1].setAway(teams[teamId]);
+			} else {
+				matches[teamId - 3].setAway(teams[teamId]);
+				matches[teamId - 2].setHome(teams[teamId]);
+			}
+		}
 	}
 
 	public void createMatch(int idMatch, int day, int month, int year) {
@@ -37,13 +46,13 @@ public class KnockoutTree implements Serializable {
 
 	public void playMatch(int idMatch) throws InterruptedException {
 
-		ArrayList<Action> actions = new ArrayList<Action>();
+		// ArrayList<Action> actions = new ArrayList<Action>();
 
 		if (idMatch == 0) {
 			// matches[0] = new Match( 0 , 0 , 0 , teams[1] , teams[2] ,
 			// "Pierluigi Collina" , "Sunny" , actions );
-			matches[0].setHome(teams[1]);
-			matches[0].setHome(teams[2]);
+			// matches[0].setHome(teams[1]);
+			// matches[0].setHome(teams[2]);
 			matches[0].matchSimulation();
 			int firstTeamPoint = matches[0].getPointHome();
 			int secondTeamPoint = matches[0].getPointAway();
@@ -60,18 +69,17 @@ public class KnockoutTree implements Serializable {
 		else if (idMatch % 2 == 1) {
 			// matches[idMatch] = new Match( 0 , 0 , 0 , teams[idMatch+2] ,
 			// teams[idMatch+3] , "Pierluigi Collina" , "Sunny" , actions );
-			matches[idMatch].setHome(teams[idMatch + 2]);
-			matches[idMatch].setHome(teams[idMatch + 3]);
+			// matches[idMatch].setHome(teams[idMatch + 2]);
+			// matches[idMatch].setAway(teams[idMatch + 3]);
 			matches[idMatch].matchSimulation();
-			return;
 		}
 
 		else {
 
 			// matches[idMatch] = new Match( 0 , 0 , 0 , teams[idMatch+2] ,
 			// teams[idMatch+1] , "Pierluigi Collina" , "Sunny" , actions );
-			matches[idMatch].setHome(teams[idMatch + 2]);
-			matches[idMatch].setHome(teams[idMatch + 1]);
+			// matches[idMatch].setHome(teams[idMatch + 2]);
+			// matches[idMatch].setAway(teams[idMatch + 1]);
 			matches[idMatch].matchSimulation();
 
 			int firstMatchFirstTeamPoint = matches[idMatch - 1].getPointHome();
@@ -93,28 +101,65 @@ public class KnockoutTree implements Serializable {
 			int secondTeamGoal = firstMatchSecondTeamGoal + secondMatchSecondTeamGoal;
 
 			if (firstTeamPoint > secondTeamPoint)
-				teams[idMatch / 2] = teams[idMatch + 1];
+				updateTree(idMatch, 1);
 			else if (firstTeamPoint < secondTeamPoint)
-				teams[idMatch / 2] = teams[idMatch + 2];
+				updateTree(idMatch, 2);
 			else {
 				if (firstTeamGoal > secondTeamGoal)
-					teams[idMatch / 2] = teams[idMatch + 1];
+					updateTree(idMatch, 1);
 				else if (firstTeamGoal < secondTeamGoal)
-					teams[idMatch / 2] = teams[idMatch + 2];
+					updateTree(idMatch, 2);
 				else {
 					if (secondMatchFirstTeamGoal > firstMatchSecondTeamGoal)
-						teams[idMatch / 2] = teams[idMatch + 1];
+						updateTree(idMatch, 1);
 					else if (secondMatchFirstTeamGoal < firstMatchSecondTeamGoal)
-						teams[idMatch / 2] = teams[idMatch + 2];
+						updateTree(idMatch, 2);
 					else {
 						System.out.println("WTF");
-						teams[idMatch / 2] = teams[idMatch + 1];
+						updateTree(idMatch, 1);
 					}
 				}
 			}
 
 		}
 
+	}
+
+	public void updateTree(int idMatch, int winner) {
+		// teams[idMatch / 2] = teams[idMatch + 1];
+		// teams[idMatch / 2] = teams[idMatch + 2];
+		Team winnerTeam = teams[idMatch + winner];
+		teams[idMatch / 2] = winnerTeam;
+		if (idMatch == 2)
+			matches[0].setHome(winnerTeam);
+		else if(idMatch == 4)
+			matches[0].setAway(winnerTeam);
+		else {
+			if(idMatch % 4 == 0) {
+				matches[idMatch / 2 - 3].setAway(winnerTeam);
+				matches[idMatch / 2 - 2].setHome(winnerTeam);
+			}
+			else {
+				matches[idMatch / 2 - 2].setHome(winnerTeam);
+				matches[idMatch / 2 - 1].setAway(winnerTeam);
+			}
+		}
+	}
+
+	public Team[] getTeams() {
+		return teams;
+	}
+
+	public void setTeams(Team[] teams) {
+		this.teams = teams;
+	}
+
+	public Match[] getMatches() {
+		return matches;
+	}
+
+	public void setMatches(Match[] matches) {
+		this.matches = matches;
 	}
 
 }

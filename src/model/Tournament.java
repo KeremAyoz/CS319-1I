@@ -31,7 +31,7 @@ public class Tournament implements Serializable {
 	private int lastMatchId;
 	private int lastMatchWeek;
 
-	private boolean eliminationStage;
+	private boolean isEliminationStage;
 
 	private int myTeamLastMatchDay;
 	private int myTeamLastMatchMonth;
@@ -204,36 +204,42 @@ public class Tournament implements Serializable {
 		return false;
 	}
 
-	// TODO
-	public boolean isOnEliminationMatch() {
-
-		return false;
+	public boolean checkAllGroupMatchesFinished() {
+		for (int i = 0; i < NUMBER_OF_GROUPS; i++)
+			if (!groups[i].checkGroupMatchesFinished())
+				return false;
+		return true;
 	}
 
 	public void updateEliminationStage() {
-		if (eliminationStage)
+		if (isEliminationStage)
 			return;
-		for (int i = 0; i < NUMBER_OF_GROUPS; i++)
-			if (!groups[i].checkAllGroupMatchesFinished())
-				return;
-		eliminationStage = true;
-		initializeElimination();
+		if (!checkAllGroupMatchesFinished())
+			return;
+		isEliminationStage = true;
+		placeTeamsToElimination();
 	}
 
-	public void initializeElimination() {
-		placeTeamsToElimination();
-		knockout.setMatchDates();
-	}
-	
 	// modifyGroupStatistics() !
 	public Match goNextDay() throws InterruptedException {
 
 		Match match = null;
 		updateEliminationStage();
 
-		if (eliminationStage) {
-			if (isOnEliminationMatch()) {
-				
+		if (isEliminationStage) {
+			System.out.printf("eliminationStage\n");
+			int idMatch = knockout.getMatchId(currentDay, currentMonth, currentYear);
+			if(idMatch == -1)
+				passTomorrow();
+			else {
+				Match tmpMatch = knockout.getKnockoutMatch(idMatch);
+				if(tmpMatch.getHome() == teams[myTeamId] || tmpMatch.getAway() == teams[myTeamId]) {
+					knockout.playMatch(idMatch);
+				}
+				else {
+					match = tmpMatch;
+				}
+				passTomorrow();
 			}
 		}
 
@@ -457,7 +463,7 @@ public class Tournament implements Serializable {
 		instance.myTeamLastMatchMonth = -1;
 		instance.myTeamLastMatchYear = -1;
 
-		instance.eliminationStage = false;
+		instance.isEliminationStage = false;
 
 		for (int i = 0; i < NUMBER_OF_GROUPS; i++) {
 			instance.groups[i].setMatchCalendarOrder();
@@ -467,6 +473,8 @@ public class Tournament implements Serializable {
 
 		instance.chooseMyGroupMatchIds();
 
+		instance.knockout.createMatch();
+		
 	}
 
 	public String[] getTopGoals() {
@@ -659,6 +667,38 @@ public class Tournament implements Serializable {
 
 	public void setLastMatchWeek(int lastMatchWeek) {
 		this.lastMatchWeek = lastMatchWeek;
+	}
+	
+	public boolean getIsEliminationStage() {
+		return isEliminationStage;
+	}
+
+	public void setIsEliminationStage(boolean isEliminationStage) {
+		this.isEliminationStage = isEliminationStage;
+	}
+
+	public int getMyTeamLastMatchDay() {
+		return myTeamLastMatchDay;
+	}
+
+	public void setMyTeamLastMatchDay(int myTeamLastMatchDay) {
+		this.myTeamLastMatchDay = myTeamLastMatchDay;
+	}
+
+	public int getMyTeamLastMatchMonth() {
+		return myTeamLastMatchMonth;
+	}
+
+	public void setMyTeamLastMatchMonth(int myTeamLastMatchMonth) {
+		this.myTeamLastMatchMonth = myTeamLastMatchMonth;
+	}
+
+	public int getMyTeamLastMatchYear() {
+		return myTeamLastMatchYear;
+	}
+
+	public void setMyTeamLastMatchYear(int myTeamLastMatchYear) {
+		this.myTeamLastMatchYear = myTeamLastMatchYear;
 	}
 
 }

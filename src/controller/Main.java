@@ -1,6 +1,8 @@
 package controller;
 
+import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 
 import javax.swing.event.ChangeEvent;
@@ -39,6 +41,7 @@ public class Main extends Application {
 		}
 		return OS;
 	}
+
 	public static boolean isWindows() {
 		return getOsName().startsWith("Windows");
 	}
@@ -65,13 +68,12 @@ public class Main extends Application {
 			root.setLayoutX(301);
 			root.setLayoutY(98);
 		}
-		
-
+		if (isMacos()) {
+			root.setLayoutX(20);
+		}
 		MediaPlayer musicplayer;
 		{
-			Media mp3MusicFile = new Media("file:////Users/kerem/Desktop/entrance2.mp3"); // replace /Movies/test.mp3
-																							// with your file
-
+			Media mp3MusicFile = new Media("file:///" + new java.io.File("").getAbsolutePath() + "/data/entrance2.mp3");
 			musicplayer = new MediaPlayer(mp3MusicFile);
 			musicplayer.setAutoPlay(true);
 			musicplayer.setVolume(0.9); // from 0 to 1

@@ -255,8 +255,10 @@ public class NewGameController implements Initializable {
 		Parent root = FXMLLoader.load(getClass().getResource("/view/TacticView.fxml"));
 		root.setScaleX(screenWidth/1400.0);
 		root.setScaleY(screenHeight/900.0);
-		root.setLayoutX(320);
-		root.setLayoutY(108);
+		if (Main.isWindows()) {
+			root.setLayoutX(320);
+			root.setLayoutY(108);
+		}
 		Stage m = Main.getMainStage();
 		Scene ts = Main.getMainStage().getScene();
 		ts.setRoot(root);

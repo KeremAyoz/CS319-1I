@@ -74,7 +74,7 @@ public class Main extends Application {
 		MediaPlayer musicplayer;
 		{
 			String filePath = "file:///" + new java.io.File("").getAbsolutePath() + "/data/entrance2.mp3";
-		    filePath.replace('\\', '/');
+		    filePath = filePath.replace("\\", "/");
 		    System.out.println(filePath);
 			Media mp3MusicFile = new Media(filePath);
 			musicplayer = new MediaPlayer(mp3MusicFile);

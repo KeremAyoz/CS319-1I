@@ -294,7 +294,7 @@ public class MatchPlayController implements Initializable {
 			}
 			currentMatch.setPointHome(pointHome);
 			currentMatch.setPointAway(pointAway);
-			//t.getGroups()[t.getMyGroupId()]
+			t.getGroups()[t.getMyGroupId()].modifyGroupStatistics(currentMatch);
 			System.out.println("Match is over");
 			
 	}

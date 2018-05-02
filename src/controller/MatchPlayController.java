@@ -151,7 +151,8 @@ public class MatchPlayController implements Initializable {
 
 	private final Integer START_TIME = 0;
 	private Integer seconds = START_TIME;
-	private Boolean isStop = false;
+	
+	private Tournament t;
 	
 	@FXML
 	private Label label;
@@ -192,7 +193,7 @@ public class MatchPlayController implements Initializable {
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
-		Tournament t = Tournament.getInstance();
+		t = Tournament.getInstance();
 		paused = false;
 		label.setTextFill(Color.BLACK);
 
@@ -278,32 +279,7 @@ public class MatchPlayController implements Initializable {
 				
 			}
 			////////////////////////////////////////////////////////////////////////////////////////
-			try {
-				doTime();
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			int pointHome = -1;
-			int pointAway = -1;
-			if (currentMatch.getGoalHome() > currentMatch.getGoalAway()) {
-				pointHome = 3;
-				pointAway = 0;
-			}
-			else if (currentMatch.getGoalHome() < currentMatch.getGoalAway()) {
-				pointHome = 0;
-				pointAway = 3;
-			}
-			else {
-				pointHome = 1;
-				pointAway = 1;
-			}
-			System.out.println( currentMatch.getGoalHome() + " " + currentMatch.getGoalAway() + " " + pointHome + " " + pointAway );
-			currentMatch.setPointHome(pointHome);
-			currentMatch.setPointAway(pointAway);
-			t.getGroups()[t.getMyGroupId()].modifyGroupStatistics(currentMatch);
-			System.out.println("Match is over");
-			
+			doTime();
 	}
 	
 	@FXML
@@ -323,13 +299,11 @@ public class MatchPlayController implements Initializable {
 		Main.setMainStage(m);
 	}
 	
-	public void doTime() throws InterruptedException {
+	public void doTime() {
 		Timeline timeline = new Timeline();
 		timeline.setCycleCount(Timeline.INDEFINITE);
 		System.out.println((speedSlider.getValue()+100));
-		isStop = false;
-		KeyFrame frame = new KeyFrame(Duration.seconds(200/(speedSlider.getValue()/2+100)), new EventHandler<ActionEvent>() {
-			
+		KeyFrame frame = new KeyFrame(Duration.seconds(25/(speedSlider.getValue()/2+100)), new EventHandler<ActionEvent>() {
 			
 			@Override
 			public void handle(ActionEvent event) {
@@ -346,7 +320,25 @@ public class MatchPlayController implements Initializable {
 						updateActionView();
 					if (seconds > 89) {
 						timeline.stop();
-						isStop = true;
+						int pointHome = -1;
+						int pointAway = -1;
+						if (currentMatch.getGoalHome() > currentMatch.getGoalAway()) {
+							pointHome = 3;
+							pointAway = 0;
+						}
+						else if (currentMatch.getGoalHome() < currentMatch.getGoalAway()) {
+							pointHome = 0;
+							pointAway = 3;
+						}
+						else {
+							pointHome = 1;
+							pointAway = 1;
+						}
+						System.out.println( currentMatch.getGoalHome() + " " + currentMatch.getGoalAway() + " " + pointHome + " " + pointAway );
+						currentMatch.setPointHome(pointHome);
+						currentMatch.setPointAway(pointAway);
+						t.getGroups()[t.getMyGroupId()].modifyGroupStatistics(currentMatch);
+						System.out.println("Match is over");
 					}
 				}
 			}
@@ -354,12 +346,6 @@ public class MatchPlayController implements Initializable {
 		});
 		timeline.getKeyFrames().add(frame);
 		timeline.playFromStart();
-		/*
-		while(!isStop) {
-			TimeUnit.SECONDS.sleep(1);
-			System.out.println("Sleep 1sec");
-		}
-		*/
 	}
 
 	public void updateActionView() {

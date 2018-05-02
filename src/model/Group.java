@@ -68,7 +68,7 @@ public class Group implements Serializable{
 		// Only points
 		for( int i = 0 ; i < TEAMS_PER_GROUP ; i++ )
 			for( int j = 0 ; j < TEAMS_PER_GROUP ; j++ )
-				if( statistics[i][TOTAL_POINTS] > orderedStats[j][TOTAL_POINTS] ) {
+				if( statistics[i][TOTAL_POINTS] > orderedStats[j][TOTAL_POINTS] || ( statistics[i][TOTAL_POINTS] == orderedStats[j][TOTAL_POINTS] && statistics[i][TOTAL_SCORED] - statistics[i][TOTAL_CONCEDED] > orderedStats[j][TOTAL_SCORED] - orderedStats[j][TOTAL_CONCEDED] ) ) {
 					for( int k = TEAMS_PER_GROUP - 1 ; k > j ; k-- ) {
 						orderedNames[k] = orderedNames[k-1];
 						for( int l = 0 ; l < NUMBER_OF_STATS ; l++ )

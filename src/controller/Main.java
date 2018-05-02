@@ -73,7 +73,10 @@ public class Main extends Application {
 		}
 		MediaPlayer musicplayer;
 		{
-			Media mp3MusicFile = new Media("file:///" + new java.io.File("").getAbsolutePath() + "/data/entrance2.mp3");
+			String filePath = "file:///" + new java.io.File("").getAbsolutePath() + "/data/entrance2.mp3";
+		    filePath.replace('\\', '/');
+		    System.out.println(filePath);
+			Media mp3MusicFile = new Media(filePath);
 			musicplayer = new MediaPlayer(mp3MusicFile);
 			musicplayer.setAutoPlay(true);
 			musicplayer.setVolume(0.9); // from 0 to 1

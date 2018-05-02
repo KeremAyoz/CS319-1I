@@ -206,7 +206,6 @@ public class MatchPlayController implements Initializable {
 		}
 
 		if (currentMatch == null) {
-			System.out.println("Match yok");
 			return;
 		}
 
@@ -256,29 +255,66 @@ public class MatchPlayController implements Initializable {
 				homeTempo.setDisable(true);
 			}
 
+			//File tactic = new File("img/tactics/" + home.getTactic() + "_" + home.getColor() + ".JPG");
 			File tactic = new File("img/tactics/" + home.getTactic() + ".png");
+			System.out.println(tactic.toString());
 			Image tacticImage = new Image(tactic.toURI().toString(), 456, 454, false, false);
 			htacticField.setImage(tacticImage);
 
+			//File tactic2 = new File("img/tactics/" + away.getTactic() + "_" + away.getColor() + ".JPG");
 			File tactic2 = new File("img/tactics/" + away.getTactic() + ".png");
 			Image tacticImage2 = new Image(tactic2.toURI().toString(), 456, 454, false, false);
 			atacticField.setImage(tacticImage2);
 			////////////////////////////////////////////////////////////////////////////////////////
 			calibrateNamesHome();
 			calibrateNamesAway();
+			/*
 			speedSlider.valueProperty().addListener(new ChangeListener<Number>() {
 	            public void changed(ObservableValue<? extends Number> ov, Number old_val, Number new_val) {
                     doTime();
             }
-	            });
+	            });*/
 				
 			}
 			////////////////////////////////////////////////////////////////////////////////////////
-			//doTime();
+			doTime();
+			int pointHome = -1;
+			int pointAway = -1;
+			if (currentMatch.getGoalHome() > currentMatch.getGoalAway()) {
+				pointHome = 3;
+				pointAway = 0;
+			}
+			else if (currentMatch.getGoalHome() < currentMatch.getGoalAway()) {
+				pointHome = 0;
+				pointAway = 3;
+			}
+			else {
+				pointHome = 1;
+				pointAway = 1;
+			}
+			currentMatch.setPointHome(pointHome);
+			currentMatch.setPointAway(pointAway);
+			//t.getGroups()[t.getMyGroupId()]
 			System.out.println("Match is over");
 			
 	}
 	
+	@FXML
+	public void matchDone() throws IOException {
+		Parent root = FXMLLoader.load(getClass().getResource("/view/GroupView.fxml"));
+		root.setScaleX(screenWidth/1400.0);
+		root.setScaleY(screenHeight/900.0);
+		if (Main.isWindows()) {
+			root.setLayoutX(320);
+			root.setLayoutY(108);
+		}
+		Stage m = Main.getMainStage();
+		Scene t = Main.getMainStage().getScene();
+		t.setRoot(root);
+		m.setScene(t);
+		m.setFullScreen(true);
+		Main.setMainStage(m);
+	}
 	
 	public void doTime() {
 		Timeline timeline = new Timeline();

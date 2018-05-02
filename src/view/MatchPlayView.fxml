@@ -204,6 +204,7 @@
                      </font>
                   </Text>
                   <Slider fx:id="speedSlider" layoutX="622.0" layoutY="624.0" />
+                  <Button layoutX="807.0" layoutY="82.0" mnemonicParsing="false" onAction="#matchDone" text="Finished" />
                </children>
             </Pane>
             <ScrollPane fx:id="scrollEvent" layoutX="530.0" layoutY="350.0" prefHeight="413.0" prefWidth="334.0">

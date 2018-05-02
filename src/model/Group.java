@@ -68,7 +68,7 @@ public class Group implements Serializable{
 		// Only points
 		for( int i = 0 ; i < TEAMS_PER_GROUP ; i++ )
 			for( int j = 0 ; j < TEAMS_PER_GROUP ; j++ )
-				if( statistics[i][6] > orderedStats[j][TOTAL_POINTS] ) {
+				if( statistics[i][TOTAL_POINTS] > orderedStats[j][TOTAL_POINTS] ) {
 					for( int k = TEAMS_PER_GROUP - 1 ; k > j ; k-- ) {
 						orderedNames[k] = orderedNames[k-1];
 						for( int l = 0 ; l < NUMBER_OF_STATS ; l++ )
@@ -87,6 +87,39 @@ public class Group implements Serializable{
 			if( statistics[i][TOTAL_PLAYED] < NUMBER_OF_MATCHES / 2 )
 				return false;
 		return true;
+	}
+	
+	public void modifyGroupStatistics( Match match ) {
+		
+		int idMatch = -1;
+		for( int i = 0 ; i < NUMBER_OF_MATCHES ; i++ )
+			if( match.getHome() == matches[i].getHome() )
+				if( match.getAway() == matches[i].getAway() ) {
+					idMatch = i;
+					break;
+				}
+		
+		int idHome = -1;
+		for( int i = 0 ; i < TEAMS_PER_GROUP ; i++ )
+			if( match.getHome() == teams[i] ) {
+				idHome = i;
+				break;
+			}
+		
+		int idAway = -1;
+		for( int i = 0 ; i < TEAMS_PER_GROUP ; i++ )
+			if( match.getAway() == teams[i] ) {
+				idAway = i;
+				break;
+			}
+		
+		if( idMatch == -1 || idHome == -1 || idAway == -1 ) {
+			System.out.println( "Ha siktir" );
+			return;
+		}
+		
+		modifyGroupStatistics( idMatch , idHome , idAway );
+		
 	}
 	
 	public void modifyGroupStatistics( int idMatch , int idHome , int idAway ) {

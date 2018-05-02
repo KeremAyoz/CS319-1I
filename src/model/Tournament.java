@@ -233,12 +233,10 @@ public class Tournament implements Serializable {
 				passTomorrow();
 			else {
 				Match tmpMatch = knockout.getKnockoutMatch(idMatch);
-				if(tmpMatch.getHome() == teams[myTeamId] || tmpMatch.getAway() == teams[myTeamId]) {
-					knockout.playMatch(idMatch);
-				}
-				else {
+				if(tmpMatch.getHome() == teams[myTeamId] || tmpMatch.getAway() == teams[myTeamId])
 					match = tmpMatch;
-				}
+				else
+					knockout.playMatch(idMatch);
 				passTomorrow();
 			}
 		}

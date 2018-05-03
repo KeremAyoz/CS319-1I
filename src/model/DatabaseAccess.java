@@ -8,28 +8,9 @@ public class DatabaseAccess {
 	private static final int DIFF_SCORE = 10;
 	private static final int MIN_SCORE = 90;
 
-
-/*	int[] attributes = new int[8];
 	public static int[] getAttributes() {
-		
-		for (int i = 0; i < 8; i++)
-			attributes[i] = MIN_SCORE + (int) (Math.random() * DIFF_SCORE + 1);
-		return attributes;
+		return new int[8];
 	}
-*/
-	public static void attributedoldur(Team[] teams) {
-		for(int i=0; i<32; i++) {
-			ArrayList<Player> bakbi = teams[i].getPlayers();
-			for(int j=0; j<11; j++) {
-				bakbi.get(j).setAttributes();
-			}
-		}
-	}
-	static int[] attributes = {0};
-	public static int[] getAttributes() {
-		return attributes;
-	}
-
 	
 	public static Team createBarcelona() {
 		ArrayList<Player> players = new ArrayList<Player>();
@@ -2531,6 +2512,13 @@ public class DatabaseAccess {
 		teams[29] = createTottenham();
 		teams[30] = createJuventus();
 		teams[31] = createPsv();
+		
+		for(int i=0; i<32; i++) {
+			ArrayList<Player> pl = teams[i].getPlayers();
+			for(int j=0; j<20; j++) {
+				pl.get(j).modifyAttributes();
+			}
+		}
 		
 		return teams;
 	}

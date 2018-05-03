@@ -151,7 +151,7 @@ public class Player extends Person implements Serializable{
 	/**
 	 * @return the attributes
 	 */
-	public void setAttributes() {
+	public void modifyAttributes() {
 		if(position == "RB" || position == "LB" ) {
 			attributes[0] = overall + (int) (Math.random() + 1);
 			attributes[1] = overall + (int) (Math.random() + 1);

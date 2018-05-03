@@ -71,6 +71,7 @@ public class Main extends Application {
 		if (isMacos()) {
 			root.setLayoutX(20);
 		}
+		/*
 		MediaPlayer musicplayer;
 		{
 			String filePath = "file:///" + new java.io.File("").getAbsolutePath() + "/data/entrance2.mp3";
@@ -88,6 +89,7 @@ public class Main extends Application {
 				}
 			});
 		}
+		*/
 		Scene scene = new Scene(root, screenWidth, screenHeight);
 
 		mainStage.setScene(scene);

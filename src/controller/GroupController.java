@@ -13,6 +13,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 import javafx.stage.Screen;
@@ -98,6 +99,8 @@ public class GroupController implements Initializable {
 	private ComboBox<String> groupName;
 	@FXML
 	private Text gName;
+	@FXML
+	private GridPane matchesGrid;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -105,7 +108,7 @@ public class GroupController implements Initializable {
 		setup("A");
 		groupName.getSelectionModel().selectFirst();
 	}
-
+	
 	public void setup(String group) {
 		char c = group.charAt(0);
 		int num = (int) c - 65;
@@ -151,6 +154,10 @@ public class GroupController implements Initializable {
 		t2pts.setText(String.valueOf(cur.getOrderedStats()[1][6]));
 		t3pts.setText(String.valueOf(cur.getOrderedStats()[2][6]));
 		t4pts.setText(String.valueOf(cur.getOrderedStats()[3][6]));
+		
+		/*
+		for (int i = 0; i)
+		cur.getMatches()[i]*/
 	}
 
 	@FXML

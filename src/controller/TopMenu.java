@@ -142,8 +142,11 @@ public class TopMenu implements Initializable {
 		root.setScaleX(screenWidth/1400.0);
 		root.setScaleY(screenHeight/900.0);
 		if (Main.isWindows()) {
-			root.setLayoutX(357);
+			root.setLayoutX(347);
 			root.setLayoutY(108);
+		}
+		if (Main.isMacos()) {
+			root.setLayoutX(20);
 		}
 		Stage m = Main.getMainStage();
 		Scene t = Main.getMainStage().getScene();

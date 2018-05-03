@@ -97,8 +97,8 @@ public class CalendarController implements Initializable {
 					File file = new File("img/logos/" + st + ".png");
 					Image image = new Image(file.toURI().toString());
 					ImageView im = new ImageView(image);
-					im.setFitWidth(20);
-					im.setFitHeight(20);
+					im.setFitWidth(40);
+					im.setFitHeight(40);
 					gridCalendar.add(im, rowInd++, colInd);
 					System.out.println("MAÇ VAR");
 				}

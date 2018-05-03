@@ -8,9 +8,9 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="154.0" prefWidth="1410.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TopMenu">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="154.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TopMenu">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="56.0" layoutX="1307.0" layoutY="-1.0" stroke="BLACK" strokeType="INSIDE" width="94.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="56.0" layoutX="1284.0" layoutY="-1.0" stroke="BLACK" strokeType="INSIDE" width="117.0" />
       <Hyperlink layoutX="189.0" layoutY="41.0" onAction="#teamClicked" prefHeight="58.0" prefWidth="134.0" text="Team" textFill="#802525">
          <font>
             <Font size="22.0" />
@@ -36,17 +36,17 @@
             <Font size="22.0" />
          </font>
       </Hyperlink>
-      <Hyperlink layoutX="869.0" layoutY="41.0" onAction="#calendarClicked" prefHeight="58.0" prefWidth="134.0" text="Calendar" textFill="#802525">
+      <Hyperlink layoutX="862.0" layoutY="41.0" onAction="#calendarClicked" prefHeight="58.0" prefWidth="134.0" text="Calendar" textFill="#802525">
          <font>
             <Font size="22.0" />
          </font>
       </Hyperlink>
-      <Hyperlink layoutX="989.0" layoutY="41.0" onAction="#saveClicked" prefHeight="58.0" prefWidth="171.0" text="Save&amp;Exit" textFill="#802525">
+      <Hyperlink layoutX="982.0" layoutY="41.0" onAction="#saveClicked" prefHeight="58.0" prefWidth="171.0" text="Save&amp;Exit" textFill="#802525">
          <font>
             <Font size="22.0" />
          </font>
       </Hyperlink>
-      <Button layoutX="1136.0" layoutY="33.0" mnemonicParsing="false" onAction="#continueClicked" prefHeight="74.0" prefWidth="135.0" text="Continue">
+      <Button layoutX="1127.0" layoutY="33.0" mnemonicParsing="false" onAction="#continueClicked" prefHeight="74.0" prefWidth="135.0" text="Continue">
          <font>
             <Font name="Bookman Old Style Bold" size="19.0" />
          </font>
@@ -57,14 +57,19 @@
             <Image url="@../../img/logo.png" />
          </image>
       </ImageView>
-      <Text fx:id="currentDate" layoutX="1156.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="22 - 02- 2018" wrappingWidth="125.25">
+      <Text fx:id="currentDate" layoutX="1304.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="22-02-2018" wrappingWidth="83.1715087890625">
          <font>
             <Font name="Bookman Old Style Italic" size="14.0" />
          </font>
       </Text>
-      <Text fx:id="managerName" fill="#942828" layoutX="1319.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mr. Beken">
+      <Text fx:id="managerName" fill="#942828" layoutX="1303.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mr. Beken">
          <font>
             <Font size="15.0" />
+         </font>
+      </Text>
+      <Text fill="#7c0707" layoutX="1322.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date:">
+         <font>
+            <Font name="Gill Sans SemiBold" size="18.0" />
          </font>
       </Text>
    </children>

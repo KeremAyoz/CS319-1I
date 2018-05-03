@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.ArrayList;
 import java.util.List;
 
+import javafx.util.Pair;
+
 /**
  * @author Kerem
  *
@@ -221,22 +223,31 @@ public class Tournament implements Serializable {
 	}
 
 	// modifyGroupStatistics() !
-	public Match goNextDay() throws InterruptedException {
+	public Pair<Match, Integer> goNextDay() throws InterruptedException {
 
+		Pair<Match, Integer> matchInfo;
+		
 		Match match = null;
 		updateEliminationStage();
 
 		if (isEliminationStage) {
 			System.out.printf("eliminationStage\n");
 			int idMatch = knockout.getMatchId(currentDay, currentMonth, currentYear);
-			if(idMatch == -1)
+			if(idMatch == -1) {
 				passTomorrow();
+				matchInfo = new Pair<Match, Integer>(null, 1);
+			}
 			else {
 				Match tmpMatch = knockout.getKnockoutMatch(idMatch);
-				if(tmpMatch.getHome() == teams[myTeamId] || tmpMatch.getAway() == teams[myTeamId])
+				if(tmpMatch.getHome() == teams[myTeamId] || tmpMatch.getAway() == teams[myTeamId]) {
 					match = tmpMatch;
-				else
-					knockout.playMatch(idMatch);
+					lastMatchId = idMatch;
+					matchInfo = new Pair<Match, Integer>(match, 1);
+				}
+				else {
+					knockout.playMatch(idMatch, false);
+					matchInfo = new Pair<Match, Integer>(null, 1);
+				}
 				passTomorrow();
 			}
 		}
@@ -253,14 +264,16 @@ public class Tournament implements Serializable {
 				match = groups[myGroupId].getMatch(nextMatchId);
 				System.out.println(match.getHome().getName() + " " + match.getAway().getName());
 				passTomorrow();
+				matchInfo = new Pair<Match, Integer>(match, 0);
 			} else {
 				playOtherTeamsGroupMatches();
 				passTomorrow();
+				matchInfo = new Pair<Match, Integer>(null, 0);
 			}
 		}
-
-		return match;
-
+		
+		return matchInfo;
+		
 	}
 
 	public void chooseMyGroupMatchIds() {
@@ -699,4 +712,8 @@ public class Tournament implements Serializable {
 		this.myTeamLastMatchYear = myTeamLastMatchYear;
 	}
 
+	public Team getMyTeam() {
+		return teams[myTeamId];
+	}
+	
 }

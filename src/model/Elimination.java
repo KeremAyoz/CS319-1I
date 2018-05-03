@@ -55,17 +55,17 @@ public class Elimination implements Serializable {
 		return knockout.getMatches()[matchId];
 	}
 	
-	public void playMatch(int idMatch) throws InterruptedException {
+	public void playMatch(int idMatch, boolean isMyMatch) throws InterruptedException {
 		if(idMatch == -1)
 			return;
-		knockout.playMatch(idMatch);
+		knockout.playMatch(idMatch, isMyMatch);
 	}
 	
-	public void playMatch(int day, int month, int year) throws InterruptedException {
+	public void playMatch(int day, int month, int year, boolean isMyMatch) throws InterruptedException {
 		int idMatch = getMatchId(day, month, year);
 		if(idMatch == -1)
 			return;
-		knockout.playMatch(idMatch);
+		knockout.playMatch(idMatch, isMyMatch);
 	}
 
 	/**

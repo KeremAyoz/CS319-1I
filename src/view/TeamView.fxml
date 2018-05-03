@@ -85,7 +85,7 @@
                         <Font name="Gill Sans Bold" size="18.0" />
                      </font>
                   </Text>
-                  <Text layoutX="90.0" layoutY="151.0" strokeType="OUTSIDE" strokeWidth="0.0" text="History:">
+                  <Text layoutX="90.0" layoutY="151.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nick">
                      <font>
                         <Font name="Gill Sans Bold" size="18.0" />
                      </font>
@@ -95,7 +95,7 @@
                         <Font name="Gill Sans Bold" size="18.0" />
                      </font>
                   </Text>
-                  <Text layoutX="90.0" layoutY="246.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nick:">
+                  <Text layoutX="90.0" layoutY="246.0" strokeType="OUTSIDE" strokeWidth="0.0" text="History">
                      <font>
                         <Font name="Gill Sans Bold" size="18.0" />
                      </font>

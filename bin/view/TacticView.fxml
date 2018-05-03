@@ -180,7 +180,7 @@
                   <Font name="Gill Sans Bold" size="46.0" />
                </font>
             </Text>
-            <ImageView fx:id="logo" fitHeight="80.0" fitWidth="121.0" layoutX="79.0" layoutY="58.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="logo" fitHeight="109.0" fitWidth="141.0" layoutX="55.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true" />
             <ComboBox fx:id="tacticBox" layoutX="849.0" layoutY="692.0" onAction="#tacticBoxChange" prefHeight="34.0" prefWidth="90.0" promptText="4-3-3" />
             <ComboBox fx:id="styleBox" layoutX="1017.0" layoutY="692.0" onAction="#styleBoxChange" prefHeight="34.0" prefWidth="90.0" promptText="Attack" />
             <ComboBox fx:id="tempoBox" layoutX="1181.0" layoutY="692.0" onAction="#tempoBoxChange" prefHeight="34.0" prefWidth="90.0" promptText="Fast" />

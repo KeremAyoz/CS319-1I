@@ -132,6 +132,11 @@ public class PlayerController implements Initializable {
 		}
 
 	}
+	
+	@FXML
+	public void offerClicked() {
+		
+	}
 
 	/**
 	 * @return the playerID

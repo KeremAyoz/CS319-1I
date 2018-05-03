@@ -29,6 +29,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
@@ -146,6 +147,11 @@ public class TacticController implements Initializable {
 		// Sub-players' comboBox setup
 		comboBoxSetup(t.getTactic());
 		gridUpdate();
+		for (int i = 1; i < 5; i++) {
+			for (int j = 0; j < 20; j++) {
+				addPane(i, j);
+			}
+		}
 	}
 
 	@FXML
@@ -279,7 +285,41 @@ public class TacticController implements Initializable {
 			st.setLayoutY(200);
 		}
 	}
-
+	
+	private int[] addPane(int colIndex, int rowIndex) {
+		Pane pane = new Pane();
+		int[] res = new int[2];
+		pane.setOnMouseClicked(e -> {
+			PlayerController.setPlayerID(rowIndex);
+			PlayerController.setTeamID(TeamController.getCurrentTeamId());
+			try {
+				changeToPlayerView();
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		});
+		gridPlayer.add(pane, colIndex, rowIndex);
+		return res;
+	}
+	
+	public void changeToPlayerView() throws IOException {
+		Parent root = FXMLLoader.load(getClass().getResource("/view/PlayerView.fxml"));
+		root.setScaleX(screenWidth / 1400.0);
+		root.setScaleY(screenHeight / 900.0);
+		root.setLayoutX(20);
+		if (Main.isWindows()) {
+			root.setLayoutX(355);
+			root.setLayoutY(108);
+		}
+		Stage m = Main.getMainStage();
+		Scene t = Main.getMainStage().getScene();
+		t.setRoot(root);
+		m.setScene(t);
+		m.setFullScreen(true);
+		Main.setMainStage(m);
+	}
+	
 	@FXML
 	public void tacticFieldSetup() {
 		Tournament current = Tournament.getInstance();

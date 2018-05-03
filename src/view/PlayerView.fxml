@@ -211,7 +211,7 @@
                   <Font name="Gill Sans SemiBold" size="42.0" />
                </font>
             </Text>
-            <Button layoutX="1097.0" layoutY="170.0" mnemonicParsing="false" onAction="#continueClicked" prefHeight="38.0" prefWidth="202.0" text="Make an Offer">
+            <Button layoutX="1097.0" layoutY="170.0" mnemonicParsing="false" onAction="#offerClicked" prefHeight="38.0" prefWidth="202.0" text="Make an Offer">
                <font>
                   <Font name="Bookman Old Style Bold" size="19.0" />
                </font>

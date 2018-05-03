@@ -40,7 +40,7 @@ public class TopMenu implements Initializable {
 		root.setScaleX(screenWidth/1400.0);
 		root.setScaleY(screenHeight/900.0);
 		if (Main.isWindows()) {
-			root.setLayoutX(320);
+			root.setLayoutX(355);
 			root.setLayoutY(108);
 		}
 		Stage m = Main.getMainStage();
@@ -57,7 +57,7 @@ public class TopMenu implements Initializable {
 		root.setScaleX(screenWidth/1400.0);
 		root.setScaleY(screenHeight/900.0);
 		if (Main.isWindows()) {
-			root.setLayoutX(320);
+			root.setLayoutX(355);
 			root.setLayoutY(108);
 		}
 		Stage m = Main.getMainStage();
@@ -74,7 +74,7 @@ public class TopMenu implements Initializable {
 		root.setScaleX(screenWidth/1400.0);
 		root.setScaleY(screenHeight/900.0);
 		if (Main.isWindows()) {
-			root.setLayoutX(320);
+			root.setLayoutX(355);
 			root.setLayoutY(108);
 		}
 		Stage m = Main.getMainStage();
@@ -91,7 +91,7 @@ public class TopMenu implements Initializable {
 		root.setScaleX(screenWidth/1400.0);
 		root.setScaleY(screenHeight/900.0);
 		if (Main.isWindows()) {
-			root.setLayoutX(320);
+			root.setLayoutX(355);
 			root.setLayoutY(108);
 		}
 		Stage m = Main.getMainStage();
@@ -108,7 +108,7 @@ public class TopMenu implements Initializable {
 		root.setScaleX(screenWidth/1400.0);
 		root.setScaleY(screenHeight/900.0);
 		if (Main.isWindows()) {
-			root.setLayoutX(320);
+			root.setLayoutX(355);
 			root.setLayoutY(108);
 		}
 		Stage m = Main.getMainStage();
@@ -125,7 +125,7 @@ public class TopMenu implements Initializable {
 		root.setScaleX(screenWidth/1400.0);
 		root.setScaleY(screenHeight/900.0);
 		if (Main.isWindows()) {
-			root.setLayoutX(320);
+			root.setLayoutX(355);
 			root.setLayoutY(108);
 		}
 		Stage m = Main.getMainStage();
@@ -142,7 +142,7 @@ public class TopMenu implements Initializable {
 		root.setScaleX(screenWidth/1400.0);
 		root.setScaleY(screenHeight/900.0);
 		if (Main.isWindows()) {
-			root.setLayoutX(347);
+			root.setLayoutX(355);
 			root.setLayoutY(108);
 		}
 		if (Main.isMacos()) {
@@ -162,7 +162,7 @@ public class TopMenu implements Initializable {
 		root.setScaleX(screenWidth/1400.0);
 		root.setScaleY(screenHeight/900.0);
 		if (Main.isWindows()) {
-			root.setLayoutX(320);
+			root.setLayoutX(355);
 			root.setLayoutY(108);
 		}
 		Stage m = Main.getMainStage();

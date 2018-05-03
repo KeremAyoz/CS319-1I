@@ -27,8 +27,8 @@ public class HomeScreen implements Initializable {
 		root.setScaleX(screenWidth / 1400.0);
 		root.setScaleY(screenHeight / 900.0);
 		if (Main.isWindows()) {
-			root.setLayoutX(310);
-			root.setLayoutY(101);
+			root.setLayoutX(355);
+			root.setLayoutY(108);
 		}
 		Stage m = Main.getMainStage();
 		Scene t = Main.getMainStage().getScene();
@@ -44,8 +44,8 @@ public class HomeScreen implements Initializable {
 		root.setScaleX(screenWidth / 1400.0);
 		root.setScaleY(screenHeight / 900.0);
 		if (Main.isWindows()) {
-			root.setLayoutX(310);
-			root.setLayoutY(101);
+			root.setLayoutX(355);
+			root.setLayoutY(108);
 		}
 		Stage m = Main.getMainStage();
 		Scene t = Main.getMainStage().getScene();
@@ -61,8 +61,8 @@ public class HomeScreen implements Initializable {
 		root.setScaleX(screenWidth / 1400.0);
 		root.setScaleY(screenHeight / 900.0);
 		if (Main.isWindows()) {
-			root.setLayoutX(310);
-			root.setLayoutY(101);
+			root.setLayoutX(355);
+			root.setLayoutY(108);
 		}
 		Stage m = Main.getMainStage();
 		Scene t = Main.getMainStage().getScene();
@@ -79,8 +79,8 @@ public class HomeScreen implements Initializable {
 		root.setScaleX(screenWidth / 1400.0);
 		root.setScaleY(screenHeight / 900.0);
 		if (Main.isWindows()) {
-			root.setLayoutX(310);
-			root.setLayoutY(101);
+			root.setLayoutX(355);
+			root.setLayoutY(108);
 		}
 		Stage m = Main.getMainStage();
 		Scene t = Main.getMainStage().getScene();

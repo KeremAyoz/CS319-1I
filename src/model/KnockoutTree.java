@@ -44,7 +44,7 @@ public class KnockoutTree implements Serializable {
 		matches[idMatch] = new Match(day, month, year, null, null, "Pierluigi Collina", "Sunny", actions);
 	}
 
-	public void playMatch(int idMatch) throws InterruptedException {
+	public void playMatch(int idMatch, boolean isMyMatch) throws InterruptedException {
 
 		// ArrayList<Action> actions = new ArrayList<Action>();
 
@@ -53,7 +53,8 @@ public class KnockoutTree implements Serializable {
 			// "Pierluigi Collina" , "Sunny" , actions );
 			// matches[0].setHome(teams[1]);
 			// matches[0].setHome(teams[2]);
-			matches[0].matchSimulation();
+			if(!isMyMatch)
+				matches[0].matchSimulation();
 			int firstTeamPoint = matches[0].getPointHome();
 			int secondTeamPoint = matches[0].getPointAway();
 			if (firstTeamPoint > secondTeamPoint)
@@ -71,7 +72,8 @@ public class KnockoutTree implements Serializable {
 			// teams[idMatch+3] , "Pierluigi Collina" , "Sunny" , actions );
 			// matches[idMatch].setHome(teams[idMatch + 2]);
 			// matches[idMatch].setAway(teams[idMatch + 3]);
-			matches[idMatch].matchSimulation();
+			if(!isMyMatch)
+				matches[idMatch].matchSimulation();
 		}
 
 		else {
@@ -80,7 +82,8 @@ public class KnockoutTree implements Serializable {
 			// teams[idMatch+1] , "Pierluigi Collina" , "Sunny" , actions );
 			// matches[idMatch].setHome(teams[idMatch + 2]);
 			// matches[idMatch].setAway(teams[idMatch + 1]);
-			matches[idMatch].matchSimulation();
+			if(!isMyMatch)
+				matches[idMatch].matchSimulation();
 
 			int firstMatchFirstTeamPoint = matches[idMatch - 1].getPointHome();
 			int firstMatchFirstTeamGoal = matches[idMatch - 1].getGoalHome();

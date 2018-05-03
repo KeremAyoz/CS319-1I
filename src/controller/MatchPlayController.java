@@ -24,6 +24,7 @@ import javafx.beans.value.ObservableValue;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import javafx.util.Pair;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -147,6 +148,9 @@ public class MatchPlayController implements Initializable {
 	private ImageView atacticField;
 
 	private Match currentMatch;
+	private Integer currentMatchType;
+	private Pair<Match, Integer> currentMatchInfo;
+	
 	private boolean paused;
 	private int actionCount = 0;
 
@@ -282,7 +286,9 @@ public class MatchPlayController implements Initializable {
 
 		try {
 			do {
-				currentMatch = t.goNextDay();
+				currentMatchInfo = t.goNextDay();
+				currentMatch = currentMatchInfo.getKey();
+				currentMatchType = currentMatchInfo.getValue();
 			} while (currentMatch == null);
 			System.out.println(currentMatch.getHome().getName() + " -  " + currentMatch.getAway().getName());
 
@@ -395,7 +401,7 @@ public class MatchPlayController implements Initializable {
 		Timeline timeline = new Timeline();
 		timeline.setCycleCount(Timeline.INDEFINITE);
 		System.out.println((speedSlider.getValue() + 100));
-		KeyFrame frame = new KeyFrame(Duration.seconds(25 / (speedSlider.getValue() / 2 + 100)),
+		KeyFrame frame = new KeyFrame(Duration.seconds(1 / (speedSlider.getValue() / 2 + 100)),
 				new EventHandler<ActionEvent>() {
 
 					@Override
@@ -414,6 +420,18 @@ public class MatchPlayController implements Initializable {
 								updateActionView();
 							if (seconds > 89) {
 								timeline.stop();
+								if(currentMatch.getHome() == t.getMyTeam()) {
+									System.out.println("Home");
+									currentMatch.setGoalHome(3);
+									currentMatch.setGoalAway(0);
+								}
+								else if(currentMatch.getAway() == t.getMyTeam()) {
+									System.out.println("Away");
+									currentMatch.setGoalAway(3);
+									currentMatch.setGoalHome(0);
+								}
+								else
+									System.out.println("!!! WTF !!!");
 								int pointHome = -1;
 								int pointAway = -1;
 								if (currentMatch.getGoalHome() > currentMatch.getGoalAway()) {
@@ -430,7 +448,15 @@ public class MatchPlayController implements Initializable {
 										+ pointHome + " " + pointAway);
 								currentMatch.setPointHome(pointHome);
 								currentMatch.setPointAway(pointAway);
-								t.getGroups()[t.getMyGroupId()].modifyGroupStatistics(currentMatch);
+								if( currentMatchType == 0 )
+									t.getGroups()[t.getMyGroupId()].modifyGroupStatistics(currentMatch);
+								else if( currentMatchType == 1 )
+									try {
+										t.getKnockout().playMatch(t.getLastMatchId(), true);
+									} catch (InterruptedException e) {
+										// TODO Auto-generated catch block
+										e.printStackTrace();
+									}
 								System.out.println("Match is over");
 							}
 						}

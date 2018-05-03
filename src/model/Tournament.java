@@ -715,5 +715,17 @@ public class Tournament implements Serializable {
 	public Team getMyTeam() {
 		return teams[myTeamId];
 	}
+
+	public static int[] getGroupMatchDays() {
+		return GROUP_MATCH_DAYS;
+	}
+
+	public static int[] getGroupMatchMonths() {
+		return GROUP_MATCH_MONTHS;
+	}
+
+	public static int[] getGroupMatchYears() {
+		return GROUP_MATCH_YEARS;
+	}
 	
 }

@@ -87,7 +87,6 @@ public class TeamController implements Initializable {
 		// Team Logo
 		String st = cur.getName().toLowerCase().trim();
 		st = st.replaceAll("\\s+", "");
-		System.out.println(st);
 		File file = new File("img/logos/" + st + ".png");
 		Image image = new Image(file.toURI().toString());
 		teamImage.setImage(image);

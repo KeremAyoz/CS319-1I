@@ -352,16 +352,14 @@ public class MatchPlayController implements Initializable {
 				homeChanged.setVisible(true);
 			}
 
-			// File tactic = new File("img/tactics/" + home.getTactic() + "_" +
-			// home.getColor() + ".JPG");
-			File tactic = new File("img/tactics/" + home.getTactic() + ".png");
+		    File tactic = new File("img/tactics/" + home.getTactic() + "_" + home.getColor() + ".png");
+			//File tactic = new File("img/tactics/" + home.getTactic() + ".png");
 			System.out.println(tactic.toString());
 			Image tacticImage = new Image(tactic.toURI().toString(), 456, 454, false, false);
 			htacticField.setImage(tacticImage);
 
-			// File tactic2 = new File("img/tactics/" + away.getTactic() + "_" +
-			// away.getColor() + ".JPG");
-			File tactic2 = new File("img/tactics/" + away.getTactic() + ".png");
+			File tactic2 = new File("img/tactics/" + away.getTactic() + "_"  + away.getColor() + ".png");
+			//File tactic2 = new File("img/tactics/" + away.getTactic() + ".png");
 			Image tacticImage2 = new Image(tactic2.toURI().toString(), 456, 454, false, false);
 			atacticField.setImage(tacticImage2);
 			////////////////////////////////////////////////////////////////////////////////////////

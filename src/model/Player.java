@@ -12,7 +12,7 @@ public class Player extends Person implements Serializable{
 	private int salary;
 	private int value;
 	private boolean availableWeek;
-	private int[] attributes;
+	private int[] attributes = {0};
 	private ArrayList<Action> actions;
 	
 	private int cntMatch;
@@ -144,12 +144,65 @@ public class Player extends Person implements Serializable{
 	public void setAvailableWeek(boolean availableWeek) {
 		this.availableWeek = availableWeek;
 	}
-
+	public int[] getAttributes() {
+		return attributes;
+	}
+	
 	/**
 	 * @return the attributes
 	 */
-	public int[] getAttributes() {
-		return attributes;
+	public void setAttributes() {
+		if(position == "RB" || position == "LB" ) {
+			attributes[0] = overall + (int) (Math.random() + 1);
+			attributes[1] = overall + (int) (Math.random() + 1);
+			attributes[2] = overall + (int) (Math.random() + 1);
+			attributes[3] = overall + (int) (Math.random() + 1);
+			attributes[4] = overall + (int) (Math.random() + 1);
+			attributes[5] = overall + (int) (Math.random() + 1);
+			attributes[6] = overall + (int) (Math.random() + 1);
+			attributes[7] = overall + (int) (Math.random() + 1);
+		}
+		if(position == "CB" || position == "GK" ) {
+			attributes[0] = overall + (int) (Math.random() + 1);
+			attributes[1] = overall + (int) (Math.random() + 1);
+			attributes[2] = overall + (int) (Math.random() + 1);
+			attributes[3] = overall + (int) (Math.random() + 1);
+			attributes[4] = overall + (int) (Math.random() + 1);
+			attributes[5] = overall + (int) (Math.random() + 1);
+			attributes[6] = overall + (int) (Math.random() + 1);
+			attributes[7] = overall + (int) (Math.random() + 1);
+		}
+		if(position == "CM") {
+			attributes[0] = overall + (int) (Math.random() + 1);
+			attributes[1] = overall + (int) (Math.random() + 1);
+			attributes[2] = overall + (int) (Math.random() + 1);
+			attributes[3] = overall + (int) (Math.random() + 1);
+			attributes[4] = overall + (int) (Math.random() + 1);
+			attributes[5] = overall + (int) (Math.random() + 1);
+			attributes[6] = overall + (int) (Math.random() + 1);
+			attributes[7] = overall + (int) (Math.random() + 1);
+		}
+		if(position == "RW" || position == "LW" ) {
+			attributes[0] = overall + (int) (Math.random() + 1);
+			attributes[1] = overall + (int) (Math.random() + 1);
+			attributes[2] = overall + (int) (Math.random() + 1);
+			attributes[3] = overall + (int) (Math.random() + 1);
+			attributes[4] = overall + (int) (Math.random() + 1);
+			attributes[5] = overall + (int) (Math.random() + 1);
+			attributes[6] = overall + (int) (Math.random() + 1);
+			attributes[7] = overall + (int) (Math.random() + 1);
+		}
+		if(position == "ST") {
+			attributes[0] = overall + (int) (Math.random() + 1);
+			attributes[1] = overall + (int) (Math.random() + 1);
+			attributes[2] = overall + (int) (Math.random() + 1);
+			attributes[3] = overall + (int) (Math.random() + 1);
+			attributes[4] = overall + (int) (Math.random() + 1);
+			attributes[5] = overall + (int) (Math.random() + 1);
+			attributes[6] = overall + (int) (Math.random() + 1);
+			attributes[7] = overall + (int) (Math.random() + 1);
+		}
+		
 	}
 
 	/**
@@ -214,5 +267,6 @@ public class Player extends Person implements Serializable{
 	public void setCntRedCard(int cntRedCard) {
 		this.cntRedCard = cntRedCard;
 	}
+
 
 }

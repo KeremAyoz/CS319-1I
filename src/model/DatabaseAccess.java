@@ -9,15 +9,26 @@ public class DatabaseAccess {
 	private static final int MIN_SCORE = 90;
 
 
-	int[] attributes = new int[8];
+/*	int[] attributes = new int[8];
 	public static int[] getAttributes() {
 		
 		for (int i = 0; i < 8; i++)
 			attributes[i] = MIN_SCORE + (int) (Math.random() * DIFF_SCORE + 1);
 		return attributes;
 	}
-
-	
+*/
+	public static void attributedoldur(Team[] teams) {
+		for(int i=0; i<32; i++) {
+			ArrayList<Player> bakbi = teams[i].getPlayers();
+			for(int j=0; j<11; j++) {
+				bakbi.get(j).setAttributes();
+			}
+		}
+	}
+	static int[] attributes = {0};
+	public static int[] getAttributes() {
+		return attributes;
+	}
 
 	
 	public static Team createBarcelona() {
@@ -801,7 +812,7 @@ public class DatabaseAccess {
 		players.add(new Player("Eliseu", 30, 180, 70, "Portugal", "RB", 78, 'R', 1200000, 4000000, true,
 				getAttributes(), actions));
 		// CB
-		players.add(new Player("Jardel", 30, 180, 70, "Brazil", "CB", 82, 'R', 2500000 12000000, true,
+		players.add(new Player("Jardel", 30, 180, 70, "Brazil", "CB", 82, 'R', 2500000, 12000000, true,
 				getAttributes(), actions));
 		// CB
 		players.add(new Player("Luisao", 30, 180, 70, "Brazil", "CB", 84, 'R', 2200000, 7000000, true,
@@ -2405,7 +2416,8 @@ public class DatabaseAccess {
 				"The Monégasques", 5.0, "Attack", "Fast", manager, president, players);
 		return team;
 	}
-
+	
+	
 	public static Team createAjax() {
 		ArrayList<Player> players = new ArrayList<Player>();
 		ArrayList<Action> actions = new ArrayList<Action>();
@@ -2520,7 +2532,7 @@ public class DatabaseAccess {
 		teams[30] = createJuventus();
 		teams[31] = createPsv();
 		
-	
+		return teams;
 	}
 	
 

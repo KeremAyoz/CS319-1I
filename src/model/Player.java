@@ -148,59 +148,92 @@ public class Player extends Person implements Serializable{
 		return attributes;
 	}
 	
+	private static final int ATT_RAN = 10;
+	
+	
 	/**
 	 * @return the attributes
 	 */
 	public void modifyAttributes() {
-		if(position == "RB" || position == "LB" ) {
-			attributes[0] = overall + (int) (Math.random() + 1);
-			attributes[1] = overall + (int) (Math.random() + 1);
-			attributes[2] = overall + (int) (Math.random() + 1);
-			attributes[3] = overall + (int) (Math.random() + 1);
-			attributes[4] = overall + (int) (Math.random() + 1);
-			attributes[5] = overall + (int) (Math.random() + 1);
-			attributes[6] = overall + (int) (Math.random() + 1);
-			attributes[7] = overall + (int) (Math.random() + 1);
+		if(position == "GK") {
+			attributes[0] = overall + (int) (Math.random()  * ATT_RAN + 3);
+			attributes[1] = overall + (int) (Math.random()  * ATT_RAN - 40);
+			attributes[2] = overall + (int) (Math.random()  * ATT_RAN - 25);
+			attributes[3] = overall + (int) (Math.random()  * ATT_RAN - 15);
+			attributes[4] = overall + (int) (Math.random()  * ATT_RAN + 7);
+			attributes[5] = overall + (int) (Math.random()  * ATT_RAN + 5);
+			attributes[6] = overall + (int) (Math.random()  * ATT_RAN + 10);
+			attributes[7] = overall + (int) (Math.random()  * ATT_RAN + 8);
 		}
-		if(position == "CB" || position == "GK" ) {
-			attributes[0] = overall + (int) (Math.random() + 1);
-			attributes[1] = overall + (int) (Math.random() + 1);
-			attributes[2] = overall + (int) (Math.random() + 1);
-			attributes[3] = overall + (int) (Math.random() + 1);
-			attributes[4] = overall + (int) (Math.random() + 1);
-			attributes[5] = overall + (int) (Math.random() + 1);
-			attributes[6] = overall + (int) (Math.random() + 1);
-			attributes[7] = overall + (int) (Math.random() + 1);
+		if(position == "RB") {
+			attributes[0] = overall + (int) (Math.random() * ATT_RAN + 10);
+			attributes[1] = overall + (int) (Math.random() * ATT_RAN - 15);
+			attributes[2] = overall + (int) (Math.random() * ATT_RAN + 5);
+			attributes[3] = overall + (int) (Math.random() * ATT_RAN - 13);
+			attributes[4] = overall + (int) (Math.random() * ATT_RAN + 5);
+			attributes[5] = overall + (int) (Math.random() * ATT_RAN - 10);
+			attributes[6] = overall + (int) (Math.random() * ATT_RAN - 60);
+			attributes[7] = overall + (int) (Math.random() * ATT_RAN + 2);
+		}
+		if(position == "CB") {
+			attributes[0] = overall + (int) (Math.random() * ATT_RAN - 7);
+			attributes[1] = overall + (int) (Math.random() * ATT_RAN - 20);
+			attributes[2] = overall + (int) (Math.random() * ATT_RAN - 8);
+			attributes[3] = overall + (int) (Math.random() * ATT_RAN + 3);
+			attributes[4] = overall + (int) (Math.random() * ATT_RAN + 10);
+			attributes[5] = overall + (int) (Math.random() * ATT_RAN + 8);
+			attributes[6] = overall + (int) (Math.random() * ATT_RAN - 40);
+			attributes[7] = overall + (int) (Math.random() * ATT_RAN + 5);
+		}
+		if(position == "LB") {
+			attributes[0] = overall + (int) (Math.random() * ATT_RAN + 10);
+			attributes[1] = overall + (int) (Math.random() * ATT_RAN - 15);
+			attributes[2] = overall + (int) (Math.random() * ATT_RAN + 5);
+			attributes[3] = overall + (int) (Math.random() * ATT_RAN - 13);
+			attributes[4] = overall + (int) (Math.random() * ATT_RAN + 5);
+			attributes[5] = overall + (int) (Math.random() * ATT_RAN - 10);
+			attributes[6] = overall + (int) (Math.random() * ATT_RAN - 60);
+			attributes[7] = overall + (int) (Math.random() * ATT_RAN + 2);
 		}
 		if(position == "CM") {
-			attributes[0] = overall + (int) (Math.random() + 1);
-			attributes[1] = overall + (int) (Math.random() + 1);
-			attributes[2] = overall + (int) (Math.random() + 1);
-			attributes[3] = overall + (int) (Math.random() + 1);
-			attributes[4] = overall + (int) (Math.random() + 1);
-			attributes[5] = overall + (int) (Math.random() + 1);
-			attributes[6] = overall + (int) (Math.random() + 1);
-			attributes[7] = overall + (int) (Math.random() + 1);
+			attributes[0] = overall + (int) (Math.random() * ATT_RAN - 5);
+			attributes[1] = overall + (int) (Math.random() * ATT_RAN + 6);
+			attributes[2] = overall + (int) (Math.random() * ATT_RAN - 3);
+			attributes[3] = overall + (int) (Math.random() * ATT_RAN + 10);
+			attributes[4] = overall + (int) (Math.random() * ATT_RAN + 0);
+			attributes[5] = overall + (int) (Math.random() * ATT_RAN + 5);
+			attributes[6] = overall + (int) (Math.random() * ATT_RAN - 40);
+			attributes[7] = overall + (int) (Math.random() * ATT_RAN + 10);
 		}
-		if(position == "RW" || position == "LW" ) {
-			attributes[0] = overall + (int) (Math.random() + 1);
-			attributes[1] = overall + (int) (Math.random() + 1);
-			attributes[2] = overall + (int) (Math.random() + 1);
-			attributes[3] = overall + (int) (Math.random() + 1);
-			attributes[4] = overall + (int) (Math.random() + 1);
-			attributes[5] = overall + (int) (Math.random() + 1);
-			attributes[6] = overall + (int) (Math.random() + 1);
-			attributes[7] = overall + (int) (Math.random() + 1);
+		if(position == "RW") {
+			attributes[0] = overall + (int) (Math.random() * ATT_RAN + 10);
+			attributes[1] = overall + (int) (Math.random() * ATT_RAN + 9);
+			attributes[2] = overall + (int) (Math.random() * ATT_RAN + 10);
+			attributes[3] = overall + (int) (Math.random() * ATT_RAN - 5);
+			attributes[4] = overall + (int) (Math.random() * ATT_RAN - 15);
+			attributes[5] = overall + (int) (Math.random() * ATT_RAN + 7);
+			attributes[6] = overall + (int) (Math.random() * ATT_RAN - 65);
+			attributes[7] = overall + (int) (Math.random() * ATT_RAN + 1);
 		}
 		if(position == "ST") {
-			attributes[0] = overall + (int) (Math.random() + 1);
-			attributes[1] = overall + (int) (Math.random() + 1);
-			attributes[2] = overall + (int) (Math.random() + 1);
-			attributes[3] = overall + (int) (Math.random() + 1);
-			attributes[4] = overall + (int) (Math.random() + 1);
-			attributes[5] = overall + (int) (Math.random() + 1);
-			attributes[6] = overall + (int) (Math.random() + 1);
-			attributes[7] = overall + (int) (Math.random() + 1);
+			attributes[0] = overall + (int) (Math.random() * ATT_RAN + 5);
+			attributes[1] = overall + (int) (Math.random() * ATT_RAN + 10);
+			attributes[2] = overall + (int) (Math.random() * ATT_RAN + 5);
+			attributes[3] = overall + (int) (Math.random() * ATT_RAN - 5);
+			attributes[4] = overall + (int) (Math.random() * ATT_RAN - 35);
+			attributes[5] = overall + (int) (Math.random() * ATT_RAN + 10);
+			attributes[6] = overall + (int) (Math.random() * ATT_RAN - 60);
+			attributes[7] = overall + (int) (Math.random() * ATT_RAN + 5);
+		}
+		if(position == "LW") {
+			attributes[0] = overall + (int) (Math.random() * ATT_RAN + 10);
+			attributes[1] = overall + (int) (Math.random() * ATT_RAN + 9);
+			attributes[2] = overall + (int) (Math.random() * ATT_RAN + 10);
+			attributes[3] = overall + (int) (Math.random() * ATT_RAN - 5);
+			attributes[4] = overall + (int) (Math.random() * ATT_RAN - 15);
+			attributes[5] = overall + (int) (Math.random() * ATT_RAN + 7);
+			attributes[6] = overall + (int) (Math.random() * ATT_RAN - 65);
+			attributes[7] = overall + (int) (Math.random() * ATT_RAN + 1);
 		}
 		
 	}

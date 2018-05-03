@@ -153,11 +153,9 @@ public class Match implements Serializable{
 	}
 
 	public ArrayList<Action> matchSimulation() throws InterruptedException {
-		System.out.println( "Match Begins" );
 		for( int i = 1 ; i <= MATCH_DURATION ; i++ ) {
 			if( delay ) {
 				TimeUnit.SECONDS.sleep(1);
-				System.out.println( "DELAY ULAN" );
 			}
 			int random_value = (int) (Math.random() * RANDOM_RANGE + 1);
 			if( random_value <= RANDOM_TOTAL )
@@ -175,7 +173,6 @@ public class Match implements Serializable{
 			setPointHome( POINTS_DRAW );
 			setPointAway( POINTS_DRAW );
 		}
-		System.out.println( "Match Ends" );
 		for( int i = 0 ; i < NUMBER_OF_PLAYERS ; i++ ) {
 			home.getPlayers().get(i).setCntMatch( home.getPlayers().get(i).getCntMatch() + 1 );
 			away.getPlayers().get(i).setCntMatch( away.getPlayers().get(i).getCntMatch() + 1 );

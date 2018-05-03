@@ -13,7 +13,9 @@
          <children>
             <Pane layoutY="195.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="705.0" prefWidth="1400.0">
                <children>
-                  <Circle fill="WHITE" layoutX="700.0" layoutY="89.0" radius="30.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b2b2b2" height="162.0" layoutX="935.0" layoutY="524.0" stroke="BLACK" strokeType="INSIDE" width="438.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b2b2b2" height="162.0" layoutX="39.0" layoutY="524.0" stroke="BLACK" strokeType="INSIDE" width="438.0" />
+                  <Circle fill="WHITE" layoutX="700.0" layoutY="63.0" radius="30.0" stroke="BLACK" strokeType="INSIDE" />
                   <Text fx:id="homeName" fill="#6b0101" layoutX="335.0" layoutY="-81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Barcelona" wrappingWidth="284.2846908569336">
                      <font>
                         <Font name="Gill Sans Bold" size="38.0" />
@@ -24,16 +26,16 @@
                         <Font name="Gill Sans Bold" size="38.0" />
                      </font>
                   </Text>
-                  <Label fx:id="label" layoutX="682.0" layoutY="69.0" text="0'" textFill="#790d0d">
+                  <Label fx:id="label" layoutX="682.0" layoutY="43.0" text="0'" textFill="#790d0d">
                      <font>
                         <Font name="Gill Sans Bold" size="33.0" />
                      </font>
                   </Label>
-                  <Button layoutX="530.0" layoutY="602.0" mnemonicParsing="false" onAction="#pauseClicked" prefHeight="40.0" prefWidth="64.0" text="Pause">
+                  <Button layoutX="538.0" layoutY="602.0" mnemonicParsing="false" onAction="#pauseClicked" prefHeight="40.0" prefWidth="64.0" text="Pause">
                      <font>
                         <Font name="Gill Sans SemiBold" size="15.0" />
                      </font></Button>
-                  <Button layoutX="800.0" layoutY="601.0" mnemonicParsing="false" onAction="#playClicked" prefHeight="40.0" prefWidth="64.0" text="Play">
+                  <Button layoutX="808.0" layoutY="601.0" mnemonicParsing="false" onAction="#playClicked" prefHeight="40.0" prefWidth="64.0" text="Play">
                      <font>
                         <Font name="Gill Sans SemiBold" size="15.0" />
                      </font>
@@ -53,15 +55,15 @@
                         <Font name="Gill Sans UltraBold" size="34.0" />
                      </font>
                   </Text>
-                  <ImageView fx:id="homeLogo" fitHeight="130.0" fitWidth="130.0" layoutX="151.0" layoutY="-156.0" pickOnBounds="true" preserveRatio="true" />
-                  <ImageView fx:id="awayLogo" fitHeight="130.0" fitWidth="130.0" layoutX="1132.0" layoutY="-161.0" pickOnBounds="true" preserveRatio="true" />
-                  <ComboBox fx:id="homeTactic" layoutX="68.0" layoutY="622.0" onAction="#homeTacticChanged" prefHeight="27.0" prefWidth="100.0" />
-                  <ComboBox fx:id="homeStyle" layoutX="184.0" layoutY="621.0" onAction="#homeStyleChanged" prefHeight="27.0" prefWidth="100.0" />
-                  <ComboBox fx:id="homeTempo" layoutX="305.0" layoutY="621.0" onAction="#homeTempoChanged" prefHeight="27.0" prefWidth="100.0" />
-                  <ComboBox fx:id="awayTempo" layoutX="1215.0" layoutY="622.0" onAction="#awayTempoChanged" prefHeight="27.0" prefWidth="100.0" />
-                  <ComboBox fx:id="awayStyle" layoutX="1094.0" layoutY="622.0" onAction="#awayStyleChanged" prefHeight="27.0" prefWidth="100.0" />
-                  <ComboBox fx:id="awayTactic" layoutX="978.0" layoutY="622.0" onAction="#awayTacticChanged" prefHeight="27.0" prefWidth="100.0" />
-                  <TitledPane animated="false" layoutX="922.0" layoutY="59.0" prefHeight="515.0" prefWidth="437.0" text="Starting XI">
+                  <ImageView fx:id="homeLogo" fitHeight="130.0" fitWidth="130.0" layoutX="151.0" layoutY="-168.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="awayLogo" fitHeight="130.0" fitWidth="130.0" layoutX="1132.0" layoutY="-173.0" pickOnBounds="true" preserveRatio="true" />
+                  <ComboBox fx:id="homeTactic" layoutX="60.0" layoutY="636.0" onAction="#homeTacticChanged" prefHeight="27.0" prefWidth="100.0" />
+                  <ComboBox fx:id="homeStyle" layoutX="201.0" layoutY="635.0" onAction="#homeStyleChanged" prefHeight="27.0" prefWidth="100.0" />
+                  <ComboBox fx:id="homeTempo" layoutX="345.0" layoutY="635.0" onAction="#homeTempoChanged" prefHeight="27.0" prefWidth="100.0" />
+                  <ComboBox fx:id="awayTempo" layoutX="1250.0" layoutY="636.0" onAction="#awayTempoChanged" prefHeight="27.0" prefWidth="100.0" />
+                  <ComboBox fx:id="awayStyle" layoutX="1115.0" layoutY="636.0" onAction="#awayStyleChanged" prefHeight="27.0" prefWidth="100.0" />
+                  <ComboBox fx:id="awayTactic" layoutX="974.0" layoutY="636.0" onAction="#awayTacticChanged" prefHeight="27.0" prefWidth="100.0" />
+                  <TitledPane animated="false" layoutX="932.0" layoutY="-9.0" prefHeight="515.0" prefWidth="437.0" text="Starting XI">
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="381.0" prefWidth="435.0">
                            <children>
@@ -129,7 +131,7 @@
                         </AnchorPane>
                      </content>
                   </TitledPane>
-                  <TitledPane animated="false" layoutX="28.0" layoutY="59.0" prefHeight="515.0" prefWidth="437.0" text="Starting XI">
+                  <TitledPane animated="false" layoutX="38.0" layoutY="-9.0" prefHeight="515.0" prefWidth="437.0" text="Starting XI">
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="381.0" prefWidth="435.0">
                            <children>
@@ -197,17 +199,53 @@
                         </AnchorPane>
                      </content>
                   </TitledPane>
-                  <Line endX="900.0" layoutX="253.0" layoutY="-10.0" startX="-50.0" />
-                  <Text layoutX="668.0" layoutY="615.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Speed">
+                  <Line endX="900.0" layoutX="253.0" layoutY="-30.0" startX="-50.0" />
+                  <Text fill="#800505" layoutX="684.0" layoutY="615.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Speed">
                      <font>
-                        <Font size="16.0" />
+                        <Font name="Gill Sans SemiBold" size="18.0" />
                      </font>
                   </Text>
-                  <Slider fx:id="speedSlider" layoutX="622.0" layoutY="624.0" />
-                  <Button layoutX="807.0" layoutY="82.0" mnemonicParsing="false" onAction="#matchDone" text="Finished" />
+                  <Slider fx:id="speedSlider" layoutX="637.0" layoutY="624.0" />
+                  <Button layoutX="785.0" layoutY="70.0" mnemonicParsing="false" onAction="#matchDone" text="Finished" />
+                  <ComboBox fx:id="homeOld" layoutX="60.0" layoutY="559.0" prefWidth="150.0" />
+                  <ComboBox fx:id="homeNew" layoutX="235.0" layoutY="559.0" prefWidth="150.0" />
+                  <ComboBox fx:id="awayOld" layoutX="974.0" layoutY="559.0" prefWidth="150.0" />
+                  <ComboBox fx:id="awayNew" layoutX="1143.0" layoutY="559.0" prefWidth="150.0" />
+                  <Text fill="#800505" layoutX="205.0" layoutY="544.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Substitions x">
+                     <font>
+                        <Font name="Gill Sans SemiBold" size="17.0" />
+                     </font>
+                  </Text>
+                  <Text fill="#800505" layoutX="1122.0" layoutY="544.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Substitions x">
+                     <font>
+                        <Font name="Gill Sans SemiBold" size="17.0" />
+                     </font>
+                  </Text>
+                  <Button fx:id="homeChanged" layoutX="406.0" layoutY="559.0" mnemonicParsing="false" onAction="#homeChanged" prefHeight="24.0" prefWidth="37.0" text="✓" />
+                  <Button fx:id="awayChanged" layoutX="1312.0" layoutY="559.0" mnemonicParsing="false" onAction="#awayChanged" prefHeight="24.0" prefWidth="37.0" text="✓" />
+                  <Text fill="#800505" layoutX="205.0" layoutY="619.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Instructions">
+                     <font>
+                        <Font name="Gill Sans SemiBold" size="17.0" />
+                     </font>
+                  </Text>
+                  <Text fill="#800505" layoutX="1122.0" layoutY="619.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Instructions">
+                     <font>
+                        <Font name="Gill Sans SemiBold" size="17.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="homeSubCount" fill="#800505" layoutX="303.0" layoutY="545.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3">
+                     <font>
+                        <Font name="Gill Sans SemiBold" size="18.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="awaySubCount" fill="#800505" layoutX="1219.0" layoutY="545.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3">
+                     <font>
+                        <Font name="Gill Sans SemiBold" size="18.0" />
+                     </font>
+                  </Text>
                </children>
             </Pane>
-            <ScrollPane fx:id="scrollEvent" layoutX="530.0" layoutY="350.0" prefHeight="413.0" prefWidth="334.0">
+            <ScrollPane fx:id="scrollEvent" layoutX="540.0" layoutY="330.0" prefHeight="413.0" prefWidth="334.0">
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="743.0" prefWidth="319.0">
                      <children>

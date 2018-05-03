@@ -231,7 +231,6 @@ public class Tournament implements Serializable {
 		updateEliminationStage();
 
 		if (isEliminationStage) {
-			System.out.printf("eliminationStage\n");
 			int idMatch = knockout.getMatchId(currentDay, currentMonth, currentYear);
 			if(idMatch == -1) {
 				passTomorrow();
@@ -262,7 +261,6 @@ public class Tournament implements Serializable {
 				lastMatchWeek++;
 				lastMatchId = nextMatchId;
 				match = groups[myGroupId].getMatch(nextMatchId);
-				System.out.println(match.getHome().getName() + " " + match.getAway().getName());
 				passTomorrow();
 				matchInfo = new Pair<Match, Integer>(match, 0);
 			} else {
@@ -281,10 +279,6 @@ public class Tournament implements Serializable {
 		for (int i = 0; i < 2 * MATCHES_PER_GROUP; i++)
 			if (groups[myGroupId].getMatchCalendarSingleTeamObject(i) == teams[myTeamId])
 				myGroupMatchIds[i / 4] = i / 2;
-		System.out.println("myGroupMatchIds " + myGroupId + " " + myTeamId);
-		for (int i = 0; i < myGroupMatchIds.length; i++)
-			System.out.print(myGroupMatchIds[i] + " ");
-		System.out.println("");
 	}
 
 	public void orderGroups() {
@@ -438,13 +432,6 @@ public class Tournament implements Serializable {
 	 * !!! WARNING !!! groups[i] = new Group(); !!! WARNING !!!
 	 */
 	public void distributeTeams() {
-
-		System.out.println(teams[0].getName());
-		System.out.println(instance.teams[0].getName());
-
-		// System.out.println( groups[0].getTeam(0).getName() );
-		// System.out.println( instance.groups[0].getTeam(0).getName() );
-
 		List<Integer> list = new ArrayList<Integer>();
 		for (int i = 0; i < NUMBER_OF_TEAMS; i++)
 			list.add(i);
@@ -454,10 +441,8 @@ public class Tournament implements Serializable {
 			// groups[i] = new Group();
 			Team[] groupTeams = new Team[TEAMS_PER_GROUP];
 			for (int j = 0; j < TEAMS_PER_GROUP; j++) {
-				System.out.print("" + (i * TEAMS_PER_GROUP + j) + "/" + list.get(i * TEAMS_PER_GROUP + j) + " ");
 				groupTeams[j] = teams[list.get(i * TEAMS_PER_GROUP + j)];
 			}
-			System.out.println();
 			instance.groups[i] = new Group();
 			instance.groups[i].setTeams(groupTeams);
 		}

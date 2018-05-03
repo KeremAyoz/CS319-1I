@@ -15,6 +15,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
@@ -108,11 +110,11 @@ public class GroupController implements Initializable {
 		setup("A");
 		groupName.getSelectionModel().selectFirst();
 	}
-	
+
 	public void setup(String group) {
 		char c = group.charAt(0);
 		int num = (int) c - 65;
-		gName.setText("GROUP ");
+		gName.setText("Group ");
 		Group cur = Tournament.getInstance().getGroups()[num];
 		cur.orderGroup();
 		t1.setText(cur.getOrderedTeamName(0));
@@ -154,15 +156,36 @@ public class GroupController implements Initializable {
 		t2pts.setText(String.valueOf(cur.getOrderedStats()[1][6]));
 		t3pts.setText(String.valueOf(cur.getOrderedStats()[2][6]));
 		t4pts.setText(String.valueOf(cur.getOrderedStats()[3][6]));
-		
-		/*
-		for (int i = 0; i)
-		cur.getMatches()[i]*/
+
+		setupMatches(group, false);
+
+	}
+
+	public void setupMatches(String group, boolean clear) {
+		if (clear)
+			matchesGrid.getChildren().clear();
+		char c = group.charAt(0);
+		int num = (int) c - 65;
+		Group cur = Tournament.getInstance().getGroups()[num];
+		for (int i = 0; i < cur.getMatches().length; i++) {
+			Text homeName = new Text(cur.getMatches()[i].getHome().getName());
+			homeName.setFont(Font.font("Gill Sans", FontWeight.SEMI_BOLD, 15));
+			matchesGrid.add(homeName, 0, i);
+			
+			Text awayName = new Text(cur.getMatches()[i].getHome().getName());
+			awayName.setFont(Font.font("Gill Sans", FontWeight.SEMI_BOLD, 15));
+			matchesGrid.add(awayName, 2, i);
+			
+			Text score = new Text(cur.getMatches()[i].getGoalHome() + "-" + cur.getMatches()[i].getGoalHome());
+			score.setFont(Font.font("Gill Sans", FontWeight.SEMI_BOLD, 15));
+			matchesGrid.add(score, 1, i);
+		}
 	}
 
 	@FXML
 	public void groupChange() {
 		String group = groupName.getValue();
 		setup(group);
+		setupMatches(group, true);
 	}
 }

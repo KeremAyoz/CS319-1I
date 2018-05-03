@@ -11,37 +11,37 @@
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="154.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TopMenu">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="56.0" layoutX="1284.0" layoutY="-1.0" stroke="BLACK" strokeType="INSIDE" width="117.0" />
-      <Hyperlink layoutX="189.0" layoutY="41.0" onAction="#teamClicked" prefHeight="58.0" prefWidth="134.0" text="Team" textFill="#802525">
+      <Hyperlink ellipsisString="    " layoutX="189.0" layoutY="41.0" onAction="#teamClicked" pickOnBounds="false" prefHeight="58.0" prefWidth="76.0" text="Team" textFill="#802525" textOverrun="CLIP">
          <font>
             <Font size="22.0" />
          </font>
       </Hyperlink>
-      <Hyperlink layoutX="291.0" layoutY="41.0" onAction="#tacticClicked" prefHeight="58.0" prefWidth="134.0" text="Tactics" textFill="#802525">
+      <Hyperlink ellipsisString="    " layoutX="291.0" layoutY="41.0" onAction="#tacticClicked" pickOnBounds="false" prefHeight="58.0" prefWidth="83.0" text="Tactics" textFill="#802525" textOverrun="CLIP">
          <font>
             <Font size="22.0" />
          </font>
       </Hyperlink>
-      <Hyperlink layoutX="411.0" layoutY="41.0" onAction="#groupClicked" prefHeight="58.0" prefWidth="167.0" text="Group Stage" textFill="#802525">
+      <Hyperlink ellipsisString="    " layoutX="411.0" layoutY="41.0" onAction="#groupClicked" pickOnBounds="false" prefHeight="58.0" prefWidth="141.0" text="Group Stage" textFill="#802525" textOverrun="CLIP">
          <font>
             <Font size="22.0" />
          </font>
       </Hyperlink>
-      <Hyperlink layoutX="579.0" layoutY="41.0" onAction="#knockoutClicked" prefHeight="58.0" prefWidth="134.0" text="Knockout" textFill="#802525">
+      <Hyperlink ellipsisString="    " layoutX="579.0" layoutY="41.0" onAction="#knockoutClicked" pickOnBounds="false" prefHeight="58.0" prefWidth="108.0" text="Knockout" textFill="#802525" textOverrun="CLIP">
          <font>
             <Font size="22.0" />
          </font>
       </Hyperlink>
-      <Hyperlink layoutX="724.0" layoutY="41.0" onAction="#statClicked" prefHeight="58.0" prefWidth="134.0" text="Statistics" textFill="#802525">
+      <Hyperlink ellipsisString="    " layoutX="724.0" layoutY="41.0" onAction="#statClicked" pickOnBounds="false" prefHeight="58.0" prefWidth="102.0" text="Statistics" textFill="#802525" textOverrun="CLIP">
          <font>
             <Font size="22.0" />
          </font>
       </Hyperlink>
-      <Hyperlink layoutX="862.0" layoutY="41.0" onAction="#calendarClicked" prefHeight="58.0" prefWidth="134.0" text="Calendar" textFill="#802525">
+      <Hyperlink ellipsisString="    " layoutX="862.0" layoutY="41.0" onAction="#calendarClicked" pickOnBounds="false" prefHeight="58.0" prefWidth="102.0" text="Calendar" textFill="#802525" textOverrun="CLIP">
          <font>
             <Font size="22.0" />
          </font>
       </Hyperlink>
-      <Hyperlink layoutX="982.0" layoutY="41.0" onAction="#saveClicked" prefHeight="58.0" prefWidth="171.0" text="Save&amp;Exit" textFill="#802525">
+      <Hyperlink ellipsisString="    " layoutX="982.0" layoutY="41.0" onAction="#saveClicked" pickOnBounds="false" prefHeight="58.0" prefWidth="117.0" text="Save&amp;Exit" textFill="#802525" textOverrun="CLIP">
          <font>
             <Font size="22.0" />
          </font>

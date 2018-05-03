@@ -76,7 +76,6 @@ public class CalendarController implements Initializable {
 					if (Tournament.getGroupMatchDays()[i] < 10)
 						matchDay += "0";
 					matchDay += "" + Tournament.getGroupMatchDays()[i];
-					System.out.println(currentDay + "\n" + matchDay + "\n\n");
 					if (currentDay.equals(matchDay)) {
 						Match m = tour.getGroups()[tour.getMyGroupId()].getMatches()[i];
 						// Opponent is away
@@ -100,7 +99,6 @@ public class CalendarController implements Initializable {
 					im.setFitWidth(40);
 					im.setFitHeight(40);
 					gridCalendar.add(im, rowInd++, colInd);
-					System.out.println("MAÇ VAR");
 				}
 				else {
 					gridCalendar.add(t, rowInd++, colInd);

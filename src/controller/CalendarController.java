@@ -73,6 +73,7 @@ public class CalendarController implements Initializable {
 					if (gridCalendar.getChildren().get(colInd * 7 + rowInd).getClass().getName()
 							.equals("javafx.scene.text.Text")) {
 						// Maç kimle ise onu getir ve buraya onu ekle
+						Tournament tour = Tournament.getInstance();
 						// setFill(Color.GRAY);
 					}
 				}

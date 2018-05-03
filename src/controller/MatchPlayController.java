@@ -10,6 +10,7 @@ import java.time.LocalDate;
 import java.time.Month;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.ResourceBundle;
 import java.util.concurrent.TimeUnit;
 
@@ -151,9 +152,9 @@ public class MatchPlayController implements Initializable {
 
 	private final Integer START_TIME = 0;
 	private Integer seconds = START_TIME;
-	
+
 	private Tournament t;
-	
+
 	@FXML
 	private Label label;
 
@@ -169,27 +170,109 @@ public class MatchPlayController implements Initializable {
 	private ComboBox<String> homeTempo;
 	@FXML
 	private ComboBox<String> awayTempo;
-	
+
 	@FXML
 	private Slider speedSlider;
 
-	ArrayList<Action> actions;
-	/**
-	 * @return the speed
-	 */
-	public double getSpeed() {
-		return speed;
+	@FXML
+	private ComboBox<String> homeOld;
+	@FXML
+	private ComboBox<String> homeNew;
+	@FXML
+	private ComboBox<String> awayOld;
+	@FXML
+	private ComboBox<String> awayNew;
+	@FXML
+	private Button homeChanged;
+	@FXML
+	private Button awayChanged;
+	
+	@FXML
+	private Text homeSubCount;
+	@FXML
+	private Text awaySubCount;
+	
+	
+	
+	private static int subCountHome = 3;
+	private static int subCountAway = 3;
+	
+
+	@FXML
+	public void homeChanged() {
+		int swapped1 = currentMatch.getHome().indexOfPlayer(homeOld.getValue().split("-")[1]);
+		int swapped2 = currentMatch.getHome().indexOfPlayer(homeNew.getValue().split("-")[1]);
+		// Swapping
+		Collections.swap(currentMatch.getHome().getPlayers(),swapped1,swapped2);
+		calibrateNamesHome();
+		if (swapped2 > 10) {
+			subCountHome--;
+			homeSubCount.setText("" + subCountHome);
+		}
+		if (subCountHome == 0) {
+			homeOld.setDisable(true);
+			homeNew.setDisable(true);
+			homeChanged.setDisable(true);
+		}
+		fillSubstituteHome();
+	
 	}
 
-	/**
-	 * @param speed the speed to set
-	 */
-	public void setSpeed(double speed) {
-		this.speed = speed;
+	@FXML
+	public void awayChanged() {
+		int swapped1 = currentMatch.getAway().indexOfPlayer(awayOld.getValue().split("-")[1]);
+		int swapped2 = currentMatch.getAway().indexOfPlayer(awayNew.getValue().split("-")[1]);
+		// Swapping
+		Collections.swap(currentMatch.getAway().getPlayers(),swapped1,swapped2);
+		calibrateNamesAway();
+		if (swapped2 > 10) {
+			subCountAway--;
+			awaySubCount.setText("" + subCountAway);
+		}
+		if (subCountHome == 0) {
+			awayOld.setDisable(true);
+			awayNew.setDisable(true);
+			awayChanged.setDisable(true);
+		}
+		fillSubstituteAway();
 	}
+
+	public void fillSubstituteHome() {
+		homeOld.getItems().clear();
+		homeNew.getItems().clear();
+		for (int i = 0; i < 11; i++) {
+			homeOld.getItems()
+					.add(currentMatch.getHome().getPlayers().get(i).getPosition() + "-"
+							+ currentMatch.getHome().getPlayers().get(i).getName() + "-"
+							+ currentMatch.getHome().getPlayers().get(i).getOverall());
+		}
+		for (int i = 0; i < 20; i++) {
+			homeNew.getItems()
+					.add(currentMatch.getHome().getPlayers().get(i).getPosition() + "-"
+							+ currentMatch.getHome().getPlayers().get(i).getName() + "-"
+							+ currentMatch.getHome().getPlayers().get(i).getOverall());
+		}
+	}
+	public void fillSubstituteAway() {
+		awayOld.getItems().clear();
+		awayNew.getItems().clear();
+		for (int i = 0; i < 11; i++) {
+			awayOld.getItems()
+					.add(currentMatch.getAway().getPlayers().get(i).getPosition() + "-"
+							+ currentMatch.getAway().getPlayers().get(i).getName() + "-"
+							+ currentMatch.getAway().getPlayers().get(i).getOverall());
+		}
+		for (int i = 0; i < 20; i++) {
+			awayNew.getItems()
+					.add(currentMatch.getAway().getPlayers().get(i).getPosition() + "-"
+							+ currentMatch.getAway().getPlayers().get(i).getName() + "-"
+							+ currentMatch.getAway().getPlayers().get(i).getOverall());
+		}
+	}
+
+	ArrayList<Action> actions;
 
 	private double speed = 1;
-
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
@@ -243,6 +326,9 @@ public class MatchPlayController implements Initializable {
 				awayTactic.setDisable(true);
 				awayStyle.setDisable(true);
 				awayTempo.setDisable(true);
+				awayOld.setDisable(true);
+				awayNew.setDisable(true);
+				awayChanged.setDisable(true);
 			}
 
 			else {
@@ -255,15 +341,20 @@ public class MatchPlayController implements Initializable {
 				homeTactic.setDisable(true);
 				homeStyle.setDisable(true);
 				homeTempo.setDisable(true);
+				homeOld.setDisable(true);
+				homeNew.setDisable(true);
+				homeChanged.setVisible(true);
 			}
 
-			//File tactic = new File("img/tactics/" + home.getTactic() + "_" + home.getColor() + ".JPG");
+			// File tactic = new File("img/tactics/" + home.getTactic() + "_" +
+			// home.getColor() + ".JPG");
 			File tactic = new File("img/tactics/" + home.getTactic() + ".png");
 			System.out.println(tactic.toString());
 			Image tacticImage = new Image(tactic.toURI().toString(), 456, 454, false, false);
 			htacticField.setImage(tacticImage);
 
-			//File tactic2 = new File("img/tactics/" + away.getTactic() + "_" + away.getColor() + ".JPG");
+			// File tactic2 = new File("img/tactics/" + away.getTactic() + "_" +
+			// away.getColor() + ".JPG");
 			File tactic2 = new File("img/tactics/" + away.getTactic() + ".png");
 			Image tacticImage2 = new Image(tactic2.toURI().toString(), 456, 454, false, false);
 			atacticField.setImage(tacticImage2);
@@ -271,22 +362,23 @@ public class MatchPlayController implements Initializable {
 			calibrateNamesHome();
 			calibrateNamesAway();
 			/*
-			speedSlider.valueProperty().addListener(new ChangeListener<Number>() {
-	            public void changed(ObservableValue<? extends Number> ov, Number old_val, Number new_val) {
-                    doTime();
-            }
-	            });*/
-				
-			}
-			////////////////////////////////////////////////////////////////////////////////////////
-			doTime();
+			 * speedSlider.valueProperty().addListener(new ChangeListener<Number>() { public
+			 * void changed(ObservableValue<? extends Number> ov, Number old_val, Number
+			 * new_val) { doTime(); } });
+			 */
+			fillSubstituteHome();
+			fillSubstituteAway();
+
+		}
+		////////////////////////////////////////////////////////////////////////////////////////
+		doTime();
 	}
-	
+
 	@FXML
 	public void matchDone() throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("/view/GroupView.fxml"));
-		root.setScaleX(screenWidth/1400.0);
-		root.setScaleY(screenHeight/900.0);
+		root.setScaleX(screenWidth / 1400.0);
+		root.setScaleY(screenHeight / 900.0);
 		if (Main.isWindows()) {
 			root.setLayoutX(320);
 			root.setLayoutY(108);
@@ -298,52 +390,53 @@ public class MatchPlayController implements Initializable {
 		m.setFullScreen(true);
 		Main.setMainStage(m);
 	}
-	
+
 	public void doTime() {
 		Timeline timeline = new Timeline();
 		timeline.setCycleCount(Timeline.INDEFINITE);
-		System.out.println((speedSlider.getValue()+100));
-		KeyFrame frame = new KeyFrame(Duration.seconds(25/(speedSlider.getValue()/2+100)), new EventHandler<ActionEvent>() {
-			
-			@Override
-			public void handle(ActionEvent event) {
-				actions = new ArrayList<Action>();
-				if (!paused) {
-					seconds++;
-					label.setText(seconds.toString() + "'");
-					Action a = currentMatch.actionGenerator(seconds, ((int) (Math.random() * 100)));
-					if (a != null) {
-						actions.add(a);
-						System.out.println( "Minute: " + seconds + " " + currentMatch.getGoalHome() + " " + currentMatch.getGoalAway() );
-					}
-					if (actions != null)
-						updateActionView();
-					if (seconds > 89) {
-						timeline.stop();
-						int pointHome = -1;
-						int pointAway = -1;
-						if (currentMatch.getGoalHome() > currentMatch.getGoalAway()) {
-							pointHome = 3;
-							pointAway = 0;
-						}
-						else if (currentMatch.getGoalHome() < currentMatch.getGoalAway()) {
-							pointHome = 0;
-							pointAway = 3;
-						}
-						else {
-							pointHome = 1;
-							pointAway = 1;
-						}
-						System.out.println( currentMatch.getGoalHome() + " " + currentMatch.getGoalAway() + " " + pointHome + " " + pointAway );
-						currentMatch.setPointHome(pointHome);
-						currentMatch.setPointAway(pointAway);
-						t.getGroups()[t.getMyGroupId()].modifyGroupStatistics(currentMatch);
-						System.out.println("Match is over");
-					}
-				}
-			}
+		System.out.println((speedSlider.getValue() + 100));
+		KeyFrame frame = new KeyFrame(Duration.seconds(25 / (speedSlider.getValue() / 2 + 100)),
+				new EventHandler<ActionEvent>() {
 
-		});
+					@Override
+					public void handle(ActionEvent event) {
+						actions = new ArrayList<Action>();
+						if (!paused) {
+							seconds++;
+							label.setText(seconds.toString() + "'");
+							Action a = currentMatch.actionGenerator(seconds, ((int) (Math.random() * 100)));
+							if (a != null) {
+								actions.add(a);
+								System.out.println("Minute: " + seconds + " " + currentMatch.getGoalHome() + " "
+										+ currentMatch.getGoalAway());
+							}
+							if (actions != null)
+								updateActionView();
+							if (seconds > 89) {
+								timeline.stop();
+								int pointHome = -1;
+								int pointAway = -1;
+								if (currentMatch.getGoalHome() > currentMatch.getGoalAway()) {
+									pointHome = 3;
+									pointAway = 0;
+								} else if (currentMatch.getGoalHome() < currentMatch.getGoalAway()) {
+									pointHome = 0;
+									pointAway = 3;
+								} else {
+									pointHome = 1;
+									pointAway = 1;
+								}
+								System.out.println(currentMatch.getGoalHome() + " " + currentMatch.getGoalAway() + " "
+										+ pointHome + " " + pointAway);
+								currentMatch.setPointHome(pointHome);
+								currentMatch.setPointAway(pointAway);
+								t.getGroups()[t.getMyGroupId()].modifyGroupStatistics(currentMatch);
+								System.out.println("Match is over");
+							}
+						}
+					}
+
+				});
 		timeline.getKeyFrames().add(frame);
 		timeline.playFromStart();
 	}
@@ -394,7 +487,7 @@ public class MatchPlayController implements Initializable {
 		Team h = currentMatch.getHome();
 		h.setTempo(homeTempo.getValue());
 	}
-	
+
 	@FXML
 	public void awayTempoChanged() {
 		Team a = currentMatch.getAway();
@@ -406,13 +499,13 @@ public class MatchPlayController implements Initializable {
 		Team h = currentMatch.getHome();
 		h.setStyle(homeStyle.getValue());
 	}
-	
+
 	@FXML
 	public void awayStyleChanged() {
 		Team a = currentMatch.getHome();
 		a.setStyle(awayStyle.getValue());
 	}
-	
+
 	@FXML
 	public void calibrateNamesHome() {
 		Tournament current = Tournament.getInstance();
@@ -699,6 +792,21 @@ public class MatchPlayController implements Initializable {
 	@FXML
 	public void playClicked() {
 		paused = false;
+	}
+
+	/**
+	 * @return the speed
+	 */
+	public double getSpeed() {
+		return speed;
+	}
+
+	/**
+	 * @param speed
+	 *            the speed to set
+	 */
+	public void setSpeed(double speed) {
+		this.speed = speed;
 	}
 
 }

@@ -62,6 +62,18 @@ public class Team implements Serializable {
 				return true;
 		return false;
 	}
+	
+	public int indexOfPlayer(String name) {
+		int ind = -1;
+		for (int i = 0; i < players.size(); i++) {
+			if (players.get(i).getName().equals(name)) {
+				ind = i;
+				break;
+			}
+		}
+		return ind;
+	}
+	
 	/**
 	 * @return the name
 	 */

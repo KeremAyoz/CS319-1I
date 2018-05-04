@@ -57,8 +57,8 @@ public class Match implements Serializable{
 		this.referee = referee;
 		this.weather = weather;
 		this.actions = actions;
-		this.goalHome = 0;
-		this.goalAway = 0;
+		this.goalHome = -1;
+		this.goalAway = -1;
 		this.setDelay(false);
 	}
 
@@ -71,8 +71,8 @@ public class Match implements Serializable{
 		this.referee = referee;
 		this.weather = weather;
 		this.actions = actions;
-		this.goalHome = 0;
-		this.goalAway = 0;
+		this.goalHome = -1;
+		this.goalAway = -1;
 		this.setDelay(delay);
 	}
 	
@@ -153,6 +153,7 @@ public class Match implements Serializable{
 	}
 
 	public ArrayList<Action> matchSimulation() throws InterruptedException {
+		goalHome = goalAway = 0;
 		for( int i = 1 ; i <= MATCH_DURATION ; i++ ) {
 			if( delay ) {
 				TimeUnit.SECONDS.sleep(1);
@@ -303,6 +304,50 @@ public class Match implements Serializable{
 
 	public void setYear(int year) {
 		this.year = year;
+	}
+
+	public int getRANDOM_RANGE() {
+		return RANDOM_RANGE;
+	}
+
+	public int getMATCH_DURATION() {
+		return MATCH_DURATION;
+	}
+
+	public int getNUMBER_OF_PLAYERS() {
+		return NUMBER_OF_PLAYERS;
+	}
+
+	public int getPOINTS_WIN() {
+		return POINTS_WIN;
+	}
+
+	public int getPOINTS_DRAW() {
+		return POINTS_DRAW;
+	}
+
+	public int getPOINTS_LOSS() {
+		return POINTS_LOSS;
+	}
+
+	public int getRANDOM_GOAL() {
+		return RANDOM_GOAL;
+	}
+
+	public int getRANDOM_YELLOW() {
+		return RANDOM_YELLOW;
+	}
+
+	public int getRANDOM_RED() {
+		return RANDOM_RED;
+	}
+
+	public int getRANDOM_INJURY() {
+		return RANDOM_INJURY;
+	}
+
+	public int getRANDOM_TOTAL() {
+		return RANDOM_TOTAL;
 	}
 	
 }

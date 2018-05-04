@@ -172,11 +172,19 @@ public class GroupController implements Initializable {
 			homeName.setFont(Font.font("Gill Sans", FontWeight.SEMI_BOLD, 15));
 			matchesGrid.add(homeName, 0, i);
 			
-			Text awayName = new Text(cur.getMatches()[i].getHome().getName());
+			Text awayName = new Text(cur.getMatches()[i].getAway().getName());
 			awayName.setFont(Font.font("Gill Sans", FontWeight.SEMI_BOLD, 15));
 			matchesGrid.add(awayName, 2, i);
 			
-			Text score = new Text(cur.getMatches()[i].getGoalHome() + "-" + cur.getMatches()[i].getGoalHome());
+			String goalHomeText = "" , goalAwayText = "";
+			int goalHome = cur.getMatches()[i].getGoalHome();
+			int goalAway = cur.getMatches()[i].getGoalAway();
+			if( goalHome != -1 )
+				goalHomeText = Integer.toString(goalHome);
+			if( goalAway != -1 )
+				goalAwayText = Integer.toString(goalAway);
+			
+			Text score = new Text(goalHomeText + "-" + goalAwayText);
 			score.setFont(Font.font("Gill Sans", FontWeight.SEMI_BOLD, 15));
 			matchesGrid.add(score, 1, i);
 		}

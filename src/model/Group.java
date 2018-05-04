@@ -335,5 +335,57 @@ public class Group implements Serializable{
 	public int getMatchYear( int id ) {
 		return matches[id].getYear();
 	}
+
+	public int getTEAMS_PER_GROUP() {
+		return TEAMS_PER_GROUP;
+	}
+
+	public int getNUMBER_OF_STATS() {
+		return NUMBER_OF_STATS;
+	}
+
+	public int getNUMBER_OF_MATCHES() {
+		return NUMBER_OF_MATCHES;
+	}
+
+	public int getPOINTS_WIN() {
+		return POINTS_WIN;
+	}
+
+	public int getPOINTS_DRAW() {
+		return POINTS_DRAW;
+	}
+
+	public int getPOINTS_LOSS() {
+		return POINTS_LOSS;
+	}
+
+	public int getTOTAL_PLAYED() {
+		return TOTAL_PLAYED;
+	}
+
+	public int getTOTAL_WINS() {
+		return TOTAL_WINS;
+	}
+
+	public int getTOTAL_DRAWS() {
+		return TOTAL_DRAWS;
+	}
+
+	public int getTOTAL_LOSSES() {
+		return TOTAL_LOSSES;
+	}
+
+	public int getTOTAL_SCORED() {
+		return TOTAL_SCORED;
+	}
+
+	public int getTOTAL_CONCEDED() {
+		return TOTAL_CONCEDED;
+	}
+
+	public int getTOTAL_POINTS() {
+		return TOTAL_POINTS;
+	}
 	
 }

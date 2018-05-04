@@ -289,13 +289,30 @@ public class MatchPlayController implements Initializable {
 				currentMatchInfo = t.goNextDay();
 				currentMatch = currentMatchInfo.getKey();
 				currentMatchType = currentMatchInfo.getValue();
-			} while (currentMatch == null);
-			System.out.println(currentMatch.getHome().getName() + " -  " + currentMatch.getAway().getName());
-
+			} while (currentMatch == null && currentMatchType < 2);
+			if( currentMatchType < 2 )
+				System.out.println(currentMatch.getHome().getName() + " -  " + currentMatch.getAway().getName());
+			else
+				System.out.println("Tournament is finished");
+			
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
 
+		if( currentMatchType == 2 ) {
+			// WINNER
+			// Barca vs Real Madrid geliyor
+			System.out.println( "We Are The Champions" );
+			return;
+		}
+		
+		if( currentMatchType == 3 ) {
+			// LOSER
+			// Barca vs Real Madrid geliyor
+			System.out.println( "Losers' Club");
+			return;
+		}
+		
 		if (currentMatch == null) {
 			return;
 		}
@@ -396,6 +413,8 @@ public class MatchPlayController implements Initializable {
 	}
 
 	public void doTime() {
+		currentMatch.setGoalHome(0);
+		currentMatch.setGoalAway(0);
 		Timeline timeline = new Timeline();
 		timeline.setCycleCount(Timeline.INDEFINITE);
 		System.out.println((speedSlider.getValue() + 100));
@@ -420,13 +439,13 @@ public class MatchPlayController implements Initializable {
 								timeline.stop();
 								if(currentMatch.getHome() == t.getMyTeam()) {
 									System.out.println("Home");
-									currentMatch.setGoalHome(3);
-									currentMatch.setGoalAway(0);
+									currentMatch.setGoalHome(5);
+									currentMatch.setGoalAway(2);
 								}
 								else if(currentMatch.getAway() == t.getMyTeam()) {
 									System.out.println("Away");
-									currentMatch.setGoalAway(3);
-									currentMatch.setGoalHome(0);
+									currentMatch.setGoalAway(5);
+									currentMatch.setGoalHome(2);
 								}
 								else
 									System.out.println("!!! WTF !!!");
@@ -481,7 +500,6 @@ public class MatchPlayController implements Initializable {
 					scoreAway.setText(String.valueOf(Integer.parseInt(scoreAway.getText()) + 1));
 			}
 		}
-
 	}
 
 	@FXML

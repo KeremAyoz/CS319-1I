@@ -97,4 +97,21 @@ public class Elimination implements Serializable {
 	public void setKnockout(KnockoutTree knockout) {
 		this.knockout = knockout;
 	}
+
+	public int getNUMBER_OF_MATCHES() {
+		return NUMBER_OF_MATCHES;
+	}
+
+	public static int[] getEliminationMatchDays() {
+		return ELIMINATION_MATCH_DAYS;
+	}
+
+	public static int[] getEliminationMatchMonths() {
+		return ELIMINATION_MATCH_MONTHS;
+	}
+
+	public static int[] getEliminationMatchYears() {
+		return ELIMINATION_MATCH_YEARS;
+	}
+	
 }

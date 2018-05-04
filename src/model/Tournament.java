@@ -33,7 +33,7 @@ public class Tournament implements Serializable {
 	private int lastMatchId;
 	private int lastMatchWeek;
 
-	private boolean isEliminationStage;
+	private boolean statusEliminationStage;
 
 	private int myTeamLastMatchDay;
 	private int myTeamLastMatchMonth;
@@ -214,11 +214,11 @@ public class Tournament implements Serializable {
 	}
 
 	public void updateEliminationStage() {
-		if (isEliminationStage)
+		if (statusEliminationStage)
 			return;
 		if (!checkAllGroupMatchesFinished())
 			return;
-		isEliminationStage = true;
+		statusEliminationStage = true;
 		placeTeamsToElimination();
 	}
 
@@ -230,7 +230,16 @@ public class Tournament implements Serializable {
 		Match match = null;
 		updateEliminationStage();
 
-		if (isEliminationStage) {
+		Team champion = knockout.getKnockout().getTeams()[0];
+		
+		if( champion != null ) {
+			if( teams[myTeamId] == champion )
+				matchInfo = new Pair<Match, Integer>(null, 2);
+			else
+				matchInfo = new Pair<Match, Integer>(null, 3);
+		}
+		
+		else if (statusEliminationStage) {
 			int idMatch = knockout.getMatchId(currentDay, currentMonth, currentYear);
 			if(idMatch == -1) {
 				passTomorrow();
@@ -459,7 +468,7 @@ public class Tournament implements Serializable {
 		instance.myTeamLastMatchMonth = -1;
 		instance.myTeamLastMatchYear = -1;
 
-		instance.isEliminationStage = false;
+		instance.statusEliminationStage = false;
 
 		for (int i = 0; i < NUMBER_OF_GROUPS; i++) {
 			instance.groups[i].setMatchCalendarOrder();
@@ -665,12 +674,12 @@ public class Tournament implements Serializable {
 		this.lastMatchWeek = lastMatchWeek;
 	}
 	
-	public boolean getIsEliminationStage() {
-		return isEliminationStage;
+	public boolean getStatusEliminationStage() {
+		return statusEliminationStage;
 	}
 
-	public void setIsEliminationStage(boolean isEliminationStage) {
-		this.isEliminationStage = isEliminationStage;
+	public void setStatusEliminationStage(boolean statusEliminationStage) {
+		this.statusEliminationStage = statusEliminationStage;
 	}
 
 	public int getMyTeamLastMatchDay() {
@@ -711,6 +720,74 @@ public class Tournament implements Serializable {
 
 	public static int[] getGroupMatchYears() {
 		return GROUP_MATCH_YEARS;
+	}
+
+	public static int getInitialDay() {
+		return INITIAL_DAY;
+	}
+
+	public static int getInitialMonth() {
+		return INITIAL_MONTH;
+	}
+
+	public static int getInitialYear() {
+		return INITIAL_YEAR;
+	}
+
+	public static int getTop5() {
+		return TOP5;
+	}
+
+	public static int getNumberOfStats() {
+		return NUMBER_OF_STATS;
+	}
+
+	public static int getMidSeasonWeek() {
+		return MID_SEASON_WEEK;
+	}
+
+	public static int getTeamsPerGroup() {
+		return TEAMS_PER_GROUP;
+	}
+
+	public static int getNumberOfGroups() {
+		return NUMBER_OF_GROUPS;
+	}
+
+	public static int getNumberOfTeams() {
+		return NUMBER_OF_TEAMS;
+	}
+
+	public static int getNumberOfPlayers() {
+		return NUMBER_OF_PLAYERS;
+	}
+
+	public static int getMatchesPerGroup() {
+		return MATCHES_PER_GROUP;
+	}
+
+	public static int getNumberOfMyGroupMatches() {
+		return NUMBER_OF_MY_GROUP_MATCHES;
+	}
+
+	public int getPOINTS_WIN() {
+		return POINTS_WIN;
+	}
+
+	public int getPOINTS_DRAW() {
+		return POINTS_DRAW;
+	}
+
+	public int getPOINTS_LOSS() {
+		return POINTS_LOSS;
+	}
+
+	public static int getTotalMonths() {
+		return TOTAL_MONTHS;
+	}
+
+	public static int[] getDaysMonth() {
+		return DAYS_MONTH;
 	}
 	
 }

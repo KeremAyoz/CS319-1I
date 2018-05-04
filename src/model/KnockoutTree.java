@@ -165,4 +165,12 @@ public class KnockoutTree implements Serializable {
 		this.matches = matches;
 	}
 
+	public int getTEAM_SIZE() {
+		return TEAM_SIZE;
+	}
+
+	public int getMATCH_SIZE() {
+		return MATCH_SIZE;
+	}
+
 }

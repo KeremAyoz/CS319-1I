@@ -34,5 +34,13 @@ public class Database {
 		oos.writeObject( tournament );
 		oos.close();
 	}
+
+	public static String getNewFileName() {
+		return NEW_FILE_NAME;
+	}
+
+	public static String getCurrentFileName() {
+		return CURRENT_FILE_NAME;
+	}
 	
 }

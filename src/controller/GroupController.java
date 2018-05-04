@@ -167,26 +167,31 @@ public class GroupController implements Initializable {
 		char c = group.charAt(0);
 		int num = (int) c - 65;
 		Group cur = Tournament.getInstance().getGroups()[num];
+		int space = 0;
 		for (int i = 0; i < cur.getMatches().length; i++) {
+			if ((i+space+1)%3 == 0)
+				space++;
 			Text homeName = new Text(cur.getMatches()[i].getHome().getName());
 			homeName.setFont(Font.font("Gill Sans", FontWeight.SEMI_BOLD, 15));
-			matchesGrid.add(homeName, 0, i);
-			
+			matchesGrid.add(homeName, 0, i+space);
+
 			Text awayName = new Text(cur.getMatches()[i].getAway().getName());
 			awayName.setFont(Font.font("Gill Sans", FontWeight.SEMI_BOLD, 15));
-			matchesGrid.add(awayName, 2, i);
-			
-			String goalHomeText = "" , goalAwayText = "";
+			matchesGrid.add(awayName, 2, i+space);
+
+			String goalHomeText = "", goalAwayText = "";
 			int goalHome = cur.getMatches()[i].getGoalHome();
 			int goalAway = cur.getMatches()[i].getGoalAway();
-			if( goalHome != -1 )
+			if (goalHome != -1)
 				goalHomeText = Integer.toString(goalHome);
-			if( goalAway != -1 )
+			if (goalAway != -1)
 				goalAwayText = Integer.toString(goalAway);
-			
+
 			Text score = new Text(goalHomeText + "-" + goalAwayText);
 			score.setFont(Font.font("Gill Sans", FontWeight.SEMI_BOLD, 15));
-			matchesGrid.add(score, 1, i);
+			matchesGrid.add(score, 1, i+space);
+			
+			
 		}
 	}
 

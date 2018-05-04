@@ -220,6 +220,11 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                   </GridPane>
                   <Text fill="#8a0707" layoutX="561.0" layoutY="665.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Schedule and Results">
@@ -228,6 +233,11 @@
                      </font>
                   </Text>
                   <Line endX="775.0" layoutX="613.0" layoutY="601.0" startX="-625.0" />
+                  <Text layoutX="294.0" layoutY="729.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Week 1">
+                     <font>
+                        <Font name="Calibri" size="24.0" />
+                     </font>
+                  </Text>
                </children>
             </AnchorPane>
         </content>

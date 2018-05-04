@@ -90,6 +90,32 @@ public class CalendarController implements Initializable {
 						}
 					}
 				}
+				if( tour.getStatusEliminationStage() ) {
+					for( int i = 0 ; i < tour.getKnockout().getNUMBER_OF_MATCHES() && !matchVar ; i++ ) {
+						String matchDay = tour.getKnockout().getEliminationMatchYears()[i] + "-";
+						if(tour.getKnockout().getEliminationMatchMonths()[i] < 10)
+							matchDay += "0";
+						matchDay += "" + tour.getKnockout().getEliminationMatchMonths()[i] + "-";
+						if(tour.getKnockout().getEliminationMatchDays()[i] < 10)
+							matchDay += "0";
+						matchDay += "" + tour.getKnockout().getEliminationMatchDays()[i];
+						if(currentDay.equals(matchDay)) {
+							Match m = tour.getKnockout().getKnockout().getMatches()[i];
+							if(m.getHome() == null || m.getAway() == null)
+								break;
+							// Opponent is away
+							if (m.getHome().getName().equals(tour.getTeams()[tour.getMyTeamId()].getName())) {
+								opponent = m.getAway();
+								matchVar = true;
+							}
+							// Opponent is home
+							else if (m.getAway().getName().equals(tour.getTeams()[tour.getMyTeamId()].getName())) {
+								opponent = m.getHome();
+								matchVar = true;
+							}
+						}
+					}
+				}
 				if (matchVar) {
 					String st = opponent.getName().toLowerCase().trim();
 					st = st.replaceAll("\\s+", "");

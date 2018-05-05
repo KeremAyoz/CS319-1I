@@ -26,7 +26,13 @@ public class HelpController implements Initializable{
 		Parent root = FXMLLoader.load(getClass().getResource("/view/HomeScreen.fxml"));
 		root.setScaleX(screenWidth/1400.0);
 		root.setScaleY(screenHeight/900.0);
-		root.setLayoutX(20);
+		if (Main.isWindows()) {
+			root.setLayoutX(360);
+			root.setLayoutY(108);
+		}
+		if (Main.isMacos()) {
+			root.setLayoutX(20);
+		}
 		Stage m = Main.getMainStage();
 		Scene t = Main.getMainStage().getScene();
 		t.setRoot(root);

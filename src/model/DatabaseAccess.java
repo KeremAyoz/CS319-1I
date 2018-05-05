@@ -31,7 +31,7 @@ public class DatabaseAccess {
 		players.add(new Player("Alba", 30, 180, 70, "France", "LB", 86, 'R', 5000000, 55000000, true,
 				getAttributes(), actions));
 		// CM
-		players.add(new Player("Rakitic", 30, 180, 70, "Crotia", "CM", 86, 'R', 6500000, 25000000, true,
+		players.add(new Player("Rakitic", 30, 180, 70, "Croatia", "CM", 86, 'R', 6500000, 25000000, true,
 				getAttributes(), actions));
 		// CM
 		players.add(new Player("Busquets", 30, 180, 70, "Spain", "CM", 87, 'R', 5500000, 30000000,
@@ -238,7 +238,7 @@ public class DatabaseAccess {
 		// President
 		President president = new President("El Khalafi", 71, 180, 70, "Quatar");
 		// Team
-		Team team = new Team("Paris Saint Germain", "blue", "4-3-3", "Parc de Prince", "PSG", "France", "PSG", 5.0,
+		Team team = new Team("Paris Saint Germain", "blue", "4-3-3", "Parc de Prince", "Les Parisiens", "France", "PSG", 5.0,
 				"Attack", "Fast", manager, president, players);
 		return team;
 	}
@@ -455,7 +455,7 @@ public class DatabaseAccess {
 		players.add(new Player("Moses", 30, 180, 70, "Nigeria", "LB", 75, 'R', 1700000, 2000000, true,
 				getAttributes(), actions));
 		// SUB7
-		players.add(new Player("Osvaldo", 30, 180, 70, "Italia", "CM", 79, 'R', 1500000, 2000000, true,
+		players.add(new Player("Osvaldo", 30, 180, 70, "Italy", "CM", 79, 'R', 1500000, 2000000, true,
 				getAttributes(), actions));
 		// SUB8
 		players.add(new Player("Marega", 30, 180, 70, "Ghana", "ST", 79, 'R', 1000000, 7500000, true,
@@ -469,7 +469,7 @@ public class DatabaseAccess {
 		// President
 		President president = new President("Reyes", 71, 180, 70, "Portugal");
 		// Team
-		Team team = new Team("FC Porto", "blue", "4-3-3", "Estadio do Dragao", "Porto Kings", "Portugal", "POR", 5.0,
+		Team team = new Team("FC Porto", "blue", "4-3-3", "Estadio do Dragao", "Dragões", "Portugal", "POR", 5.0,
 				"Attack", "Fast", manager, president, players);
 		return team;
 	}
@@ -517,7 +517,7 @@ public class DatabaseAccess {
 		players.add(new Player("Skorupski", 30, 180, 70, "Argentina", "GK", 79, 'R', 2000000, 5000000, true,
 				getAttributes(), actions));
 		// SUB2
-		players.add(new Player("Karsdrop", 30, 180, 70, "Polonia", "RB", 77, 'R', 1500000, 7000000, true,
+		players.add(new Player("Karsdrop", 30, 180, 70, "Poland", "RB", 77, 'R', 1500000, 7000000, true,
 				getAttributes(), actions));
 		// SUB3
 		players.add(new Player("Shaarawy", 30, 180, 70, "Egypt", "LW", 78, 'R', 2200000, 9000000, true,
@@ -580,7 +580,7 @@ public class DatabaseAccess {
 		players.add(new Player("Tousart", 30, 180, 70, "France", "CM", 77, 'R', 900000, 7000000, true,
 				getAttributes(), actions));
 		// RW
-		players.add(new Player("Traore", 30, 180, 70, "Burkina Faso", "RW", 78, 'R', 2300000, 14000000, true,
+		players.add(new Player("Traore", 30, 180, 70, "Burkinafaso", "RW", 78, 'R', 2300000, 14000000, true,
 				getAttributes(), actions));
 		// ST
 		players.add(new Player("Fekir", 30, 180, 70, "France", "ST", 82, 'R', 2500000, 19000000, true,
@@ -642,7 +642,7 @@ public class DatabaseAccess {
 		players.add(new Player("Bender", 30, 180, 70, "Germany", "CB", 81, 'R', 1000000, 8000000, true,
 				getAttributes(), actions));
 		// CB
-		players.add(new Player("Jedvaj", 30, 180, 70, "Crotia", "CB", 79, 'R', 1600000, 9000000, true,
+		players.add(new Player("Jedvaj", 30, 180, 70, "Croatia", "CB", 79, 'R', 1600000, 9000000, true,
 				getAttributes(), actions));
 		// LB
 		players.add(new Player("Wendell", 30, 180, 70, "Brazil", "LB", 78, 'R', 1800000, 9000000, true,
@@ -654,7 +654,7 @@ public class DatabaseAccess {
 		players.add(new Player("Bender", 30, 180, 70, "Germany", "CM", 78, 'R', 1500000, 6000000, true,
 				getAttributes(), actions));
 		// CM
-		players.add(new Player("Yurchenko", 30, 180, 70, "Ukranie", "CM", 77, 'R', 1000000, 5000000, true,
+		players.add(new Player("Yurchenko", 30, 180, 70, "Ukraine", "CM", 77, 'R', 1000000, 5000000, true,
 				getAttributes(), actions));
 		// RW
 		players.add(new Player("Bellerabi", 30, 180, 70, "Germany", "RW", 77, 'R', 2700000, 14000000, true,
@@ -683,7 +683,7 @@ public class DatabaseAccess {
 		players.add(new Player("Pohjanpalo", 30, 180, 70, "Finland", "ST", 78, 'R', 1500000, 6000000, true,
 				getAttributes(), actions));
 		// SUB6
-		players.add(new Player("Brasnic", 30, 180, 70, "Crotia", "CM", 73, 'R', 1700000, 2000000, true,
+		players.add(new Player("Brasnic", 30, 180, 70, "Croatia", "CM", 73, 'R', 1700000, 2000000, true,
 				getAttributes(), actions));
 		// SUB7
 		players.add(new Player("Baumgartlinger", 30, 180, 70, "Austria", "CM", 73, 'R', 1500000, 7000000,
@@ -700,7 +700,7 @@ public class DatabaseAccess {
 		// President
 		President president = new President("Genesio", 71, 180, 70, "Portugal");
 		// Team
-		Team team = new Team("Bayer Leverkusen", "black", "4-3-3", "Bay Arena", "Bayer Lions", "Germany", "LEV", 5.0,
+		Team team = new Team("Bayer Leverkusen", "black", "4-3-3", "Bay Arena", "Die Werkself", "Germany", "LEV", 5.0,
 				"Attack", "Fast", manager, president, players);
 		return team;
 	}
@@ -854,7 +854,7 @@ public class DatabaseAccess {
 		// President
 		President president = new President("Sergio", 71, 180, 70, "Portugal");
 		// Team
-		Team team = new Team("SLBenfica", "red", "4-3-3", "Estadio da Luz", "Eagles", "Portugal", "BEN", 5.0,
+		Team team = new Team("SLBenfica", "red", "4-3-3", "Estadio da Luz", "As Águias", "Portugal", "BEN", 5.0,
 				"Attack", "Fast", manager, president, players);
 		return team;
 	}
@@ -867,7 +867,7 @@ public class DatabaseAccess {
 		players.add(new Player("Donnarumma", 30, 180, 70, "Germany", "GK", 85, 'R', 3500000, 24000000, true,
 				getAttributes(), actions));
 		// RB
-		players.add(new Player("Conti", 30, 180, 70, "Italia", "RB", 79, 'R', 1500000, 7000000, true,
+		players.add(new Player("Conti", 30, 180, 70, "Italy", "RB", 79, 'R', 1500000, 7000000, true,
 				getAttributes(), actions));
 		// CB
 		players.add(new Player("Zapata", 30, 180, 70, "Ecuador", "CB", 78, 'R', 2000000, 1100000, true,
@@ -894,7 +894,7 @@ public class DatabaseAccess {
 		players.add(new Player("Silva", 30, 180, 70, "Portugal", "ST", 82, 'R', 2600000, 11000000, true,
 				getAttributes(), actions));
 		// LW
-		players.add(new Player("Kalinic", 30, 180, 70, "Crotia", "LW", 83, 'R', 3500000, 15000000, true,
+		players.add(new Player("Kalinic", 30, 180, 70, "Croatia", "LW", 83, 'R', 3500000, 15000000, true,
 				getAttributes(), actions));
 		
 		// Subs
@@ -1046,7 +1046,7 @@ public class DatabaseAccess {
 		players.add(new Player("Promes", 30, 180, 70, "Netherlands", "RW", 83, 'R', 3000000, 10000000, true,
 				getAttributes(), actions));
 		// ST
-		players.add(new Player("Nimely", 30, 180, 70, "Maleysia", "ST", 79, 'R', 1900000, 10000000, true,
+		players.add(new Player("Nimely", 30, 180, 70, "Malaysia", "ST", 79, 'R', 1900000, 10000000, true,
 				getAttributes(), actions));
 		// LW
 		players.add(new Player("Kozlov", 30, 180, 70, "Russia", "LW", 80, 'R', 1700000, 10000000, true,
@@ -1111,7 +1111,7 @@ public class DatabaseAccess {
 		players.add(new Player("Coentrao", 30, 180, 70, "Portugal", "LB", 79, 'R', 1800000, 7500000, true,
 				getAttributes(), actions));
 		// CM
-		players.add(new Player("Ruiz", 30, 180, 70, "Costa Rica", "CM", 81, 'R', 1100000, 2000000, true,
+		players.add(new Player("Ruiz", 30, 180, 70, "CostaRica", "CM", 81, 'R', 1100000, 2000000, true,
 				getAttributes(), actions));
 		// CM
 		players.add(new Player("Battaglia", 30, 180, 70, "Argentina", "CM", 82, 'R', 1400000, 6500000, true,
@@ -1179,10 +1179,10 @@ public class DatabaseAccess {
 		players.add(new Player("Clyne", 30, 180, 70, "England", "RB", 81, 'R', 1800000, 12000000,
 				true, getAttributes(), actions));
 		// CB
-		players.add(new Player("Dijk", 30, 180, 70, "Nederlands", "CB", 84, 'R', 3200000, 65000000,
+		players.add(new Player("Dijk", 30, 180, 70, "Netherlands", "CB", 84, 'R', 3200000, 65000000,
 				true, getAttributes(), actions));
 		// CB
-		players.add(new Player("Lovren", 30, 180, 70, "Crotia", "CB", 82, 'R', 2500000, 13000000, true,
+		players.add(new Player("Lovren", 30, 180, 70, "Croatia", "CB", 82, 'R', 2500000, 13000000, true,
 				getAttributes(), actions));
 		// LB
 		players.add(new Player("Moreno", 30, 180, 70, "England", "LB", 79, 'R', 1600000, 8000000,
@@ -1250,7 +1250,7 @@ public class DatabaseAccess {
 		ArrayList<Action> actions = new ArrayList<Action>();
 		
 		// GK
-		players.add(new Player("Navas", 30, 180, 70, "Costa Rica", "GK", 86, 'R', 2000000, 13000000,
+		players.add(new Player("Navas", 30, 180, 70, "CostaRica", "GK", 86, 'R', 2000000, 13000000,
 				true, getAttributes(), actions));
 		// RB
 		players.add(new Player("Carvajal", 30, 180, 70, "Spain", "RB", 82, 'R', 1900000, 19000000,
@@ -1265,7 +1265,7 @@ public class DatabaseAccess {
 		players.add(new Player("Marcelo", 30, 180, 70, "Brazil", "LB", 88, 'R', 3000000, 70000000, true,
 				getAttributes(), actions));
 		// CM
-		players.add(new Player("Modric", 30, 180, 70, "Crotia", "CM", 88, 'R', 5000000, 50000000, true,
+		players.add(new Player("Modric", 30, 180, 70, "Croatia", "CM", 88, 'R', 5000000, 50000000, true,
 				getAttributes(), actions));
 		// CM
 		players.add(new Player("Asensio", 30, 180, 70, "Spain", "CM", 86, 'R', 4000000, 60000000, true,
@@ -1309,7 +1309,7 @@ public class DatabaseAccess {
 		players.add(new Player("Isco", 30, 180, 70, "Spain", "CM", 85, 'R', 5000000, 50000000, true,
 				getAttributes(), actions));
 		// SUB9
-		players.add(new Player("Kovacic", 30, 180, 70, "Crotia", "CM", 83, 'R', 3000000, 20000000, true,
+		players.add(new Player("Kovacic", 30, 180, 70, "Croatia", "CM", 83, 'R', 3000000, 20000000, true,
 				getAttributes(), actions));
 		
 		// Manager
@@ -1317,7 +1317,7 @@ public class DatabaseAccess {
 		// President
 		President president = new President("Florentino Perez", 71, 180, 70, "Spain");
 		// Team
-		Team team = new Team("Real Madrid", "purple", "4-3-3", "Santiago Bernabeu", "Los Galacticos", "Spain", "RMC", 5.0,
+		Team team = new Team("Real Madrid", "purple", "4-3-3", "Santiago Bernabeu", "Merengues", "Spain", "RMC", 5.0,
 				"Attack", "Fast", manager, president, players);
 		return team;
 	}
@@ -1396,8 +1396,8 @@ public class DatabaseAccess {
 		// President
 		President president = new President("Reinhard Rauball", 71, 175, 70, "Germany");
 		// Team
-		Team team = new Team("Borussia Dortmund", "yellow", "4-4-2", "Westfalen", "Der BVB", "Germany",
-				"Blaugranes or Azulgranas", 5.0, "Attack", "Fast", manager, president, players);
+		Team team = new Team("Borussia Dortmund", "yellow", "4-4-2", "Westfalen", "Die Schwarz-Gelben", "Germany",
+				"BVB", 5.0, "Attack", "Fast", manager, president, players);
 		return team;
 	}
 
@@ -1433,7 +1433,7 @@ public class DatabaseAccess {
 		players.add(new Player("Musa", 27, 179, 70, "Nigeria", "RW", 82, 'R', 3000000, 14000000, true,
 				getAttributes(), actions));
 		// ST
-		players.add(new Player("Vitinho", 24, 178, 70, "Brasil", "ST", 83, 'R', 2000000, 11000000, true,
+		players.add(new Player("Vitinho", 24, 178, 70, "Brazil", "ST", 83, 'R', 2000000, 11000000, true,
 				getAttributes(), actions));
 		// LW
 		players.add(new Player("Milanov", 19, 180, 70, "Bulgaria", "LW", 78, 'R', 1500000, 7000000,
@@ -1446,7 +1446,7 @@ public class DatabaseAccess {
 		players.add(new Player("Ignashevich", 31, 184, 70, "Russia", "CB", 74, 'R', 1500000, 4500000,
 				true, getAttributes(), actions));
 		// SUB3
-		players.add(new Player("Bistrovic", 35, 189, 70, "Cratia", "CM", 72, 'R', 1200000, 1000000,
+		players.add(new Player("Bistrovic", 35, 189, 70, "Croatia", "CM", 72, 'R', 1200000, 1000000,
 				true, getAttributes(), actions));
 		// SUB4
 		players.add(new Player("Golovin", 26, 180, 70, "Russia", "CM", 73, 'R', 1500000, 3500000,
@@ -1471,7 +1471,7 @@ public class DatabaseAccess {
 		// President
 		President president = new President("Andrey Vatutin", 71, 175, 70, "Russia");
 		// Team
-		Team team = new Team("CSKA Moscow", "red", "4-4-2", "VEB Arena", "Armeitsy", "Russia", "Koni ", 5.0, "Attack",
+		Team team = new Team("CSKA Moscow", "red", "4-4-2", "VEB Arena", "Armeitsy", "Russia", "CSK ", 5.0, "Attack",
 				"Fast", manager, president, players);
 		return team;
 	}
@@ -1684,7 +1684,7 @@ public class DatabaseAccess {
 		players.add(new Player("Zielinski", 28, 185, 70, "Poland", "CM", 79, 'R', 1800000, 8000000,
 				true, getAttributes(), actions));
 		// SUB6
-		players.add(new Player("Rog", 26, 178, 70, "Cratia", "CM", 78, 'R', 1500000, 7500000,
+		players.add(new Player("Rog", 26, 178, 70, "Croatia", "CM", 78, 'R', 1500000, 7500000,
 				true, getAttributes(), actions));
 		// SUB7
 		players.add(new Player("Milik", 23, 185, 70, "Poland", "ST", 83, 'R', 2200000, 14000000,
@@ -1701,7 +1701,7 @@ public class DatabaseAccess {
 		// President
 		President president = new President("Aurelio De Laurentiis", 68, 175, 70, "Italy");
 		// Team
-		Team team = new Team("Napoli", "blue", "4-4-2", "Stadio San Paolo", "The Little Donkeys", "Italy", "__",
+		Team team = new Team("Napoli", "blue", "4-4-2", "Stadio San Paolo", "Partenopei", "Italy", "__",
 				5.0, "Attack", "Fast", manager, president, players);
 		return team;
 	}
@@ -1746,7 +1746,7 @@ public class DatabaseAccess {
 		
 		// Subs
 		// SUB1
-		players.add(new Player("Room", 29, 185, 70, "Curacao", "GK", 76, 'R', 1000000, 300000, true,
+		players.add(new Player("Room", 29, 185, 70, "Netherlands", "GK", 76, 'R', 1000000, 300000, true,
 				getAttributes(), actions));
 		// SUB2
 		players.add(new Player("Schwaab", 29, 185, 70, "Germany", "RB", 73, 'R', 1200000, 2500000,
@@ -1778,7 +1778,7 @@ public class DatabaseAccess {
 		// President
 		President president = new President("Jan Albers", 68, 175, 70, "Netherlands");
 		// Team
-		Team team = new Team("PSV Eindhoven", "red", "4-4-2", "Philips Stadion", "Boeren", "Netherlands", "__", 5.0,
+		Team team = new Team("PSV Eindhoven", "red", "4-4-2", "Philips Stadion", "Boeren", "Netherlands", "PSV", 5.0,
 				"Attack", "Fast", manager, president, players);
 		return team;
 	}
@@ -1856,7 +1856,7 @@ public class DatabaseAccess {
 		President president = new President("Sergey Fursenko", 68, 175, 70, "Russia");
 		// Team
 		Team team = new Team("Zenit", "blue", "4-4-2", "Petrovski Stadium",
-				"The Anti-aircraft Gunners", "Russia", "The Blue-White-Sky Blues", 5.0, "Attack", "Fast", manager,
+				"The Anti-aircraft Gunners", "Russia", "ZEN", 5.0, "Attack", "Fast", manager,
 				president, players);
 		return team;
 	}
@@ -1933,8 +1933,8 @@ public class DatabaseAccess {
 		// President
 		President president = new President("Uli Hoeneß", 68, 175, 70, "Germany");
 		// Team
-		Team team = new Team("Bayern Munchen", "red", "4-4-2", "Allianz Arena", "Die Bayern", "Germany",
-				"FC Hollywood", 5.0, "Attack", "Fast", manager, president, players);
+		Team team = new Team("Bayern Munchen", "red", "4-4-2", "Allianz Arena", "The Reds", "Germany",
+				"BMU", 5.0, "Attack", "Fast", manager, president, players);
 		return team;
 	}
 
@@ -2002,7 +2002,7 @@ public class DatabaseAccess {
 		players.add(new Player("Gameiro", 30, 183, 70, "France", "ST", 81, 'R', 3500000, 14000000, true,
 				getAttributes(), actions));
 		// SUB9
-		players.add(new Player("Vrsaljko", 25, 175, 70, "Cratia", "RB", 83, 'R', 3000000, 29000000, true,
+		players.add(new Player("Vrsaljko", 25, 175, 70, "Croatia", "RB", 83, 'R', 3000000, 29000000, true,
 				getAttributes(), actions));
 		
 		// Manager
@@ -2010,8 +2010,8 @@ public class DatabaseAccess {
 		// President
 		President president = new President("Enrique Cerezo", 70, 175, 70, "Spain");
 		// Team
-		Team team = new Team("Atletico Madrid", "red", "4-4-2", "Vicente Calderon", "The Red-and-Whites", "Spain",
-				"Atlético Atleti", 5.0, "Attack", "Fast", manager, president, players);
+		Team team = new Team("Atletico Madrid", "red", "4-4-2", "Vicente Calderon", "Los Colchoneros", "Spain",
+				"ATM", 5.0, "Attack", "Fast", manager, president, players);
 		return team;
 	}
 
@@ -2035,7 +2035,7 @@ public class DatabaseAccess {
 		players.add(new Player("Dalbert", 23, 188, 70, "Brazil", "LB", 81, 'R', 1800000, 9000000, true,
 				getAttributes(), actions));
 		// CM
-		players.add(new Player("Brozovic", 28, 180, 70, "Crotia", "CM", 82, 'R', 2400000,
+		players.add(new Player("Brozovic", 28, 180, 70, "Croatia", "CM", 82, 'R', 2400000,
 				21000000, true, getAttributes(), actions));
 		// CM
 		players.add(new Player("Rafinha", 23, 165, 70, "Brazil", "CM", 81, 'R', 1650000, 13000000, true,
@@ -2050,7 +2050,7 @@ public class DatabaseAccess {
 		players.add(new Player("Icardi", 27, 185, 70, "Argentina", "ST", 86, 'R', 4500000, 90000000,
 				true, getAttributes(), actions));
 		// LW
-		players.add(new Player("Perisic", 22, 173, 70, "Crotia", "LW", 85, 'R', 2900000, 40000000, true,
+		players.add(new Player("Perisic", 22, 173, 70, "Croatia", "LW", 85, 'R', 2900000, 40000000, true,
 				getAttributes(), actions));
 		
 		// Subs
@@ -2088,7 +2088,7 @@ public class DatabaseAccess {
 		President president = new President("Erick Thohir", 47, 175, 70, "Indonesia");
 		// Team
 		Team team = new Team("Inter Milan", "blue", "4-4-2", "San Siro Stadium", "The Black and Blues", "Italy",
-				"The Big Grass Snake", 5.0, "Attack", "Fast", manager, president, players);
+				"INT", 5.0, "Attack", "Fast", manager, president, players);
 		return team;
 	}
 
@@ -2164,8 +2164,8 @@ public class DatabaseAccess {
 		// President
 		President president = new President("Aziz Yıldırım", 47, 175, 70, "Turkey");
 		// Team
-		Team team = new Team("Fenerbahce", "yellow", "4-4-2", "Ülker Stadyumu", "Yellow and Navy Blue", "Turkey",
-				"Sarı Kanaryalar", 5.0, "Attack", "Fast", manager, president, players);
+		Team team = new Team("Fenerbahce", "yellow", "4-4-2", "Ülker Stadyumu", "Sarı Kanaryalar", "Turkey",
+				"FEN", 5.0, "Attack", "Fast", manager, president, players);
 		return team;
 	}
 
@@ -2198,7 +2198,7 @@ public class DatabaseAccess {
 		players.add(new Player("Wanyama", 22, 188, 70, "Kenya", "CM", 84, 'R', 3500000, 15000000, true,
 				getAttributes(), actions));
 		// RW
-		players.add(new Player("Son", 27, 179, 70, "South Korea", "RW", 87, 'R', 2900000, 27000000, true,
+		players.add(new Player("Son", 27, 179, 70, "SouthKorea", "RW", 87, 'R', 2900000, 27000000, true,
 				getAttributes(), actions));
 		// ST
 		players.add(new Player("Kane", 20, 183, 70, "England", "ST", 89, 'R', 4800000, 80000000, true,
@@ -2241,8 +2241,8 @@ public class DatabaseAccess {
 		// President
 		President president = new President("Daniel Levy", 47, 175, 70, "England");
 		// Team
-		Team team = new Team("Tottenham Hotspur", "blue", "4-4-2", "Wembley Stadium", "The Lillywhites",
-				"United Kingdom", "Spurs", 5.0, "Attack", "Fast", manager, president, players);
+		Team team = new Team("Tottenham Hotspur", "blue", "4-4-2", "Wembley Stadium", "Spurs",
+				"United Kingdom", "TOT", 5.0, "Attack", "Fast", manager, president, players);
 		return team;
 	}
 
@@ -2306,7 +2306,7 @@ public class DatabaseAccess {
 		players.add(new Player("Bernardeschi", 21, 185, 70, "Italy", "RW", 81, 'R', 2300000, 15000000, true,
 				getAttributes(), actions));
 		// SUB8
-		players.add(new Player("Mandzukic", 30, 183, 70, "Crotia", "ST", 84, 'R', 2600000,
+		players.add(new Player("Mandzukic", 30, 183, 70, "Croatia", "ST", 84, 'R', 2600000,
 				15000000, true, getAttributes(), actions));
 		// SUB9
 		players.add(new Player("Höwedes", 25, 175, 70, "Germany", "CB", 79, 'R', 2800000, 8000000,
@@ -2317,8 +2317,8 @@ public class DatabaseAccess {
 		// President
 		President president = new President(" Agnelli", 50, 175, 70, "Italy");
 		// Team
-		Team team = new Team("Juventus", "black", "4-4-2", "Juventus Stadium", "The Lillywhites", "Italy",
-				"Zebre", 5.0, "Attack", "Fast", manager, president, players);
+		Team team = new Team("Juventus", "black", "4-4-2", "Juventus Stadium", "La Vecchia Signora", "Italy",
+				"JUV", 5.0, "Attack", "Fast", manager, president, players);
 		return team;
 	}
 
@@ -2393,8 +2393,8 @@ public class DatabaseAccess {
 		// President
 		President president = new President("Dmitry Rybolovlev", 51, 175, 70, "Russia");
 		// Team
-		Team team = new Team("AS Monaco", "red", "4-4-2", "Stade Louis II", "The Lillywhites", "France",
-				"The Monégasques", 5.0, "Attack", "Fast", manager, president, players);
+		Team team = new Team("AS Monaco", "red", "4-4-2", "Stade Louis II", "Les Rouges et Blancs", "France",
+				"MON", 5.0, "Attack", "Fast", manager, president, players);
 		return team;
 	}
 	
@@ -2472,7 +2472,7 @@ public class DatabaseAccess {
 		President president = new President("Hennie Henrichs", 51, 175, 70, "Netherlands");
 		// Team
 		Team team = new Team("AFC Ajax", "red", "4-4-2", "Amsterdam Arena", "Goedenzonen", "Netherlands",
-				"Lucky Ajax", 5.0, "Attack", "Fast", manager, president, players);
+				"AJA", 5.0, "Attack", "Fast", manager, president, players);
 
 		return team;
 

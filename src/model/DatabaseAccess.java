@@ -124,7 +124,7 @@ public class DatabaseAccess {
 		players.add(new Player("Gomis", 30, 180, 70, "France", "ST", 83, 'R', 4200000, 10000000, true, getAttributes(),
 				actions));
 		// LW
-		players.add(new Player("Garry", 30, 180, 70, "Cape Verde", "LW", 79, 'R', 1000000, 16000000, true,
+		players.add(new Player("Garry", 30, 180, 70, "Capeverde", "LW", 79, 'R', 1000000, 16000000, true,
 				getAttributes(), actions));
 		
 		// Subs

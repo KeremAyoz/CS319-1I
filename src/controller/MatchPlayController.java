@@ -283,7 +283,8 @@ public class MatchPlayController implements Initializable {
 		t = Tournament.getInstance();
 		paused = false;
 		label.setTextFill(Color.BLACK);
-
+		
+		// Bu Try-Catch bloğu commentlenecek
 		try {
 			do {
 				currentMatchInfo = t.goNextDay();
@@ -298,7 +299,24 @@ public class MatchPlayController implements Initializable {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-
+		
+		/*
+		// Commenti kaldır
+		try {
+			currentMatchInfo = t.goNextDay();
+			currentMatch = currentMatchInfo.getKey();
+			currentMatchType = currentMatchInfo.getValue();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		*/
+		
+		if (currentMatch == null) {
+			System.out.println("null");
+			return;
+		}
+		
 		if( currentMatchType == 2 ) {
 			// WINNER
 			// Barca vs Real Madrid geliyor
@@ -310,10 +328,6 @@ public class MatchPlayController implements Initializable {
 			// LOSER
 			// Barca vs Real Madrid geliyor
 			System.out.println( "Losers' Club");
-			return;
-		}
-		
-		if (currentMatch == null) {
 			return;
 		}
 
@@ -465,11 +479,19 @@ public class MatchPlayController implements Initializable {
 										+ pointHome + " " + pointAway);
 								currentMatch.setPointHome(pointHome);
 								currentMatch.setPointAway(pointAway);
-								if( currentMatchType == 0 )
+								if( currentMatchType == 0 ) {
 									t.getGroups()[t.getMyGroupId()].modifyGroupStatistics(currentMatch);
+									// championshipFailed - NOT POSSIBLE TO UPDATE
+								}
 								else if( currentMatchType == 1 )
 									try {
 										t.getKnockout().playMatch(t.getLastMatchId(), true);
+										// championshipFailed
+										int matchId = t.getKnockout().getMatchId(currentMatch.getDay(), currentMatch.getMonth(), currentMatch.getYear());
+										if( matchId % 2 == 0 ) {
+											if( t.getKnockout().getKnockout().getTeams()[matchId/2] != t.getMyTeam() )
+												t.setChampionshipFailed(true);
+										}
 									} catch (InterruptedException e) {
 										// TODO Auto-generated catch block
 										e.printStackTrace();

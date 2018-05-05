@@ -32,7 +32,8 @@ public class Tournament implements Serializable {
 	private int currentYear;
 	private int lastMatchId;
 	private int lastMatchWeek;
-
+	
+	private boolean championshipFailed;
 	private boolean statusEliminationStage;
 
 	private int myTeamLastMatchDay;
@@ -213,6 +214,16 @@ public class Tournament implements Serializable {
 		return true;
 	}
 
+	public void checkChampionshipFaied() {
+		if( !checkAllGroupMatchesFinished() )
+			return;
+		groups[myGroupId].orderGroup();
+		if( groups[myGroupId].getOrderedNames()[2].equals( getMyTeam().getName() ) )
+			championshipFailed = true;
+		if( groups[myGroupId].getOrderedNames()[3].equals( getMyTeam().getName() ) )
+			championshipFailed = true;
+	}
+	
 	public void updateEliminationStage() {
 		if (statusEliminationStage)
 			return;
@@ -221,7 +232,7 @@ public class Tournament implements Serializable {
 		statusEliminationStage = true;
 		placeTeamsToElimination();
 	}
-
+	
 	// modifyGroupStatistics() !
 	public Pair<Match, Integer> goNextDay() throws InterruptedException {
 
@@ -235,8 +246,10 @@ public class Tournament implements Serializable {
 		if( champion != null ) {
 			if( teams[myTeamId] == champion )
 				matchInfo = new Pair<Match, Integer>(null, 2);
-			else
+			else {
 				matchInfo = new Pair<Match, Integer>(null, 3);
+				instance.championshipFailed = true;
+			}
 		}
 		
 		else if (statusEliminationStage) {
@@ -468,6 +481,7 @@ public class Tournament implements Serializable {
 		instance.myTeamLastMatchMonth = -1;
 		instance.myTeamLastMatchYear = -1;
 
+		instance.championshipFailed = false;
 		instance.statusEliminationStage = false;
 
 		for (int i = 0; i < NUMBER_OF_GROUPS; i++) {
@@ -788,6 +802,14 @@ public class Tournament implements Serializable {
 
 	public static int[] getDaysMonth() {
 		return DAYS_MONTH;
+	}
+
+	public boolean isChampionshipFailed() {
+		return championshipFailed;
+	}
+
+	public void setChampionshipFailed(boolean championshipFailed) {
+		this.championshipFailed = championshipFailed;
 	}
 	
 }

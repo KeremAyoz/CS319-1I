@@ -42,14 +42,14 @@ public class Elimination implements Serializable {
 			knockout.createMatch(i, ELIMINATION_MATCH_DAYS[i], ELIMINATION_MATCH_MONTHS[i], ELIMINATION_MATCH_YEARS[i]);
 	}
 
-	int getMatchId(int day, int month, int year) {
+	public int getMatchId(int day, int month, int year) {
 		for (int i = 0; i < NUMBER_OF_MATCHES; i++)
 			if (ELIMINATION_MATCH_DAYS[i] == day && ELIMINATION_MATCH_MONTHS[i] == month && ELIMINATION_MATCH_YEARS[i] == year)
 				return i;
 		return -1;
 	}
 
-	Match getKnockoutMatch(int matchId) {
+	public Match getKnockoutMatch(int matchId) {
 		if(matchId == -1)
 			return null;
 		return knockout.getMatches()[matchId];

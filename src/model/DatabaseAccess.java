@@ -16,7 +16,7 @@ public class DatabaseAccess {
 		ArrayList<Player> players = new ArrayList<Player>();
 		ArrayList<Action> actions = new ArrayList<Action>();
 		// GK
-		players.add(new Player("ter Stegen", 30, 180, 70, "Germany", "GK", 85, 'R', 30000000,
+		players.add(new Player("terStegen", 30, 180, 70, "Germany", "GK", 85, 'R', 30000000,
 				70000000, true, getAttributes(), actions));
 		// RB
 		players.add(new Player("Semedo", 30, 180, 70, "Portugal", "RB", 81, 'R', 4000000 , 60000000,
@@ -192,7 +192,7 @@ public class DatabaseAccess {
 		players.add(new Player("Rabiot", 30, 180, 70, "France", "CM", 81, 'R', 2500000, 10000000, true, getAttributes(),
 				actions));
 		// CM
-		players.add(new Player("Di Maria", 30, 180, 70, "Argentina", "CM", 84, 'R', 6000000, 15000000, true,
+		players.add(new Player("DiMaria", 30, 180, 70, "Argentina", "CM", 84, 'R', 6000000, 15000000, true,
 				getAttributes(), actions));
 		// RW
 		players.add(new Player("Mbappe", 30, 180, 70, "France", "LW", 83, 'R', 4500000, 100000000, true, getAttributes(),
@@ -248,7 +248,7 @@ public class DatabaseAccess {
 		ArrayList<Action> actions = new ArrayList<Action>();
 		
 		// GK
-		players.add(new Player("De Gea", 30, 180, 70, "Spain", "GK", 90, 'R', 6000000, 75000000, true,
+		players.add(new Player("DeGea", 30, 180, 70, "Spain", "GK", 90, 'R', 6000000, 75000000, true,
 				getAttributes(), actions));
 		// RB
 		players.add(new Player("Valencia", 30, 180, 70, "Ecuador", "RB", 85, 'R', 3500000, 14000000, true,
@@ -817,7 +817,7 @@ public class DatabaseAccess {
 		players.add(new Player("Jonas", 30, 180, 70, "Brazil", "ST", 84, 'R', 2500000, 14000000, true,
 				getAttributes(), actions));
 		// LW
-		players.add(new Player("Ola John", 30, 180, 70, "Netherlands", "LW", 80, 'R', 1700000, 9000000, true,
+		players.add(new Player("OlaJohn", 30, 180, 70, "Netherlands", "LW", 80, 'R', 1700000, 9000000, true,
 				getAttributes(), actions));
 		
 		// Subs
@@ -1200,10 +1200,10 @@ public class DatabaseAccess {
 		players.add(new Player("Salah", 30, 180, 70, "Egypt", "RW", 90, 'R', 3200000,
 				150000000, true, getAttributes(), actions));
 		// ST
-		players.add(new Player("Roberto Firmino", 30, 180, 70, "Brazil", "ST", 86, 'R', 3000000, 75000000,
+		players.add(new Player("Firmino", 30, 180, 70, "Brazil", "ST", 86, 'R', 3000000, 75000000,
 				true, getAttributes(), actions));
 		// LW
-		players.add(new Player("Sadio Mane", 30, 180, 70, "Senegal", "LW", 87, 'R', 2800000, 58000000, true,
+		players.add(new Player("Mane", 30, 180, 70, "Senegal", "LW", 87, 'R', 2800000, 58000000, true,
 				getAttributes(), actions));
 		
 		// Subs
@@ -1339,7 +1339,7 @@ public class DatabaseAccess {
 		players.add(new Player("Sokratis", 22, 190, 70, "Greece", "CB", 85, 'R', 4000000, 20000000,
 				true, getAttributes(), actions));
 		// LB
-		players.add(new Player("Marcel Schmelzer", 22, 190, 70, "Germany", "CB", 82, 'R', 2000000, 9000000,
+		players.add(new Player("Schmelzer", 22, 190, 70, "Germany", "CB", 82, 'R', 2000000, 9000000,
 				true, getAttributes(), actions));
 		// CM
 		players.add(new Player("Nuri", 17, 180, 70, "Turkey", "CM", 81, 'R', 2000000, 7500000, true,
@@ -1575,13 +1575,13 @@ public class DatabaseAccess {
 		players.add(new Player("Ilkay", 27, 180, 70, "Germany", "CM", 89, 'R', 4500000, 62000000,
 				true, getAttributes(), actions));
 		// CM
-		players.add(new Player("De Bruyne", 26, 180, 70, "Belgium", "CM", 91, 'R', 7000000, 120000000,
+		players.add(new Player("DeBruyne", 26, 180, 70, "Belgium", "CM", 91, 'R', 7000000, 120000000,
 				true, getAttributes(), actions));
 		// CM
 		players.add(new Player("Silva", 28, 173, 70, "England", "CM", 90, 'R', 4400000, 45000000, true,
 				getAttributes(), actions));
 		// RW
-		players.add(new Player("Leroy Sane", 22, 183, 70, "Germany", "RW", 87, 'R', 4000000, 55000000, true,
+		players.add(new Player("Sane", 22, 183, 70, "Germany", "RW", 87, 'R', 4000000, 55000000, true,
 				getAttributes(), actions));
 		// ST
 		players.add(new Player("Aguero", 21, 177, 70, "Argentina", "ST", 90, 'R', 5000000, 90000000,
@@ -1738,7 +1738,7 @@ public class DatabaseAccess {
 		players.add(new Player("Verreth", 20, 183, 70, "Belgium", "RW", 75, 'R', 1000000, 7000000,
 				true, getAttributes(), actions));
 		// ST
-		players.add(new Player("de Jong", 27, 185, 70, "Netherlands", "ST", 77, 'R', 1200000, 9000000,
+		players.add(new Player("deJong", 27, 185, 70, "Netherlands", "ST", 77, 'R', 1200000, 9000000,
 				true, getAttributes(), actions));
 		// LW
 		players.add(new Player("Lozano", 22, 173, 70, "Mexico", "LW", 82, 'R', 2200000, 18000000,
@@ -1770,7 +1770,7 @@ public class DatabaseAccess {
 		players.add(new Player("Lundqvist", 30, 183, 70, "Sweden", "CM", 69, 'R', 800000,
 				2000000, true, getAttributes(), actions));
 		// SUB9
-		players.add(new Player("van Ginkel", 25, 175, 70, "Netherlands", "CM", 78, 'R', 900000,
+		players.add(new Player("vanGinkel", 25, 175, 70, "Netherlands", "CM", 78, 'R', 900000,
 				9000000, true, getAttributes(), actions));
 		
 		// Manager
@@ -2291,7 +2291,7 @@ public class DatabaseAccess {
 		players.add(new Player("Rugani", 29, 185, 70, "Italy", "CB", 80, 'R', 2600000, 4000000,
 				true, getAttributes(), actions));
 		// SUB3
-		players.add(new Player("De Sciglio", 23, 175, 70, "Italy", "RB", 79, 'R', 2100000, 2000000,
+		players.add(new Player("DeSciglio", 23, 175, 70, "Italy", "RB", 79, 'R', 2100000, 2000000,
 				true, getAttributes(), actions));
 		// SUB4
 		players.add(new Player("Matuidi", 28, 191, 70, "France", "CB", 85, 'R', 3700000, 20000000, 
@@ -2330,7 +2330,7 @@ public class DatabaseAccess {
 		players.add(new Player("Subasic", 27, 185, 70, "Croatia", "GK", 84, 'R', 2900000, 9000000,
 				true, getAttributes(), actions));
 		// RB
-		players.add(new Player("Djibril Sidibe", 23, 188, 70, "France", "RB", 82, 'R', 1500000, 14000000,
+		players.add(new Player("Sidibe", 23, 188, 70, "France", "RB", 82, 'R', 1500000, 14000000,
 				true, getAttributes(), actions));
 		// CB
 		players.add(new Player("Jemerson", 35, 175, 70, "Brazil", "CB", 83, 'R', 2000000, 12000000, true,
@@ -2410,7 +2410,7 @@ public class DatabaseAccess {
 		players.add(new Player("Veltman", 35, 175, 70, "Netherlands", "RB", 75, 'R', 3000000, 9000000,
 				true, getAttributes(), actions));
 		// CB
-		players.add(new Player("de Ligt", 25, 185, 70, "Netherlands", "CB", 74, 'R', 2000000,
+		players.add(new Player("deLigt", 25, 185, 70, "Netherlands", "CB", 74, 'R', 2000000,
 				14000000, true, getAttributes(), actions));
 		// CB
 		players.add(new Player("Wober", 23, 188, 70, "Austria", "CB", 78, 'R', 1300000, 6000000,
@@ -2439,7 +2439,7 @@ public class DatabaseAccess {
 		
 		// Subs
 		// SUB1
-		players.add(new Player("van Leer", 29, 185, 70, "Netherlands", "GK", 77, 'R', 1200000,
+		players.add(new Player("vanLeer", 29, 185, 70, "Netherlands", "GK", 77, 'R', 1200000,
 				5000000, true, getAttributes(), actions));
 		// SUB2
 		players.add(new Player("Sinkgraven", 29, 185, 70, "Netherlands", "RB", 78, 'R', 1400000,
@@ -2460,7 +2460,7 @@ public class DatabaseAccess {
 		players.add(new Player("Schone", 21, 185, 70, "Denmark", "CM", 79, 'R', 1500000, 7000000, true,
 				getAttributes(), actions));
 		// SUB8
-		players.add(new Player("De Jong", 30, 183, 70, "Netherlands", "CM", 75, 'R', 1700000,
+		players.add(new Player("DeJong", 30, 183, 70, "Netherlands", "CM", 75, 'R', 1700000,
 				4500000, true, getAttributes(), actions));
 		// SUB9
 		players.add(new Player("Siem", 25, 175, 70, "Netherlands", "CM", 78, 'R', 1200000, 5000000,

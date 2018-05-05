@@ -2471,7 +2471,7 @@ public class DatabaseAccess {
 		// President
 		President president = new President("Hennie Henrichs", 51, 175, 70, "Netherlands");
 		// Team
-		Team team = new Team("AFC Ajax", "red", "4-4-2", "Johan Cruijff Arena", "the Jews", "Netherlands",
+		Team team = new Team("AFC Ajax", "red", "4-4-2", "Amsterdam Arena", "Goedenzonen", "Netherlands",
 				"Lucky Ajax", 5.0, "Attack", "Fast", manager, president, players);
 
 		return team;

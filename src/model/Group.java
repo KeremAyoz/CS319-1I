@@ -68,7 +68,7 @@ public class Group implements Serializable{
 		// Only points
 		for( int i = 0 ; i < TEAMS_PER_GROUP ; i++ )
 			for( int j = 0 ; j < TEAMS_PER_GROUP ; j++ )
-				if( statistics[i][6] > orderedStats[j][TOTAL_POINTS] ) {
+				if( statistics[i][TOTAL_POINTS] > orderedStats[j][TOTAL_POINTS] || ( statistics[i][TOTAL_POINTS] == orderedStats[j][TOTAL_POINTS] && statistics[i][TOTAL_SCORED] - statistics[i][TOTAL_CONCEDED] > orderedStats[j][TOTAL_SCORED] - orderedStats[j][TOTAL_CONCEDED] ) ) {
 					for( int k = TEAMS_PER_GROUP - 1 ; k > j ; k-- ) {
 						orderedNames[k] = orderedNames[k-1];
 						for( int l = 0 ; l < NUMBER_OF_STATS ; l++ )
@@ -82,11 +82,51 @@ public class Group implements Serializable{
 		
 	}
 	
+	public boolean checkGroupMatchesFinished() {
+		for( int i = 0 ; i < TEAMS_PER_GROUP ; i++ )
+			if( statistics[i][TOTAL_PLAYED] < NUMBER_OF_MATCHES / 2 )
+				return false;
+		return true;
+	}
+	
+	public void modifyGroupStatistics( Match match ) {
+		
+		int idMatch = -1;
+		for( int i = 0 ; i < NUMBER_OF_MATCHES ; i++ )
+			if( match.getHome() == matches[i].getHome() )
+				if( match.getAway() == matches[i].getAway() ) {
+					idMatch = i;
+					break;
+				}
+		
+		int idHome = -1;
+		for( int i = 0 ; i < TEAMS_PER_GROUP ; i++ )
+			if( match.getHome() == teams[i] ) {
+				idHome = i;
+				break;
+			}
+		
+		int idAway = -1;
+		for( int i = 0 ; i < TEAMS_PER_GROUP ; i++ )
+			if( match.getAway() == teams[i] ) {
+				idAway = i;
+				break;
+			}
+		
+		if( idMatch == -1 || idHome == -1 || idAway == -1 ) {
+			System.out.println( "Ha siktir" );
+			return;
+		}
+		
+		modifyGroupStatistics( idMatch , idHome , idAway );
+		
+	}
+	
 	public void modifyGroupStatistics( int idMatch , int idHome , int idAway ) {
 		
 		// Statistics - Played
 		statistics[idHome][TOTAL_PLAYED] += 1;
-		statistics[idHome][TOTAL_PLAYED] += 1;
+		statistics[idAway][TOTAL_PLAYED] += 1;
 		
 		// Statistics - Win
 		if( matches[idMatch].getPointHome() == POINTS_WIN )
@@ -112,11 +152,11 @@ public class Group implements Serializable{
 		
 		// Statistics - Conceded
 		statistics[idHome][TOTAL_CONCEDED] += matches[idMatch].getGoalAway();
-		statistics[idHome][TOTAL_CONCEDED] += matches[idMatch].getGoalHome();
+		statistics[idAway][TOTAL_CONCEDED] += matches[idMatch].getGoalHome();
 		
 		// Statistics - Points
 		statistics[idHome][TOTAL_POINTS] += matches[idMatch].getPointHome();
-		statistics[idHome][TOTAL_POINTS] += matches[idMatch].getPointAway();
+		statistics[idAway][TOTAL_POINTS] += matches[idMatch].getPointAway();
 		
 	}
 	
@@ -226,9 +266,7 @@ public class Group implements Serializable{
 	 *            the teams to set
 	 */
 	public void setTeams(Team[] teams) {
-		// System.out.println( "setTeams 1" );
 		this.teams = teams;
-		// System.out.println( "setTeams 2" );
 	}
 
 	/**
@@ -250,6 +288,10 @@ public class Group implements Serializable{
 		return matchCalendar;
 	}
 
+	public Team getMatchCalendarSingleTeamObject( int no ) {
+		return teams[getMatchCalendarSingleTeamId(no)];
+	}
+	
 	public int getMatchCalendarSingleTeamId( int no ) {
 		return matchCalendar[no];
 	}
@@ -292,6 +334,58 @@ public class Group implements Serializable{
 	
 	public int getMatchYear( int id ) {
 		return matches[id].getYear();
+	}
+
+	public int getTEAMS_PER_GROUP() {
+		return TEAMS_PER_GROUP;
+	}
+
+	public int getNUMBER_OF_STATS() {
+		return NUMBER_OF_STATS;
+	}
+
+	public int getNUMBER_OF_MATCHES() {
+		return NUMBER_OF_MATCHES;
+	}
+
+	public int getPOINTS_WIN() {
+		return POINTS_WIN;
+	}
+
+	public int getPOINTS_DRAW() {
+		return POINTS_DRAW;
+	}
+
+	public int getPOINTS_LOSS() {
+		return POINTS_LOSS;
+	}
+
+	public int getTOTAL_PLAYED() {
+		return TOTAL_PLAYED;
+	}
+
+	public int getTOTAL_WINS() {
+		return TOTAL_WINS;
+	}
+
+	public int getTOTAL_DRAWS() {
+		return TOTAL_DRAWS;
+	}
+
+	public int getTOTAL_LOSSES() {
+		return TOTAL_LOSSES;
+	}
+
+	public int getTOTAL_SCORED() {
+		return TOTAL_SCORED;
+	}
+
+	public int getTOTAL_CONCEDED() {
+		return TOTAL_CONCEDED;
+	}
+
+	public int getTOTAL_POINTS() {
+		return TOTAL_POINTS;
 	}
 	
 }

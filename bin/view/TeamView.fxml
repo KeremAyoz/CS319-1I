@@ -13,14 +13,10 @@
    <children>
       <Box layoutX="800.0" layoutY="500.0" />
       <Box layoutX="1000.0" layoutY="600.0" />
-      <Text fx:id="nation" layoutX="1097.0" layoutY="710.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER">
-         <font>
-            <Font name="Gill Sans" size="17.0" />
-         </font></Text>
    <fx:include source="TopMenu.fxml" />
       <Pane layoutY="147.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="751.0" prefWidth="1400.0">
          <children>
-            <ImageView fx:id="teamImage" fitHeight="273.0" fitWidth="300.0" layoutX="975.0" layoutY="78.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="teamImage" fitHeight="273.0" fitWidth="300.0" layoutX="975.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true" />
             <GridPane fx:id="playerGrid" gridLinesVisible="true" layoutX="84.0" layoutY="58.0" prefHeight="662.0" prefWidth="764.0">
               <columnConstraints>
                 <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="200.0" prefWidth="100.0" />
@@ -57,85 +53,126 @@
                   <Glow level="0.29" />
                </effect>
             </GridPane>
-            <Text fx:id="playerName" layoutX="139.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player Name">
+            <Text fx:id="playerName" fill="#830909" layoutX="139.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player Name">
                <font>
                   <Font name="Gill Sans Bold" size="16.0" />
                </font></Text>
-            <Text fx:id="availableWeek" layoutX="593.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nation">
+            <Text fx:id="availableWeek" fill="#830909" layoutX="593.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nation">
                <font>
                   <Font name="Gill Sans Bold" size="16.0" />
                </font></Text>
-            <Text fx:id="foot" layoutX="499.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Foot">
+            <Text fx:id="foot" fill="#830909" layoutX="499.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Foot">
                <font>
                   <Font name="Gill Sans Bold" size="16.0" />
                </font></Text>
-            <Text fx:id="overall" layoutX="395.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Overall" textAlignment="CENTER">
+            <Text fx:id="overall" fill="#830909" layoutX="395.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Overall" textAlignment="CENTER">
                <font>
                   <Font name="Gill Sans Bold" size="16.0" />
                </font></Text>
-            <Text fx:id="position" layoutX="294.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Position" textAlignment="CENTER">
+            <Text fx:id="position" fill="#830909" layoutX="294.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Position" textAlignment="CENTER">
                <font>
                   <Font name="Gill Sans Bold" size="16.0" />
                </font></Text>
-            <Pane layoutX="895.0" layoutY="366.0" prefHeight="342.0" prefWidth="458.0">
+            <Pane layoutX="895.0" layoutY="397.0" prefHeight="202.0" prefWidth="458.0">
                <children>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#dde6ee" height="264.0" layoutX="60.0" layoutY="63.0" stroke="BLACK" strokeType="INSIDE" width="352.0" />
-                  <Text layoutX="90.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Stadium:">
-                     <font>
-                        <Font name="Gill Sans Bold" size="18.0" />
-                     </font>
-                  </Text>
-                  <Text layoutX="90.0" layoutY="151.0" strokeType="OUTSIDE" strokeWidth="0.0" text="History:">
-                     <font>
-                        <Font name="Gill Sans Bold" size="18.0" />
-                     </font>
-                  </Text>
-                  <Text layoutX="90.0" layoutY="197.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nation:">
-                     <font>
-                        <Font name="Gill Sans Bold" size="18.0" />
-                     </font>
-                  </Text>
-                  <Text layoutX="90.0" layoutY="246.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nick:">
-                     <font>
-                        <Font name="Gill Sans Bold" size="18.0" />
-                     </font>
-                  </Text>
-                  <Text layoutX="90.0" layoutY="295.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Stars:">
-                     <font>
-                        <Font name="Gill Sans Bold" size="18.0" />
-                     </font>
-                  </Text>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#dde6ee" height="199.0" layoutX="60.0" layoutY="-5.0" stroke="BLACK" strokeType="INSIDE" width="385.0" />
+                  <GridPane fx:id="infoPane" layoutX="76.0" layoutY="-3.0" prefHeight="186.0" prefWidth="314.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Stadium:" underline="true">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nation:" underline="true" GridPane.rowIndex="1">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="President:" underline="true" GridPane.rowIndex="2">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nick:" underline="true" GridPane.rowIndex="3">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="History:" underline="true" GridPane.rowIndex="4">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </GridPane>
                </children></Pane>
-            <Text fx:id="name" layoutX="985.0" layoutY="408.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Paris Saint Germain" textAlignment="CENTER">
+            <Text fx:id="name" layoutX="1006.0" layoutY="365.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Paris Saint Germain" textAlignment="CENTER">
                <font>
                   <Font name="Gill Sans Bold" size="34.0" />
                </font></Text>
-            <Text fx:id="nick" layoutX="1097.0" layoutY="612.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER">
-               <font>
-                  <Font name="Gill Sans" size="17.0" />
-               </font></Text>
-            <Text fx:id="stars" layoutX="1097.0" layoutY="664.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER">
-               <font>
-                  <Font name="Gill Sans" size="17.0" />
-               </font></Text>
-            <Text fx:id="history" layoutX="1097.0" layoutY="518.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER">
-               <font>
-                  <Font name="Gill Sans" size="17.0" />
-               </font></Text>
-            <Text fx:id="stadium" layoutX="1097.0" layoutY="473.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER">
-               <font>
-                  <Font name="Gill Sans" size="17.0" />
-               </font></Text>
-            <Text fx:id="value" layoutX="788.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Value">
+            <Text fx:id="value" fill="#830909" layoutX="788.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Value">
                <font>
                   <Font name="Gill Sans Bold" size="16.0" />
                </font>
             </Text>
-            <Text fx:id="salary" layoutX="690.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Salary">
+            <Text fx:id="salary" fill="#830909" layoutX="690.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Salary">
                <font>
                   <Font name="Gill Sans Bold" size="16.0" />
                </font>
             </Text>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#dde6ee" height="116.0" layoutX="955.0" layoutY="616.0" stroke="BLACK" strokeType="INSIDE" width="385.0" />
+            <GridPane fx:id="managerPane" layoutX="962.0" layoutY="647.0" prefHeight="90.0" prefWidth="372.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="114.0" minWidth="10.0" prefWidth="110.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="80.0" minWidth="10.0" prefWidth="64.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="125.0" minWidth="10.0" prefWidth="113.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="88.0" minWidth="10.0" prefWidth="61.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Overall:">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Experience:" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nationality:" GridPane.columnIndex="2">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Age:" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Text>
+               </children>
+            </GridPane>
+            <Text layoutX="962.0" layoutY="640.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Manager: " underline="true">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Text>
+            <Text fx:id="managerName" layoutX="1074.0" layoutY="638.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
          </children>
       </Pane>
    </children>

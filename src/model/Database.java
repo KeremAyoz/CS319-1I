@@ -9,9 +9,16 @@ import java.io.ObjectOutputStream;
 
 public class Database {
 
-	private static final String DEFAULT_FILE_NAME = "default.txt";
-	private static final String CURRENT_FILE_NAME = "current.txt";
+	private static final String NEW_FILE_NAME = "data/current.txt";
+	private static final String CURRENT_FILE_NAME = "data/current.txt";
 	
+	public static Tournament newGameLoad() throws IOException, ClassNotFoundException {
+		FileInputStream file = new FileInputStream( NEW_FILE_NAME );
+		ObjectInputStream ois = new ObjectInputStream( file );
+		Tournament.setInstance( ((Tournament) ois.readObject()) );
+		ois.close();
+		return Tournament.getInstance();
+	}
 	
 	public static Tournament loadCurrentGame() throws IOException, ClassNotFoundException {
 		FileInputStream file = new FileInputStream( CURRENT_FILE_NAME );
@@ -26,6 +33,14 @@ public class Database {
 		ObjectOutputStream oos = new ObjectOutputStream( file );
 		oos.writeObject( tournament );
 		oos.close();
+	}
+
+	public static String getNewFileName() {
+		return NEW_FILE_NAME;
+	}
+
+	public static String getCurrentFileName() {
+		return CURRENT_FILE_NAME;
 	}
 	
 }

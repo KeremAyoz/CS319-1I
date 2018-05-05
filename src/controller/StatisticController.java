@@ -14,6 +14,8 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
@@ -40,26 +42,39 @@ public class StatisticController implements Initializable {
 		String[] redCards = c.getTopRedCards();
 		String[] yellowCards = c.getTopYellowCards();
 
-		String style = "-fx-text-fill: black;" + "-fx-background-color: white;" + "-fx-font: Gill Sans;"
-				+ "-fx-font-family: Gill Sans;" + "-fx-font-weight: bold;" + "-fx-font-size: 18;";
-
 		for (int i = 0; i < 5; i++) {
-			Text t1 = new Text();
-			t1.setText(scorers[i]);
-			t1.setStyle(style);
-			scorer.add(t1, 0, i);
-			Text t2 = new Text();
-			t2.setText(assisters[i]);
-			t2.setStyle(style);
-			assister.add(t2, 0, i);
-			Text t3 = new Text();
-			t3.setText(redCards[i]);
-			t3.setStyle(style);
-			red.add(t3, 0, i);
-			Text t4 = new Text();
-			t4.setText(yellowCards[i]);
-			t4.setStyle(style);
-			yellow.add(t4, 0, i);
+			Text s = new Text(scorers[i].split(" ")[0]);
+			s.setFont(Font.font("Gill Sans", FontWeight.SEMI_BOLD, 16));
+			scorer.add(s, 0, i);
+			
+			Text ns = new Text(scorers[i].split(" ")[scorers[i].split(" ").length-1]);
+			ns.setFont(Font.font("Gill Sans", FontWeight.SEMI_BOLD, 16));
+			scorer.add(ns, 1, i);
+			
+			Text a = new Text(assisters[i].split(" ")[0]);
+			a.setFont(Font.font("Gill Sans", FontWeight.SEMI_BOLD, 16));
+			assister.add(a, 0, i);
+			
+			Text na = new Text(assisters[i].split(" ")[assisters[i].split(" ").length-1]);
+			na.setFont(Font.font("Gill Sans", FontWeight.SEMI_BOLD, 16));
+			assister.add(na, 1, i);
+			
+			Text y = new Text(yellowCards[i].split(" ")[0]);
+			y.setFont(Font.font("Gill Sans", FontWeight.SEMI_BOLD, 16));
+			yellow.add(y, 0, i);
+			
+			Text ny = new Text(yellowCards[i].split(" ")[yellowCards[i].split(" ").length-1]);
+			ny.setFont(Font.font("Gill Sans", FontWeight.SEMI_BOLD, 16));
+			yellow.add(ny, 1, i);
+			
+			Text r = new Text(redCards[i].split(" ")[0]);
+			r.setFont(Font.font("Gill Sans", FontWeight.SEMI_BOLD, 16));
+			red.add(r, 0, i);
+			
+			Text nr = new Text(redCards[i].split(" ")[redCards[i].split(" ").length-1]);
+			nr.setFont(Font.font("Gill Sans", FontWeight.SEMI_BOLD, 16));
+			red.add(nr, 1, i);
+			
 		}
 
 	}

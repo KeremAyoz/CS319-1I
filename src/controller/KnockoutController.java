@@ -12,8 +12,11 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
@@ -83,6 +86,24 @@ public class KnockoutController implements Initializable {
 
 	@FXML
 	private GridPane last16Matches;
+	@FXML
+	private GridPane quarterMatches;
+	@FXML
+	private GridPane semiMatches;
+	@FXML
+	private GridPane finalMatch;
+
+	@FXML
+	private Text last16Text;
+	@FXML
+	private Text quarterText;
+	@FXML
+	private Text semiText;
+	@FXML
+	private Text finalText;
+
+	@FXML
+	private AnchorPane matchAnchor;
 
 	int screenWidth = (int) Screen.getPrimary().getBounds().getWidth();
 	int screenHeight = (int) Screen.getPrimary().getBounds().getHeight();
@@ -93,18 +114,141 @@ public class KnockoutController implements Initializable {
 		buildTree();
 		if (t.getStatusEliminationStage())
 			fillMatches();
+		else
+			matchAnchor.setPrefHeight(500);
 
 	}
 
 	public void fillMatches() {
-		// Last 16
 		Match[] all = t.getKnockout().getKnockout().getMatches();
-		for (int i = 28; i > 12; i--) {
-			last16Matches.add(new Text(all[i].getHome().getName()), 0, i);
-			last16Matches.add(new Text(all[i].getGoalHome() + "-" + all[i].getGoalAway()), 1, i);
-			last16Matches.add(new Text(all[i].getAway().getName()), 2, i);
+		int space = 0;
+		int j = 0;
+		// Last 16
+		if (all[28].getHome() != null) {
+			for (int i = 28; i > 12; i--) {
+				if ((j + space + 1) % 3 == 0)
+					space++;
+				Text homeName = new Text(all[i].getHome().getName());
+				homeName.setFont(Font.font("Gill Sans", FontWeight.SEMI_BOLD, 16));
+				last16Matches.add(homeName, 0, j + space);
+
+				Text awayName = new Text(all[i].getAway().getName());
+				awayName.setFont(Font.font("Gill Sans", FontWeight.SEMI_BOLD, 16));
+				last16Matches.add(awayName, 2, j + space);
+
+				String goalHomeText = "", goalAwayText = "";
+				int goalHome = all[i].getGoalHome();
+				int goalAway = all[i].getGoalAway();
+				if (goalHome != -1)
+					goalHomeText = Integer.toString(goalHome);
+				if (goalAway != -1)
+					goalAwayText = Integer.toString(goalAway);
+
+				Text score = new Text(goalHomeText + "-" + goalAwayText);
+				score.setFont(Font.font("Gill Sans", FontWeight.SEMI_BOLD, 16));
+				last16Matches.add(score, 1, j + space);
+				j++;
+			}
 		}
-		
+		else {
+			last16Text.setVisible(false);
+			last16Matches.setVisible(false);
+		}
+
+		// Quarter
+		if (all[12].getHome() != null) {
+			space = 0;
+			j = 0;
+			for (int i = 12; i > 4; i--) {
+				if ((j + space + 1) % 3 == 0)
+					space++;
+				Text homeName = new Text(all[i].getHome().getName());
+				homeName.setFont(Font.font("Gill Sans", FontWeight.SEMI_BOLD, 16));
+				quarterMatches.add(homeName, 0, j + space);
+
+				Text awayName = new Text(all[i].getAway().getName());
+				awayName.setFont(Font.font("Gill Sans", FontWeight.SEMI_BOLD, 16));
+				quarterMatches.add(awayName, 2, j + space);
+
+				String goalHomeText = "", goalAwayText = "";
+				int goalHome = all[i].getGoalHome();
+				int goalAway = all[i].getGoalAway();
+				if (goalHome != -1)
+					goalHomeText = Integer.toString(goalHome);
+				if (goalAway != -1)
+					goalAwayText = Integer.toString(goalAway);
+
+				Text score = new Text(goalHomeText + "-" + goalAwayText);
+				score.setFont(Font.font("Gill Sans", FontWeight.SEMI_BOLD, 16));
+				quarterMatches.add(score, 1, j + space);
+				j++;
+			}
+		}
+		else {
+			quarterText.setVisible(false);
+			quarterMatches.setVisible(false);
+		}
+
+		// Semi
+		if (all[4].getHome() != null) {
+			space = 0;
+			j = 0;
+			for (int i = 4; i > 0; i--) {
+				if ((j + space + 1) % 3 == 0)
+					space++;
+				Text homeName = new Text(all[i].getHome().getName());
+				homeName.setFont(Font.font("Gill Sans", FontWeight.SEMI_BOLD, 16));
+				quarterMatches.add(homeName, 0, j + space);
+
+				Text awayName = new Text(all[i].getAway().getName());
+				awayName.setFont(Font.font("Gill Sans", FontWeight.SEMI_BOLD, 16));
+				quarterMatches.add(awayName, 2, j + space);
+
+				String goalHomeText = "", goalAwayText = "";
+				int goalHome = all[i].getGoalHome();
+				int goalAway = all[i].getGoalAway();
+				if (goalHome != -1)
+					goalHomeText = Integer.toString(goalHome);
+				if (goalAway != -1)
+					goalAwayText = Integer.toString(goalAway);
+
+				Text score = new Text(goalHomeText + "-" + goalAwayText);
+				score.setFont(Font.font("Gill Sans", FontWeight.SEMI_BOLD, 16));
+				quarterMatches.add(score, 1, j + space);
+				j++;
+			}
+		}
+		else {
+			semiText.setVisible(false);
+			semiMatches.setVisible(false);
+		}
+
+		// Final
+		if (all[0].getHome() != null) {
+			Text homeName = new Text(all[0].getHome().getName());
+			homeName.setFont(Font.font("Gill Sans", FontWeight.SEMI_BOLD, 16));
+			quarterMatches.add(homeName, 0, 0);
+			Text awayName = new Text(all[0].getAway().getName());
+			awayName.setFont(Font.font("Gill Sans", FontWeight.SEMI_BOLD, 16));
+			quarterMatches.add(awayName, 2, 0);
+
+			String goalHomeText = "", goalAwayText = "";
+			int goalHome = all[0].getGoalHome();
+			int goalAway = all[0].getGoalAway();
+			if (goalHome != -1)
+				goalHomeText = Integer.toString(goalHome);
+			if (goalAway != -1)
+				goalAwayText = Integer.toString(goalAway);
+
+			Text score = new Text(goalHomeText + "-" + goalAwayText);
+			score.setFont(Font.font("Gill Sans", FontWeight.SEMI_BOLD, 16));
+			quarterMatches.add(score, 1, 0);
+		}
+		else {
+			finalText.setVisible(false);
+			finalMatch.setVisible(false);
+		}
+
 	}
 
 	public void buildTree() {
@@ -157,27 +301,36 @@ public class KnockoutController implements Initializable {
 			t27.setText(t.getKnockout().getKnockout().getMatches()[27].getHome().getName());
 			t28.setText(t.getKnockout().getKnockout().getMatches()[28].getHome().getName());
 
-			if (t.getKnockout().getKnockout().getMatches()[5].getHome() != null) {
-				// Quarter Final
+			// Quarter Final
+			if (t.getKnockout().getKnockout().getMatches()[6].getHome() != null) {
 				t5.setText(t.getKnockout().getKnockout().getMatches()[5].getHome().getName());
 				t6.setText(t.getKnockout().getKnockout().getMatches()[6].getHome().getName());
+			}
+			if (t.getKnockout().getKnockout().getMatches()[8].getHome() != null) {
 				t7.setText(t.getKnockout().getKnockout().getMatches()[7].getHome().getName());
-				t8.setText(t.getKnockout().getKnockout().getMatches()[7].getHome().getName());
+				t8.setText(t.getKnockout().getKnockout().getMatches()[8].getHome().getName());
+			}
+			if (t.getKnockout().getKnockout().getMatches()[10].getHome() != null) {
 				t9.setText(t.getKnockout().getKnockout().getMatches()[9].getHome().getName());
 				t10.setText(t.getKnockout().getKnockout().getMatches()[10].getHome().getName());
+			}
+			if (t.getKnockout().getKnockout().getMatches()[12].getHome() != null) {
 				t11.setText(t.getKnockout().getKnockout().getMatches()[11].getHome().getName());
 				t12.setText(t.getKnockout().getKnockout().getMatches()[12].getHome().getName());
 			}
 
-			if (t.getKnockout().getKnockout().getMatches()[1].getHome() != null) {
-				// Semi Final
+			// Semi Final
+			if (t.getKnockout().getKnockout().getMatches()[2].getHome() != null) {
 				t1.setText(t.getKnockout().getKnockout().getMatches()[1].getHome().getName());
 				t2.setText(t.getKnockout().getKnockout().getMatches()[2].getHome().getName());
+			}
+			if (t.getKnockout().getKnockout().getMatches()[3].getHome() != null) {
 				t3.setText(t.getKnockout().getKnockout().getMatches()[3].getHome().getName());
 				t4.setText(t.getKnockout().getKnockout().getMatches()[4].getHome().getName());
 			}
+
+			// Final
 			if (t.getKnockout().getKnockout().getMatches()[0].getHome() != null) {
-				// Final
 				t00.setText(t.getKnockout().getKnockout().getMatches()[0].getAway().getName());
 				t01.setText(t.getKnockout().getKnockout().getMatches()[0].getHome().getName());
 			}

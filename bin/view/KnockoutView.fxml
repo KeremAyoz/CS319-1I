@@ -13,7 +13,7 @@
   <fx:include source="TopMenu.fxml" />
       <ScrollPane layoutY="145.0" prefHeight="754.0" prefWidth="1400.0">
         <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1383.0" prefWidth="1377.0">
+          <AnchorPane fx:id="matchAnchor" minHeight="0.0" minWidth="0.0" prefHeight="2110.0" prefWidth="1377.0">
                <children>
                 <Rectangle arcHeight="5.0" arcWidth="5.0" fill="BLACK" height="20.0" layoutX="190.0" layoutY="127.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
                 <Rectangle arcHeight="5.0" arcWidth="5.0" fill="BLACK" height="20.0" layoutX="329.0" layoutY="434.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
@@ -276,11 +276,54 @@
                         <Font name="Gill Sans SemiBold" size="18.0" />
                      </font>
                   </Text>
-                  <GridPane fx:id="last16Matches" layoutX="397.0" layoutY="656.0" prefHeight="690.0" prefWidth="604.0">
+                  <GridPane fx:id="last16Matches" layoutX="45.0" layoutY="884.0" prefHeight="690.0" prefWidth="604.0">
                     <columnConstraints>
-                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="302.0" minWidth="10.0" prefWidth="240.11895751953125" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="189.50079345703125" minWidth="0.0" prefWidth="122.370849609375" />
-                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="301.6181640625" minWidth="10.0" prefWidth="240.629150390625" />
+                      <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="302.0" minWidth="10.0" prefWidth="240.11895751953125" />
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="189.50079345703125" minWidth="0.0" prefWidth="122.370849609375" />
+                      <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="301.6181640625" minWidth="10.0" prefWidth="240.629150390625" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="15.435791015625" minHeight="30.0" prefHeight="30.7513427734375" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="90.0" minHeight="30.0" prefHeight="19.2486572265625" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="33.1990966796875" minHeight="30.0" prefHeight="30.77734375" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="19.578125" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                  </GridPane>
+                  <Text fx:id="last16Text" fill="#7d0505" layoutX="50.0" layoutY="827.0" strokeType="OUTSIDE" strokeWidth="0.0" text="LAST 16">
+                     <font>
+                        <Font name="Gill Sans Bold" size="55.0" />
+                     </font>
+                  </Text>
+                  <Line endX="600.0" layoutX="698.0" layoutY="760.0" startX="-600.0" />
+                  <Text fx:id="quarterText" fill="#7d0505" layoutX="797.0" layoutY="827.0" strokeType="OUTSIDE" strokeWidth="0.0" text="QUARTER FINAL">
+                     <font>
+                        <Font name="Gill Sans Bold" size="55.0" />
+                     </font>
+                  </Text>
+                  <GridPane fx:id="quarterMatches" layoutX="735.0" layoutY="882.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="240.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="122.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="240.0" />
                     </columnConstraints>
                     <rowConstraints>
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -291,26 +334,42 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="15.435791015625" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="90.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="18.34857177734375" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                   </GridPane>
-                  <Text layoutX="612.0" layoutY="573.0" strokeType="OUTSIDE" strokeWidth="0.0" text="LAST 16">
+                  <Text fx:id="semiText" fill="#7d0505" layoutX="860.0" layoutY="1328.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SEMI FINAL">
                      <font>
-                        <Font size="48.0" />
+                        <Font name="Gill Sans Bold" size="55.0" />
+                     </font>
+                  </Text>
+                  <GridPane fx:id="semiMatches" layoutX="735.0" layoutY="1400.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="240.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="122.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="240.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                  </GridPane>
+                  <GridPane fx:id="finalMatch" layoutX="414.0" layoutY="1766.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="240.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="122.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="240.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                  </GridPane>
+                  <Text fx:id="finalText" fill="#7d0505" layoutX="630.0" layoutY="1694.0" strokeType="OUTSIDE" strokeWidth="0.0" text="FINAL">
+                     <font>
+                        <Font name="Gill Sans Bold" size="55.0" />
                      </font>
                   </Text>
                </children>

@@ -160,7 +160,7 @@ public class TopMenu implements Initializable {
 		root.setScaleX(screenWidth/1400.0);
 		root.setScaleY(screenHeight/900.0);
 		if (Main.isWindows()) {
-			root.setLayoutX(355);
+			root.setLayoutX(360);
 			root.setLayoutY(108);
 		}
 		if (Main.isMacos()) {

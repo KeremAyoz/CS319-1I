@@ -198,11 +198,11 @@ public class KnockoutController implements Initializable {
 					space++;
 				Text homeName = new Text(all[i].getHome().getName());
 				homeName.setFont(Font.font("Gill Sans", FontWeight.SEMI_BOLD, 16));
-				quarterMatches.add(homeName, 0, j + space);
+				semiMatches.add(homeName, 0, j + space);
 
 				Text awayName = new Text(all[i].getAway().getName());
 				awayName.setFont(Font.font("Gill Sans", FontWeight.SEMI_BOLD, 16));
-				quarterMatches.add(awayName, 2, j + space);
+				semiMatches.add(awayName, 2, j + space);
 
 				String goalHomeText = "", goalAwayText = "";
 				int goalHome = all[i].getGoalHome();
@@ -214,7 +214,7 @@ public class KnockoutController implements Initializable {
 
 				Text score = new Text(goalHomeText + "-" + goalAwayText);
 				score.setFont(Font.font("Gill Sans", FontWeight.SEMI_BOLD, 16));
-				quarterMatches.add(score, 1, j + space);
+				semiMatches.add(score, 1, j + space);
 				j++;
 			}
 		}

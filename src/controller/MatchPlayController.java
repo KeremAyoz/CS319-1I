@@ -432,7 +432,7 @@ public class MatchPlayController implements Initializable {
 		Timeline timeline = new Timeline();
 		timeline.setCycleCount(Timeline.INDEFINITE);
 		System.out.println((speedSlider.getValue() + 100));
-		KeyFrame frame = new KeyFrame(Duration.seconds(1 / (speedSlider.getValue() / 2 + 100)),
+		KeyFrame frame = new KeyFrame(Duration.seconds(120 / (speedSlider.getValue() / 2 + 100)),
 				new EventHandler<ActionEvent>() {
 
 					@Override
@@ -441,7 +441,7 @@ public class MatchPlayController implements Initializable {
 						if (!paused) {
 							seconds++;
 							label.setText(seconds.toString() + "'");
-							Action a = currentMatch.actionGenerator(seconds, ((int) (Math.random() * 100)));
+							Action a = currentMatch.actionGenerator(seconds);
 							if (a != null) {
 								actions.add(a);
 								System.out.println("Minute: " + seconds + " " + currentMatch.getGoalHome() + " "
@@ -451,6 +451,7 @@ public class MatchPlayController implements Initializable {
 								updateActionView();
 							if (seconds > 89) {
 								timeline.stop();
+								/*
 								if(currentMatch.getHome() == t.getMyTeam()) {
 									System.out.println("Home");
 									currentMatch.setGoalHome(5);
@@ -463,6 +464,7 @@ public class MatchPlayController implements Initializable {
 								}
 								else
 									System.out.println("!!! WTF !!!");
+								*/
 								int pointHome = -1;
 								int pointAway = -1;
 								if (currentMatch.getGoalHome() > currentMatch.getGoalAway()) {

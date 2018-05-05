@@ -11,37 +11,37 @@
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="154.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TopMenu">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="56.0" layoutX="1284.0" layoutY="-1.0" stroke="BLACK" strokeType="INSIDE" width="117.0" />
-      <Hyperlink ellipsisString="    " layoutX="189.0" layoutY="41.0" onAction="#teamClicked" pickOnBounds="false" prefHeight="58.0" prefWidth="76.0" text="Team" textFill="#802525" textOverrun="CLIP">
+      <Hyperlink ellipsisString="    " layoutX="189.0" layoutY="41.0" onAction="#teamClicked" pickOnBounds="false" prefHeight="58.0" prefWidth="77.0" text="Team" textFill="#802525" textOverrun="CLIP">
          <font>
             <Font size="22.0" />
          </font>
       </Hyperlink>
-      <Hyperlink ellipsisString="    " layoutX="291.0" layoutY="41.0" onAction="#tacticClicked" pickOnBounds="false" prefHeight="58.0" prefWidth="83.0" text="Tactics" textFill="#802525" textOverrun="CLIP">
+      <Hyperlink ellipsisString="    " layoutX="291.0" layoutY="41.0" onAction="#tacticClicked" pickOnBounds="false" prefHeight="58.0" prefWidth="93.0" text="Tactics" textFill="#802525" textOverrun="CLIP">
          <font>
             <Font size="22.0" />
          </font>
       </Hyperlink>
-      <Hyperlink ellipsisString="    " layoutX="411.0" layoutY="41.0" onAction="#groupClicked" pickOnBounds="false" prefHeight="58.0" prefWidth="141.0" text="Group Stage" textFill="#802525" textOverrun="CLIP">
+      <Hyperlink ellipsisString="    " layoutX="411.0" layoutY="41.0" onAction="#groupClicked" pickOnBounds="false" prefHeight="58.0" prefWidth="146.0" text="Group Stage" textFill="#802525" textOverrun="CLIP">
          <font>
             <Font size="22.0" />
          </font>
       </Hyperlink>
-      <Hyperlink ellipsisString="    " layoutX="579.0" layoutY="41.0" onAction="#knockoutClicked" pickOnBounds="false" prefHeight="58.0" prefWidth="108.0" text="Knockout" textFill="#802525" textOverrun="CLIP">
+      <Hyperlink ellipsisString="    " layoutX="579.0" layoutY="41.0" onAction="#knockoutClicked" pickOnBounds="false" prefHeight="58.0" prefWidth="117.0" text="Knockout" textFill="#802525" textOverrun="CLIP">
          <font>
             <Font size="22.0" />
          </font>
       </Hyperlink>
-      <Hyperlink ellipsisString="    " layoutX="724.0" layoutY="41.0" onAction="#statClicked" pickOnBounds="false" prefHeight="58.0" prefWidth="102.0" text="Statistics" textFill="#802525" textOverrun="CLIP">
+      <Hyperlink ellipsisString="    " layoutX="724.0" layoutY="41.0" onAction="#statClicked" pickOnBounds="false" prefHeight="58.0" prefWidth="111.0" text="Statistics" textFill="#802525" textOverrun="CLIP">
          <font>
             <Font size="22.0" />
          </font>
       </Hyperlink>
-      <Hyperlink ellipsisString="    " layoutX="862.0" layoutY="41.0" onAction="#calendarClicked" pickOnBounds="false" prefHeight="58.0" prefWidth="102.0" text="Calendar" textFill="#802525" textOverrun="CLIP">
+      <Hyperlink ellipsisString="    " layoutX="862.0" layoutY="41.0" onAction="#calendarClicked" pickOnBounds="false" prefHeight="58.0" prefWidth="112.0" text="Calendar" textFill="#802525" textOverrun="CLIP">
          <font>
             <Font size="22.0" />
          </font>
       </Hyperlink>
-      <Hyperlink ellipsisString="    " layoutX="982.0" layoutY="41.0" onAction="#saveClicked" pickOnBounds="false" prefHeight="58.0" prefWidth="117.0" text="Save&amp;Exit" textFill="#802525" textOverrun="CLIP">
+      <Hyperlink ellipsisString="    " layoutX="982.0" layoutY="41.0" onAction="#saveClicked" pickOnBounds="false" prefHeight="58.0" prefWidth="129.0" text="Save&amp;Exit" textFill="#802525" textOverrun="CLIP">
          <font>
             <Font size="22.0" />
          </font>
@@ -57,7 +57,7 @@
             <Image url="@../../img/logo.png" />
          </image>
       </ImageView>
-      <Text fx:id="currentDate" layoutX="1304.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="22-02-2018" wrappingWidth="83.1715087890625">
+      <Text fx:id="currentDate" layoutX="1306.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="22-02-2018" wrappingWidth="83.1715087890625">
          <font>
             <Font name="Bookman Old Style Italic" size="14.0" />
          </font>

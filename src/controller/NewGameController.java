@@ -259,6 +259,9 @@ public class NewGameController implements Initializable {
 			root.setLayoutX(320);
 			root.setLayoutY(108);
 		}
+		if (Main.isMacos()) {
+			root.setLayoutX(20);
+		}
 		Stage m = Main.getMainStage();
 		Scene ts = Main.getMainStage().getScene();
 		ts.setRoot(root);

@@ -30,6 +30,9 @@ public class HomeScreen implements Initializable {
 			root.setLayoutX(355);
 			root.setLayoutY(108);
 		}
+		if (Main.isMacos()) {
+			root.setLayoutX(20);
+		}
 		Stage m = Main.getMainStage();
 		Scene t = Main.getMainStage().getScene();
 		t.setRoot(root);
@@ -46,6 +49,9 @@ public class HomeScreen implements Initializable {
 		if (Main.isWindows()) {
 			root.setLayoutX(355);
 			root.setLayoutY(108);
+		}
+		if (Main.isMacos()) {
+			root.setLayoutX(20);
 		}
 		Stage m = Main.getMainStage();
 		Scene t = Main.getMainStage().getScene();
@@ -64,6 +70,9 @@ public class HomeScreen implements Initializable {
 			root.setLayoutX(355);
 			root.setLayoutY(108);
 		}
+		if (Main.isMacos()) {
+			root.setLayoutX(20);
+		}
 		Stage m = Main.getMainStage();
 		Scene t = Main.getMainStage().getScene();
 		t.setRoot(root);
@@ -81,6 +90,9 @@ public class HomeScreen implements Initializable {
 		if (Main.isWindows()) {
 			root.setLayoutX(355);
 			root.setLayoutY(108);
+		}
+		if (Main.isMacos()) {
+			root.setLayoutX(20);
 		}
 		Stage m = Main.getMainStage();
 		Scene t = Main.getMainStage().getScene();

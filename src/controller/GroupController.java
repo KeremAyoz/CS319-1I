@@ -172,11 +172,11 @@ public class GroupController implements Initializable {
 			if ((i+space+1)%3 == 0)
 				space++;
 			Text homeName = new Text(cur.getMatches()[i].getHome().getName());
-			homeName.setFont(Font.font("Gill Sans", FontWeight.SEMI_BOLD, 15));
+			homeName.setFont(Font.font("Gill Sans", FontWeight.SEMI_BOLD, 16));
 			matchesGrid.add(homeName, 0, i+space);
 
 			Text awayName = new Text(cur.getMatches()[i].getAway().getName());
-			awayName.setFont(Font.font("Gill Sans", FontWeight.SEMI_BOLD, 15));
+			awayName.setFont(Font.font("Gill Sans", FontWeight.SEMI_BOLD, 16));
 			matchesGrid.add(awayName, 2, i+space);
 
 			String goalHomeText = "", goalAwayText = "";
@@ -188,7 +188,7 @@ public class GroupController implements Initializable {
 				goalAwayText = Integer.toString(goalAway);
 
 			Text score = new Text(goalHomeText + "-" + goalAwayText);
-			score.setFont(Font.font("Gill Sans", FontWeight.SEMI_BOLD, 15));
+			score.setFont(Font.font("Gill Sans", FontWeight.SEMI_BOLD, 16));
 			matchesGrid.add(score, 1, i+space);
 			
 			

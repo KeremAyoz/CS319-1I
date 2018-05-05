@@ -14,6 +14,7 @@ import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.effect.GaussianBlur;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
@@ -46,7 +47,7 @@ public class CalendarController implements Initializable {
 		try {
 			Date startDate;
 			startDate = formatter.parse("2018-10-29");
-			Date endDate = formatter.parse("2019-05-31");
+			Date endDate = formatter.parse("2019-05-27");
 			String cur = "" + Tournament.getInstance().getCurrentYear() + "-" + Tournament.getInstance().getCurrentMonth() + "-" + Tournament.getInstance().getCurrentDay();
 			Date todayDate = formatter.parse(cur);
 			Calendar start = Calendar.getInstance();
@@ -65,7 +66,7 @@ public class CalendarController implements Initializable {
 				//Shorten the date and change the font
 				Text t = new Text(date.toString().substring(4, 10));
 				t.setFont(Font.font("Gill Sans", FontWeight.BOLD, 15));
-				t.setFill(Color.DARKRED);
+				t.setFill(Color.BLACK);
 				
 				//Variables to test the existence of the match
 				boolean matchVar = false;
@@ -136,7 +137,12 @@ public class CalendarController implements Initializable {
 				}
 				if (start.before(today)) {
 					if (gridCalendar.getChildren().get(colInd * 7 + rowInd).getClass().getName().equals("javafx.scene.text.Text")) {
-						t.setFill(Color.GRAY);
+						GaussianBlur blur = new GaussianBlur(25);  
+						t.setEffect(blur);
+					}
+					else if (gridCalendar.getChildren().get(colInd * 7 + rowInd).getClass().getName().equals("javafx.scene.image.ImageView")) {
+						GaussianBlur blur = new GaussianBlur(25);  
+						gridCalendar.getChildren().get(colInd * 7 + rowInd).setEffect(blur);
 					}
 				}
 

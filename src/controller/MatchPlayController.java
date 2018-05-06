@@ -41,6 +41,9 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.event.EventHandler;
 import javafx.event.ActionEvent;
@@ -147,15 +150,15 @@ public class MatchPlayController implements Initializable {
 	@FXML
 	private ImageView atacticField;
 
-	private Match currentMatch;
+	public Match currentMatch;
 	private Integer currentMatchType;
 	private Pair<Match, Integer> currentMatchInfo;
-	
+
 	private boolean paused;
+	
 	private int actionCount = 0;
 
-	private final Integer START_TIME = 0;
-	private Integer seconds = START_TIME;
+	private Integer seconds = 0;
 
 	private Tournament t;
 
@@ -190,36 +193,52 @@ public class MatchPlayController implements Initializable {
 	private Button homeChanged;
 	@FXML
 	private Button awayChanged;
-	
+
 	@FXML
 	private Text homeSubCount;
 	@FXML
 	private Text awaySubCount;
-	
-	
-	
+
+	@FXML
+	private Rectangle hTactics;
+	@FXML
+	private Rectangle aTactics;
+
+	@FXML
+	private Text hSubText;
+	@FXML
+	private Text aSubText;
+
+	@FXML
+	private Text homeInstructionText;
+	@FXML
+	private Text awayInstructionText;
+
+	@FXML
+	private Button matchFinish;
+
 	private static int subCountHome = 3;
+
 	private static int subCountAway = 3;
-	
 
 	@FXML
 	public void homeChanged() {
 		int swapped1 = currentMatch.getHome().indexOfPlayer(homeOld.getValue().split("-")[1]);
 		int swapped2 = currentMatch.getHome().indexOfPlayer(homeNew.getValue().split("-")[1]);
 		// Swapping
-		Collections.swap(currentMatch.getHome().getPlayers(),swapped1,swapped2);
+		Collections.swap(currentMatch.getHome().getPlayers(), swapped1, swapped2);
 		calibrateNamesHome();
 		if (swapped2 > 10) {
 			subCountHome--;
 			homeSubCount.setText("" + subCountHome);
 		}
 		if (subCountHome == 0) {
-			homeOld.setDisable(true);
-			homeNew.setDisable(true);
-			homeChanged.setDisable(true);
+			homeOld.setVisible(false);
+			homeNew.setVisible(false);
+			homeChanged.setVisible(false);
 		}
 		fillSubstituteHome();
-	
+
 	}
 
 	@FXML
@@ -227,16 +246,16 @@ public class MatchPlayController implements Initializable {
 		int swapped1 = currentMatch.getAway().indexOfPlayer(awayOld.getValue().split("-")[1]);
 		int swapped2 = currentMatch.getAway().indexOfPlayer(awayNew.getValue().split("-")[1]);
 		// Swapping
-		Collections.swap(currentMatch.getAway().getPlayers(),swapped1,swapped2);
+		Collections.swap(currentMatch.getAway().getPlayers(), swapped1, swapped2);
 		calibrateNamesAway();
 		if (swapped2 > 10) {
 			subCountAway--;
 			awaySubCount.setText("" + subCountAway);
 		}
 		if (subCountHome == 0) {
-			awayOld.setDisable(true);
-			awayNew.setDisable(true);
-			awayChanged.setDisable(true);
+			awayOld.setVisible(false);
+			awayNew.setVisible(false);
+			awayChanged.setVisible(false);
 		}
 		fillSubstituteAway();
 	}
@@ -245,89 +264,102 @@ public class MatchPlayController implements Initializable {
 		homeOld.getItems().clear();
 		homeNew.getItems().clear();
 		for (int i = 0; i < 11; i++) {
-			homeOld.getItems()
-					.add(currentMatch.getHome().getPlayers().get(i).getPosition() + "-"
-							+ currentMatch.getHome().getPlayers().get(i).getName() + "-"
-							+ currentMatch.getHome().getPlayers().get(i).getOverall());
+			homeOld.getItems().add(currentMatch.getHome().getPlayers().get(i).getPosition() + "-" + currentMatch.getHome().getPlayers().get(i).getName() + "-"
+					+ currentMatch.getHome().getPlayers().get(i).getOverall());
 		}
 		for (int i = 0; i < 20; i++) {
-			homeNew.getItems()
-					.add(currentMatch.getHome().getPlayers().get(i).getPosition() + "-"
-							+ currentMatch.getHome().getPlayers().get(i).getName() + "-"
-							+ currentMatch.getHome().getPlayers().get(i).getOverall());
+			homeNew.getItems().add(currentMatch.getHome().getPlayers().get(i).getPosition() + "-" + currentMatch.getHome().getPlayers().get(i).getName() + "-"
+					+ currentMatch.getHome().getPlayers().get(i).getOverall());
 		}
 	}
+
 	public void fillSubstituteAway() {
 		awayOld.getItems().clear();
 		awayNew.getItems().clear();
 		for (int i = 0; i < 11; i++) {
-			awayOld.getItems()
-					.add(currentMatch.getAway().getPlayers().get(i).getPosition() + "-"
-							+ currentMatch.getAway().getPlayers().get(i).getName() + "-"
-							+ currentMatch.getAway().getPlayers().get(i).getOverall());
+			awayOld.getItems().add(currentMatch.getAway().getPlayers().get(i).getPosition() + "-" + currentMatch.getAway().getPlayers().get(i).getName() + "-"
+					+ currentMatch.getAway().getPlayers().get(i).getOverall());
 		}
 		for (int i = 0; i < 20; i++) {
-			awayNew.getItems()
-					.add(currentMatch.getAway().getPlayers().get(i).getPosition() + "-"
-							+ currentMatch.getAway().getPlayers().get(i).getName() + "-"
-							+ currentMatch.getAway().getPlayers().get(i).getOverall());
+			awayNew.getItems().add(currentMatch.getAway().getPlayers().get(i).getPosition() + "-" + currentMatch.getAway().getPlayers().get(i).getName() + "-"
+					+ currentMatch.getAway().getPlayers().get(i).getOverall());
 		}
 	}
 
 	ArrayList<Action> actions;
 
 	private double speed = 1;
+	
+	public void fillColorText(Text t, String color) {
+		if (color.equals("red")) {
+			t.setFill(Color.DARKRED);
+		}
+		else if (color.equals("black")) {
+			t.setFill(Color.BLACK);
+		}
+		else if (color.equals("blue")) {
+			t.setFill(Color.DARKBLUE);
+		}
+		else if (color.equals("yellow")) {
+			t.setFill(Color.YELLOW);
+		}
+		else if (color.equals("purple")) {
+			t.setFill(Color.PURPLE);
+		}
+		else if (color.equals("green")) {
+			t.setFill(Color.DARKGREEN);
+		}
+	}
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
 		t = Tournament.getInstance();
 		paused = false;
 		label.setTextFill(Color.BLACK);
-		
-		// Bu Try-Catch bloğu commentlenecek
-		try {
-			do {
-				currentMatchInfo = t.goNextDay();
-				currentMatch = currentMatchInfo.getKey();
-				currentMatchType = currentMatchInfo.getValue();
-			} while (currentMatch == null && currentMatchType < 2);
-			if( currentMatchType < 2 )
-				System.out.println(currentMatch.getHome().getName() + " -  " + currentMatch.getAway().getName());
-			else
-				System.out.println("Tournament is finished");
-			
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		
-		/*
-		// Commenti kaldır
+
 		try {
 			currentMatchInfo = t.goNextDay();
 			currentMatch = currentMatchInfo.getKey();
 			currentMatchType = currentMatchInfo.getValue();
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		*/
-		
+
 		if (currentMatch == null) {
-			System.out.println("null");
-			return;
+			try {
+				Parent root=FXMLLoader.load(getClass().getResource("/view/CalendarView.fxml"));
+				root.setScaleX(screenWidth / 1400.0);
+				root.setScaleY(screenHeight / 900.0);
+				if (Main.isWindows()) {
+					root.setLayoutX(320);
+					root.setLayoutY(108);
+				}
+				if (Main.isMacos()) {
+					root.setLayoutX(20);
+				}
+				Stage m = Main.getMainStage();
+				Scene t = Main.getMainStage().getScene();
+				t.setRoot(root);
+				m.setScene(t);
+				m.setFullScreen(true);
+				Main.setMainStage(m);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
-		
-		if( currentMatchType == 2 ) {
+
+		if (currentMatchType == 2) {
 			// WINNER
 			// Barca vs Real Madrid geliyor
-			System.out.println( "We Are The Champions" );
+			System.out.println("We Are The Champions");
 			return;
 		}
-		
-		if( currentMatchType == 3 ) {
+
+		if (currentMatchType == 3) {
 			// LOSER
 			// Barca vs Real Madrid geliyor
-			System.out.println( "Losers' Club");
+			System.out.println("Losers' Club");
 			return;
 		}
 
@@ -338,8 +370,10 @@ public class MatchPlayController implements Initializable {
 			homeName.setText(home.getName());
 			awayName.setText(away.getName());
 
-			homeName.setStyle("-fx-text-base-color: " + home.getColor().trim().toLowerCase() + ";");
-			awayName.setStyle("-fx-text-base-color: " + away.getColor().trim().toLowerCase() + ";");
+			homeName.setFont(Font.font("Gill Sans", FontWeight.BOLD, 38));
+			fillColorText(homeName, home.getColor());
+			awayName.setFont(Font.font("Gill Sans", FontWeight.BOLD, 38));
+			fillColorText(awayName, away.getColor());
 
 			String st = home.getName().toLowerCase().trim();
 			st = st.replaceAll("\\s+", "");
@@ -360,12 +394,16 @@ public class MatchPlayController implements Initializable {
 				homeTactic.getSelectionModel().select(home.getTactic());
 				homeStyle.getSelectionModel().select(home.getStyle());
 				homeTempo.getSelectionModel().select(home.getTempo());
-				awayTactic.setDisable(true);
-				awayStyle.setDisable(true);
-				awayTempo.setDisable(true);
-				awayOld.setDisable(true);
-				awayNew.setDisable(true);
-				awayChanged.setDisable(true);
+				awayTactic.setVisible(false);
+				awayStyle.setVisible(false);
+				awayTempo.setVisible(false);
+				awayOld.setVisible(false);
+				awayNew.setVisible(false);
+				awayChanged.setVisible(false);
+				aTactics.setVisible(false);
+				aSubText.setVisible(false);
+				awayInstructionText.setVisible(false);
+				awaySubCount.setVisible(false);
 			}
 
 			else {
@@ -375,25 +413,27 @@ public class MatchPlayController implements Initializable {
 				awayTactic.getSelectionModel().select(away.getTactic());
 				awayStyle.getSelectionModel().select(away.getStyle());
 				awayTempo.getSelectionModel().select(away.getTempo());
-				homeTactic.setDisable(true);
-				homeStyle.setDisable(true);
-				homeTempo.setDisable(true);
-				homeOld.setDisable(true);
-				homeNew.setDisable(true);
-				homeChanged.setVisible(true);
+				homeTactic.setVisible(false);
+				homeStyle.setVisible(false);
+				homeTempo.setVisible(false);
+				homeOld.setVisible(false);
+				homeNew.setVisible(false);
+				homeChanged.setVisible(false);
+				hTactics.setVisible(false);
+				hSubText.setVisible(false);
+				homeInstructionText.setVisible(false);
+				homeSubCount.setVisible(false);
+
 			}
 
-		    File tactic = new File("img/tactics/" + home.getTactic() + "_" + home.getColor() + ".png");
-			//File tactic = new File("img/tactics/" + home.getTactic() + ".png");
+			File tactic = new File("img/tactics/" + home.getTactic() + "_" + home.getColor() + ".png");
 			System.out.println(tactic.toString());
 			Image tacticImage = new Image(tactic.toURI().toString(), 456, 454, false, false);
 			htacticField.setImage(tacticImage);
 
-			File tactic2 = new File("img/tactics/" + away.getTactic() + "_"  + away.getColor() + ".png");
-			//File tactic2 = new File("img/tactics/" + away.getTactic() + ".png");
+			File tactic2 = new File("img/tactics/" + away.getTactic() + "_" + away.getColor() + ".png");
 			Image tacticImage2 = new Image(tactic2.toURI().toString(), 456, 454, false, false);
 			atacticField.setImage(tacticImage2);
-			////////////////////////////////////////////////////////////////////////////////////////
 			calibrateNamesHome();
 			calibrateNamesAway();
 			/*
@@ -405,13 +445,17 @@ public class MatchPlayController implements Initializable {
 			fillSubstituteAway();
 
 		}
-		////////////////////////////////////////////////////////////////////////////////////////
+		matchFinish.setVisible(false);
 		doTime();
 	}
 
 	@FXML
 	public void matchDone() throws IOException {
-		Parent root = FXMLLoader.load(getClass().getResource("/view/GroupView.fxml"));
+		Parent root;
+		if (!Tournament.getInstance().getStatusEliminationStage())
+			root = FXMLLoader.load(getClass().getResource("/view/GroupView.fxml"));
+		else
+			root = FXMLLoader.load(getClass().getResource("/view/KnockoutView.fxml"));
 		root.setScaleX(screenWidth / 1400.0);
 		root.setScaleY(screenHeight / 900.0);
 		if (Main.isWindows()) {
@@ -431,91 +475,84 @@ public class MatchPlayController implements Initializable {
 		currentMatch.setGoalAway(0);
 		Timeline timeline = new Timeline();
 		timeline.setCycleCount(Timeline.INDEFINITE);
-		System.out.println((speedSlider.getValue() + 100));
-		KeyFrame frame = new KeyFrame(Duration.seconds(120 / (speedSlider.getValue() / 2 + 100)),
-				new EventHandler<ActionEvent>() {
+		KeyFrame frame = new KeyFrame(Duration.seconds(0.2), new EventHandler<ActionEvent>() {
 
-					@Override
-					public void handle(ActionEvent event) {
-						actions = new ArrayList<Action>();
-						if (!paused) {
-							seconds++;
-							label.setText(seconds.toString() + "'");
-							Action a = currentMatch.actionGenerator(seconds);
-							if (a != null) {
-								actions.add(a);
-								System.out.println("Minute: " + seconds + " " + currentMatch.getGoalHome() + " "
-										+ currentMatch.getGoalAway());
-							}
-							if (actions != null)
-								updateActionView();
-							if (seconds > 89) {
-								timeline.stop();
-								/*
-								if(currentMatch.getHome() == t.getMyTeam()) {
-									System.out.println("Home");
-									currentMatch.setGoalHome(5);
-									currentMatch.setGoalAway(2);
-								}
-								else if(currentMatch.getAway() == t.getMyTeam()) {
-									System.out.println("Away");
-									currentMatch.setGoalAway(5);
-									currentMatch.setGoalHome(2);
-								}
-								else
-									System.out.println("!!! WTF !!!");
-								*/
-								int pointHome = -1;
-								int pointAway = -1;
-								if (currentMatch.getGoalHome() > currentMatch.getGoalAway()) {
-									pointHome = 3;
-									pointAway = 0;
-								} else if (currentMatch.getGoalHome() < currentMatch.getGoalAway()) {
-									pointHome = 0;
-									pointAway = 3;
-								} else {
-									pointHome = 1;
-									pointAway = 1;
-								}
-								System.out.println(currentMatch.getGoalHome() + " " + currentMatch.getGoalAway() + " "
-										+ pointHome + " " + pointAway);
-								currentMatch.setPointHome(pointHome);
-								currentMatch.setPointAway(pointAway);
-								if( currentMatchType == 0 ) {
-									t.getGroups()[t.getMyGroupId()].modifyGroupStatistics(currentMatch);
-									// championshipFailed - NOT POSSIBLE TO UPDATE
-								}
-								else if( currentMatchType == 1 )
-									try {
-										t.getKnockout().playMatch(t.getLastMatchId(), true);
-										// championshipFailed
-										int matchId = t.getKnockout().getMatchId(currentMatch.getDay(), currentMatch.getMonth(), currentMatch.getYear());
-										if( matchId % 2 == 0 ) {
-											if( t.getKnockout().getKnockout().getTeams()[matchId/2] != t.getMyTeam() )
-												t.setChampionshipFailed(true);
-										}
-									} catch (InterruptedException e) {
-										// TODO Auto-generated catch block
-										e.printStackTrace();
-									}
-								System.out.println("Match is over");
-							}
-						}
+			@Override
+			public void handle(ActionEvent event) {
+				actions = new ArrayList<Action>();
+				if (!paused) {
+					seconds++;
+					label.setText(seconds.toString() + "'");
+					Action a = currentMatch.actionGenerator(seconds);
+					if (a != null) {
+						actions.add(a);
+						System.out.println("Minute: " + seconds + " " + currentMatch.getGoalHome() + " " + currentMatch.getGoalAway());
 					}
+					if (actions != null)
+						updateActionView();
+					if (seconds > 89) {
+						timeline.stop();
+						/*
+						 * if(currentMatch.getHome() == t.getMyTeam()) { System.out.println("Home");
+						 * currentMatch.setGoalHome(5); currentMatch.setGoalAway(2); } else
+						 * if(currentMatch.getAway() == t.getMyTeam()) { System.out.println("Away");
+						 * currentMatch.setGoalAway(5); currentMatch.setGoalHome(2); } else
+						 * System.out.println("!!! WTF !!!");
+						 */
+						matchFinish.setVisible(true);
+						int pointHome = -1;
+						int pointAway = -1;
+						if (currentMatch.getGoalHome() > currentMatch.getGoalAway()) {
+							pointHome = 3;
+							pointAway = 0;
+						}
+						else if (currentMatch.getGoalHome() < currentMatch.getGoalAway()) {
+							pointHome = 0;
+							pointAway = 3;
+						}
+						else {
+							pointHome = 1;
+							pointAway = 1;
+						}
+						System.out.println(currentMatch.getGoalHome() + " " + currentMatch.getGoalAway() + " " + pointHome + " " + pointAway);
+						currentMatch.setPointHome(pointHome);
+						currentMatch.setPointAway(pointAway);
+						if (currentMatchType == 0) {
+							t.getGroups()[t.getMyGroupId()].modifyGroupStatistics(currentMatch);
+							// championshipFailed - NOT POSSIBLE TO UPDATE
+						}
+						else if (currentMatchType == 1)
+							try {
+								t.getKnockout().playMatch(t.getLastMatchId(), true);
+								// championshipFailed
+								int matchId = t.getKnockout().getMatchId(currentMatch.getDay(), currentMatch.getMonth(), currentMatch.getYear());
+								if (matchId % 2 == 0) {
+									if (t.getKnockout().getKnockout().getTeams()[matchId / 2] != t.getMyTeam())
+										t.setChampionshipFailed(true);
+								}
+							} catch (InterruptedException e) {
+								e.printStackTrace();
+							}
+						System.out.println("Match is over");
+					}
+				}
+			}
 
-				});
+		});
 		timeline.getKeyFrames().add(frame);
 		timeline.playFromStart();
 	}
 
 	public void updateActionView() {
 		for (int i = 0; i < actions.size(); i++) {
-			eventGrid.add(new Text(actions.get(i).toString()), 1, actionCount++);
+			Text action = new Text(actions.get(i).toString());
+			action.setFont(Font.font("Gill Sans", FontWeight.SEMI_BOLD, 15));
+			eventGrid.add(action, 1, actionCount++);
 			String actionName = actions.get(i).getClass().getName().toLowerCase().substring(6);
 			File nationImg = new File("img/actions/" + actionName + ".png");
 			ImageView act = new ImageView(new Image(nationImg.toURI().toString()));
-			act.setFitHeight(30);
-			act.setFitWidth(30);
+			act.setFitHeight(27);
+			act.setFitWidth(25);
 			eventGrid.add(act, 0, actionCount - 1);
 			if (actionName.equals("goal")) {
 				if (currentMatch.getHome().contains(((Goal) (actions.get(i))).getScored()))
@@ -532,9 +569,9 @@ public class MatchPlayController implements Initializable {
 		h.setTactic(homeTactic.getValue());
 		calibrateNamesHome();
 
-		File tactich = new File("img/tactics/" + h.getTactic() + ".png");
-		Image tacticImageh = new Image(tactich.toURI().toString(), 610, 490, false, false);
-		htacticField.setImage(tacticImageh);
+		File tactic = new File("img/tactics/" + currentMatch.getHome().getTactic() + "_" + currentMatch.getHome().getColor() + ".png");
+		Image tacticImage = new Image(tactic.toURI().toString(), 456, 454, false, false);
+		htacticField.setImage(tacticImage);
 	}
 
 	@FXML
@@ -543,9 +580,9 @@ public class MatchPlayController implements Initializable {
 		a.setTactic(awayTactic.getValue());
 		calibrateNamesAway();
 
-		File tactica = new File("img/tactics/" + a.getTactic() + ".png");
-		Image tacticImagea = new Image(tactica.toURI().toString(), 610, 490, false, false);
-		atacticField.setImage(tacticImagea);
+		File tactic = new File("img/tactics/" + currentMatch.getAway().getTactic() + "_" + currentMatch.getAway().getColor() + ".png");
+		Image tacticImage = new Image(tactic.toURI().toString(), 456, 454, false, false);
+		atacticField.setImage(tacticImage);
 	}
 
 	@FXML
@@ -673,7 +710,8 @@ public class MatchPlayController implements Initializable {
 
 			hst.setLayoutX(230);
 			hst.setLayoutY(125);
-		} else if (t.getTactic().equals("4-2-3-1")) {
+		}
+		else if (t.getTactic().equals("4-2-3-1")) {
 			hgk.setLayoutX(200);
 			hgk.setLayoutY(96);
 
@@ -812,7 +850,8 @@ public class MatchPlayController implements Initializable {
 
 			ast.setLayoutX(230);
 			ast.setLayoutY(125);
-		} else if (t.getTactic().equals("4-2-3-1")) {
+		}
+		else if (t.getTactic().equals("4-2-3-1")) {
 			agk.setLayoutX(200);
 			agk.setLayoutY(96);
 
@@ -873,6 +912,14 @@ public class MatchPlayController implements Initializable {
 	 */
 	public void setSpeed(double speed) {
 		this.speed = speed;
+	}
+
+	public Match getCurrentMatch() {
+		return currentMatch;
+	}
+
+	public void setCurrentMatch(Match currentMatch) {
+		this.currentMatch = currentMatch;
 	}
 
 }

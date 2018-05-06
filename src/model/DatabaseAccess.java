@@ -2087,7 +2087,7 @@ public class DatabaseAccess {
 		// President
 		President president = new President("Erick Thohir", 47, 175, 70, "Indonesia");
 		// Team
-		Team team = new Team("Inter Milan", "blue", "4-4-2", "San Siro Stadium", "The Black and Blues", "Italy",
+		Team team = new Team("Inter Milan", "blue", "4-2-3-1", "San Siro Stadium", "The Black and Blues", "Italy",
 				"INT", 5.0, "Attack", "Fast", manager, president, players);
 		return team;
 	}
@@ -2480,7 +2480,7 @@ public class DatabaseAccess {
 
 	public static Team[] buildTeams() {
 		Team[] teams = new Team[32];
-		teams[0] = createAjax();
+		teams[0] = createInter();
 		teams[1] = createMonaco();
 		teams[2] = createBarcelona();
 		teams[3] = createGalatasaray();
@@ -2507,7 +2507,7 @@ public class DatabaseAccess {
 		teams[24] = createZenit();
 		teams[25] = createBayern();
 		teams[26] = createAtletico();
-		teams[27] = createInter();
+		teams[27] = createAjax();
 		teams[28] = createFenerbahce();
 		teams[29] = createTottenham();
 		teams[30] = createJuventus();

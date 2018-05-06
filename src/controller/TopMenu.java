@@ -18,12 +18,12 @@ import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 public class TopMenu implements Initializable {
-	
+
 	@FXML
 	private Text managerName;
 	@FXML
 	private Text currentDate;
-	
+
 	int screenWidth = (int) Screen.getPrimary().getBounds().getWidth();
 	int screenHeight = (int) Screen.getPrimary().getBounds().getHeight();
 
@@ -37,8 +37,8 @@ public class TopMenu implements Initializable {
 	@FXML
 	public void teamClicked() throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("/view/TeamView.fxml"));
-		root.setScaleX(screenWidth/1400.0);
-		root.setScaleY(screenHeight/900.0);
+		root.setScaleX(screenWidth / 1400.0);
+		root.setScaleY(screenHeight / 900.0);
 		if (Main.isWindows()) {
 			root.setLayoutX(355);
 			root.setLayoutY(108);
@@ -57,8 +57,8 @@ public class TopMenu implements Initializable {
 	@FXML
 	public void tacticClicked() throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("/view/TacticView.fxml"));
-		root.setScaleX(screenWidth/1400.0);
-		root.setScaleY(screenHeight/900.0);
+		root.setScaleX(screenWidth / 1400.0);
+		root.setScaleY(screenHeight / 900.0);
 		if (Main.isWindows()) {
 			root.setLayoutX(355);
 			root.setLayoutY(108);
@@ -77,8 +77,8 @@ public class TopMenu implements Initializable {
 	@FXML
 	public void groupClicked() throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("/view/GroupView.fxml"));
-		root.setScaleX(screenWidth/1400.0);
-		root.setScaleY(screenHeight/900.0);
+		root.setScaleX(screenWidth / 1400.0);
+		root.setScaleY(screenHeight / 900.0);
 		if (Main.isWindows()) {
 			root.setLayoutX(355);
 			root.setLayoutY(108);
@@ -97,8 +97,8 @@ public class TopMenu implements Initializable {
 	@FXML
 	public void knockoutClicked() throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("/view/KnockoutView.fxml"));
-		root.setScaleX(screenWidth/1400.0);
-		root.setScaleY(screenHeight/900.0);
+		root.setScaleX(screenWidth / 1400.0);
+		root.setScaleY(screenHeight / 900.0);
 		if (Main.isWindows()) {
 			root.setLayoutX(355);
 			root.setLayoutY(108);
@@ -117,8 +117,8 @@ public class TopMenu implements Initializable {
 	@FXML
 	public void statClicked() throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("/view/StatisticView.fxml"));
-		root.setScaleX(screenWidth/1400.0);
-		root.setScaleY(screenHeight/900.0);
+		root.setScaleX(screenWidth / 1400.0);
+		root.setScaleY(screenHeight / 900.0);
 		if (Main.isWindows()) {
 			root.setLayoutX(355);
 			root.setLayoutY(108);
@@ -137,8 +137,8 @@ public class TopMenu implements Initializable {
 	@FXML
 	public void calendarClicked() throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("/view/CalendarView.fxml"));
-		root.setScaleX(screenWidth/1400.0);
-		root.setScaleY(screenHeight/900.0);
+		root.setScaleX(screenWidth / 1400.0);
+		root.setScaleY(screenHeight / 900.0);
 		if (Main.isWindows()) {
 			root.setLayoutX(355);
 			root.setLayoutY(108);
@@ -157,8 +157,8 @@ public class TopMenu implements Initializable {
 	@FXML
 	public void saveClicked() throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("/view/HomeScreen.fxml"));
-		root.setScaleX(screenWidth/1400.0);
-		root.setScaleY(screenHeight/900.0);
+		root.setScaleX(screenWidth / 1400.0);
+		root.setScaleY(screenHeight / 900.0);
 		if (Main.isWindows()) {
 			root.setLayoutX(360);
 			root.setLayoutY(108);
@@ -177,8 +177,8 @@ public class TopMenu implements Initializable {
 	@FXML
 	public void continueClicked() throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("/view/MatchPlayView.fxml"));
-		root.setScaleX(screenWidth/1400.0);
-		root.setScaleY(screenHeight/900.0);
+		root.setScaleX(screenWidth / 1400.0);
+		root.setScaleY(screenHeight / 900.0);
 		if (Main.isWindows()) {
 			root.setLayoutX(355);
 			root.setLayoutY(108);

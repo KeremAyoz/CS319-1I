@@ -13,7 +13,7 @@
    <fx:include source="TopMenu.fxml" />
       <ScrollPane layoutY="145.0" prefHeight="755.0" prefWidth="1400.0">
         <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1298.0" prefWidth="1368.0">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1511.0" prefWidth="1368.0">
                <children>
                   <Pane layoutX="-24.0" layoutY="6.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="494.0" prefWidth="1395.0">
                      <children>
@@ -201,7 +201,7 @@
                         </ComboBox>
                      </children>
                   </Pane>
-                  <GridPane fx:id="matchesGrid" layoutX="387.0" layoutY="727.0" prefHeight="536.0" prefWidth="630.0">
+                  <GridPane fx:id="matchesGrid" layoutX="392.0" layoutY="880.0" prefHeight="536.0" prefWidth="630.0">
                     <columnConstraints>
                       <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="265.66668701171875" minWidth="10.0" prefWidth="265.66668701171875" />
                         <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="243.3333740234375" minWidth="10.0" prefWidth="103.66668701171875" />
@@ -227,38 +227,38 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                   </GridPane>
-                  <Text fill="#8a0707" layoutX="519.0" layoutY="680.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Schedule and Results">
+                  <Text fill="#8a0707" layoutX="524.0" layoutY="833.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Schedule and Results">
                      <font>
                         <Font name="Gill Sans Bold" size="32.0" />
                      </font>
                   </Text>
-                  <Line endX="775.0" layoutX="613.0" layoutY="601.0" startX="-625.0" />
-                  <Text layoutX="330.0" layoutY="753.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Week 1" underline="true">
+                  <Line endX="775.0" layoutX="618.0" layoutY="754.0" startX="-625.0" />
+                  <Text layoutX="335.0" layoutY="906.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Week 1" underline="true">
                      <font>
                         <Font name="Gill Sans SemiBold" size="25.0" />
                      </font>
                   </Text>
-                  <Text layoutX="330.0" layoutY="853.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Week 2" underline="true">
+                  <Text layoutX="335.0" layoutY="1006.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Week 2" underline="true">
                      <font>
                         <Font name="Gill Sans SemiBold" size="25.0" />
                      </font>
                   </Text>
-                  <Text layoutX="330.0" layoutY="953.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Week 3" underline="true">
+                  <Text layoutX="335.0" layoutY="1106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Week 3" underline="true">
                      <font>
                         <Font name="Gill Sans SemiBold" size="25.0" />
                      </font>
                   </Text>
-                  <Text layoutX="330.0" layoutY="1053.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Week 4" underline="true">
+                  <Text layoutX="335.0" layoutY="1206.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Week 4" underline="true">
                      <font>
                         <Font name="Gill Sans SemiBold" size="25.0" />
                      </font>
                   </Text>
-                  <Text layoutX="330.0" layoutY="1153.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Week 5" underline="true">
+                  <Text layoutX="335.0" layoutY="1306.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Week 5" underline="true">
                      <font>
                         <Font name="Gill Sans SemiBold" size="25.0" />
                      </font>
                   </Text>
-                  <Text layoutX="330.0" layoutY="1253.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Week 6" underline="true">
+                  <Text layoutX="335.0" layoutY="1406.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Week 6" underline="true">
                      <font>
                         <Font name="Gill Sans SemiBold" size="25.0" />
                      </font>

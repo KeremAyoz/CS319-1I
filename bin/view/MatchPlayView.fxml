@@ -16,12 +16,12 @@
                   <Rectangle fx:id="aTactics" arcHeight="5.0" arcWidth="5.0" fill="#b2b2b2" height="162.0" layoutX="935.0" layoutY="524.0" stroke="BLACK" strokeType="INSIDE" width="438.0" />
                   <Rectangle fx:id="hTactics" arcHeight="5.0" arcWidth="5.0" fill="#b2b2b2" height="162.0" layoutX="39.0" layoutY="524.0" stroke="BLACK" strokeType="INSIDE" width="438.0" />
                   <Circle fill="WHITE" layoutX="700.0" layoutY="63.0" radius="30.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Text fx:id="homeName" fill="#6b0101" layoutX="335.0" layoutY="-81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Barcelona" wrappingWidth="284.2846908569336">
+                  <Text fx:id="homeName" fill="#6b0101" layoutX="231.0" layoutY="-82.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Barcelona" textAlignment="CENTER" wrappingWidth="398.2636184692383">
                      <font>
                         <Font name="Gill Sans Bold" size="38.0" />
                      </font>
                   </Text>
-                  <Text fx:id="awayName" fill="#034fc3" layoutX="832.0" layoutY="-82.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Real Madrid" wrappingWidth="341.1319580078125">
+                  <Text fx:id="awayName" fill="#034fc3" layoutX="762.0" layoutY="-82.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Real Madrid" textAlignment="CENTER" wrappingWidth="414.149658203125">
                      <font>
                         <Font name="Gill Sans Bold" size="38.0" />
                      </font>
@@ -31,11 +31,11 @@
                         <Font name="Gill Sans Bold" size="33.0" />
                      </font>
                   </Label>
-                  <Button layoutX="538.0" layoutY="602.0" mnemonicParsing="false" onAction="#pauseClicked" prefHeight="40.0" prefWidth="64.0" text="Pause">
+                  <Button layoutX="538.0" layoutY="584.0" mnemonicParsing="false" onAction="#pauseClicked" prefHeight="40.0" prefWidth="64.0" text="Pause">
                      <font>
                         <Font name="Gill Sans SemiBold" size="15.0" />
                      </font></Button>
-                  <Button layoutX="808.0" layoutY="601.0" mnemonicParsing="false" onAction="#playClicked" prefHeight="40.0" prefWidth="64.0" text="Play">
+                  <Button layoutX="808.0" layoutY="583.0" mnemonicParsing="false" onAction="#playClicked" prefHeight="40.0" prefWidth="64.0" text="Play">
                      <font>
                         <Font name="Gill Sans SemiBold" size="15.0" />
                      </font>
@@ -55,8 +55,8 @@
                         <Font name="Gill Sans UltraBold" size="34.0" />
                      </font>
                   </Text>
-                  <ImageView fx:id="homeLogo" fitHeight="130.0" fitWidth="130.0" layoutX="151.0" layoutY="-168.0" pickOnBounds="true" preserveRatio="true" />
-                  <ImageView fx:id="awayLogo" fitHeight="130.0" fitWidth="130.0" layoutX="1132.0" layoutY="-173.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="homeLogo" fitHeight="130.0" fitWidth="130.0" layoutX="110.0" layoutY="-173.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="awayLogo" fitHeight="130.0" fitWidth="130.0" layoutX="1166.0" layoutY="-173.0" pickOnBounds="true" preserveRatio="true" />
                   <ComboBox fx:id="homeTactic" layoutX="60.0" layoutY="636.0" onAction="#homeTacticChanged" prefHeight="27.0" prefWidth="100.0" />
                   <ComboBox fx:id="homeStyle" layoutX="201.0" layoutY="635.0" onAction="#homeStyleChanged" prefHeight="27.0" prefWidth="100.0" />
                   <ComboBox fx:id="homeTempo" layoutX="345.0" layoutY="635.0" onAction="#homeTempoChanged" prefHeight="27.0" prefWidth="100.0" />
@@ -199,14 +199,17 @@
                         </AnchorPane>
                      </content>
                   </TitledPane>
-                  <Line endX="900.0" layoutX="253.0" layoutY="-30.0" startX="-50.0" />
-                  <Text fill="#800505" layoutX="684.0" layoutY="615.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Speed">
+                  <Line endX="850.0" layoutX="270.0" layoutY="-30.0" />
+                  <Text fill="#800505" layoutX="684.0" layoutY="597.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Speed">
                      <font>
                         <Font name="Gill Sans SemiBold" size="18.0" />
                      </font>
                   </Text>
-                  <Slider fx:id="speedSlider" layoutX="637.0" layoutY="624.0" />
-                  <Button fx:id="matchFinish" layoutX="770.0" layoutY="57.0" mnemonicParsing="false" onAction="#matchDone" text="Finished" />
+                  <Slider fx:id="speedSlider" layoutX="637.0" layoutY="606.0" />
+                  <Button fx:id="matchFinish" layoutX="670.0" layoutY="636.0" mnemonicParsing="false" onAction="#matchDone" prefHeight="42.0" prefWidth="74.0" text="Finished">
+                     <font>
+                        <Font name="Gill Sans SemiBold" size="15.0" />
+                     </font></Button>
                   <ComboBox fx:id="homeOld" layoutX="60.0" layoutY="559.0" prefWidth="150.0" />
                   <ComboBox fx:id="homeNew" layoutX="235.0" layoutY="559.0" prefWidth="150.0" />
                   <ComboBox fx:id="awayOld" layoutX="974.0" layoutY="559.0" prefWidth="150.0" />
@@ -245,7 +248,7 @@
                   </Text>
                </children>
             </Pane>
-            <ScrollPane fx:id="scrollEvent" layoutX="540.0" layoutY="330.0" prefHeight="413.0" prefWidth="334.0">
+            <ScrollPane fx:id="scrollEvent" layoutX="540.0" layoutY="316.0" prefHeight="413.0" prefWidth="334.0">
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="743.0" prefWidth="319.0">
                      <children>

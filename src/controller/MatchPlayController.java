@@ -155,7 +155,7 @@ public class MatchPlayController implements Initializable {
 	private Pair<Match, Integer> currentMatchInfo;
 
 	private boolean paused;
-	
+
 	private int actionCount = 0;
 
 	private Integer seconds = 0;
@@ -289,7 +289,7 @@ public class MatchPlayController implements Initializable {
 	ArrayList<Action> actions;
 
 	private double speed = 1;
-	
+
 	public void fillColorText(Text t, String color) {
 		if (color.equals("red")) {
 			t.setFill(Color.DARKRED);
@@ -327,7 +327,7 @@ public class MatchPlayController implements Initializable {
 
 		if (currentMatch == null) {
 			try {
-				Parent root=FXMLLoader.load(getClass().getResource("/view/CalendarView.fxml"));
+				Parent root = FXMLLoader.load(getClass().getResource("/view/CalendarView.fxml"));
 				root.setScaleX(screenWidth / 1400.0);
 				root.setScaleY(screenHeight / 900.0);
 				if (Main.isWindows()) {
@@ -357,10 +357,27 @@ public class MatchPlayController implements Initializable {
 		}
 
 		if (currentMatchType == 3) {
-			// LOSER
-			// Barca vs Real Madrid geliyor
-			System.out.println("Losers' Club");
-			return;
+			Parent root;
+			try {
+				root = FXMLLoader.load(getClass().getResource("/view/Eliminated.fxml"));
+				root.setScaleX(screenWidth / 1400.0);
+				root.setScaleY(screenHeight / 900.0);
+				if (Main.isWindows()) {
+					root.setLayoutX(360);
+					root.setLayoutY(108);
+				}
+				if (Main.isMacos()) {
+					root.setLayoutX(20);
+				}
+				Stage m = Main.getMainStage();
+				Scene t = Main.getMainStage().getScene();
+				t.setRoot(root);
+				m.setScene(t);
+				m.setFullScreen(true);
+				Main.setMainStage(m);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
 
 		if (currentMatch != null) {

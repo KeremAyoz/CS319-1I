@@ -54,10 +54,11 @@ public class Match implements Serializable{
 	// Match Algo
 	private final int ALGO_GENERATE_ADD = 1;
 	private final int ALGO_GENERATE_INITIAL = 1;
-	private final int ALGO_GENERATE_DEN = 30;
+	private final int ALGO_GENERATE_DEN = 40;
 	
 	// Match Algo
 	private final int ALGO_TYPE_ADD = 5;
+	private final int ALGO_TYPE_SUB = 5;
 	private final int ALGO_TYPE_INITIAL_GOAL = 15;
 	private final int ALGO_TYPE_INITIAL_YELLOW = 20;
 	private final int ALGO_TYPE_INITIAL_RED = 5;
@@ -255,26 +256,29 @@ public class Match implements Serializable{
 	
 	void calcPerformance() {
 		
-		for( int i = 0 ; i < playerPerformance[0].length ; i++ ) {
-			if( home.getPlayers().get(i).getPosition().equals("GK") || tookRedCard[0][i] )
-				playerPerformance[0][i] = 0;
+		for( int i = 0 ; i < NUMBER_OF_PLAYERS ; i++ ) {
+			int id = getPlayerId( 0 , home.getPlayers().get(i).getName() );
+			if( home.getPlayers().get(i).getPosition().equals("GK") || tookRedCard[0][id] )
+				playerPerformance[0][id] = 0;
 			else {
-				playerPerformance[0][i] = 100;
-				if( tookYellowCard[0][i] )
-					playerPerformance[0][i] /= 2;
-				for( int j = 0 ; j < injuryCount[0][i] ; j++ )
-					playerPerformance[0][i] /= 5;
+				playerPerformance[0][id] = 100;
+				if( tookYellowCard[0][id] )
+					playerPerformance[0][id] /= 2;
+				for( int j = 0 ; j < injuryCount[0][id] ; j++ )
+					playerPerformance[0][id] /= 5;
 			}
 		}
-		for( int i = 0 ; i < playerPerformance[1].length ; i++ ) {
-			if( away.getPlayers().get(i).getPosition().equals("GK") || tookRedCard[1][i] )
-				playerPerformance[1][i] = 0;
+		
+		for( int i = 0 ; i < NUMBER_OF_PLAYERS ; i++ ) {
+			int id = getPlayerId( 1 , away.getPlayers().get(i).getName() );
+			if( away.getPlayers().get(i).getPosition().equals("GK") || tookRedCard[1][id] )
+				playerPerformance[1][id] = 0;
 			else {
-				playerPerformance[1][i] = 100;
-				if( tookYellowCard[1][i] )
-					playerPerformance[1][i] /= 2;
-				for( int j = 0 ; j < injuryCount[1][i] ; j++ )
-					playerPerformance[1][i] /= 5;
+				playerPerformance[1][id] = 100;
+				if( tookYellowCard[1][id] )
+					playerPerformance[1][id] /= 2;
+				for( int j = 0 ; j < injuryCount[1][id] ; j++ )
+					playerPerformance[1][id] /= 5;
 			}
 		}
 		
@@ -319,8 +323,8 @@ public class Match implements Serializable{
 		// Goal
 		if( randomEvent < eventGoalChance ) {
 			
-			int sumPerformance = 0;
-			ArrayList< Pair< Pair<Integer , Integer> , Integer > > playerIds = new ArrayList<>();
+			int sumPerformance1 = 0;
+			ArrayList< Pair< Pair<Integer , Integer> , Integer > > playerIds1 = new ArrayList<>();
 			
 			for( int k = 0 ; k < 2 ; k++ ) {
 				Team team;
@@ -331,47 +335,62 @@ public class Match implements Serializable{
 				for( int i = 0 ; i < NUMBER_OF_PLAYERS ; i++ ) {
 					int id = getPlayerId( k , team.getPlayers().get(i).getName() );
 					if( !tookRedCard[k][id] ) {
-						sumPerformance += playerPerformance[k][id];
-						playerIds.add( new Pair< Pair<Integer , Integer> , Integer >( new Pair<Integer, Integer>( k , i ) , playerPerformance[k][id] ) );
+						sumPerformance1 += playerPerformance[k][id];
+						playerIds1.add( new Pair< Pair<Integer , Integer> , Integer >( new Pair<Integer, Integer>( k , i ) , playerPerformance[k][id] ) );
 					}
 				}
 			}
 			
-			int randomPerformanceScorer = (int) ((new Random()).nextDouble() * sumPerformance);
-			randomPerformanceScorer %= sumPerformance;
-			/*
-			int randomPerformanceAssister = (int) ((new Random()).nextDouble() * sumPerformance);
-			randomPerformanceAssister %= sumPerformance;
-			*/
+			int randomPerformanceScorer = (int) ((new Random()).nextDouble() * sumPerformance1);
+			randomPerformanceScorer %= sumPerformance1;
 			
+			int scorerTeamId = -1;
+			Team scorerTeam = null;
 			Player playerScorer = null;
-			for( int i = 0 , sum = 0 ; i < playerIds.size() ; i++ ) {
-				sum += playerIds.get(i).getValue();
+			for( int i = 0 , sum = 0 ; i < playerIds1.size() ; i++ ) {
+				sum += playerIds1.get(i).getValue();
 				if( randomPerformanceScorer < sum ) {
-					int k = playerIds.get(i).getKey().getKey();
-					int id = playerIds.get(i).getKey().getValue();
+					int k = playerIds1.get(i).getKey().getKey();
+					int id = playerIds1.get(i).getKey().getValue();
 					if( k == 0 ) {
+						scorerTeamId = 0;
+						scorerTeam = home;
 						playerScorer = home.getPlayers().get(id);
 						goalHome++;
 					}
 					else {
+						scorerTeamId = 1;
+						scorerTeam = away;
 						playerScorer = away.getPlayers().get(id);
 						goalAway++;
 					}
 					break;
 				}
 			}
-			/*
+			
+			int sumPerformance2 = 0;
+			ArrayList< Pair< Pair<Integer , Integer> , Integer > > playerIds2 = new ArrayList<>();
+			
+			for( int i = 0 ; i < NUMBER_OF_PLAYERS ; i++ ) {
+				int id = getPlayerId( scorerTeamId , scorerTeam.getPlayers().get(i).getName() );
+				if( !tookRedCard[scorerTeamId][id] && scorerTeam.getPlayers().get(i) != playerScorer ) {
+					sumPerformance2 += playerPerformance[scorerTeamId][id];
+					playerIds2.add( new Pair< Pair<Integer , Integer> , Integer >( new Pair<Integer, Integer>( scorerTeamId , i ) , playerPerformance[scorerTeamId][id] ) );
+				}
+			}
+			
+			int randomPerformanceAssister = (int) ((new Random()).nextDouble() * sumPerformance2);
+			randomPerformanceAssister %= sumPerformance2;
+			
 			Player playerAssister = null;
-			for( int i = 0 , sum = 0 ; i < playerIds.size() ; i++ ) {
-				sum += playerIds.get(i).getValue();
+			for( int i = 0 , sum = 0 ; i < playerIds2.size() ; i++ ) {
+				sum += playerIds2.get(i).getValue();
 				if( randomPerformanceAssister < sum ) {
-					int id = playerIds.get(i).getKey();
-					playerAssister = team.getPlayers().get(id);
+					int id = playerIds2.get(i).getKey().getValue();
+					playerAssister = scorerTeam.getPlayers().get(id);
 					break;
 				}
 			}
-			*/
 			
 			eventGoalChance = ALGO_TYPE_INITIAL_GOAL;
 			eventInjuryChance += ALGO_TYPE_ADD;
@@ -379,10 +398,8 @@ public class Match implements Serializable{
 			eventYellowCardChance += ALGO_TYPE_ADD;
 			
 			playerScorer.setCntGoal( playerScorer.getCntGoal() + 1 );
-			playerScorer.setCntAssist( playerScorer.getCntAssist() + 1 );
-			return new Goal( minute , playerScorer , playerScorer );
-			//playerAssister.setCntAssist( playerAssister.getCntAssist() + 1 );
-			//return new Goal( minute , playerScorer , playerAssister );
+			playerAssister.setCntAssist( playerAssister.getCntAssist() + 1 );
+			return new Goal( minute , playerScorer , playerAssister );
 			
 		}
 		
@@ -736,6 +753,18 @@ public class Match implements Serializable{
 
 	public void setPlayerNames(String[][] playerNames) {
 		this.playerNames = playerNames;
+	}
+
+	public int[][] getInjuryCount() {
+		return injuryCount;
+	}
+
+	public void setInjuryCount(int[][] injuryCount) {
+		this.injuryCount = injuryCount;
+	}
+
+	public int getALGO_TYPE_SUB() {
+		return ALGO_TYPE_SUB;
 	}
 	
 }

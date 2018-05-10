@@ -214,7 +214,7 @@ public class Tournament implements Serializable {
 		return true;
 	}
 
-	public void checkChampionshipFaied() {
+	public void checkChampionshipFailed() {
 		if( !checkAllGroupMatchesFinished() )
 			return;
 		groups[myGroupId].orderGroup();

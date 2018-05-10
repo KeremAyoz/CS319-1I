@@ -504,7 +504,7 @@ public class MatchPlayController implements Initializable {
 						}
 
 						// Is game over ?
-						t.checkChampionshipFaied();
+						t.checkChampionshipFailed();
 						if (t.isChampionshipFailed()) {
 							try {
 								goView("/view/Eliminated.fxml");

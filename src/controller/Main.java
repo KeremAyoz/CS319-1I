@@ -35,6 +35,8 @@ public class Main extends Application {
 
 	private static String OS = null;
 
+	private static MediaPlayer musicplayer;
+
 	public static String getOsName() {
 		if (OS == null) {
 			OS = System.getProperty("os.name");
@@ -71,12 +73,11 @@ public class Main extends Application {
 		if (isMacos()) {
 			root.setLayoutX(20);
 		}
-		/*
-		MediaPlayer musicplayer;
+
 		{
-			String filePath = "file:///" + new java.io.File("").getAbsolutePath() + "/data/entrance2.mp3";
-		    filePath = filePath.replace("\\", "/");
-		    System.out.println(filePath);
+			String filePath = "file:///" + new java.io.File("").getAbsolutePath() + "/data/sounds/entrance.mp3";
+			filePath = filePath.replace("\\", "/");
+			System.out.println(filePath);
 			Media mp3MusicFile = new Media(filePath);
 			musicplayer = new MediaPlayer(mp3MusicFile);
 			musicplayer.setAutoPlay(true);
@@ -89,7 +90,7 @@ public class Main extends Application {
 				}
 			});
 		}
-		*/
+
 		Scene scene = new Scene(root, screenWidth, screenHeight);
 
 		mainStage.setScene(scene);
@@ -110,5 +111,13 @@ public class Main extends Application {
 
 	public static Stage getMainStage() {
 		return mainStage;
+	}
+
+	public static MediaPlayer getMusicplayer() {
+		return musicplayer;
+	}
+
+	public static void setMusicplayer(MediaPlayer musicplayer2) {
+		musicplayer = musicplayer2;
 	}
 }

@@ -40,6 +40,7 @@ import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
+import javafx.scene.media.AudioClip;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
@@ -311,6 +312,26 @@ public class MatchPlayController implements Initializable {
 		}
 	}
 
+	public void goCalendarView() throws IOException {
+		Parent root = FXMLLoader.load(getClass().getResource("/view/CalendarView.fxml"));
+		root.setScaleX(screenWidth / 1400.0);
+		root.setScaleY(screenHeight / 900.0);
+		if (Main.isWindows()) {
+			root.setLayoutX(320);
+			root.setLayoutY(108);
+		}
+		if (Main.isMacos()) {
+			root.setLayoutX(20);
+		}
+		Stage m = Main.getMainStage();
+		Scene t = Main.getMainStage().getScene();
+		t.setRoot(root);
+		m.setScene(t);
+		m.setFullScreen(true);
+		Main.setMainStage(m);
+
+	}
+
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
 		t = Tournament.getInstance();
@@ -324,31 +345,7 @@ public class MatchPlayController implements Initializable {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-
-		if (currentMatch == null) {
-			try {
-				Parent root = FXMLLoader.load(getClass().getResource("/view/CalendarView.fxml"));
-				root.setScaleX(screenWidth / 1400.0);
-				root.setScaleY(screenHeight / 900.0);
-				if (Main.isWindows()) {
-					root.setLayoutX(320);
-					root.setLayoutY(108);
-				}
-				if (Main.isMacos()) {
-					root.setLayoutX(20);
-				}
-				Stage m = Main.getMainStage();
-				Scene t = Main.getMainStage().getScene();
-				t.setRoot(root);
-				m.setScene(t);
-				m.setFullScreen(true);
-				Main.setMainStage(m);
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-
+		System.out.println("MAÇ TİPİ: " + currentMatchType);
 		if (currentMatchType == 2) {
 			// WINNER
 			// Barca vs Real Madrid geliyor
@@ -379,8 +376,16 @@ public class MatchPlayController implements Initializable {
 				e.printStackTrace();
 			}
 		}
-
-		if (currentMatch != null) {
+		
+		if (currentMatch == null) {
+			try {
+				goCalendarView();
+			} catch (Exception e) {
+			}
+			int x = 0 / 0;
+		}
+		else {
+			Main.getMusicplayer().pause();
 			Team home = currentMatch.getHome();
 			Team away = currentMatch.getAway();
 
@@ -460,14 +465,15 @@ public class MatchPlayController implements Initializable {
 			 */
 			fillSubstituteHome();
 			fillSubstituteAway();
-
+			doTime();
 		}
 		matchFinish.setVisible(false);
-		doTime();
 	}
+
 
 	@FXML
 	public void matchDone() throws IOException {
+		Main.getMusicplayer().play();
 		Parent root;
 		if (!Tournament.getInstance().getStatusEliminationStage())
 			root = FXMLLoader.load(getClass().getResource("/view/GroupView.fxml"));
@@ -492,7 +498,7 @@ public class MatchPlayController implements Initializable {
 		currentMatch.setGoalAway(0);
 		Timeline timeline = new Timeline();
 		timeline.setCycleCount(Timeline.INDEFINITE);
-		KeyFrame frame = new KeyFrame(Duration.seconds(0.2), new EventHandler<ActionEvent>() {
+		KeyFrame frame = new KeyFrame(Duration.seconds(0.1), new EventHandler<ActionEvent>() {
 
 			@Override
 			public void handle(ActionEvent event) {
@@ -507,15 +513,22 @@ public class MatchPlayController implements Initializable {
 					}
 					if (actions != null)
 						updateActionView();
-					if (seconds > 89) {
+					if (a != null && a.getClass().getSimpleName().equals("Goal")) {
+						String filePath = "file:///" + new java.io.File("").getAbsolutePath() + "/data/sounds/goal.wav";
+						AudioClip goal = new AudioClip(filePath);
+						goal.play();
+					}
+					if (a != null && a.getClass().getSimpleName().equals("RedCard")) {
+						String filePath = "file:///" + new java.io.File("").getAbsolutePath() + "/data/sounds/red.wav";
+						AudioClip red = new AudioClip(filePath);
+						red.play();
+					}
+
+					if (seconds > 89 + (int)(Math.random()*6)) {
+						String filePath = "file:///" + new java.io.File("").getAbsolutePath() + "/data/sounds/end.wav";
+						AudioClip end = new AudioClip(filePath);
+						end.play();
 						timeline.stop();
-						/*
-						 * if(currentMatch.getHome() == t.getMyTeam()) { System.out.println("Home");
-						 * currentMatch.setGoalHome(5); currentMatch.setGoalAway(2); } else
-						 * if(currentMatch.getAway() == t.getMyTeam()) { System.out.println("Away");
-						 * currentMatch.setGoalAway(5); currentMatch.setGoalHome(2); } else
-						 * System.out.println("!!! WTF !!!");
-						 */
 						matchFinish.setVisible(true);
 						int pointHome = -1;
 						int pointAway = -1;
@@ -558,6 +571,7 @@ public class MatchPlayController implements Initializable {
 		});
 		timeline.getKeyFrames().add(frame);
 		timeline.playFromStart();
+
 	}
 
 	public void updateActionView() {

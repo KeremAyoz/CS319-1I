@@ -152,8 +152,7 @@ public class MatchPlayController implements Initializable {
 	private ImageView atacticField;
 
 	public static Match currentMatch;
-	private Integer currentMatchType;
-	private Pair<Match, Integer> currentMatchInfo;
+	public static Integer currentMatchType;
 
 	private boolean paused;
 
@@ -340,7 +339,7 @@ public class MatchPlayController implements Initializable {
 		paused = false;
 		label.setTextFill(Color.BLACK);
 
-		Main.getMusicplayer().pause();
+		Main.pauseMusic();
 		Team home = currentMatch.getHome();
 		Team away = currentMatch.getAway();
 
@@ -404,7 +403,6 @@ public class MatchPlayController implements Initializable {
 		}
 
 		File tactic = new File("img/tactics/" + home.getTactic() + "_" + home.getColor() + ".png");
-		System.out.println(tactic.toString());
 		Image tacticImage = new Image(tactic.toURI().toString(), 456, 454, false, false);
 		htacticField.setImage(tacticImage);
 
@@ -426,7 +424,7 @@ public class MatchPlayController implements Initializable {
 
 	@FXML
 	public void matchDone() throws IOException {
-		Main.getMusicplayer().play();
+		Main.playMusic();
 		if (!Tournament.getInstance().getStatusEliminationStage())
 			goView("/view/GroupView.fxml");
 		else
@@ -449,7 +447,6 @@ public class MatchPlayController implements Initializable {
 					Action a = currentMatch.actionGenerator(seconds);
 					if (a != null) {
 						actions.add(a);
-						System.out.println("Minute: " + seconds + " " + currentMatch.getGoalHome() + " " + currentMatch.getGoalAway());
 					}
 					if (actions != null)
 						updateActionView();
@@ -484,14 +481,13 @@ public class MatchPlayController implements Initializable {
 							pointHome = 1;
 							pointAway = 1;
 						}
-						System.out.println(currentMatch.getGoalHome() + " " + currentMatch.getGoalAway() + " " + pointHome + " " + pointAway);
 						currentMatch.setPointHome(pointHome);
 						currentMatch.setPointAway(pointAway);
 						if (currentMatchType == 0) {
 							t.getGroups()[t.getMyGroupId()].modifyGroupStatistics(currentMatch);
-							// championshipFailed - NOT POSSIBLE TO UPDATE
+							
 						}
-						else if (currentMatchType == 1)
+						else if (currentMatchType == 1) {
 							try {
 								t.getKnockout().playMatch(t.getLastMatchId(), true);
 								// championshipFailed
@@ -503,7 +499,17 @@ public class MatchPlayController implements Initializable {
 							} catch (InterruptedException e) {
 								e.printStackTrace();
 							}
-						System.out.println("Match is over");
+						}
+						t.checkChampionshipFaied();
+						boolean elendikmi = t.isChampionshipFailed();
+						if (elendikmi) {
+							try {
+								goView("/view/Eliminated.fxml");
+							} catch (IOException e) {
+								e.printStackTrace();
+							}
+							int x = 0 / 0;
+						}
 					}
 				}
 			}

@@ -105,36 +105,7 @@ public class MatchStart implements Initializable {
 		}
 
 		MatchPlayController.currentMatch = currentMatch;
-		if (currentMatchType == 2) {
-			// WINNER
-			// Barca vs Real Madrid geliyor
-			System.out.println("We Are The Champions");
-			return;
-		}
-
-		if (currentMatchType == 3) {
-			Parent root;
-			try {
-				root = FXMLLoader.load(getClass().getResource("/view/Eliminated.fxml"));
-				root.setScaleX(screenWidth / 1400.0);
-				root.setScaleY(screenHeight / 900.0);
-				if (Main.isWindows()) {
-					root.setLayoutX(360);
-					root.setLayoutY(108);
-				}
-				if (Main.isMacos()) {
-					root.setLayoutX(20);
-				}
-				Stage m = Main.getMainStage();
-				Scene ts = Main.getMainStage().getScene();
-				ts.setRoot(root);
-				m.setScene(ts);
-				m.setFullScreen(true);
-				Main.setMainStage(m);
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
+		MatchPlayController.currentMatchType = currentMatchType;
 
 		if (currentMatch == null) {
 			try {

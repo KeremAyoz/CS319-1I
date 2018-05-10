@@ -236,17 +236,17 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </Text>
-      <Text fx:id="homeName" fill="#6b0101" layoutX="545.0" layoutY="262.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+      <Text fx:id="homeName" fill="#6b0101" layoutX="168.0" layoutY="253.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="RIGHT" wrappingWidth="503.67694091796875">
          <font>
             <Font name="Gill Sans Bold" size="48.0" />
          </font>
       </Text>
-      <Text fx:id="awayName" fill="#034fc3" layoutX="776.0" layoutY="262.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+      <Text fx:id="awayName" fill="#034fc3" layoutX="799.0" layoutY="253.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="528.4049682617188">
          <font>
             <Font name="Gill Sans Bold" size="48.0" />
          </font>
       </Text>
-      <Text layoutX="708.0" layoutY="263.0" strokeType="OUTSIDE" strokeWidth="0.0" text="VS">
+      <Text layoutX="719.0" layoutY="250.0" strokeType="OUTSIDE" strokeWidth="0.0" text="VS">
          <font>
             <Font name="Gill Sans" size="24.0" />
          </font>
@@ -270,6 +270,10 @@
       </Text>
       <Text fx:id="referee" layoutX="705.0" layoutY="381.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
       <Line endX="400.0" layoutX="560.0" layoutY="285.0" startX="-80.0" />
-      <Button layoutX="1152.0" layoutY="255.0" mnemonicParsing="false" onAction="#startMatch" text="START MATCH" />
+      <Button layoutX="1122.0" layoutY="28.0" mnemonicParsing="false" onAction="#startMatch" prefHeight="83.0" prefWidth="145.0" text="START MATCH">
+         <font>
+            <Font name="Gill Sans SemiBold" size="15.0" />
+         </font>
+      </Button>
    </children>
 </Pane>

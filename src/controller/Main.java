@@ -38,6 +38,7 @@ public class Main extends Application {
 
 	private static MediaPlayer musicplayer;
 
+	
 	public static String getOsName() {
 		if (OS == null) {
 			OS = System.getProperty("os.name");
@@ -114,11 +115,11 @@ public class Main extends Application {
 		return mainStage;
 	}
 
-	public static MediaPlayer getMusicplayer() {
-		return musicplayer;
+	public static void pauseMusic() {
+		musicplayer.pause();
 	}
-
-	public static void setMusicplayer(MediaPlayer musicplayer2) {
-		musicplayer = musicplayer2;
+	public static void playMusic() {
+		musicplayer.play();
 	}
+	
 }

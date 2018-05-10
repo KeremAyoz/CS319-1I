@@ -452,17 +452,20 @@ public class MatchPlayController implements Initializable {
 						updateActionView();
 					if (a != null && a.getClass().getSimpleName().equals("Goal")) {
 						String filePath = "file:///" + new java.io.File("").getAbsolutePath() + "/data/sounds/goal.wav";
+						filePath = filePath.replace("\\", "/");
 						AudioClip goal = new AudioClip(filePath);
 						goal.play();
 					}
 					if (a != null && a.getClass().getSimpleName().equals("RedCard")) {
 						String filePath = "file:///" + new java.io.File("").getAbsolutePath() + "/data/sounds/red.wav";
+						filePath = filePath.replace("\\", "/");
 						AudioClip red = new AudioClip(filePath);
 						red.play();
 					}
 
 					if (seconds > 89 + (int) (Math.random() * 6)) {
 						String filePath = "file:///" + new java.io.File("").getAbsolutePath() + "/data/sounds/end.wav";
+						filePath = filePath.replace("\\", "/");
 						AudioClip end = new AudioClip(filePath);
 						end.play();
 						timeline.stop();

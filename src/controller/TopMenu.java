@@ -176,7 +176,7 @@ public class TopMenu implements Initializable {
 
 	@FXML
 	public void continueClicked() throws IOException {
-		Parent root = FXMLLoader.load(getClass().getResource("/view/MatchPlayView.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("/view/MatchStart.fxml"));
 		root.setScaleX(screenWidth / 1400.0);
 		root.setScaleY(screenHeight / 900.0);
 		if (Main.isWindows()) {

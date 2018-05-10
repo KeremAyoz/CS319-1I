@@ -8,7 +8,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane fx:id="referee" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MatchStart">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MatchStart">
    <children>
    <fx:include source="TopMenu.fxml" />
       <ImageView fitHeight="458.0" fitWidth="1128.0" layoutX="164.0" layoutY="424.0" preserveRatio="true">
@@ -236,7 +236,7 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </Text>
-      <Text fx:id="homeName" fill="#6b0101" layoutX="546.0" layoutY="262.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+      <Text fx:id="homeName" fill="#6b0101" layoutX="545.0" layoutY="262.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
          <font>
             <Font name="Gill Sans Bold" size="48.0" />
          </font>
@@ -270,5 +270,6 @@
       </Text>
       <Text fx:id="referee" layoutX="705.0" layoutY="381.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
       <Line endX="400.0" layoutX="560.0" layoutY="285.0" startX="-80.0" />
+      <Button layoutX="1152.0" layoutY="255.0" mnemonicParsing="false" onAction="#startMatch" text="START MATCH" />
    </children>
 </Pane>

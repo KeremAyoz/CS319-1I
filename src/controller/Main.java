@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 import javax.swing.event.ChangeEvent;
 
+import javafx.animation.Animation;
 import javafx.application.Application;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;

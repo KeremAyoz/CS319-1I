@@ -151,7 +151,7 @@ public class MatchPlayController implements Initializable {
 	@FXML
 	private ImageView atacticField;
 
-	public Match currentMatch;
+	public static Match currentMatch;
 	private Integer currentMatchType;
 	private Pair<Match, Integer> currentMatchInfo;
 
@@ -221,6 +221,8 @@ public class MatchPlayController implements Initializable {
 	private static int subCountHome = 3;
 
 	private static int subCountAway = 3;
+
+	public static boolean started = false;
 
 	@FXML
 	public void homeChanged() {
@@ -312,8 +314,8 @@ public class MatchPlayController implements Initializable {
 		}
 	}
 
-	public void goCalendarView() throws IOException {
-		Parent root = FXMLLoader.load(getClass().getResource("/view/CalendarView.fxml"));
+	public void goView(String view) throws IOException {
+		Parent root = FXMLLoader.load(getClass().getResource(view));
 		root.setScaleX(screenWidth / 1400.0);
 		root.setScaleY(screenHeight / 900.0);
 		if (Main.isWindows()) {
@@ -338,159 +340,97 @@ public class MatchPlayController implements Initializable {
 		paused = false;
 		label.setTextFill(Color.BLACK);
 
-		try {
-			currentMatchInfo = t.goNextDay();
-			currentMatch = currentMatchInfo.getKey();
-			currentMatchType = currentMatchInfo.getValue();
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		System.out.println("MAÇ TİPİ: " + currentMatchType);
-		if (currentMatchType == 2) {
-			// WINNER
-			// Barca vs Real Madrid geliyor
-			System.out.println("We Are The Champions");
-			return;
+		Main.getMusicplayer().pause();
+		Team home = currentMatch.getHome();
+		Team away = currentMatch.getAway();
+
+		homeName.setText(home.getName());
+		awayName.setText(away.getName());
+
+		homeName.setFont(Font.font("Gill Sans", FontWeight.BOLD, 38));
+		fillColorText(homeName, home.getColor());
+		awayName.setFont(Font.font("Gill Sans", FontWeight.BOLD, 38));
+		fillColorText(awayName, away.getColor());
+
+		String st = home.getName().toLowerCase().trim();
+		st = st.replaceAll("\\s+", "");
+		File logo1 = new File("img/logos/" + st + ".png");
+		Image image = new Image(logo1.toURI().toString());
+		homeLogo.setImage(image);
+
+		String st2 = away.getName().toLowerCase().trim();
+		st2 = st2.replaceAll("\\s+", "");
+		File logo2 = new File("img/logos/" + st2 + ".png");
+		Image image2 = new Image(logo2.toURI().toString());
+		awayLogo.setImage(image2);
+
+		if (home.getName().equals(t.getTeams()[t.getMyTeamId()].getName())) {
+			homeTactic.getItems().addAll("4-3-3", "4-4-2", "4-2-3-1");
+			homeStyle.getItems().addAll("Attack", "Defensive", "Holding");
+			homeTempo.getItems().addAll("Fast", "Normal", "Slow");
+			homeTactic.getSelectionModel().select(home.getTactic());
+			homeStyle.getSelectionModel().select(home.getStyle());
+			homeTempo.getSelectionModel().select(home.getTempo());
+			awayTactic.setVisible(false);
+			awayStyle.setVisible(false);
+			awayTempo.setVisible(false);
+			awayOld.setVisible(false);
+			awayNew.setVisible(false);
+			awayChanged.setVisible(false);
+			aTactics.setVisible(false);
+			aSubText.setVisible(false);
+			awayInstructionText.setVisible(false);
+			awaySubCount.setVisible(false);
 		}
 
-		if (currentMatchType == 3) {
-			Parent root;
-			try {
-				root = FXMLLoader.load(getClass().getResource("/view/Eliminated.fxml"));
-				root.setScaleX(screenWidth / 1400.0);
-				root.setScaleY(screenHeight / 900.0);
-				if (Main.isWindows()) {
-					root.setLayoutX(360);
-					root.setLayoutY(108);
-				}
-				if (Main.isMacos()) {
-					root.setLayoutX(20);
-				}
-				Stage m = Main.getMainStage();
-				Scene t = Main.getMainStage().getScene();
-				t.setRoot(root);
-				m.setScene(t);
-				m.setFullScreen(true);
-				Main.setMainStage(m);
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-		
-		if (currentMatch == null) {
-			try {
-				goCalendarView();
-			} catch (Exception e) {
-			}
-			int x = 0 / 0;
-		}
 		else {
-			Main.getMusicplayer().pause();
-			Team home = currentMatch.getHome();
-			Team away = currentMatch.getAway();
+			awayTactic.getItems().addAll("4-3-3", "4-4-2", "4-2-3-1");
+			awayStyle.getItems().addAll("Attack", "Defensive", "Holding");
+			awayTempo.getItems().addAll("Fast", "Normal", "Slow");
+			awayTactic.getSelectionModel().select(away.getTactic());
+			awayStyle.getSelectionModel().select(away.getStyle());
+			awayTempo.getSelectionModel().select(away.getTempo());
+			homeTactic.setVisible(false);
+			homeStyle.setVisible(false);
+			homeTempo.setVisible(false);
+			homeOld.setVisible(false);
+			homeNew.setVisible(false);
+			homeChanged.setVisible(false);
+			hTactics.setVisible(false);
+			hSubText.setVisible(false);
+			homeInstructionText.setVisible(false);
+			homeSubCount.setVisible(false);
 
-			homeName.setText(home.getName());
-			awayName.setText(away.getName());
-
-			homeName.setFont(Font.font("Gill Sans", FontWeight.BOLD, 38));
-			fillColorText(homeName, home.getColor());
-			awayName.setFont(Font.font("Gill Sans", FontWeight.BOLD, 38));
-			fillColorText(awayName, away.getColor());
-
-			String st = home.getName().toLowerCase().trim();
-			st = st.replaceAll("\\s+", "");
-			File logo1 = new File("img/logos/" + st + ".png");
-			Image image = new Image(logo1.toURI().toString());
-			homeLogo.setImage(image);
-
-			String st2 = away.getName().toLowerCase().trim();
-			st2 = st2.replaceAll("\\s+", "");
-			File logo2 = new File("img/logos/" + st2 + ".png");
-			Image image2 = new Image(logo2.toURI().toString());
-			awayLogo.setImage(image2);
-
-			if (home.getName().equals(t.getTeams()[t.getMyTeamId()].getName())) {
-				homeTactic.getItems().addAll("4-3-3", "4-4-2", "4-2-3-1");
-				homeStyle.getItems().addAll("Attack", "Defensive", "Holding");
-				homeTempo.getItems().addAll("Fast", "Normal", "Slow");
-				homeTactic.getSelectionModel().select(home.getTactic());
-				homeStyle.getSelectionModel().select(home.getStyle());
-				homeTempo.getSelectionModel().select(home.getTempo());
-				awayTactic.setVisible(false);
-				awayStyle.setVisible(false);
-				awayTempo.setVisible(false);
-				awayOld.setVisible(false);
-				awayNew.setVisible(false);
-				awayChanged.setVisible(false);
-				aTactics.setVisible(false);
-				aSubText.setVisible(false);
-				awayInstructionText.setVisible(false);
-				awaySubCount.setVisible(false);
-			}
-
-			else {
-				awayTactic.getItems().addAll("4-3-3", "4-4-2", "4-2-3-1");
-				awayStyle.getItems().addAll("Attack", "Defensive", "Holding");
-				awayTempo.getItems().addAll("Fast", "Normal", "Slow");
-				awayTactic.getSelectionModel().select(away.getTactic());
-				awayStyle.getSelectionModel().select(away.getStyle());
-				awayTempo.getSelectionModel().select(away.getTempo());
-				homeTactic.setVisible(false);
-				homeStyle.setVisible(false);
-				homeTempo.setVisible(false);
-				homeOld.setVisible(false);
-				homeNew.setVisible(false);
-				homeChanged.setVisible(false);
-				hTactics.setVisible(false);
-				hSubText.setVisible(false);
-				homeInstructionText.setVisible(false);
-				homeSubCount.setVisible(false);
-
-			}
-
-			File tactic = new File("img/tactics/" + home.getTactic() + "_" + home.getColor() + ".png");
-			System.out.println(tactic.toString());
-			Image tacticImage = new Image(tactic.toURI().toString(), 456, 454, false, false);
-			htacticField.setImage(tacticImage);
-
-			File tactic2 = new File("img/tactics/" + away.getTactic() + "_" + away.getColor() + ".png");
-			Image tacticImage2 = new Image(tactic2.toURI().toString(), 456, 454, false, false);
-			atacticField.setImage(tacticImage2);
-			calibrateNamesHome();
-			calibrateNamesAway();
-			/*
-			 * speedSlider.valueProperty().addListener(new ChangeListener<Number>() { public
-			 * void changed(ObservableValue<? extends Number> ov, Number old_val, Number
-			 * new_val) { doTime(); } });
-			 */
-			fillSubstituteHome();
-			fillSubstituteAway();
-			doTime();
 		}
+
+		File tactic = new File("img/tactics/" + home.getTactic() + "_" + home.getColor() + ".png");
+		System.out.println(tactic.toString());
+		Image tacticImage = new Image(tactic.toURI().toString(), 456, 454, false, false);
+		htacticField.setImage(tacticImage);
+
+		File tactic2 = new File("img/tactics/" + away.getTactic() + "_" + away.getColor() + ".png");
+		Image tacticImage2 = new Image(tactic2.toURI().toString(), 456, 454, false, false);
+		atacticField.setImage(tacticImage2);
+		calibrateNamesHome();
+		calibrateNamesAway();
+		/*
+		 * speedSlider.valueProperty().addListener(new ChangeListener<Number>() { public
+		 * void changed(ObservableValue<? extends Number> ov, Number old_val, Number
+		 * new_val) { doTime(); } });
+		 */
+		fillSubstituteHome();
+		fillSubstituteAway();
+		doTime();
 		matchFinish.setVisible(false);
 	}
-
 
 	@FXML
 	public void matchDone() throws IOException {
 		Main.getMusicplayer().play();
-		Parent root;
 		if (!Tournament.getInstance().getStatusEliminationStage())
-			root = FXMLLoader.load(getClass().getResource("/view/GroupView.fxml"));
+			goView("/view/GroupView.fxml");
 		else
-			root = FXMLLoader.load(getClass().getResource("/view/KnockoutView.fxml"));
-		root.setScaleX(screenWidth / 1400.0);
-		root.setScaleY(screenHeight / 900.0);
-		if (Main.isWindows()) {
-			root.setLayoutX(320);
-			root.setLayoutY(108);
-		}
-		Stage m = Main.getMainStage();
-		Scene t = Main.getMainStage().getScene();
-		t.setRoot(root);
-		m.setScene(t);
-		m.setFullScreen(true);
-		Main.setMainStage(m);
+			goView("/view/KnockoutView.fxml");
 	}
 
 	public void doTime() {
@@ -524,7 +464,7 @@ public class MatchPlayController implements Initializable {
 						red.play();
 					}
 
-					if (seconds > 89 + (int)(Math.random()*6)) {
+					if (seconds > 89 + (int) (Math.random() * 6)) {
 						String filePath = "file:///" + new java.io.File("").getAbsolutePath() + "/data/sounds/end.wav";
 						AudioClip end = new AudioClip(filePath);
 						end.play();

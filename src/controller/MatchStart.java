@@ -14,6 +14,8 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 import javafx.stage.Screen;
+import javafx.stage.Stage;
+import javafx.util.Pair;
 import javafx.scene.image.*;
 
 import java.util.ArrayList;
@@ -28,10 +30,10 @@ import java.time.*;
  *
  */
 public class MatchStart implements Initializable {
-	
+
 	int screenWidth = (int) Screen.getPrimary().getBounds().getWidth();
 	int screenHeight = (int) Screen.getPrimary().getBounds().getHeight();
-	
+
 	@FXML
 	private Text hGK;
 	@FXML
@@ -87,70 +89,144 @@ public class MatchStart implements Initializable {
 	@FXML
 	private Text stadium;
 
+	private static Match currentMatch;
+	
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
-
-		Team home = null;
-		Team away = null;
-		ArrayList<Action> actions = new ArrayList<Action>();
-		Match match = new Match(0 , 0 , 0 , home, away, "Pierluigi Collina", "Sunny", actions);
+		Tournament t = Tournament.getInstance();
+		Integer currentMatchType = -1;
+		Pair<Match, Integer> currentMatchInfo;
 		try {
-			actions = match.matchSimulation();
+			currentMatchInfo = t.goNextDay();
+			currentMatch = currentMatchInfo.getKey();
+			currentMatchType = currentMatchInfo.getValue();
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		System.out.println("Match Score: " + match.getGoalHome() + " / " + match.getGoalAway());
-		for (int i = 0; i < actions.size(); i++) {
-			Action action = actions.get(i);
-			if (action.getClass() == Goal.class) {
-				Goal goal = (Goal) action;
-				System.out.println("Goal: " + goal.getTimeHappened() + " / " + goal.getScored().getName() + " / "
-						+ goal.getAssisted().getName());
-			} else if (action.getClass() == YellowCard.class) {
-				YellowCard yellowCard = (YellowCard) action;
-				System.out.println(
-						"Yellow Card: " + yellowCard.getTimeHappened() + " / " + yellowCard.getPlayer().getName());
-			} else if (action.getClass() == RedCard.class) {
-				RedCard redCard = (RedCard) action;
-				System.out.println("Red Card: " + redCard.getTimeHappened() + " / " + redCard.getPlayer().getName());
-			} else {
-				Injury injury = (Injury) action;
-				System.out.println("Injury: " + injury.getTimeHappened() + " / " + injury.getInjured().getName());
+
+		MatchPlayController.currentMatch = currentMatch;
+		if (currentMatchType == 2) {
+			// WINNER
+			// Barca vs Real Madrid geliyor
+			System.out.println("We Are The Champions");
+			return;
+		}
+
+		if (currentMatchType == 3) {
+			Parent root;
+			try {
+				root = FXMLLoader.load(getClass().getResource("/view/Eliminated.fxml"));
+				root.setScaleX(screenWidth / 1400.0);
+				root.setScaleY(screenHeight / 900.0);
+				if (Main.isWindows()) {
+					root.setLayoutX(360);
+					root.setLayoutY(108);
+				}
+				if (Main.isMacos()) {
+					root.setLayoutX(20);
+				}
+				Stage m = Main.getMainStage();
+				Scene ts = Main.getMainStage().getScene();
+				ts.setRoot(root);
+				m.setScene(ts);
+				m.setFullScreen(true);
+				Main.setMainStage(m);
+			} catch (IOException e) {
+				e.printStackTrace();
 			}
 		}
 
-		homeName.setText(home.getName());
-		awayName.setText(away.getName());
+		if (currentMatch == null) {
+			try {
+				goView("/view/CalendarView.fxml");
+			} catch (Exception e) {
+			}
+			int x = 0 / 0;
+		}
+		else {
+			MatchPlayController.started = true;
+			Team home = currentMatch.getHome();
+			Team away = currentMatch.getAway();
 
-		hGK.setText(home.getPlayers().get(0).getName());
-		hRB.setText(home.getPlayers().get(1).getName());
-		hCB1.setText(home.getPlayers().get(2).getName());
-		hCB2.setText(home.getPlayers().get(3).getName());
-		hLB.setText(home.getPlayers().get(4).getName());
-		hCM1.setText(home.getPlayers().get(5).getName());
-		hCM2.setText(home.getPlayers().get(6).getName());
-		hCM3.setText(home.getPlayers().get(7).getName());
-		hRW.setText(home.getPlayers().get(8).getName());
-		hST.setText(home.getPlayers().get(9).getName());
-		hLW.setText(home.getPlayers().get(10).getName());
+			homeName.setText(home.getName());
+			awayName.setText(away.getName());
 
-		aGK.setText(away.getPlayers().get(0).getName());
-		aRB.setText(away.getPlayers().get(1).getName());
-		aCB1.setText(away.getPlayers().get(2).getName());
-		aCB2.setText(away.getPlayers().get(3).getName());
-		aLB.setText(away.getPlayers().get(4).getName());
-		aCM1.setText(away.getPlayers().get(5).getName());
-		aCM2.setText(away.getPlayers().get(6).getName());
-		aCM3.setText(away.getPlayers().get(7).getName());
-		aRW.setText(away.getPlayers().get(8).getName());
-		aST.setText(away.getPlayers().get(9).getName());
-		aLW.setText(away.getPlayers().get(10).getName());
+			hGK.setText(home.getPlayers().get(0).getName());
+			hRB.setText(home.getPlayers().get(1).getName());
+			hCB1.setText(home.getPlayers().get(2).getName());
+			hCB2.setText(home.getPlayers().get(3).getName());
+			hLB.setText(home.getPlayers().get(4).getName());
+			hCM1.setText(home.getPlayers().get(5).getName());
+			hCM2.setText(home.getPlayers().get(6).getName());
+			hCM3.setText(home.getPlayers().get(7).getName());
+			hRW.setText(home.getPlayers().get(8).getName());
+			hST.setText(home.getPlayers().get(9).getName());
+			hLW.setText(home.getPlayers().get(10).getName());
 
-		weather.setText(match.getWeather());
-		referee.setText(match.getReferee());
-		stadium.setText(home.getStadium());
+			aGK.setText(away.getPlayers().get(0).getName());
+			aRB.setText(away.getPlayers().get(1).getName());
+			aCB1.setText(away.getPlayers().get(2).getName());
+			aCB2.setText(away.getPlayers().get(3).getName());
+			aLB.setText(away.getPlayers().get(4).getName());
+			aCM1.setText(away.getPlayers().get(5).getName());
+			aCM2.setText(away.getPlayers().get(6).getName());
+			aCM3.setText(away.getPlayers().get(7).getName());
+			aRW.setText(away.getPlayers().get(8).getName());
+			aST.setText(away.getPlayers().get(9).getName());
+			aLW.setText(away.getPlayers().get(10).getName());
 
+			weather.setText(currentMatch.getWeather());
+			referee.setText(currentMatch.getReferee());
+			stadium.setText(home.getStadium());
+		}
+	}
+
+	@FXML
+	public void startMatch() throws IOException {
+		Parent root = FXMLLoader.load(getClass().getResource("/view/MatchPlayView.fxml"));
+		root.setScaleX(screenWidth / 1400.0);
+		root.setScaleY(screenHeight / 900.0);
+		if (Main.isWindows()) {
+			root.setLayoutX(360);
+			root.setLayoutY(108);
+		}
+		if (Main.isMacos()) {
+			root.setLayoutX(20);
+		}
+		Stage m = Main.getMainStage();
+		Scene t = Main.getMainStage().getScene();
+		t.setRoot(root);
+		m.setScene(t);
+		m.setFullScreen(true);
+		Main.setMainStage(m);
+	}
+	
+	public void goView(String view) throws IOException {
+		Parent root = FXMLLoader.load(getClass().getResource(view));
+		root.setScaleX(screenWidth / 1400.0);
+		root.setScaleY(screenHeight / 900.0);
+		if (Main.isWindows()) {
+			root.setLayoutX(320);
+			root.setLayoutY(108);
+		}
+		if (Main.isMacos()) {
+			root.setLayoutX(20);
+		}
+		Stage m = Main.getMainStage();
+		Scene t = Main.getMainStage().getScene();
+		t.setRoot(root);
+		m.setScene(t);
+		m.setFullScreen(true);
+		Main.setMainStage(m);
+
+	}
+
+	public static Match getCurrentMatch() {
+		return currentMatch;
+	}
+
+	public static void setCurrentMatch(Match currentMatch2) {
+		currentMatch = currentMatch2;
 	}
 
 }

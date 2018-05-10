@@ -53,16 +53,23 @@ public class Match implements Serializable{
 	
 	// Match Algo
 	private final int ALGO_GENERATE_ADD = 1;
+	private final int ALGO_GENERATE_SUB = 1;
 	private final int ALGO_GENERATE_INITIAL = 1;
 	private final int ALGO_GENERATE_DEN = 40;
 	
-	// Match Algo
-	private final int ALGO_TYPE_ADD = 5;
-	private final int ALGO_TYPE_SUB = 5;
-	private final int ALGO_TYPE_INITIAL_GOAL = 15;
-	private final int ALGO_TYPE_INITIAL_YELLOW = 20;
-	private final int ALGO_TYPE_INITIAL_RED = 5;
-	private final int ALGO_TYPE_INITIAL_INJURY = 10;
+	// Match Algo - CHANGE !
+	private final int ALGO_TYPE_ADD_GOAL = 3;
+	private final int ALGO_TYPE_ADD_YELLOW = 4;
+	private final int ALGO_TYPE_ADD_RED = 1;
+	private final int ALGO_TYPE_ADD_INJURY = 2;
+	private final int ALGO_TYPE_SUB_GOAL = 3;
+	private final int ALGO_TYPE_SUB_YELLOW = 4;
+	private final int ALGO_TYPE_SUB_RED = 1;
+	private final int ALGO_TYPE_SUB_INJURY = 2;
+	private final int ALGO_TYPE_INITIAL_GOAL = 30;
+	private final int ALGO_TYPE_INITIAL_YELLOW = 40;
+	private final int ALGO_TYPE_INITIAL_RED = 10;
+	private final int ALGO_TYPE_INITIAL_INJURY = 20;
 	
 	/**
 	 * @param home
@@ -254,14 +261,20 @@ public class Match implements Serializable{
 		
 	}
 	
-	void calcPerformance() {
+	void calcPerformance( int minute ) {
 		
 		for( int i = 0 ; i < NUMBER_OF_PLAYERS ; i++ ) {
 			int id = getPlayerId( 0 , home.getPlayers().get(i).getName() );
-			if( home.getPlayers().get(i).getPosition().equals("GK") || tookRedCard[0][id] )
+			if( tookRedCard[0][id] )
 				playerPerformance[0][id] = 0;
+			else if( home.getPlayers().get(i).getPosition().equals("GK") ) {
+				if( minute < 90 )
+					playerPerformance[0][id] = home.getPlayers().get(i).getOverall() / 20;
+				else
+					playerPerformance[0][id] = home.getPlayers().get(i).getOverall() / 2;
+			}
 			else {
-				playerPerformance[0][id] = 100;
+				playerPerformance[0][id] = home.getPlayers().get(i).getOverall();
 				if( tookYellowCard[0][id] )
 					playerPerformance[0][id] /= 2;
 				for( int j = 0 ; j < injuryCount[0][id] ; j++ )
@@ -271,10 +284,16 @@ public class Match implements Serializable{
 		
 		for( int i = 0 ; i < NUMBER_OF_PLAYERS ; i++ ) {
 			int id = getPlayerId( 1 , away.getPlayers().get(i).getName() );
-			if( away.getPlayers().get(i).getPosition().equals("GK") || tookRedCard[1][id] )
+			if( tookRedCard[1][id] )
 				playerPerformance[1][id] = 0;
+			else if( away.getPlayers().get(i).getPosition().equals("GK") ) {
+				if( minute < 90 )
+					playerPerformance[1][id] = away.getPlayers().get(i).getOverall() / 20;
+				else
+					playerPerformance[1][id] = away.getPlayers().get(i).getOverall() / 2;
+			}
 			else {
-				playerPerformance[1][id] = 100;
+				playerPerformance[1][id] = away.getPlayers().get(i).getOverall();
 				if( tookYellowCard[1][id] )
 					playerPerformance[1][id] /= 2;
 				for( int j = 0 ; j < injuryCount[1][id] ; j++ )
@@ -305,18 +324,20 @@ public class Match implements Serializable{
 		if( minute == 1 )
 			initAlgo();
 		
-		calcPerformance();
+		calcPerformance( minute );
 		
 		int randomActionExist = (int) ((new Random()).nextDouble() * ALGO_GENERATE_DEN);
 		randomActionExist %= ALGO_GENERATE_DEN;
 		
+		int oldActionChance = actionChance;
 		if( randomActionExist >= actionChance ) {
 			actionChance += ALGO_GENERATE_ADD;
 			return null;
 		}
+		// actionChance = Math.max(ALGO_GENERATE_INITIAL, actionChance - ALGO_GENERATE_SUB);
 		actionChance = ALGO_GENERATE_INITIAL;
 		
-		int totalEventChance = eventGoalChance + eventInjuryChance + eventRedCardChance + eventYellowCardChance;
+		int totalEventChance = 2 * ( eventGoalChance + eventInjuryChance + eventRedCardChance + eventYellowCardChance );
 		int randomEvent = (int) ((new Random()).nextDouble() * totalEventChance);
 		randomEvent %= totalEventChance;
 		
@@ -392,10 +413,10 @@ public class Match implements Serializable{
 				}
 			}
 			
-			eventGoalChance = ALGO_TYPE_INITIAL_GOAL;
-			eventInjuryChance += ALGO_TYPE_ADD;
-			eventRedCardChance += ALGO_TYPE_ADD;
-			eventYellowCardChance += ALGO_TYPE_ADD;
+			eventGoalChance = Math.max(ALGO_TYPE_INITIAL_GOAL, eventGoalChance - ALGO_TYPE_SUB_GOAL);
+			eventInjuryChance += ALGO_TYPE_ADD_INJURY;
+			eventRedCardChance += ALGO_TYPE_ADD_RED;
+			eventYellowCardChance += ALGO_TYPE_ADD_YELLOW;
 			
 			playerScorer.setCntGoal( playerScorer.getCntGoal() + 1 );
 			playerAssister.setCntAssist( playerAssister.getCntAssist() + 1 );
@@ -409,12 +430,12 @@ public class Match implements Serializable{
 			int sizeHome = 0 , sizeAway = 0;
 			for( int i = 0 ; i < NUMBER_OF_PLAYERS ; i++ ) {
 				int id = getPlayerId( 0 , home.getPlayers().get(i).getName() );
-				if( !tookRedCard[0][id] )
+				if( !tookRedCard[0][id] && !home.getPlayers().get(i).getPosition().equals("GK") )
 					sizeHome++;
 			}
 			for( int i = 0 ; i < NUMBER_OF_PLAYERS ; i++ ) {
 				int id = getPlayerId( 1 , away.getPlayers().get(i).getName() );
-				if( !tookRedCard[1][id] )
+				if( !tookRedCard[1][id] && !away.getPlayers().get(i).getPosition().equals("GK") )
 					sizeAway++;
 			}
 			
@@ -435,7 +456,7 @@ public class Match implements Serializable{
 			ArrayList< Pair< Integer , Integer > > playerIds = new ArrayList<>();
 			for( int i = 0 ; i < NUMBER_OF_PLAYERS ; i++ ) {
 				int id = getPlayerId( k , team.getPlayers().get(i).getName() );
-				if( !tookRedCard[k][id] )
+				if( !tookRedCard[k][id] && !team.getPlayers().get(i).getPosition().equals("GK") )
 					playerIds.add( new Pair<Integer, Integer>( i , id ) );
 			}
 			
@@ -445,10 +466,10 @@ public class Match implements Serializable{
 			int id = playerIds.get( randomPerformanceInjury ).getKey();
 			Player player = team.getPlayers().get(id);
 			
-			eventGoalChance += ALGO_TYPE_ADD;
-			eventInjuryChance = ALGO_TYPE_INITIAL_INJURY;
-			eventRedCardChance += ALGO_TYPE_ADD;
-			eventYellowCardChance += ALGO_TYPE_ADD;
+			eventGoalChance += ALGO_TYPE_ADD_GOAL;
+			eventInjuryChance = Math.max(ALGO_TYPE_INITIAL_INJURY, eventInjuryChance - ALGO_TYPE_SUB_INJURY);
+			eventRedCardChance += ALGO_TYPE_ADD_RED;
+			eventYellowCardChance += ALGO_TYPE_ADD_YELLOW;
 			
 			injuryCount[k][ playerIds.get( randomPerformanceInjury ).getValue() ]++;
 			return new Injury( minute , player );
@@ -461,12 +482,12 @@ public class Match implements Serializable{
 			int sizeHome = 0 , sizeAway = 0;
 			for( int i = 0 ; i < NUMBER_OF_PLAYERS ; i++ ) {
 				int id = getPlayerId( 0 , home.getPlayers().get(i).getName() );
-				if( !tookRedCard[0][id] )
+				if( !tookRedCard[0][id] && !home.getPlayers().get(i).getPosition().equals("GK") )
 					sizeHome++;
 			}
 			for( int i = 0 ; i < NUMBER_OF_PLAYERS ; i++ ) {
 				int id = getPlayerId( 1 , away.getPlayers().get(i).getName() );
-				if( !tookRedCard[1][id] )
+				if( !tookRedCard[1][id] && !away.getPlayers().get(i).getPosition().equals("GK") )
 					sizeAway++;
 			}
 			
@@ -487,7 +508,7 @@ public class Match implements Serializable{
 			ArrayList< Pair< Integer , Integer > > playerIds = new ArrayList<>();
 			for( int i = 0 ; i < NUMBER_OF_PLAYERS ; i++ ) {
 				int id = getPlayerId( k , team.getPlayers().get(i).getName() );
-				if( !tookRedCard[k][id] )
+				if( !tookRedCard[k][id] && !team.getPlayers().get(i).getPosition().equals("GK") )
 					playerIds.add( new Pair<Integer, Integer>( i , id ) );
 			}
 			
@@ -497,10 +518,10 @@ public class Match implements Serializable{
 			int id = playerIds.get( randomPerformanceRed ).getKey();
 			Player player = team.getPlayers().get(id);
 			
-			eventGoalChance += ALGO_TYPE_ADD;
-			eventInjuryChance += ALGO_TYPE_ADD;
-			eventRedCardChance = ALGO_TYPE_INITIAL_RED;
-			eventYellowCardChance += ALGO_TYPE_ADD;
+			eventGoalChance += ALGO_TYPE_ADD_GOAL;
+			eventInjuryChance += ALGO_TYPE_ADD_INJURY;
+			eventRedCardChance = Math.max(ALGO_TYPE_INITIAL_RED, eventRedCardChance - ALGO_TYPE_SUB_RED);
+			eventYellowCardChance += ALGO_TYPE_ADD_YELLOW;
 			
 			tookRedCard[k][ playerIds.get( randomPerformanceRed ).getValue() ] = true;
 			player.setCntRedCard( player.getCntRedCard() + 1 );
@@ -514,12 +535,12 @@ public class Match implements Serializable{
 			int sizeHome = 0 , sizeAway = 0;
 			for( int i = 0 ; i < NUMBER_OF_PLAYERS ; i++ ) {
 				int id = getPlayerId( 0 , home.getPlayers().get(i).getName() );
-				if( !tookRedCard[0][id] && !tookYellowCard[0][id] )
+				if( !tookRedCard[0][id] && !tookYellowCard[0][id] && !home.getPlayers().get(i).getPosition().equals("GK") )
 					sizeHome++;
 			}
 			for( int i = 0 ; i < NUMBER_OF_PLAYERS ; i++ ) {
 				int id = getPlayerId( 1 , away.getPlayers().get(i).getName() );
-				if( !tookRedCard[1][id] && !tookYellowCard[1][id] )
+				if( !tookRedCard[1][id] && !tookYellowCard[1][id] && !away.getPlayers().get(i).getPosition().equals("GK") )
 					sizeAway++;
 			}
 			
@@ -540,7 +561,7 @@ public class Match implements Serializable{
 			ArrayList< Pair< Integer , Integer > > playerIds = new ArrayList<>();
 			for( int i = 0 ; i < NUMBER_OF_PLAYERS ; i++ ) {
 				int id = getPlayerId( k , team.getPlayers().get(i).getName() );
-				if( !tookRedCard[k][id] && !tookYellowCard[k][id] )
+				if( !tookRedCard[k][id] && !tookYellowCard[k][id] && !team.getPlayers().get(i).getPosition().equals("GK") )
 					playerIds.add( new Pair<Integer, Integer>( i , id ) );
 			}
 			
@@ -550,10 +571,10 @@ public class Match implements Serializable{
 			int id = playerIds.get( randomPerformanceYellow ).getKey();
 			Player player = team.getPlayers().get(id);
 			
-			eventGoalChance += ALGO_TYPE_ADD;
-			eventInjuryChance += ALGO_TYPE_ADD;
-			eventRedCardChance += ALGO_TYPE_ADD;
-			eventYellowCardChance = ALGO_TYPE_INITIAL_YELLOW;
+			eventGoalChance += ALGO_TYPE_ADD_GOAL;
+			eventInjuryChance += ALGO_TYPE_ADD_INJURY;
+			eventRedCardChance += ALGO_TYPE_ADD_RED;
+			eventYellowCardChance = Math.max(ALGO_TYPE_INITIAL_YELLOW, eventYellowCardChance - ALGO_TYPE_SUB_YELLOW);
 			
 			tookYellowCard[k][ playerIds.get( randomPerformanceYellow ).getValue() ] = true;
 			player.setCntYellowCard( player.getCntYellowCard() + 1 );
@@ -561,8 +582,10 @@ public class Match implements Serializable{
 			
 		}
 		
+		actionChance = oldActionChance + ALGO_GENERATE_ADD;
 		// Is there any other case ???
-		System.out.println( "WTF - Event Type" );
+		// System.out.println( "WTF - Event Type" );
+		
 		return null;
 		
 	}
@@ -687,10 +710,6 @@ public class Match implements Serializable{
 		return ALGO_GENERATE_DEN;
 	}
 
-	public int getALGO_TYPE_ADD() {
-		return ALGO_TYPE_ADD;
-	}
-
 	public int getALGO_TYPE_INITIAL_GOAL() {
 		return ALGO_TYPE_INITIAL_GOAL;
 	}
@@ -763,8 +782,40 @@ public class Match implements Serializable{
 		this.injuryCount = injuryCount;
 	}
 
-	public int getALGO_TYPE_SUB() {
-		return ALGO_TYPE_SUB;
+	public int getALGO_TYPE_ADD_GOAL() {
+		return ALGO_TYPE_ADD_GOAL;
+	}
+
+	public int getALGO_TYPE_ADD_YELLOW() {
+		return ALGO_TYPE_ADD_YELLOW;
+	}
+
+	public int getALGO_TYPE_ADD_RED() {
+		return ALGO_TYPE_ADD_RED;
+	}
+
+	public int getALGO_TYPE_ADD_INJURY() {
+		return ALGO_TYPE_ADD_INJURY;
+	}
+
+	public int getALGO_TYPE_SUB_GOAL() {
+		return ALGO_TYPE_SUB_GOAL;
+	}
+
+	public int getALGO_TYPE_SUB_YELLOW() {
+		return ALGO_TYPE_SUB_YELLOW;
+	}
+
+	public int getALGO_TYPE_SUB_RED() {
+		return ALGO_TYPE_SUB_RED;
+	}
+
+	public int getALGO_TYPE_SUB_INJURY() {
+		return ALGO_TYPE_SUB_INJURY;
+	}
+
+	public int getALGO_GENERATE_SUB() {
+		return ALGO_GENERATE_SUB;
 	}
 	
 }

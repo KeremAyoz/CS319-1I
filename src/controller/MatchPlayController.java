@@ -463,7 +463,7 @@ public class MatchPlayController implements Initializable {
 						red.play();
 					}
 
-					if (seconds > 89 + (int) (Math.random() * 6)) {
+					if ( seconds > 89 + ( (int) (Math.random() * 5) ) % 5 + 1 ) {
 						String filePath = "file:///" + new java.io.File("").getAbsolutePath() + "/data/sounds/end.wav";
 						filePath = filePath.replace("\\", "/");
 						AudioClip end = new AudioClip(filePath);

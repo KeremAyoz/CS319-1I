@@ -31,8 +31,8 @@ import model.*;
 public class Main extends Application {
 	private static Stage mainStage;
 
-	private int screenWidth = (int) Screen.getPrimary().getBounds().getWidth();
-	private int screenHeight = (int) Screen.getPrimary().getBounds().getHeight();
+	private static int screenWidth = (int) Screen.getPrimary().getBounds().getWidth();
+	private static int screenHeight = (int) Screen.getPrimary().getBounds().getHeight();
 
 	private static String OS = null;
 
@@ -120,6 +120,34 @@ public class Main extends Application {
 	}
 	public static void playMusic() {
 		musicplayer.play();
+	}
+
+	/**
+	 * @return the screenWidth
+	 */
+	public static int getScreenWidth() {
+		return screenWidth;
+	}
+
+	/**
+	 * @param screenWidth the screenWidth to set
+	 */
+	public static void setScreenWidth(int screenWidth) {
+		Main.screenWidth = screenWidth;
+	}
+
+	/**
+	 * @return the screenHeight
+	 */
+	public static int getScreenHeight() {
+		return screenHeight;
+	}
+
+	/**
+	 * @param screenHeight the screenHeight to set
+	 */
+	public static void setScreenHeight(int screenHeight) {
+		Main.screenHeight = screenHeight;
 	}
 	
 }

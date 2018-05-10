@@ -17,64 +17,64 @@
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="510.0" prefWidth="612.0">
                      <children>
-                        <ImageView fx:id="tacticField" fitHeight="492.0" fitWidth="612.0" pickOnBounds="true">
+                        <ImageView fx:id="tacticField" fitHeight="492.0" fitWidth="612.0" layoutY="-1.0" pickOnBounds="true">
                            <image>
-                              <Image url="@../../img/tactics/4-3-3.png" />
+                              <Image url="@../../img/tactics/4-4-2_blue.png" />
                            </image>
                         </ImageView>
-                        <Text fx:id="gk" fill="#2c2d2f" layoutX="285.0" layoutY="474.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Neuer" AnchorPane.leftAnchor="278.0" AnchorPane.topAnchor="453.0">
+                        <Text fx:id="gk" fill="#2c2d2f" layoutX="270.6" layoutY="475.85" strokeType="OUTSIDE" strokeWidth="0.0" text="Neuer">
                            <font>
-                              <Font name="Gill Sans Bold" size="15.0" />
+                              <Font name="Bell MT Bold" size="20.0" />
                            </font>
                         </Text>
-                        <Text fx:id="lb" fill="#2c2d2f" layoutX="94.0" layoutY="364.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Marcelo">
+                        <Text fx:id="lb" fill="#2c2d2f" layoutX="31.0" layoutY="370.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Marcelo">
                            <font>
-                              <Font name="Gill Sans Bold" size="15.0" />
+                              <Font name="Bell MT Bold" size="20.0" />
                            </font>
                         </Text>
-                        <Text fx:id="cb1" fill="#2c2d2f" layoutX="223.0" layoutY="409.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Subotic">
+                        <Text fx:id="cb1" fill="#2c2d2f" layoutX="175.0" layoutY="389.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Subotic">
                            <font>
-                              <Font name="Gill Sans Bold" size="15.0" />
+                              <Font name="Bell MT Bold" size="20.0" />
                            </font>
                         </Text>
-                        <Text fx:id="cb2" fill="#2c2d2f" layoutX="359.20000000000005" layoutY="409.20000000000005" strokeType="OUTSIDE" strokeWidth="0.0" text="Hummels">
+                        <Text fx:id="cb2" fill="#2c2d2f" layoutX="364.20000000000005" layoutY="387.20000000000005" strokeType="OUTSIDE" strokeWidth="0.0" text="Hummels">
                            <font>
-                              <Font name="Gill Sans Bold" size="15.0" />
+                              <Font name="Bell MT Bold" size="20.0" />
                            </font>
                         </Text>
-                        <Text fx:id="rb" fill="#2c2d2f" layoutX="536.0" layoutY="365.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pizscel">
+                        <Text fx:id="rb" fill="#2c2d2f" layoutX="506.0" layoutY="360.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pizscel">
                            <font>
-                              <Font name="Gill Sans Bold" size="15.0" />
+                              <Font name="Bell MT Bold" size="20.0" />
                            </font>
                         </Text>
-                        <Text fx:id="cm3" fill="#2c2d2f" layoutX="306.0" layoutY="310.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Toure">
+                        <Text fx:id="cm3" fill="#2c2d2f" layoutX="205.0" layoutY="273.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Toure">
                            <font>
-                              <Font name="Gill Sans Bold" size="15.0" />
+                              <Font name="Bell MT Bold" size="20.0" />
                            </font>
                         </Text>
-                        <Text fx:id="lw" fill="#2c2d2f" layoutX="114.79999999999998" layoutY="185.98652343749998" strokeType="OUTSIDE" strokeWidth="0.0" text="Ronaldo">
+                        <Text fx:id="lw" fill="#2c2d2f" layoutX="205.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ronaldo">
                            <font>
-                              <Font name="Gill Sans Bold" size="15.0" />
+                              <Font name="Bell MT Bold" size="20.0" />
                            </font>
                         </Text>
-                        <Text fx:id="st" fill="#2c2d2f" layoutX="286.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gomis">
+                        <Text fx:id="st" fill="#2c2d2f" layoutX="354.0" layoutY="144.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gomis">
                            <font>
-                              <Font name="Gill Sans Bold" size="15.0" />
+                              <Font name="Bell MT Bold" size="20.0" />
                            </font>
                         </Text>
-                        <Text fx:id="cm1" fill="#2c2d2f" layoutX="200.0" layoutY="223.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Iniesta">
+                        <Text fx:id="cm1" fill="#2c2d2f" layoutX="100.0" layoutY="203.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Iniesta">
                            <font>
-                              <Font name="Gill Sans Bold" size="15.0" />
+                              <Font name="Bell MT Bold" size="20.0" />
                            </font>
                         </Text>
-                        <Text fx:id="cm2" fill="#2c2d2f" layoutX="391.0" layoutY="223.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Modric">
+                        <Text fx:id="cm2" fill="#2c2d2f" layoutX="339.0" layoutY="272.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Modric">
                            <font>
-                              <Font name="Gill Sans Bold" size="15.0" />
+                              <Font name="Bell MT Bold" size="20.0" />
                            </font>
                         </Text>
-                        <Text fx:id="rw" fill="#2c2d2f" layoutX="476.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Messi">
+                        <Text fx:id="rw" fill="#2c2d2f" layoutX="471.0" layoutY="208.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Messi">
                            <font>
-                              <Font name="Gill Sans Bold" size="15.0" />
+                              <Font name="Bell MT Bold" size="20.0" />
                            </font>
                         </Text>
                      </children>
@@ -175,7 +175,7 @@
                   </AnchorPane>
               </content>
             </ScrollPane>
-            <Text fx:id="teamName" fill="#7c1d1d" fontSmoothingType="LCD" layoutX="213.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Galatasaray">
+            <Text fx:id="teamName" fill="#7c1d1d" fontSmoothingType="LCD" layoutX="212.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Galatasaray">
                <font>
                   <Font name="Gill Sans Bold" size="46.0" />
                </font>

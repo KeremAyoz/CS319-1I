@@ -6,25 +6,16 @@ package controller;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
-import java.time.LocalDate;
-import java.time.Month;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.ResourceBundle;
-import java.util.concurrent.TimeUnit;
-
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
-import javafx.application.Application;
-import javafx.beans.InvalidationListener;
-import javafx.beans.Observable;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-import javafx.util.Pair;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -33,14 +24,14 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
-import javafx.scene.control.RadioButton;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Slider;
-import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.media.AudioClip;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
@@ -55,9 +46,6 @@ import model.*;
  *
  */
 public class MatchPlayController implements Initializable {
-
-	int screenWidth = (int) Screen.getPrimary().getBounds().getWidth();
-	int screenHeight = (int) Screen.getPrimary().getBounds().getHeight();
 
 	@FXML
 	private Text hgk;
@@ -223,6 +211,11 @@ public class MatchPlayController implements Initializable {
 
 	public static boolean started = false;
 
+	public MediaPlayer musicplayer;
+
+	private static int screenWidth = (int) Screen.getPrimary().getBounds().getWidth();
+	private static int screenHeight = (int) Screen.getPrimary().getBounds().getHeight();
+
 	@FXML
 	public void homeChanged() {
 		int swapped1 = currentMatch.getHome().indexOfPlayer(homeOld.getValue().split("-")[1]);
@@ -266,12 +259,16 @@ public class MatchPlayController implements Initializable {
 		homeOld.getItems().clear();
 		homeNew.getItems().clear();
 		for (int i = 0; i < 11; i++) {
-			homeOld.getItems().add(currentMatch.getHome().getPlayers().get(i).getPosition() + "-" + currentMatch.getHome().getPlayers().get(i).getName() + "-"
-					+ currentMatch.getHome().getPlayers().get(i).getOverall());
+			homeOld.getItems()
+					.add(currentMatch.getHome().getPlayers().get(i).getPosition() + "-"
+							+ currentMatch.getHome().getPlayers().get(i).getName() + "-"
+							+ currentMatch.getHome().getPlayers().get(i).getOverall());
 		}
 		for (int i = 0; i < 20; i++) {
-			homeNew.getItems().add(currentMatch.getHome().getPlayers().get(i).getPosition() + "-" + currentMatch.getHome().getPlayers().get(i).getName() + "-"
-					+ currentMatch.getHome().getPlayers().get(i).getOverall());
+			homeNew.getItems()
+					.add(currentMatch.getHome().getPlayers().get(i).getPosition() + "-"
+							+ currentMatch.getHome().getPlayers().get(i).getName() + "-"
+							+ currentMatch.getHome().getPlayers().get(i).getOverall());
 		}
 	}
 
@@ -279,12 +276,16 @@ public class MatchPlayController implements Initializable {
 		awayOld.getItems().clear();
 		awayNew.getItems().clear();
 		for (int i = 0; i < 11; i++) {
-			awayOld.getItems().add(currentMatch.getAway().getPlayers().get(i).getPosition() + "-" + currentMatch.getAway().getPlayers().get(i).getName() + "-"
-					+ currentMatch.getAway().getPlayers().get(i).getOverall());
+			awayOld.getItems()
+					.add(currentMatch.getAway().getPlayers().get(i).getPosition() + "-"
+							+ currentMatch.getAway().getPlayers().get(i).getName() + "-"
+							+ currentMatch.getAway().getPlayers().get(i).getOverall());
 		}
 		for (int i = 0; i < 20; i++) {
-			awayNew.getItems().add(currentMatch.getAway().getPlayers().get(i).getPosition() + "-" + currentMatch.getAway().getPlayers().get(i).getName() + "-"
-					+ currentMatch.getAway().getPlayers().get(i).getOverall());
+			awayNew.getItems()
+					.add(currentMatch.getAway().getPlayers().get(i).getPosition() + "-"
+							+ currentMatch.getAway().getPlayers().get(i).getName() + "-"
+							+ currentMatch.getAway().getPlayers().get(i).getOverall());
 		}
 	}
 
@@ -295,20 +296,15 @@ public class MatchPlayController implements Initializable {
 	public void fillColorText(Text t, String color) {
 		if (color.equals("red")) {
 			t.setFill(Color.DARKRED);
-		}
-		else if (color.equals("black")) {
+		} else if (color.equals("black")) {
 			t.setFill(Color.BLACK);
-		}
-		else if (color.equals("blue")) {
+		} else if (color.equals("blue")) {
 			t.setFill(Color.DARKBLUE);
-		}
-		else if (color.equals("yellow")) {
+		} else if (color.equals("yellow")) {
 			t.setFill(Color.YELLOW);
-		}
-		else if (color.equals("purple")) {
+		} else if (color.equals("purple")) {
 			t.setFill(Color.PURPLE);
-		}
-		else if (color.equals("green")) {
+		} else if (color.equals("green")) {
 			t.setFill(Color.DARKGREEN);
 		}
 	}
@@ -335,6 +331,20 @@ public class MatchPlayController implements Initializable {
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
+		{
+			String filePath = "file:///" + new java.io.File("").getAbsolutePath() + "/data/sounds/match.wav";
+			filePath = filePath.replace("\\", "/");
+			Media mp3MusicFile = new Media(filePath);
+			musicplayer = new MediaPlayer(mp3MusicFile);
+			musicplayer.setAutoPlay(true);
+			musicplayer.setVolume(0.5);
+			musicplayer.setOnEndOfMedia(new Runnable() {
+				public void run() {
+					musicplayer.seek(Duration.ZERO);
+				}
+			});
+		}
+
 		t = Tournament.getInstance();
 		paused = false;
 		label.setTextFill(Color.BLACK);
@@ -412,13 +422,21 @@ public class MatchPlayController implements Initializable {
 		calibrateNamesHome();
 		calibrateNamesAway();
 		/*
-		 * speedSlider.valueProperty().addListener(new ChangeListener<Number>() { public
-		 * void changed(ObservableValue<? extends Number> ov, Number old_val, Number
-		 * new_val) { doTime(); } });
-		 */
+		speedSlider.valueProperty().addListener(new ChangeListener<Number>() {
+			public void changed(ObservableValue<? extends Number> ov, Number old_val, Number new_val) {
+				doTime();
+			}
+		});*/
+		
+		double ratio = speedSlider.getValue()/100;
+
 		fillSubstituteHome();
 		fillSubstituteAway();
-		doTime();
+		String path = "file:///" + new java.io.File("").getAbsolutePath() + "/data/sounds/start.wav";
+		path = path.replace("\\", "/");
+		AudioClip start = new AudioClip(path);
+		start.play();
+		doTime(ratio);
 		matchFinish.setVisible(false);
 	}
 
@@ -431,12 +449,12 @@ public class MatchPlayController implements Initializable {
 			goView("/view/KnockoutView.fxml");
 	}
 
-	public void doTime() {
+	public void doTime(double ratio) {
 		currentMatch.setGoalHome(0);
 		currentMatch.setGoalAway(0);
 		Timeline timeline = new Timeline();
 		timeline.setCycleCount(Timeline.INDEFINITE);
-		KeyFrame frame = new KeyFrame(Duration.seconds(0.1), new EventHandler<ActionEvent>() {
+		KeyFrame frame = new KeyFrame(Duration.seconds(0.3), new EventHandler<ActionEvent>() {
 
 			@Override
 			public void handle(ActionEvent event) {
@@ -463,11 +481,12 @@ public class MatchPlayController implements Initializable {
 						red.play();
 					}
 
-					if ( seconds > 89 + ( (int) (Math.random() * 5) ) % 5 + 1 ) {
+					if (seconds > 89 + (int) (Math.random() * 6)) {
 						String filePath = "file:///" + new java.io.File("").getAbsolutePath() + "/data/sounds/end.wav";
 						filePath = filePath.replace("\\", "/");
 						AudioClip end = new AudioClip(filePath);
 						end.play();
+						musicplayer.pause();
 						timeline.stop();
 						matchFinish.setVisible(true);
 						int pointHome = -1;
@@ -475,12 +494,10 @@ public class MatchPlayController implements Initializable {
 						if (currentMatch.getGoalHome() > currentMatch.getGoalAway()) {
 							pointHome = 3;
 							pointAway = 0;
-						}
-						else if (currentMatch.getGoalHome() < currentMatch.getGoalAway()) {
+						} else if (currentMatch.getGoalHome() < currentMatch.getGoalAway()) {
 							pointHome = 0;
 							pointAway = 3;
-						}
-						else {
+						} else {
 							pointHome = 1;
 							pointAway = 1;
 						}
@@ -489,11 +506,11 @@ public class MatchPlayController implements Initializable {
 						if (currentMatchType == 0) {
 							t.getGroups()[t.getMyGroupId()].modifyGroupStatistics(currentMatch);
 
-						}
-						else if (currentMatchType == 1) {
+						} else if (currentMatchType == 1) {
 							try {
 								t.getKnockout().playMatch(t.getLastMatchId(), true);
-								int matchId = t.getKnockout().getMatchId(currentMatch.getDay(), currentMatch.getMonth(), currentMatch.getYear());
+								int matchId = t.getKnockout().getMatchId(currentMatch.getDay(), currentMatch.getMonth(),
+										currentMatch.getYear());
 								if (matchId % 2 == 0) {
 									if (t.getKnockout().getKnockout().getTeams()[matchId / 2] != t.getMyTeam())
 										t.setChampionshipFailed(true);
@@ -504,7 +521,7 @@ public class MatchPlayController implements Initializable {
 						}
 
 						// Is game over ?
-						t.checkChampionshipFailed();
+						t.checkChampionshipFaied();
 						if (t.isChampionshipFailed()) {
 							try {
 								goView("/view/Eliminated.fxml");
@@ -560,7 +577,8 @@ public class MatchPlayController implements Initializable {
 		h.setTactic(homeTactic.getValue());
 		calibrateNamesHome();
 
-		File tactic = new File("img/tactics/" + currentMatch.getHome().getTactic() + "_" + currentMatch.getHome().getColor() + ".png");
+		File tactic = new File(
+				"img/tactics/" + currentMatch.getHome().getTactic() + "_" + currentMatch.getHome().getColor() + ".png");
 		Image tacticImage = new Image(tactic.toURI().toString(), 456, 454, false, false);
 		htacticField.setImage(tacticImage);
 	}
@@ -571,7 +589,8 @@ public class MatchPlayController implements Initializable {
 		a.setTactic(awayTactic.getValue());
 		calibrateNamesAway();
 
-		File tactic = new File("img/tactics/" + currentMatch.getAway().getTactic() + "_" + currentMatch.getAway().getColor() + ".png");
+		File tactic = new File(
+				"img/tactics/" + currentMatch.getAway().getTactic() + "_" + currentMatch.getAway().getColor() + ".png");
 		Image tacticImage = new Image(tactic.toURI().toString(), 456, 454, false, false);
 		atacticField.setImage(tacticImage);
 	}
@@ -701,8 +720,7 @@ public class MatchPlayController implements Initializable {
 
 			hst.setLayoutX(230);
 			hst.setLayoutY(125);
-		}
-		else if (t.getTactic().equals("4-2-3-1")) {
+		} else if (t.getTactic().equals("4-2-3-1")) {
 			hgk.setLayoutX(200);
 			hgk.setLayoutY(96);
 
@@ -841,8 +859,7 @@ public class MatchPlayController implements Initializable {
 
 			ast.setLayoutX(230);
 			ast.setLayoutY(125);
-		}
-		else if (t.getTactic().equals("4-2-3-1")) {
+		} else if (t.getTactic().equals("4-2-3-1")) {
 			agk.setLayoutX(200);
 			agk.setLayoutY(96);
 
@@ -909,8 +926,8 @@ public class MatchPlayController implements Initializable {
 		return currentMatch;
 	}
 
-	public void setCurrentMatch(Match currentMatch) {
-		this.currentMatch = currentMatch;
+	public void setCurrentMatch(Match currentMatch2) {
+		currentMatch = currentMatch2;
 	}
 
 }

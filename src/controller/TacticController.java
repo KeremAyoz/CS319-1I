@@ -173,116 +173,116 @@ public class TacticController implements Initializable {
 
 		if (t.getTactic().equals("4-3-3")) {
 			gk.setLayoutX(270);
-			gk.setLayoutY(96);
+			gk.setLayoutY(470);
 
-			rb.setLayoutX(453);
-			rb.setLayoutY(370);
+			rb.setLayoutX(505);
+			rb.setLayoutY(363);
 
-			cb2.setLayoutX(223);
-			cb2.setLayoutY(390);
+			cb2.setLayoutX(174);
+			cb2.setLayoutY(392);
 
 			cb1.setLayoutX(359);
-			cb1.setLayoutY(390);
+			cb1.setLayoutY(394);
 
-			lb.setLayoutX(94);
-			lb.setLayoutY(370);
+			lb.setLayoutX(28);
+			lb.setLayoutY(367);
 
 			// RW
 			cm1.setLayoutX(280);
 			cm1.setLayoutY(300);
 
 			// Stays as midfielders
-			cm2.setLayoutX(350);
-			cm2.setLayoutY(235);
+			cm2.setLayoutX(356);
+			cm2.setLayoutY(233);
 
-			cm3.setLayoutX(220);
-			cm3.setLayoutY(235);
+			cm3.setLayoutX(178);
+			cm3.setLayoutY(232);
 
 			// becomes LW
-			rw.setLayoutX(425);
-			rw.setLayoutY(170);
+			rw.setLayoutX(465);
+			rw.setLayoutY(177);
 
 			// LW becomes LF
-			lw.setLayoutX(145);
-			lw.setLayoutY(170);
+			lw.setLayoutX(87);
+			lw.setLayoutY(175);
 
 			// ST becomes RF
-			st.setLayoutX(286);
-			st.setLayoutY(110);
+			st.setLayoutX(275);
+			st.setLayoutY(139);
 		}
 
-		else if (t.getTactic().equals("4-4-2")) {
-			gk.setLayoutX(286);
-			gk.setLayoutY(101);
+		else if (t.getTactic().equals("4-2-3-1")) {
+			gk.setLayoutX(281);
+			gk.setLayoutY(475);
 
-			rb.setLayoutX(453);
-			rb.setLayoutY(370);
+			rb.setLayoutX(505);
+			rb.setLayoutY(363);
 
-			cb2.setLayoutX(223);
-			cb2.setLayoutY(390);
+			cb2.setLayoutX(166);
+			cb2.setLayoutY(402);
 
-			cb1.setLayoutX(359);
-			cb1.setLayoutY(390);
+			cb1.setLayoutX(368);
+			cb1.setLayoutY(400);
 
-			lb.setLayoutX(94);
-			lb.setLayoutY(369);
+			lb.setLayoutX(28);
+			lb.setLayoutY(367);
 
 			// RW
-			cm1.setLayoutX(435);
-			cm1.setLayoutY(225);
+			cm1.setLayoutX(204);
+			cm1.setLayoutY(298);
 
 			// RCM
-			cm2.setLayoutX(350);
-			cm2.setLayoutY(270);
+			cm2.setLayoutX(358);
+			cm2.setLayoutY(300);
 
 			// LCM
-			cm3.setLayoutX(220);
-			cm3.setLayoutY(270);
+			cm3.setLayoutX(284);
+			cm3.setLayoutY(229);
 
 			// LW
-			rw.setLayoutX(120);
-			rw.setLayoutY(225);
+			rw.setLayoutX(471);
+			rw.setLayoutY(208);
 
-			lw.setLayoutX(240);
-			lw.setLayoutY(125);
+			lw.setLayoutX(97);
+			lw.setLayoutY(204);
 
-			st.setLayoutX(330);
-			st.setLayoutY(125);
-		} else if (t.getTactic().equals("4-2-3-1")) {
+			st.setLayoutX(282);
+			st.setLayoutY(123);
+		} else if (t.getTactic().equals("4-4-2")) {
 			gk.setLayoutX(270);
-			gk.setLayoutY(96);
+			gk.setLayoutY(475);
 
-			rb.setLayoutX(450);
-			rb.setLayoutY(379);
+			rb.setLayoutX(506);
+			rb.setLayoutY(360);
 
-			cb2.setLayoutX(223);
-			cb2.setLayoutY(390);
+			cb2.setLayoutX(175);
+			cb2.setLayoutY(389);
 
-			cb1.setLayoutX(359);
-			cb1.setLayoutY(390);
+			cb1.setLayoutX(364);
+			cb1.setLayoutY(389);
 
-			lb.setLayoutX(94);
+			lb.setLayoutX(31);
 			lb.setLayoutY(370);
 
 			// RCM
-			cm1.setLayoutX(370);
-			cm1.setLayoutY(285);
+			rw.setLayoutX(100);
+			rw.setLayoutY(203);
 
-			cm2.setLayoutX(425);
-			cm2.setLayoutY(200);
+			cm2.setLayoutX(339);
+			cm2.setLayoutY(275);
 
 			// LCM
-			cm3.setLayoutX(194);
-			cm3.setLayoutY(285);
+			cm3.setLayoutX(205);
+			cm3.setLayoutY(273);
 
-			rw.setLayoutX(280);
-			rw.setLayoutY(220);
+			cm1.setLayoutX(471);
+			cm1.setLayoutY(208);
 
-			lw.setLayoutX(286);
-			lw.setLayoutY(115);
+			lw.setLayoutX(205);
+			lw.setLayoutY(141);
 
-			st.setLayoutX(140);
-			st.setLayoutY(200);
+			st.setLayoutX(354);
+			st.setLayoutY(144);
 		}
 	}
 	

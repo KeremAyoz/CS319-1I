@@ -2061,7 +2061,7 @@ public class DatabaseAccess {
 		players.add(new Player("Ranocchia", 29, 185, 70, "Italy", "CB", 75, 'R', 1250000, 5500000, true,
 				getAttributes(), actions));
 		// SUB3
-		players.add(new Player("Santon", 23, 175, 70, "Finland", "LB", 77, 'R', 1800000, 6500000,
+		players.add(new Player("Santon", 23, 175, 70, "Italy", "LB", 77, 'R', 1800000, 6500000,
 				true, getAttributes(), actions));
 		// SUB4
 		players.add(new Player("Vecino", 28, 191, 70, "Uruguay", "CM", 78, 'R', 2000000, 2300000,
@@ -2083,7 +2083,7 @@ public class DatabaseAccess {
 				true, getAttributes(), actions));
 		
 		// Manager
-		Manager manager = new Manager("Luciano Spalletti", 51, 185, 70, "Finland", 78, 2);
+		Manager manager = new Manager("Luciano Spalletti", 51, 185, 70, "Italy", 78, 2);
 		// President
 		President president = new President("Erick Thohir", 47, 175, 70, "Indonesia");
 		// Team

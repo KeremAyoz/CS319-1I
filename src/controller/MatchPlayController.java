@@ -485,12 +485,11 @@ public class MatchPlayController implements Initializable {
 						currentMatch.setPointAway(pointAway);
 						if (currentMatchType == 0) {
 							t.getGroups()[t.getMyGroupId()].modifyGroupStatistics(currentMatch);
-							
+
 						}
 						else if (currentMatchType == 1) {
 							try {
 								t.getKnockout().playMatch(t.getLastMatchId(), true);
-								// championshipFailed
 								int matchId = t.getKnockout().getMatchId(currentMatch.getDay(), currentMatch.getMonth(), currentMatch.getYear());
 								if (matchId % 2 == 0) {
 									if (t.getKnockout().getKnockout().getTeams()[matchId / 2] != t.getMyTeam())
@@ -500,11 +499,23 @@ public class MatchPlayController implements Initializable {
 								e.printStackTrace();
 							}
 						}
+
+						// Is game over ?
 						t.checkChampionshipFaied();
-						boolean elendikmi = t.isChampionshipFailed();
-						if (elendikmi) {
+						if (t.isChampionshipFailed()) {
 							try {
 								goView("/view/Eliminated.fxml");
+							} catch (IOException e) {
+								e.printStackTrace();
+							}
+							int x = 0 / 0;
+						}
+
+						// Is champion ?
+						Team champ = t.getKnockout().getKnockout().getTeams()[0];
+						if (champ != null && champ.getName().equals(t.getTeams()[t.getMyTeamId()].getName())) {
+							try {
+								goView("/view/Champion.fxml");
 							} catch (IOException e) {
 								e.printStackTrace();
 							}

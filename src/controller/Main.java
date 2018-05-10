@@ -79,13 +79,10 @@ public class Main extends Application {
 		{
 			String filePath = "file:///" + new java.io.File("").getAbsolutePath() + "/data/sounds/entrance.mp3";
 			filePath = filePath.replace("\\", "/");
-			System.out.println(filePath);
 			Media mp3MusicFile = new Media(filePath);
 			musicplayer = new MediaPlayer(mp3MusicFile);
 			musicplayer.setAutoPlay(true);
-			musicplayer.setVolume(0.9); // from 0 to 1
-
-			// ***************** loop (repeat) the music ******************
+			musicplayer.setVolume(0.7);
 			musicplayer.setOnEndOfMedia(new Runnable() {
 				public void run() {
 					musicplayer.seek(Duration.ZERO);
@@ -102,8 +99,6 @@ public class Main extends Application {
 	}
 
 	public static void main(String[] args) throws InterruptedException, IOException, ClassNotFoundException {
-		Tournament c = Tournament.getInstance();
-		Database.saveCurrentGame(c);
 		launch(args);
 	}
 

@@ -454,7 +454,7 @@ public class MatchPlayController implements Initializable {
 		currentMatch.setGoalAway(0);
 		Timeline timeline = new Timeline();
 		timeline.setCycleCount(Timeline.INDEFINITE);
-		KeyFrame frame = new KeyFrame(Duration.seconds(0.3), new EventHandler<ActionEvent>() {
+		KeyFrame frame = new KeyFrame(Duration.seconds(0.1), new EventHandler<ActionEvent>() {
 
 			@Override
 			public void handle(ActionEvent event) {
@@ -474,13 +474,14 @@ public class MatchPlayController implements Initializable {
 						AudioClip goal = new AudioClip(filePath);
 						goal.play();
 					}
-					if (a != null && a.getClass().getSimpleName().equals("RedCard")) {
+					else if (a != null && (a.getClass().getSimpleName().equals("RedCard") || a.getClass().getSimpleName().equals("Injury"))) {
 						String filePath = "file:///" + new java.io.File("").getAbsolutePath() + "/data/sounds/red.wav";
 						filePath = filePath.replace("\\", "/");
 						AudioClip red = new AudioClip(filePath);
 						red.play();
+						paused = true;
 					}
-
+			
 					if (seconds > 89 + (int) (Math.random() * 6)) {
 						String filePath = "file:///" + new java.io.File("").getAbsolutePath() + "/data/sounds/end.wav";
 						filePath = filePath.replace("\\", "/");
@@ -521,7 +522,7 @@ public class MatchPlayController implements Initializable {
 						}
 
 						// Is game over ?
-						t.checkChampionshipFaied();
+						t.checkChampionshipFailed();
 						if (t.isChampionshipFailed()) {
 							try {
 								goView("/view/Eliminated.fxml");

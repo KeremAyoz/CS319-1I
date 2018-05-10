@@ -15,6 +15,8 @@ import javafx.scene.transform.Scale;
 import javafx.scene.web.WebView;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
+import model.Database;
+import model.Tournament;
 
 public class HomeScreen implements Initializable {
 
@@ -41,7 +43,10 @@ public class HomeScreen implements Initializable {
 		Main.setMainStage(m);
 	}
 
-	public void loadGameClicked() throws IOException {
+	public void loadGameClicked() throws IOException, ClassNotFoundException {
+		Tournament.setInstance(Database.loadCurrentGame());
+		Tournament ts = Tournament.getInstance();
+		TeamController.setCurrentTeamId(ts.getMyTeamId());
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/TeamView.fxml"));
 		Parent root = loader.load();
 		root.setScaleX(screenWidth / 1400.0);

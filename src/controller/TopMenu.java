@@ -156,6 +156,8 @@ public class TopMenu implements Initializable {
 
 	@FXML
 	public void saveClicked() throws IOException {
+		Database.saveCurrentGame(Tournament.getInstance());
+		Tournament ts = Tournament.getInstance();
 		Parent root = FXMLLoader.load(getClass().getResource("/view/HomeScreen.fxml"));
 		root.setScaleX(screenWidth / 1400.0);
 		root.setScaleY(screenHeight / 900.0);

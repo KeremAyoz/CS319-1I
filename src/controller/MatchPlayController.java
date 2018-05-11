@@ -471,7 +471,7 @@ public class MatchPlayController implements Initializable {
 			return true;
 		}
 		Match prev = t.getKnockout().getKnockout().getMatches()[matchId-1];
-		if( currentMatch.getGoalHome() == prev.getGoalAway() && currentMatch.getGoalAway() == prev.getGoalHome() )
+		if( currentMatch.getGoalHome() == prev.getGoalHome() && currentMatch.getGoalAway() == prev.getGoalAway() )
 			return false;
 		return true;
 	}

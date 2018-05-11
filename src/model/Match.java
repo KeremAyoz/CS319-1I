@@ -197,7 +197,7 @@ public class Match implements Serializable{
 			return true;
 		}
 		Match prev = t.getKnockout().getKnockout().getMatches()[matchId-1];
-		if( goalHome == prev.getGoalAway() && goalAway == prev.getGoalHome() )
+		if( goalHome == prev.getGoalHome() && goalAway == prev.getGoalAway() )
 			return false;
 		return true;
 	}

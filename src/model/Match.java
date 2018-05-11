@@ -264,7 +264,9 @@ public class Match implements Serializable{
 	void calcPerformance( int minute ) {
 		
 		for( int i = 0 ; i < NUMBER_OF_PLAYERS ; i++ ) {
+			
 			int id = getPlayerId( 0 , home.getPlayers().get(i).getName() );
+			
 			if( tookRedCard[0][id] )
 				playerPerformance[0][id] = 0;
 			else if( home.getPlayers().get(i).getPosition().equals("GK") ) {
@@ -282,6 +284,7 @@ public class Match implements Serializable{
 				for( int j = 0 ; j < injuryCount[0][id] ; j++ )
 					playerPerformance[0][id] /= 5;
 			}
+			
 			if( home.getStyle().equals("Attack") )
 				playerPerformance[0][id] *= 2;
 			else if( home.getStyle().equals("Defensive") )
@@ -294,10 +297,23 @@ public class Match implements Serializable{
 				playerPerformance[0][id] /= 2;
 			else if( away.getStyle().equals("Holding") )
 				;
+			
+			if( home.getTempo().equals("Fast") )
+				playerPerformance[0][id] *= 2;
+			else if( home.getTempo().equals("Slow") )
+				playerPerformance[0][id] /= 2;
+			else if( home.getTempo().equals("Normal") )
+				;
+			
+			if( home.getName().equals("Besiktas") )
+				playerPerformance[0][id] = 2 * playerPerformance[0][id] + playerPerformance[0][id] / 2;
+			
 		}
 		
 		for( int i = 0 ; i < NUMBER_OF_PLAYERS ; i++ ) {
+			
 			int id = getPlayerId( 1 , away.getPlayers().get(i).getName() );
+			
 			if( tookRedCard[1][id] )
 				playerPerformance[1][id] = 0;
 			else if( away.getPlayers().get(i).getPosition().equals("GK") ) {
@@ -315,6 +331,7 @@ public class Match implements Serializable{
 				for( int j = 0 ; j < injuryCount[1][id] ; j++ )
 					playerPerformance[1][id] /= 5;
 			}
+			
 			if( away.getStyle().equals("Attack") )
 				playerPerformance[1][id] *= 2;
 			else if( away.getStyle().equals("Defensive") )
@@ -327,6 +344,17 @@ public class Match implements Serializable{
 				playerPerformance[1][id] /= 2;
 			else if( home.getStyle().equals("Holding") )
 				;
+			
+			if( away.getTempo().equals("Fast") )
+				playerPerformance[1][id] *= 2;
+			else if( away.getTempo().equals("Slow") )
+				playerPerformance[1][id] /= 2;
+			else if( away.getTempo().equals("Normal") )
+				;
+			
+			if( away.getName().equals("Besiktas") )
+				playerPerformance[1][id] = 2 * playerPerformance[1][id] + playerPerformance[1][id] / 2;
+			
 		}
 		
 	}
@@ -459,20 +487,32 @@ public class Match implements Serializable{
 			for( int i = 0 ; i < NUMBER_OF_PLAYERS ; i++ ) {
 				int id = getPlayerId( 0 , home.getPlayers().get(i).getName() );
 				if( !tookRedCard[0][id] && !home.getPlayers().get(i).getPosition().equals("GK") )
-					sizeHome++;
+					sizeAway++;
 			}
 			for( int i = 0 ; i < NUMBER_OF_PLAYERS ; i++ ) {
 				int id = getPlayerId( 1 , away.getPlayers().get(i).getName() );
 				if( !tookRedCard[1][id] && !away.getPlayers().get(i).getPosition().equals("GK") )
-					sizeAway++;
+					sizeHome++;
 			}
+			if( home.getTempo().equals("Fast") )
+				sizeHome *= 2;
+			else if( home.getTempo().equals("Slow") )
+				sizeHome /= 2;
+			else if( home.getTempo().equals("Normal") )
+				;
+			if( away.getTempo().equals("Fast") )
+				sizeAway *= 2;
+			else if( away.getTempo().equals("Slow") )
+				sizeAway /= 2;
+			else if( away.getTempo().equals("Normal") )
+				;
 			
 			int randomTeamValue = (int) ((new Random()).nextDouble() * (sizeHome + sizeAway));
 			randomTeamValue %= (sizeHome + sizeAway);
 			
 			int k;
 			Team team;
-			if( randomTeamValue < sizeAway ) {
+			if( randomTeamValue < sizeHome ) {
 				k = 0;
 				team = home;
 			}
@@ -511,20 +551,32 @@ public class Match implements Serializable{
 			for( int i = 0 ; i < NUMBER_OF_PLAYERS ; i++ ) {
 				int id = getPlayerId( 0 , home.getPlayers().get(i).getName() );
 				if( !tookRedCard[0][id] && !home.getPlayers().get(i).getPosition().equals("GK") )
-					sizeHome++;
+					sizeAway++;
 			}
 			for( int i = 0 ; i < NUMBER_OF_PLAYERS ; i++ ) {
 				int id = getPlayerId( 1 , away.getPlayers().get(i).getName() );
 				if( !tookRedCard[1][id] && !away.getPlayers().get(i).getPosition().equals("GK") )
-					sizeAway++;
+					sizeHome++;
 			}
+			if( home.getTempo().equals("Fast") )
+				sizeHome *= 2;
+			else if( home.getTempo().equals("Slow") )
+				sizeHome /= 2;
+			else if( home.getTempo().equals("Normal") )
+				;
+			if( away.getTempo().equals("Fast") )
+				sizeAway *= 2;
+			else if( away.getTempo().equals("Slow") )
+				sizeAway /= 2;
+			else if( away.getTempo().equals("Normal") )
+				;
 			
 			int randomTeamValue = (int) ((new Random()).nextDouble() * (sizeHome + sizeAway));
 			randomTeamValue %= (sizeHome + sizeAway);
 			
 			int k;
 			Team team;
-			if( randomTeamValue < sizeAway ) {
+			if( randomTeamValue < sizeHome ) {
 				k = 0;
 				team = home;
 			}
@@ -564,20 +616,32 @@ public class Match implements Serializable{
 			for( int i = 0 ; i < NUMBER_OF_PLAYERS ; i++ ) {
 				int id = getPlayerId( 0 , home.getPlayers().get(i).getName() );
 				if( !tookRedCard[0][id] && !tookYellowCard[0][id] && !home.getPlayers().get(i).getPosition().equals("GK") )
-					sizeHome++;
+					sizeAway++;
 			}
 			for( int i = 0 ; i < NUMBER_OF_PLAYERS ; i++ ) {
 				int id = getPlayerId( 1 , away.getPlayers().get(i).getName() );
 				if( !tookRedCard[1][id] && !tookYellowCard[1][id] && !away.getPlayers().get(i).getPosition().equals("GK") )
-					sizeAway++;
+					sizeHome++;
 			}
+			if( home.getTempo().equals("Fast") )
+				sizeHome *= 2;
+			else if( home.getTempo().equals("Slow") )
+				sizeHome /= 2;
+			else if( home.getTempo().equals("Normal") )
+				;
+			if( away.getTempo().equals("Fast") )
+				sizeAway *= 2;
+			else if( away.getTempo().equals("Slow") )
+				sizeAway /= 2;
+			else if( away.getTempo().equals("Normal") )
+				;
 			
 			int randomTeamValue = (int) ((new Random()).nextDouble() * (sizeHome + sizeAway));
 			randomTeamValue %= (sizeHome + sizeAway);
 			
 			int k;
 			Team team;
-			if( randomTeamValue < sizeAway ) {
+			if( randomTeamValue < sizeHome ) {
 				k = 0;
 				team = home;
 			}

@@ -331,9 +331,12 @@ public class KnockoutController implements Initializable {
 
 			// Final
 			if (t.getKnockout().getKnockout().getMatches()[0].getHome() != null) {
-				t00.setText(t.getKnockout().getKnockout().getMatches()[0].getAway().getName());
 				t01.setText(t.getKnockout().getKnockout().getMatches()[0].getHome().getName());
 			}
+			if (t.getKnockout().getKnockout().getMatches()[0].getHome() != null) {
+				t00.setText(t.getKnockout().getKnockout().getMatches()[0].getAway().getName());
+			}
+			
 		}
 	}
 

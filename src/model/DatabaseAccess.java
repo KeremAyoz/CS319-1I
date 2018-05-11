@@ -1806,7 +1806,7 @@ public class DatabaseAccess {
 		players.add(new Player("Yusupov", 28, 180, 70, "Russia", "CM", 77, 'R', 1000000, 1000000, true,
 				getAttributes(), actions));
 		// CM
-		players.add(new Player("Kranevitter", 22, 188, 70, "Argentina", "CM", 78, 'R', 1300000,
+		players.add(new Player("Kranevitter", 22, 188, 70, "Argentina", "CM", 77, 'R', 1000000,
 				9000000, true, getAttributes(), actions));
 		// CM
 		players.add(new Player("Rigoni", 27, 179, 70, "Argentina", "CM", 79, 'R', 1600000, 8000000,

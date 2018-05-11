@@ -99,6 +99,8 @@ public class Main extends Application {
 	}
 
 	public static void main(String[] args) throws InterruptedException, IOException, ClassNotFoundException {
+		Tournament t = Tournament.getInstance();
+		Database.saveCurrentGame(t);
 		launch(args);
 	}
 

@@ -182,15 +182,37 @@ public class Match implements Serializable{
 		this.actions = actions;
 	}
 
+	public boolean checkExtensionStop() {
+		Tournament t = Tournament.getInstance();
+		if( !t.getStatusEliminationStage() )
+			return true;
+		int matchId = t.getKnockout().getMatchId(t.getCurrentDay(), t.getCurrentMonth(), t.getCurrentYear());
+		if( matchId == -1 )
+			return true;
+		if( matchId % 2 == 1 )
+			return true;
+		if( matchId == 0 ) {
+			if( goalHome == goalAway )
+				return false;
+			return true;
+		}
+		Match prev = t.getKnockout().getKnockout().getMatches()[matchId-1];
+		if( goalHome == prev.getGoalAway() && goalAway == prev.getGoalHome() )
+			return false;
+		return true;
+	}
+	
 	public ArrayList<Action> matchSimulation() throws InterruptedException {
 		goalHome = goalAway = 0;
-		for( int i = 1 ; i <= MATCH_DURATION ; i++ ) {
+		for( int i = 1 ; true ; i++ ) {
 			if( delay ) {
 				TimeUnit.SECONDS.sleep(1);
 			}
 			Action a = actionGenerator( i );
 			if( a != null )
 				actions.add(a);
+			if( i > MATCH_DURATION && checkExtensionStop() )
+				break;
 		}
 		if( goalHome > goalAway ) {
 			setPointHome( POINTS_WIN );

@@ -449,7 +449,26 @@ public class MatchPlayController implements Initializable {
 			goView("/view/KnockoutView.fxml");
 	}
 
+	public boolean checkExtensionStop() {
+		if( currentMatchType == 0 )
+			return true;
+		int matchId = t.getKnockout().getMatchId(currentMatch.getDay(), currentMatch.getMonth(),
+				currentMatch.getYear());
+		if(matchId % 2 == 1)
+			return true;
+		if( matchId == 0 ) {
+			if( currentMatch.getGoalHome() == currentMatch.getGoalAway() )
+				return false;
+			return true;
+		}
+		Match prev = t.getKnockout().getKnockout().getMatches()[matchId-1];
+		if( currentMatch.getGoalHome() == prev.getGoalAway() && currentMatch.getGoalAway() == prev.getGoalHome() )
+			return false;
+		return true;
+	}
+	
 	public void doTime(double ratio) {
+		int matchDuration = 89 + (int) (Math.random() * 6);
 		currentMatch.setGoalHome(0);
 		currentMatch.setGoalAway(0);
 		Timeline timeline = new Timeline();
@@ -497,7 +516,7 @@ public class MatchPlayController implements Initializable {
 						}
 					}
 			
-					if (seconds > 89 + (int) (Math.random() * 6)) {
+					if (seconds > matchDuration && checkExtensionStop()) {
 						String filePath = "file:///" + new java.io.File("").getAbsolutePath() + "/data/sounds/end.wav";
 						filePath = filePath.replace("\\", "/");
 						AudioClip end = new AudioClip(filePath);

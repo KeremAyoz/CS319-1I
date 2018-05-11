@@ -89,6 +89,7 @@ public class TeamController implements Initializable {
 		Image image = new Image(file.toURI().toString());
 		teamImage.setImage(image);
 		name.setText(cur.getName());
+		MatchPlayController.fillColorText(name, cur.getColor());
 		fillInformation();
 		for (int i = 0; i < 7; i++) {
 			for (int j = 0; j < 20; j++) {

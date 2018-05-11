@@ -1,5 +1,6 @@
 package controller;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -91,6 +92,11 @@ public class MatchStart implements Initializable {
 
 	private static Match currentMatch;
 	
+	@FXML
+	private ImageView homeLogo;
+	@FXML
+	private ImageView awayLogo;
+	
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
 		Tournament t = Tournament.getInstance();
@@ -121,6 +127,18 @@ public class MatchStart implements Initializable {
 
 			homeName.setText(home.getName());
 			awayName.setText(away.getName());
+			
+			String st = home.getName().toLowerCase().trim();
+			st = st.replaceAll("\\s+", "");
+			File logo1 = new File("img/logos/" + st + ".png");
+			Image image = new Image(logo1.toURI().toString());
+			homeLogo.setImage(image);
+
+			String st2 = away.getName().toLowerCase().trim();
+			st2 = st2.replaceAll("\\s+", "");
+			File logo2 = new File("img/logos/" + st2 + ".png");
+			Image image2 = new Image(logo2.toURI().toString());
+			awayLogo.setImage(image2);
 
 			hGK.setText(home.getPlayers().get(0).getName());
 			hRB.setText(home.getPlayers().get(1).getName());

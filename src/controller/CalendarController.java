@@ -150,6 +150,48 @@ public class CalendarController implements Initializable {
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
+		
+		// Is game over ?
+		tour.checkChampionshipFailed();
+		if (tour.isChampionshipFailed()) {
+			try {
+				goView("/view/Eliminated.fxml");
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			int x = 0 / 0;
+		}
+
+		// Is champion ?
+		Team champ = tour.getKnockout().getKnockout().getTeams()[0];
+		if (champ != null && champ.getName().equals(tour.getTeams()[tour.getMyTeamId()].getName())) {
+			try {
+				goView("/view/Champion.fxml");
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			int x = 0 / 0;
+		}
+	}
+	
+	public void goView(String view) throws IOException {
+		Parent root = FXMLLoader.load(getClass().getResource(view));
+		root.setScaleX(screenWidth / 1400.0);
+		root.setScaleY(screenHeight / 900.0);
+		if (Main.isWindows()) {
+			root.setLayoutX(320);
+			root.setLayoutY(108);
+		}
+		if (Main.isMacos()) {
+			root.setLayoutX(20);
+		}
+		Stage m = Main.getMainStage();
+		Scene t = Main.getMainStage().getScene();
+		t.setRoot(root);
+		m.setScene(t);
+		m.setFullScreen(true);
+		Main.setMainStage(m);
+
 	}
 
 }

@@ -131,7 +131,6 @@ public class TacticController implements Initializable {
 		// Team Logo
 		String st = t.getName().toLowerCase().trim();
 		st = st.replaceAll("\\s+", "");
-		System.out.println(st);
 		File file = new File("img/logos/" + st + ".png");
 		Image image = new Image(file.toURI().toString());
 		logo.setImage(image);
@@ -325,6 +324,7 @@ public class TacticController implements Initializable {
 		Tournament current = Tournament.getInstance();
 		Team t = current.getTeams()[current.getMyTeamId()];
 		teamName.setText(t.getName());
+		MatchPlayController.fillColorText(teamName, t.getColor());
 		File tactic = new File("img/tactics/" + t.getTactic() + "_" + t.getColor() + ".png");
 		Image tacticImage = new Image(tactic.toURI().toString(), 610, 490, false, false);
 		tacticField.setImage(tacticImage);

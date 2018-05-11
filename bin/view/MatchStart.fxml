@@ -183,17 +183,17 @@
       </Text>
       <Text fx:id="aRW" layoutX="779.0" layoutY="529.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
          <font>
-            <Font name="System Bold" size="13.0" />
+            <Font name="Gill Sans Bold" size="13.0" />
          </font>
       </Text>
       <Text fx:id="aRB" layoutX="978.0" layoutY="512.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
          <font>
-            <Font name="System Bold" size="13.0" />
+            <Font name="Gill Sans Bold" size="13.0" />
          </font>
       </Text>
       <Text fx:id="aLW" layoutX="784.0" layoutY="797.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
          <font>
-            <Font name="System Bold" size="13.0" />
+            <Font name="Gill Sans Bold" size="13.0" />
          </font>
       </Text>
       <Text fx:id="aST" layoutX="746.0" layoutY="635.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
@@ -203,77 +203,98 @@
       </Text>
       <Text fx:id="aCM1" layoutX="916.0" layoutY="642.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
          <font>
-            <Font name="System Bold" size="13.0" />
+            <Font name="Gill Sans Bold" size="13.0" />
          </font>
       </Text>
       <Text fx:id="aCM2" layoutX="851.0" layoutY="710.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
          <font>
-            <Font name="System Bold" size="13.0" />
+            <Font name="Gill Sans Bold" size="13.0" />
          </font>
       </Text>
       <Text fx:id="aCM3" layoutX="841.0" layoutY="596.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
          <font>
-            <Font name="System Bold" size="13.0" />
+            <Font name="Gill Sans Bold" size="13.0" />
          </font>
       </Text>
       <Text fx:id="aCB1" layoutX="990.0" layoutY="603.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
          <font>
-            <Font name="System Bold" size="13.0" />
+            <Font name="Gill Sans Bold" size="13.0" />
          </font>
       </Text>
       <Text fx:id="aCB2" layoutX="1011.0" layoutY="704.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
          <font>
-            <Font name="System Bold" size="13.0" />
+            <Font name="Gill Sans Bold" size="13.0" />
          </font>
       </Text>
       <Text fx:id="aLB" layoutX="1028.0" layoutY="811.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
          <font>
-            <Font name="System Bold" size="13.0" />
+            <Font name="Gill Sans Bold" size="13.0" />
          </font>
       </Text>
       <Text fx:id="aGK" layoutX="1073.0" layoutY="636.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
          <font>
-            <Font name="System Bold" size="13.0" />
+            <Font name="Gill Sans Bold" size="13.0" />
          </font>
       </Text>
-      <Text fx:id="homeName" fill="#6b0101" layoutX="168.0" layoutY="253.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="RIGHT" wrappingWidth="503.67694091796875">
+      <Text fx:id="homeName" fill="#6b0101" layoutX="153.0" layoutY="253.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="RIGHT" wrappingWidth="503.67694091796875">
          <font>
             <Font name="Gill Sans Bold" size="48.0" />
          </font>
       </Text>
-      <Text fx:id="awayName" fill="#034fc3" layoutX="799.0" layoutY="253.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="528.4049682617188">
+      <Text fx:id="awayName" fill="#034fc3" layoutX="783.0" layoutY="253.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="528.4049682617188">
          <font>
             <Font name="Gill Sans Bold" size="48.0" />
          </font>
       </Text>
-      <Text layoutX="719.0" layoutY="250.0" strokeType="OUTSIDE" strokeWidth="0.0" text="VS">
+      <Text layoutX="706.0" layoutY="250.0" strokeType="OUTSIDE" strokeWidth="0.0" text="VS">
          <font>
             <Font name="Gill Sans" size="24.0" />
          </font>
       </Text>
-      <Text layoutX="581.0" layoutY="354.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Weather" underline="true">
+      <Text fx:id="weather" layoutX="534.0" layoutY="387.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
          <font>
-            <Font name="Gill Sans" size="17.0" />
-         </font>
-      </Text>
-      <Text fx:id="weather" layoutX="596.0" layoutY="381.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
-      <Text fx:id="stadium" layoutX="819.0" layoutY="382.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
-      <Text layoutX="804.0" layoutY="354.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Stadium" underline="true">
+            <Font name="Gill Sans SemiBold" size="15.0" />
+         </font></Text>
+      <Text fx:id="stadium" layoutX="752.0" layoutY="386.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
          <font>
-            <Font size="17.0" />
-         </font>
-      </Text>
-      <Text layoutX="694.0" layoutY="354.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Referee" underline="true">
+            <Font name="Gill Sans SemiBold" size="15.0" />
+         </font></Text>
+      <Text fx:id="referee" layoutX="611.0" layoutY="386.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pierliugi Collina">
          <font>
-            <Font name="Gill Sans" size="17.0" />
-         </font>
-      </Text>
-      <Text fx:id="referee" layoutX="705.0" layoutY="381.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
-      <Line endX="400.0" layoutX="560.0" layoutY="285.0" startX="-80.0" />
+            <Font name="Gill Sans SemiBold" size="15.0" />
+         </font></Text>
+      <Line endX="700.0" layoutX="560.0" layoutY="285.0" startX="-400.0" />
       <Button layoutX="1122.0" layoutY="28.0" mnemonicParsing="false" onAction="#startMatch" prefHeight="83.0" prefWidth="145.0" text="START MATCH">
          <font>
             <Font name="Gill Sans SemiBold" size="15.0" />
          </font>
       </Button>
+      <ImageView fitHeight="62.0" fitWidth="56.0" layoutX="626.0" layoutY="304.0">
+         <image>
+            <Image url="@../../img/referee.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="62.0" fitWidth="70.0" layoutX="734.0" layoutY="311.0">
+         <image>
+            <Image url="@../../img/stadium.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="58.0" fitWidth="61.0" layoutX="518.0" layoutY="308.0">
+         <image>
+            <Image url="@../../img/weather.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="homeLogo" fitHeight="140.0" fitWidth="140.0" layoutX="86.0" layoutY="447.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="awayLogo" fitHeight="140.0" fitWidth="140.0" layoutX="1192.0" layoutY="447.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="61.0" fitWidth="76.0" layoutX="828.0" layoutY="306.0">
+         <image>
+            <Image url="@../../img/time.png" />
+         </image>
+      </ImageView>
+      <Text layoutX="849.0" layoutY="387.0" strokeType="OUTSIDE" strokeWidth="0.0" text="21:45">
+         <font>
+            <Font name="Gill Sans SemiBold" size="15.0" />
+         </font>
+      </Text>
    </children>
 </Pane>

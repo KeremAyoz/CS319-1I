@@ -282,6 +282,18 @@ public class Match implements Serializable{
 				for( int j = 0 ; j < injuryCount[0][id] ; j++ )
 					playerPerformance[0][id] /= 5;
 			}
+			if( home.getStyle().equals("Attack") )
+				playerPerformance[0][id] *= 2;
+			else if( home.getStyle().equals("Defensive") )
+				playerPerformance[0][id] /= 2;
+			else if( home.getStyle().equals("Holding") )
+				;
+			if( away.getStyle().equals("Attack") )
+				playerPerformance[0][id] *= 2;
+			else if( away.getStyle().equals("Defensive") )
+				playerPerformance[0][id] /= 2;
+			else if( away.getStyle().equals("Holding") )
+				;
 		}
 		
 		for( int i = 0 ; i < NUMBER_OF_PLAYERS ; i++ ) {
@@ -303,6 +315,18 @@ public class Match implements Serializable{
 				for( int j = 0 ; j < injuryCount[1][id] ; j++ )
 					playerPerformance[1][id] /= 5;
 			}
+			if( away.getStyle().equals("Attack") )
+				playerPerformance[1][id] *= 2;
+			else if( away.getStyle().equals("Defensive") )
+				playerPerformance[1][id] /= 2;
+			else if( away.getStyle().equals("Holding") )
+				;
+			if( home.getStyle().equals("Attack") )
+				playerPerformance[1][id] *= 2;
+			else if( home.getStyle().equals("Defensive") )
+				playerPerformance[1][id] /= 2;
+			else if( home.getStyle().equals("Holding") )
+				;
 		}
 		
 	}

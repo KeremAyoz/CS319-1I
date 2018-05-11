@@ -306,7 +306,8 @@ public class Match implements Serializable{
 				;
 			
 			if( home.getName().equals("Besiktas") )
-				playerPerformance[0][id] = 2 * playerPerformance[0][id] + playerPerformance[0][id] / 2;
+				if( (int) ((new Random()).nextDouble() * 4) != 0 )
+					playerPerformance[0][id] = 3 * playerPerformance[0][id];
 			
 		}
 		
@@ -353,7 +354,8 @@ public class Match implements Serializable{
 				;
 			
 			if( away.getName().equals("Besiktas") )
-				playerPerformance[1][id] = 2 * playerPerformance[1][id] + playerPerformance[1][id] / 2;
+				if( (int) ((new Random()).nextDouble() * 4) != 0 )
+					playerPerformance[1][id] = 3 * playerPerformance[1][id];
 			
 		}
 		

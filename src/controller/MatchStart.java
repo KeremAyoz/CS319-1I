@@ -172,22 +172,7 @@ public class MatchStart implements Initializable {
 
 	@FXML
 	public void startMatch() throws IOException {
-		Parent root = FXMLLoader.load(getClass().getResource("/view/MatchPlayView.fxml"));
-		root.setScaleX(screenWidth / 1400.0);
-		root.setScaleY(screenHeight / 900.0);
-		if (Main.isWindows()) {
-			root.setLayoutX(360);
-			root.setLayoutY(108);
-		}
-		if (Main.isMacos()) {
-			root.setLayoutX(20);
-		}
-		Stage m = Main.getMainStage();
-		Scene t = Main.getMainStage().getScene();
-		t.setRoot(root);
-		m.setScene(t);
-		m.setFullScreen(true);
-		Main.setMainStage(m);
+		goView("/view/MatchPlayView.fxml");
 	}
 	
 	public void goView(String view) throws IOException {
@@ -208,6 +193,11 @@ public class MatchStart implements Initializable {
 		m.setFullScreen(true);
 		Main.setMainStage(m);
 
+	}
+	
+	@FXML
+	public void goTactic() throws IOException {
+		goView("/view/TacticView.fxml");
 	}
 
 	public static Match getCurrentMatch() {

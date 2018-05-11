@@ -90,8 +90,8 @@ public class PlayerController implements Initializable {
 		generalGrid.add(flag, 1, 4);
 		generalGrid.add(new Text(String.valueOf(p.getHeight()) + "cm"), 3, 0);
 		generalGrid.add(new Text(String.valueOf(p.getWeight()) + "kg"), 3, 1);
-		generalGrid.add(new Text(p.getValue() / 1000000.0 + "m €"), 3, 2);
-		generalGrid.add(new Text(p.getSalary() / 1000000.0 + "m €"), 3, 3);
+		generalGrid.add(new Text(p.getValue() / 1000000.0 + " m €"), 3, 2);
+		generalGrid.add(new Text(p.getSalary() / 1000000.0 + " m €"), 3, 3);
 		generalGrid.add(new Text("Available"), 3, 4);
 
 		// Attributes
@@ -110,27 +110,6 @@ public class PlayerController implements Initializable {
 		statGrid.add(new Text(String.valueOf(p.getCntAssist())), 2, 0);
 		statGrid.add(new Text(String.valueOf(p.getCntYellowCard())), 3, 0);
 		statGrid.add(new Text(String.valueOf(p.getCntRedCard())), 4, 0);
-
-		String style = "-fx-text-fill: black;" + "-fx-background-color: white;" + "-fx-font: Gill Sans;"
-				+ "-fx-font-family: Gill Sans;" +
-				// "-fx-font-weight: regular;"+
-				"-fx-font-size: 14;";
-
-		for (int i = 0; i < generalGrid.getChildren().size(); i++) {
-			if (generalGrid.getChildren().get(i).getClass().equals(playerName.getClass()))
-				((Text) (generalGrid.getChildren().get(i))).setStyle(style);
-		}
-
-		for (int i = 0; i < statGrid.getChildren().size(); i++) {
-			if (statGrid.getChildren().get(i).getClass().equals(playerName.getClass()))
-				((Text) (statGrid.getChildren().get(i))).setStyle(style);
-		}
-
-		for (int i = 0; i < attGrid.getChildren().size(); i++) {
-			if (attGrid.getChildren().get(i).getClass().equals(playerName.getClass()))
-				((Text) (attGrid.getChildren().get(i))).setStyle(style);
-		}
-
 	}
 	
 	@FXML

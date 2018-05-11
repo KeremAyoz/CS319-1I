@@ -293,7 +293,7 @@ public class MatchPlayController implements Initializable {
 
 	private double speed = 1;
 
-	public void fillColorText(Text t, String color) {
+	public static void fillColorText(Text t, String color) {
 		if (color.equals("red")) {
 			t.setFill(Color.DARKRED);
 		} else if (color.equals("black")) {
@@ -360,7 +360,16 @@ public class MatchPlayController implements Initializable {
 		fillColorText(homeName, home.getColor());
 		awayName.setFont(Font.font("Gill Sans", FontWeight.BOLD, 38));
 		fillColorText(awayName, away.getColor());
-
+		
+		homeTactic.getSelectionModel().select(home.getTactic());
+		homeStyle.getSelectionModel().select(home.getStyle());
+		homeTempo.getSelectionModel().select(home.getTempo());
+		
+		awayTactic.getSelectionModel().select(away.getTactic());
+		awayStyle.getSelectionModel().select(away.getStyle());
+		awayTempo.getSelectionModel().select(away.getTempo());
+		
+		
 		String st = home.getName().toLowerCase().trim();
 		st = st.replaceAll("\\s+", "");
 		File logo1 = new File("img/logos/" + st + ".png");
@@ -553,28 +562,6 @@ public class MatchPlayController implements Initializable {
 							} catch (InterruptedException e) {
 								e.printStackTrace();
 							}
-						}
-
-						// Is game over ?
-						t.checkChampionshipFailed();
-						if (t.isChampionshipFailed()) {
-							try {
-								goView("/view/Eliminated.fxml");
-							} catch (IOException e) {
-								e.printStackTrace();
-							}
-							int x = 0 / 0;
-						}
-
-						// Is champion ?
-						Team champ = t.getKnockout().getKnockout().getTeams()[0];
-						if (champ != null && champ.getName().equals(t.getTeams()[t.getMyTeamId()].getName())) {
-							try {
-								goView("/view/Champion.fxml");
-							} catch (IOException e) {
-								e.printStackTrace();
-							}
-							int x = 0 / 0;
 						}
 					}
 				}

@@ -16,12 +16,12 @@
                   <Rectangle fx:id="aTactics" arcHeight="5.0" arcWidth="5.0" fill="#b2b2b2" height="162.0" layoutX="935.0" layoutY="524.0" stroke="BLACK" strokeType="INSIDE" width="438.0" />
                   <Rectangle fx:id="hTactics" arcHeight="5.0" arcWidth="5.0" fill="#b2b2b2" height="162.0" layoutX="39.0" layoutY="524.0" stroke="BLACK" strokeType="INSIDE" width="438.0" />
                   <Circle fill="WHITE" layoutX="700.0" layoutY="63.0" radius="30.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Text fx:id="homeName" fill="#6b0101" layoutX="231.0" layoutY="-82.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Barcelona" textAlignment="CENTER" wrappingWidth="398.2636184692383">
+                  <Text fx:id="homeName" fill="#6b0101" layoutX="231.0" layoutY="-82.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Barcelona" textAlignment="RIGHT" wrappingWidth="398.2636184692383">
                      <font>
                         <Font name="Gill Sans Bold" size="38.0" />
                      </font>
                   </Text>
-                  <Text fx:id="awayName" fill="#034fc3" layoutX="762.0" layoutY="-82.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Real Madrid" textAlignment="CENTER" wrappingWidth="414.149658203125">
+                  <Text fx:id="awayName" fill="#034fc3" layoutX="762.0" layoutY="-82.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Real Madrid" wrappingWidth="414.149658203125">
                      <font>
                         <Font name="Gill Sans Bold" size="38.0" />
                      </font>

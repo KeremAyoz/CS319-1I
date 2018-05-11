@@ -149,8 +149,7 @@ public class KnockoutController implements Initializable {
 				last16Matches.add(score, 1, j + space);
 				j++;
 			}
-		}
-		else {
+		} else {
 			last16Text.setVisible(false);
 			last16Matches.setVisible(false);
 		}
@@ -183,8 +182,7 @@ public class KnockoutController implements Initializable {
 				quarterMatches.add(score, 1, j + space);
 				j++;
 			}
-		}
-		else {
+		} else {
 			quarterText.setVisible(false);
 			quarterMatches.setVisible(false);
 		}
@@ -217,37 +215,42 @@ public class KnockoutController implements Initializable {
 				semiMatches.add(score, 1, j + space);
 				j++;
 			}
-		}
-		else {
+		} else {
 			semiText.setVisible(false);
 			semiMatches.setVisible(false);
 		}
 
 		// Final
+
 		if (all[0].getHome() != null) {
 			Text homeName = new Text(all[0].getHome().getName());
 			homeName.setFont(Font.font("Gill Sans", FontWeight.SEMI_BOLD, 16));
-			quarterMatches.add(homeName, 0, 0);
+			finalMatch.add(homeName, 0, 0);
+		}
+		if (all[0].getAway() != null) {
 			Text awayName = new Text(all[0].getAway().getName());
 			awayName.setFont(Font.font("Gill Sans", FontWeight.SEMI_BOLD, 16));
-			quarterMatches.add(awayName, 2, 0);
-
-			String goalHomeText = "", goalAwayText = "";
-			int goalHome = all[0].getGoalHome();
-			int goalAway = all[0].getGoalAway();
-			if (goalHome != -1)
-				goalHomeText = Integer.toString(goalHome);
-			if (goalAway != -1)
-				goalAwayText = Integer.toString(goalAway);
-
-			Text score = new Text(goalHomeText + "-" + goalAwayText);
-			score.setFont(Font.font("Gill Sans", FontWeight.SEMI_BOLD, 16));
-			quarterMatches.add(score, 1, 0);
+			finalMatch.add(awayName, 2, 0);
 		}
-		else {
+		if (all[0].getHome() == null || all[0].getAway() == null) {
 			finalText.setVisible(false);
 			finalMatch.setVisible(false);
 		}
+
+		String goalHomeText = "", goalAwayText = "";
+		int goalHome = all[0].getGoalHome();
+		int goalAway = all[0].getGoalAway();
+		if (goalHome != -1)
+			goalHomeText = Integer.toString(goalHome);
+		if (goalAway != -1)
+			goalAwayText = Integer.toString(goalAway);
+
+		Text score = new Text(goalHomeText + "-" + goalAwayText);
+		score.setFont(Font.font("Gill Sans", FontWeight.SEMI_BOLD, 16));
+		quarterMatches.add(score, 1, 0);
+	
+		
+
 
 	}
 
@@ -333,10 +336,10 @@ public class KnockoutController implements Initializable {
 			if (t.getKnockout().getKnockout().getMatches()[0].getHome() != null) {
 				t01.setText(t.getKnockout().getKnockout().getMatches()[0].getHome().getName());
 			}
-			if (t.getKnockout().getKnockout().getMatches()[0].getHome() != null) {
+			if (t.getKnockout().getKnockout().getMatches()[0].getAway() != null) {
 				t00.setText(t.getKnockout().getKnockout().getMatches()[0].getAway().getName());
 			}
-			
+
 		}
 	}
 

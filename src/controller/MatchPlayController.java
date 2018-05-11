@@ -474,12 +474,27 @@ public class MatchPlayController implements Initializable {
 						AudioClip goal = new AudioClip(filePath);
 						goal.play();
 					}
-					else if (a != null && (a.getClass().getSimpleName().equals("RedCard") || a.getClass().getSimpleName().equals("Injury"))) {
+					else if (a != null && (a.getClass().getSimpleName().equals("RedCard"))) {
 						String filePath = "file:///" + new java.io.File("").getAbsolutePath() + "/data/sounds/red.wav";
 						filePath = filePath.replace("\\", "/");
 						AudioClip red = new AudioClip(filePath);
 						red.play();
-						paused = true;
+						Tournament tc = Tournament.getInstance();
+						if (currentMatch.getHome().getName().equals(tc.getTeams()[tc.getMyTeamId()].getName()) & currentMatch.getHome().contains(((RedCard)(a)).getPlayer())
+								|| currentMatch.getAway().getName().equals(tc.getTeams()[tc.getMyTeamId()].getName()) & currentMatch.getAway().contains(((RedCard)(a)).getPlayer())) {
+							paused = true;
+						}
+					}
+					else if (a != null && (a.getClass().getSimpleName().equals("Injury"))) {
+						String filePath = "file:///" + new java.io.File("").getAbsolutePath() + "/data/sounds/red.wav";
+						filePath = filePath.replace("\\", "/");
+						AudioClip red = new AudioClip(filePath);
+						red.play();
+						Tournament tc = Tournament.getInstance();
+						if (currentMatch.getHome().getName().equals(tc.getTeams()[tc.getMyTeamId()].getName()) & currentMatch.getHome().contains(((Injury)(a)).getInjured())
+								|| currentMatch.getAway().getName().equals(tc.getTeams()[tc.getMyTeamId()].getName()) & currentMatch.getAway().contains(((Injury)(a)).getInjured())) {
+							paused = true;
+						}
 					}
 			
 					if (seconds > 89 + (int) (Math.random() * 6)) {

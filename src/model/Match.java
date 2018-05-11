@@ -275,6 +275,8 @@ public class Match implements Serializable{
 			}
 			else {
 				playerPerformance[0][id] = home.getPlayers().get(i).getOverall();
+				if( playerPerformance[0][id] > 100 )
+					playerPerformance[0][id] = 77;
 				if( tookYellowCard[0][id] )
 					playerPerformance[0][id] /= 2;
 				for( int j = 0 ; j < injuryCount[0][id] ; j++ )
@@ -294,6 +296,8 @@ public class Match implements Serializable{
 			}
 			else {
 				playerPerformance[1][id] = away.getPlayers().get(i).getOverall();
+				if( playerPerformance[1][id] > 100 )
+					playerPerformance[1][id] = 77;
 				if( tookYellowCard[1][id] )
 					playerPerformance[1][id] /= 2;
 				for( int j = 0 ; j < injuryCount[1][id] ; j++ )

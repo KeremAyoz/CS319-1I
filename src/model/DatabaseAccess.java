@@ -1803,13 +1803,13 @@ public class DatabaseAccess {
 		players.add(new Player("Nabiullin", 23, 188, 70, "Russia", "LB", 79, 'R', 1200000, 3000000,
 				true, getAttributes(), actions));
 		// CM
-		players.add(new Player("Yusupov", 28, 180, 70, "Russia", "CM", 77, 'R', 1000000, 1000000, true,
-				getAttributes(), actions));
+		players.add(new Player("Yusupov", 28, 180, 70, "Russia", "CM", 77, 'R', 1000000, 1000000, 
+				true, getAttributes(), actions));
 		// CM
-		players.add(new Player("Kranevitter", 22, 188, 70, "Argentina", "CM", 77, 'R', 1000000,
-				9000000, true, getAttributes(), actions));
+		players.add(new Player("Kranevitter", 22, 188, 70, "Argentina", "CM", 77, 'R', 1000000, 9000000, 
+				true, getAttributes(), actions));
 		// CM
-		players.add(new Player("Rigoni", 27, 179, 70, "Argentina", "CM", 79, 'R', 1600000, 8000000,
+		players.add(new Player("Rigoni", 27, 179, 70, "Argentina", "CM", 78, 'R', 1600000, 8000000,
 				true, getAttributes(), actions));
 		// RW
 		players.add(new Player("Sheydaev", 20, 183, 70, "Azerbaijan", "RW", 81, 'R', 900000, 6000000,

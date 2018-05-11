@@ -482,7 +482,7 @@ public class MatchPlayController implements Initializable {
 		currentMatch.setGoalAway(0);
 		Timeline timeline = new Timeline();
 		timeline.setCycleCount(Timeline.INDEFINITE);
-		KeyFrame frame = new KeyFrame(Duration.seconds(0.1), new EventHandler<ActionEvent>() {
+		KeyFrame frame = new KeyFrame(Duration.seconds(0.5), new EventHandler<ActionEvent>() {
 
 			@Override
 			public void handle(ActionEvent event) {

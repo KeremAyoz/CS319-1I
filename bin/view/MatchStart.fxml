@@ -12,117 +12,117 @@
    <children>
       <ImageView fitHeight="458.0" fitWidth="1128.0" layoutX="164.0" layoutY="384.0" preserveRatio="true">
          <image>
-            <Image url="@../../img/field.png" />
+            <Image url="@/field.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="68.0" fitWidth="77.0" layoutX="636.0" layoutY="521.0" preserveRatio="true">
          <image>
-            <Image url="@../../img/aaa.png" />
+            <Image url="@/aaa.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="68.0" fitWidth="77.0" layoutX="342.0" layoutY="677.0" preserveRatio="true">
          <image>
-            <Image url="@../../img/aaa.png" />
+            <Image url="@/aaa.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="68.0" fitWidth="77.0" layoutX="367.0" layoutY="582.0" preserveRatio="true">
          <image>
-            <Image url="@../../img/aaa.png" />
+            <Image url="@/aaa.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="68.0" fitWidth="77.0" layoutX="392.0" layoutY="488.0" preserveRatio="true">
          <image>
-            <Image url="@../../img/aaa.png" />
+            <Image url="@/aaa.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="68.0" fitWidth="77.0" layoutX="415.0" layoutY="400.0" preserveRatio="true">
          <image>
-            <Image url="@../../img/aaa.png" />
+            <Image url="@/aaa.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="68.0" fitWidth="77.0" layoutX="462.0" layoutY="533.0" preserveRatio="true">
          <image>
-            <Image url="@../../img/aaa.png" />
+            <Image url="@/aaa.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="68.0" fitWidth="77.0" layoutX="526.0" layoutY="466.0" preserveRatio="true">
          <image>
-            <Image url="@../../img/aaa.png" />
+            <Image url="@/aaa.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="68.0" fitWidth="77.0" layoutX="518.0" layoutY="613.0" preserveRatio="true">
          <image>
-            <Image url="@../../img/aaa.png" />
+            <Image url="@/aaa.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="68.0" fitWidth="77.0" layoutX="605.0" layoutY="681.0" preserveRatio="true">
          <image>
-            <Image url="@../../img/aaa.png" />
+            <Image url="@/aaa.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="68.0" fitWidth="77.0" layoutX="610.0" layoutY="422.0" preserveRatio="true">
          <image>
-            <Image url="@../../img/aaa.png" />
+            <Image url="@/aaa.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="68.0" fitWidth="77.0" layoutX="721.0" layoutY="515.0">
          <image>
-            <Image url="@../../img/ccc.png" />
+            <Image url="@/ccc.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="68.0" fitWidth="77.0" layoutX="755.0" layoutY="405.0">
          <image>
-            <Image url="@../../img/ccc.png" />
+            <Image url="@/ccc.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="68.0" fitWidth="77.0" layoutX="760.0" layoutY="675.0">
          <image>
-            <Image url="@../../img/ccc.png" />
+            <Image url="@/ccc.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="68.0" fitWidth="77.0" layoutX="816.0" layoutY="474.0">
          <image>
-            <Image url="@../../img/ccc.png" />
+            <Image url="@/ccc.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="68.0" fitWidth="77.0" layoutX="826.0" layoutY="591.0">
          <image>
-            <Image url="@../../img/ccc.png" />
+            <Image url="@/ccc.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="68.0" fitWidth="77.0" layoutX="891.0" layoutY="519.0">
          <image>
-            <Image url="@../../img/ccc.png" />
+            <Image url="@/ccc.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="68.0" fitWidth="77.0" layoutX="953.0" layoutY="391.0">
          <image>
-            <Image url="@../../img/ccc.png" />
+            <Image url="@/ccc.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="68.0" fitWidth="77.0" layoutX="1003.0" layoutY="691.0">
          <image>
-            <Image url="@../../img/ccc.png" />
+            <Image url="@/ccc.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="68.0" fitWidth="77.0" layoutX="966.0" layoutY="481.0">
          <image>
-            <Image url="@../../img/ccc.png" />
+            <Image url="@/ccc.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="68.0" fitWidth="77.0" layoutX="986.0" layoutY="585.0">
          <image>
-            <Image url="@../../img/ccc.png" />
+            <Image url="@/ccc.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="68.0" fitWidth="77.0" layoutX="1048.0" layoutY="517.0">
          <image>
-            <Image url="@../../img/ccc.png" />
+            <Image url="@/ccc.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="68.0" fitWidth="77.0" layoutX="306.0" layoutY="514.0" preserveRatio="true">
          <image>
-            <Image url="@../../img/aaa.png" />
+            <Image url="@/aaa.png" />
          </image>
       </ImageView>
       <Text fx:id="hLB" layoutX="430.0" layoutY="480.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
@@ -270,24 +270,24 @@
       </Button>
       <ImageView fitHeight="62.0" fitWidth="56.0" layoutX="619.0" layoutY="218.0">
          <image>
-            <Image url="@../../img/referee.png" />
+            <Image url="@/referee.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="62.0" fitWidth="70.0" layoutX="744.0" layoutY="225.0">
          <image>
-            <Image url="@../../img/stadium.png" />
+            <Image url="@/stadium.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="58.0" fitWidth="61.0" layoutX="490.0" layoutY="222.0">
          <image>
-            <Image url="@../../img/weather.png" />
+            <Image url="@/weather.png" />
          </image>
       </ImageView>
       <ImageView fx:id="homeLogo" fitHeight="140.0" fitWidth="140.0" layoutX="86.0" layoutY="407.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="awayLogo" fitHeight="140.0" fitWidth="140.0" layoutX="1192.0" layoutY="407.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fitHeight="61.0" fitWidth="76.0" layoutX="848.0" layoutY="220.0">
          <image>
-            <Image url="@../../img/time.png" />
+            <Image url="@/time.png" />
          </image>
       </ImageView>
       <Text layoutX="869.0" layoutY="301.0" strokeType="OUTSIDE" strokeWidth="0.0" text="21:45">

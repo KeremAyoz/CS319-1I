@@ -14,7 +14,7 @@
          <children>
           <ImageView fitHeight="605.0" fitWidth="1080.0" layoutX="175.0" layoutY="111.0" pickOnBounds="true" preserveRatio="true">
             <image>
-              <Image url="@../../img/helpViewImages/help%20menu.jpg" />
+              <Image url="@/helpViewImages/helpmenu.jpg" />
             </image>
           </ImageView>
             <Button fx:id="BacktoMainMenu" layoutX="561.0" layoutY="1406.0" mnemonicParsing="false" onAction="#backClicked" prefHeight="130.0" prefWidth="300.0" text="Back to Main Menu">
@@ -24,7 +24,7 @@
             </Button>
             <ImageView fitHeight="605.0" fitWidth="1080.0" layoutX="175.0" layoutY="773.0">
                <image>
-                  <Image url="@../../img/helpViewImages/load%20game%20image.jpg" />
+                  <Image url="@/helpViewImages/loadgameimage.jpg" />
                </image>
             </ImageView>
          </children>

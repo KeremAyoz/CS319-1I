@@ -69,7 +69,7 @@
                            <children>
                               <ImageView fx:id="atacticField" fitHeight="491.0" fitWidth="435.0" layoutY="-1.0" pickOnBounds="true">
                                  <image>
-                                    <Image url="@../../img/tactics/4-3-3.png" />
+                                    <Image url="@/tactics/4-3-3_black.png" />
                                  </image>
                               </ImageView>
                               <Text fx:id="agk" fill="#2c2d2f" layoutX="197.0" layoutY="467.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Neuer" AnchorPane.topAnchor="450.8134765625">
@@ -137,7 +137,7 @@
                            <children>
                               <ImageView fx:id="htacticField" fitHeight="491.0" fitWidth="435.0" layoutY="-1.0" pickOnBounds="true">
                                  <image>
-                                    <Image url="@../../img/tactics/4-3-3.png" />
+                                    <Image url="@/tactics/4-3-3_black.png" />
                                  </image>
                               </ImageView>
                               <Text fx:id="hgk" fill="#2c2d2f" layoutX="197.0" layoutY="467.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Neuer" AnchorPane.topAnchor="450.8134765625">

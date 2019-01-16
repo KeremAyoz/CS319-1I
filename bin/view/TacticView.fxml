@@ -19,7 +19,7 @@
                      <children>
                         <ImageView fx:id="tacticField" fitHeight="492.0" fitWidth="612.0" layoutY="-1.0" pickOnBounds="true">
                            <image>
-                              <Image url="@../../img/tactics/4-4-2_blue.png" />
+                              <Image url="@/tactics/4-4-2_blue.png" />
                            </image>
                         </ImageView>
                         <Text fx:id="gk" fill="#2c2d2f" layoutX="270.6" layoutY="475.85" strokeType="OUTSIDE" strokeWidth="0.0" text="Neuer">

@@ -243,7 +243,7 @@
                   </Text>
                   <ImageView fitHeight="138.0" fitWidth="124.0" layoutX="635.0" layoutY="230.0">
                      <image>
-                        <Image url="@../../img/cup.png" />
+                        <Image url="@/cup.png" />
                      </image>
                   </ImageView>
                   <Text id="lastLeft7" fx:id="t2" layoutX="348.0" layoutY="453.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PSG">

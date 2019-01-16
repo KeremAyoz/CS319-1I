@@ -8,10 +8,6 @@ In our game the players attributions could be seen from manager. Attributions de
 
 In the football match, user can see the minutes passing through and events happening in that moment at the same time. Also user can change tactics and players while match is going on. These events may affect the result of the game. To be a champion of a STARS League, user should select his tactics wisely in every game. 
 
-### 2nd Iteration 
-
-We are planning to add transfers. Also, the number of different type of actions happen during a match can be increased. After finishing the project, if there is still some time, we may make the game visually more attractive. Also match commentary might be added to the game.
-
 ### Team Members
 
 Kerem Ayöz --  github.com/KeremAyoz

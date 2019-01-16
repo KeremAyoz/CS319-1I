@@ -11,7 +11,7 @@
    <children>
       <ImageView fitHeight="900.0" fitWidth="1400.0" opacity="0.93">
          <image>
-            <Image url="@../../img/home.jpg" />
+            <Image url="@/home.jpg" />
          </image>
       </ImageView>
       <Button layoutX="635.0" layoutY="320.0" mnemonicParsing="false" onAction="#newGameClicked" prefHeight="50.0" prefWidth="150.0" text="New Game">
@@ -36,7 +36,7 @@
       </Button>
       <ImageView fitHeight="270.0" fitWidth="264.0" layoutX="601.0" layoutY="32.0" preserveRatio="true">
          <image>
-            <Image url="@../../img/logo.png" />
+            <Image url="@/logo.png" />
          </image>
          <effect>
             <InnerShadow height="10.0" radius="4.5" width="10.0" />

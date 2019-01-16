@@ -10,12 +10,12 @@
    <children>
       <ImageView fitHeight="900.0" fitWidth="1400.0">
          <image>
-            <Image url="@../../img/champion.png" />
+            <Image url="@/champion.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="200.0" fitWidth="143.0" layoutX="619.0" layoutY="182.0">
          <image>
-            <Image url="@../../img/logo.png" />
+            <Image url="@/logo.png" />
          </image>
       </ImageView>
       <Text fill="#b50d0d" layoutX="1015.0" layoutY="131.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Congratulations !">
